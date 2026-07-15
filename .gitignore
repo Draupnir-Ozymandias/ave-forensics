@@ -1,0 +1,122 @@
+# AVE Forensics Laboratory
+# Keep source code, manifests, documentation, and small reference metadata.
+# Exclude captured/commercial media, generated artifacts, local environments,
+# caches, and editor/OS files.
+
+# ---------------------------------------------------------------------------
+# Audio / media corpus
+# ---------------------------------------------------------------------------
+*.mp3
+*.wav
+*.flac
+*.m4a
+*.aac
+*.ogg
+*.opus
+*.aiff
+*.aif
+*.wma
+*.mp4
+*.mov
+*.mkv
+*.avi
+*.webm
+
+# Explicit project media locations
+captured/
+samples/**/*.mp3
+samples/**/*.wav
+samples/**/*.flac
+samples/**/*.m4a
+samples/**/*.aac
+samples/**/*.ogg
+samples/**/*.opus
+samples/**/*.aiff
+samples/**/*.aif
+
+# Keep directory structure and metadata placeholders when desired
+!samples/**/.gitkeep
+!samples/manifest.csv
+!samples/**/*.csv
+!samples/**/*.md
+!samples/**/*.json
+!captured/.gitkeep
+
+# ---------------------------------------------------------------------------
+# Generated AVE outputs
+# ---------------------------------------------------------------------------
+ave_report.md
+ave_protocol_summary.md
+ave_timeline.csv
+ave_timeline.png
+ave_protocol_tracks.csv
+ave_protocol_hypotheses.csv
+
+# Optional output directories
+output/
+outputs/
+results/
+reports/generated/
+artifacts/
+
+# ---------------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ---------------------------------------------------------------------------
+# Local configuration / secrets
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+local_config.py
+
+# ---------------------------------------------------------------------------
+# IDE / editor
+# ---------------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ---------------------------------------------------------------------------
+# macOS / Windows
+# ---------------------------------------------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+desktop.ini
+
+# ---------------------------------------------------------------------------
+# Logs and temporary files
+# ---------------------------------------------------------------------------
+*.log
+*.tmp
+*.temp
+*.bak
