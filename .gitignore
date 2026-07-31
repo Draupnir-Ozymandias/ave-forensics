@@ -120,3 +120,61 @@ desktop.ini
 *.tmp
 *.temp
 *.bak
+
+# ---------------------------------------------------------------------------
+# Device-forensics specimens, generated output, tools, and working data
+# ---------------------------------------------------------------------------
+
+# Original applications and device captures
+device_forensics/specimens/
+device_forensics/captured/
+device_forensics/downloads/
+
+# Reverse-engineering output
+device_forensics/static/
+device_forensics/**/jadx/
+device_forensics/**/jadx_incomplete/
+device_forensics/**/apktool/
+device_forensics/**/decompiled/
+device_forensics/**/output/
+device_forensics/**/outputs/
+
+# MobSF runtime, databases, tools, and generated state
+device_forensics/mobsf-data/
+device_forensics/**/mobsf-data/
+
+# Binary packages and archives
+*.apk
+*.aab
+*.apks
+*.xapk
+*.jar
+*.dex
+*.so
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.bin
+
+# Captured/commercial audio
+captured/
+samples/**/*.mp3
+samples/**/*.wav
+samples/**/*.flac
+samples/**/*.m4a
+samples/**/*.aac
+samples/**/*.ogg
+samples/**/*.opus
+samples/**/*.aiff
+samples/**/*.aif
+
+# Preserve metadata and directory placeholders
+!samples/manifest.csv
+!samples/**/*.csv
+!samples/**/*.md
+!samples/**/*.json
+!samples/**/.gitkeep
+!captured/.gitkeep
+

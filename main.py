@@ -16,11 +16,14 @@ from analysis.protocol_hypothesis import (
     deduplicate_hypotheses,
 )
 from reports.protocol_summary import generate_protocol_summary
-
+from analysis.carrier_tracker import (
+    build_carrier_tracks,
+    associate_carrier_pairs,
+    select_best_carrier_pairs,
+)
 
 def main():
-    audio_path = "samples/Celestial_Wanderings_Unguided_Meditation_60mins_VBR5.mp3"
-
+    audio_path = "/Users/eric/Projects/media/ave_forensics/samples/brainfm/meditate/unguided/Altered_State_Unguided_Meditation_Session_4_1.2_Nrmlzd2 1_15mins_VBR5.mp3"
     y, sr = load_audio(audio_path)
     metadata = describe_audio(y, sr)
     spectrum = analyze_spectrum(y, sr)
@@ -82,6 +85,78 @@ def main():
     print("Timeline plot written to ave_timeline.png")
 
     tracks = build_protocol_tracks(timeline)
+
+    carrier_tracks = build_carrier_tracks(
+        timeline,
+        max_frequency_jump_hz=1.0,
+        max_gap_windows=2,
+        min_track_windows=6,
+    )
+
+    carrier_pairs = associate_carrier_pairs(
+        carrier_tracks,
+        min_overlap_ratio=0.75,
+        max_pair_difference_hz=40.0,
+        min_difference_hz=0.0,
+        min_duration_seconds=30.0,
+        min_amplitude_balance=0.25,
+    )
+
+    selected_carrier_pairs = select_best_carrier_pairs(carrier_pairs)
+
+    print("\nBest non-conflicting carrier-pair associations:")
+
+    for pair in selected_carrier_pairs[:25]:
+        print(
+            f"{pair['start_seconds']:>7.2f}s - "
+            f"{pair['end_seconds']:>7.2f}s | "
+            f"L {pair['left_carrier_hz']:.3f} Hz ↔ "
+            f"R {pair['right_carrier_hz']:.3f} Hz | "
+            f"Δ {pair['difference_hz']:.3f} Hz | "
+            f"{pair['pair_type']} | "
+            f"duration {pair['duration_seconds']:.1f}s | "
+            f"confidence {pair['confidence']:.4f}"
+        )
+
+    print("\nPersistent left-channel carriers:")
+    for track in carrier_tracks["left_tracks"][:15]:
+        print(
+            f"{track['start_seconds']:>7.2f}s - "
+            f"{track['end_seconds']:>7.2f}s | "
+            f"{track['average_frequency_hz']:.3f} Hz | "
+            f"duration {track['duration_seconds']:.1f}s | "
+            f"stability {track['frequency_stability']:.4f} | "
+            f"continuity {track['continuity']:.4f} | "
+            f"magnitude {track['average_magnitude']:.4f}"
+        )
+
+    print("\nPersistent right-channel carriers:")
+    for track in carrier_tracks["right_tracks"][:15]:
+        print(
+            f"{track['start_seconds']:>7.2f}s - "
+            f"{track['end_seconds']:>7.2f}s | "
+            f"{track['average_frequency_hz']:.3f} Hz | "
+            f"duration {track['duration_seconds']:.1f}s | "
+            f"stability {track['frequency_stability']:.4f} | "
+            f"continuity {track['continuity']:.4f} | "
+            f"magnitude {track['average_magnitude']:.4f}"
+        )
+
+    print("\nPersistent cross-channel carrier pairs:")
+
+    for pair in carrier_pairs[:25]:
+        print(
+            f"{pair['start_seconds']:>7.2f}s - "
+            f"{pair['end_seconds']:>7.2f}s | "
+            f"L {pair['left_carrier_hz']:.3f} Hz ↔ "
+            f"R {pair['right_carrier_hz']:.3f} Hz | "
+            f"Δ {pair['difference_hz']:.3f} Hz | "
+            f"{pair['pair_type']} | "
+            f"duration {pair['duration_seconds']:.1f}s | "
+            f"overlap {pair['overlap_ratio']:.3f} | "
+            f"balance {pair['amplitude_balance']:.3f} | "
+            f"confidence {pair['confidence']:.4f}"
+        )
 
     from analysis.protocol_hypothesis import score_hypothesis
 
