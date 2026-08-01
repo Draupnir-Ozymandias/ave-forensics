@@ -21,6 +21,14 @@ from analysis.carrier_tracker import (
     associate_carrier_pairs,
     select_best_carrier_pairs,
 )
+from analysis.envelope import (
+    analyze_carrier_envelope,
+    analyze_envelope_over_time,
+)
+from reports.envelope_console import (
+    print_envelope_timeline,
+    print_global_envelope_results,
+)
 
 def main():
     audio_path = "/Users/eric/Projects/media/ave_forensics/samples/brainfm/meditate/unguided/Altered_State_Unguided_Meditation_Session_4_1.2_Nrmlzd2 1_15mins_VBR5.mp3"
@@ -117,6 +125,76 @@ def main():
             f"duration {pair['duration_seconds']:.1f}s | "
             f"confidence {pair['confidence']:.4f}"
         )
+
+    if selected_carrier_pairs:
+        strongest_pair = selected_carrier_pairs[0]
+
+        carrier_center_hz = (
+            strongest_pair["left_carrier_hz"]
+            + strongest_pair["right_carrier_hz"]
+        ) / 2.0
+
+        left_audio = y[0] if y.ndim > 1 else y
+        right_audio = y[1] if y.ndim > 1 else y
+
+        left_envelope_result = analyze_carrier_envelope(
+            audio=left_audio,
+            sample_rate=sr,
+            center_frequency_hz=carrier_center_hz,
+            bandwidth_hz=8.0,
+            envelope_sample_rate=200,
+            min_modulation_hz=0.1,
+            max_modulation_hz=40.0,
+        )
+
+        right_envelope_result = analyze_carrier_envelope(
+            audio=right_audio,
+            sample_rate=sr,
+            center_frequency_hz=carrier_center_hz,
+            bandwidth_hz=8.0,
+            envelope_sample_rate=200,
+            min_modulation_hz=0.1,
+            max_modulation_hz=40.0,
+        )
+
+        left_envelope_timeline = analyze_envelope_over_time(
+            audio=left_audio,
+            sample_rate=sr,
+            center_frequency_hz=carrier_center_hz,
+            bandwidth_hz=8.0,
+            window_seconds=30.0,
+            hop_seconds=15.0,
+            envelope_sample_rate=200,
+            min_modulation_hz=0.1,
+            max_modulation_hz=10.0,
+        )
+
+        right_envelope_timeline = analyze_envelope_over_time(
+            audio=right_audio,
+            sample_rate=sr,
+            center_frequency_hz=carrier_center_hz,
+            bandwidth_hz=8.0,
+            window_seconds=30.0,
+            hop_seconds=15.0,
+            envelope_sample_rate=200,
+            min_modulation_hz=0.1,
+            max_modulation_hz=10.0,
+        )
+
+        print_global_envelope_results(
+            carrier_center_hz=carrier_center_hz,
+            left_result=left_envelope_result,
+            right_result=right_envelope_result,
+        )
+
+        print_envelope_timeline(
+            left_timeline=left_envelope_timeline,
+            right_timeline=right_envelope_timeline,
+            limit=20,
+        )
+    else:
+        print("\nCarrier-envelope analysis:")
+        print("No persistent carrier pair was available for envelope analysis.")
 
     print("\nPersistent left-channel carriers:")
     for track in carrier_tracks["left_tracks"][:15]:
