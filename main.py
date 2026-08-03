@@ -29,6 +29,8 @@ from reports.envelope_console import (
     print_envelope_timeline,
     print_global_envelope_results,
 )
+from analysis.phase import analyze_phase_over_time
+from reports.phase_console import print_phase_timeline
 
 def main():
     audio_path = "/Users/eric/Projects/media/ave_forensics/samples/brainfm/meditate/unguided/Altered_State_Unguided_Meditation_Session_4_1.2_Nrmlzd2 1_15mins_VBR5.mp3"
@@ -192,6 +194,19 @@ def main():
             right_timeline=right_envelope_timeline,
             limit=20,
         )
+
+        phase_timeline = analyze_phase_over_time(
+            left_audio=left_audio,
+            right_audio=right_audio,
+            sample_rate=sr,
+            left_center_frequency_hz=strongest_pair["left_carrier_hz"],
+            right_center_frequency_hz=strongest_pair["right_carrier_hz"],
+            bandwidth_hz=8.0,
+            window_seconds=30.0,
+            hop_seconds=15.0,
+        )
+
+        print_phase_timeline(phase_timeline, limit=20)
     else:
         print("\nCarrier-envelope analysis:")
         print("No persistent carrier pair was available for envelope analysis.")
