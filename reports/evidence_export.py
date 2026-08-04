@@ -1,0 +1,24 @@
+import json
+from typing import Any
+
+from evidence.schema import SCHEMA_VERSION, validate_evidence_object
+
+
+def export_evidence_json(
+    evidence_objects: list[dict[str, Any]],
+    output_path: str = "ave_evidence.json",
+    run_metadata: dict[str, Any] | None = None,
+) -> None:
+    for evidence in evidence_objects:
+        validate_evidence_object(evidence)
+
+    document = {
+        "schema_version": SCHEMA_VERSION,
+        "evidence_count": len(evidence_objects),
+        "run_metadata": run_metadata or {},
+        "evidence": evidence_objects,
+    }
+
+    with open(output_path, "w") as output_file:
+        json.dump(document, output_file, indent=2, sort_keys=True)
+        output_file.write("\n")

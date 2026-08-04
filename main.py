@@ -33,6 +33,14 @@ from analysis.phase import analyze_phase_over_time
 from reports.phase_console import print_phase_timeline
 from analysis.modulation_spectrum import analyze_modulation_spectrum
 from reports.modulation_console import print_modulation_spectrum_summary
+from evidence.adapters import (
+    carrier_pair_to_evidence,
+    envelope_analysis_to_evidence,
+    modulation_spectrum_to_evidence,
+    phase_timeline_to_evidence,
+    protocol_hypothesis_to_evidence,
+)
+from reports.evidence_export import export_evidence_json
 
 def main():
     audio_path = "/Users/eric/Projects/media/ave_forensics/samples/brainfm/meditate/unguided/Altered_State_Unguided_Meditation_Session_4_1.2_Nrmlzd2 1_15mins_VBR5.mp3"
@@ -115,6 +123,17 @@ def main():
     )
 
     selected_carrier_pairs = select_best_carrier_pairs(carrier_pairs)
+    evidence_provenance = {
+        "input_path": audio_path,
+        "analysis_parameters": {
+            "timeline_window_seconds": 10,
+            "timeline_hop_seconds": 5,
+        },
+    }
+    evidence_objects = [
+        carrier_pair_to_evidence(pair, evidence_provenance)
+        for pair in selected_carrier_pairs
+    ]
 
     print("\nBest non-conflicting carrier-pair associations:")
 
@@ -190,6 +209,20 @@ def main():
             left_result=left_envelope_result,
             right_result=right_envelope_result,
         )
+        evidence_objects.extend(
+            [
+                envelope_analysis_to_evidence(
+                    left_envelope_result,
+                    "left",
+                    evidence_provenance,
+                ),
+                envelope_analysis_to_evidence(
+                    right_envelope_result,
+                    "right",
+                    evidence_provenance,
+                ),
+            ]
+        )
 
         print_envelope_timeline(
             left_timeline=left_envelope_timeline,
@@ -203,6 +236,12 @@ def main():
         )
 
         print_modulation_spectrum_summary(modulation_result)
+        evidence_objects.append(
+            modulation_spectrum_to_evidence(
+                modulation_result,
+                evidence_provenance,
+            )
+        )
 
         phase_timeline = analyze_phase_over_time(
             left_audio=left_audio,
@@ -216,6 +255,12 @@ def main():
         )
 
         print_phase_timeline(phase_timeline, limit=20)
+        evidence_objects.append(
+            phase_timeline_to_evidence(
+                phase_timeline,
+                evidence_provenance,
+            )
+        )
     else:
         print("\nCarrier-envelope analysis:")
         print("No persistent carrier pair was available for envelope analysis.")
@@ -283,6 +328,13 @@ def main():
 
     raw_hypotheses = generate_protocol_hypotheses(tracks, min_score=0.005)
     hypotheses = deduplicate_hypotheses(raw_hypotheses)       
+    evidence_objects.extend(
+        protocol_hypothesis_to_evidence(
+            hypothesis,
+            evidence_provenance,
+        )
+        for hypothesis in hypotheses
+    )
 
     print("\nGenerated protocol hypotheses:")
     for h in hypotheses[:25]:
@@ -298,9 +350,18 @@ def main():
 
     export_tracks_csv(tracks)
     export_hypotheses_csv(hypotheses)
+    export_evidence_json(
+        evidence_objects,
+        run_metadata={
+            "input_path": audio_path,
+            "sample_rate": sr,
+            "duration_seconds": metadata["duration_seconds"],
+        },
+    )
 
     print("\nProtocol tracks written to ave_protocol_tracks.csv")
     print("Protocol hypotheses written to ave_protocol_hypotheses.csv")
+    print(f"Canonical evidence written to ave_evidence.json ({len(evidence_objects)} objects)")
 
     protocol_summary = generate_protocol_summary(hypotheses)
 
