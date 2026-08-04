@@ -31,6 +31,8 @@ from reports.envelope_console import (
 )
 from analysis.phase import analyze_phase_over_time
 from reports.phase_console import print_phase_timeline
+from analysis.modulation_spectrum import analyze_modulation_spectrum
+from reports.modulation_console import print_modulation_spectrum_summary
 
 def main():
     audio_path = "/Users/eric/Projects/media/ave_forensics/samples/brainfm/meditate/unguided/Altered_State_Unguided_Meditation_Session_4_1.2_Nrmlzd2 1_15mins_VBR5.mp3"
@@ -194,6 +196,13 @@ def main():
             right_timeline=right_envelope_timeline,
             limit=20,
         )
+
+        modulation_result = analyze_modulation_spectrum(
+            left_timeline=left_envelope_timeline,
+            right_timeline=right_envelope_timeline,
+        )
+
+        print_modulation_spectrum_summary(modulation_result)
 
         phase_timeline = analyze_phase_over_time(
             left_audio=left_audio,
