@@ -1,3 +1,6 @@
+import argparse
+from pathlib import Path
+
 from core.audio_loader import load_audio
 from core.metadata import describe_audio
 from analysis.spectrum import analyze_spectrum
@@ -42,8 +45,16 @@ from evidence.adapters import (
 )
 from reports.evidence_export import export_evidence_json
 
-def main():
-    audio_path = "/Users/eric/Projects/media/ave_forensics/samples/brainfm/meditate/unguided/Altered_State_Unguided_Meditation_Session_4_1.2_Nrmlzd2 1_15mins_VBR5.mp3"
+DEFAULT_AUDIO_PATH = "/Users/eric/Projects/media/ave_forensics/samples/brainfm/meditate/unguided/Altered_State_Unguided_Meditation_Session_4_1.2_Nrmlzd2 1_15mins_VBR5.mp3"
+
+
+def main(audio_path: str = DEFAULT_AUDIO_PATH, output_dir: str = "."):
+    output_directory = Path(output_dir)
+    output_directory.mkdir(parents=True, exist_ok=True)
+
+    def output_path(filename: str) -> str:
+        return str(output_directory / filename)
+
     y, sr = load_audio(audio_path)
     metadata = describe_audio(y, sr)
     spectrum = analyze_spectrum(y, sr)
@@ -67,7 +78,7 @@ def main():
 
     report = generate_markdown_report(metadata, spectrum, stereo, classified_candidates)
 
-    with open("ave_report.md", "w") as f:
+    with open(output_path("ave_report.md"), "w") as f:
         f.write(report)
 
     print("\nReport written to ave_report.md")
@@ -98,10 +109,13 @@ def main():
     print(f"\nDetected candidate windows: {printed} shown")
     print(f"Total windows analyzed: {len(timeline)}")
 
-    export_timeline_csv(timeline, "ave_timeline.csv")
+    export_timeline_csv(timeline, output_path("ave_timeline.csv"))
     print("\nTimeline written to ave_timeline.csv")
 
-    plot_timeline("ave_timeline.csv", "ave_timeline.png")
+    plot_timeline(
+        output_path("ave_timeline.csv"),
+        output_path("ave_timeline.png"),
+    )
     print("Timeline plot written to ave_timeline.png")
 
     tracks = build_protocol_tracks(timeline)
@@ -348,10 +362,14 @@ def main():
             f"score {h['hypothesis_score']}"
         )
 
-    export_tracks_csv(tracks)
-    export_hypotheses_csv(hypotheses)
+    export_tracks_csv(tracks, output_path("ave_protocol_tracks.csv"))
+    export_hypotheses_csv(
+        hypotheses,
+        output_path("ave_protocol_hypotheses.csv"),
+    )
     export_evidence_json(
         evidence_objects,
+        output_path("ave_evidence.json"),
         run_metadata={
             "input_path": audio_path,
             "sample_rate": sr,
@@ -365,11 +383,26 @@ def main():
 
     protocol_summary = generate_protocol_summary(hypotheses)
 
-    with open("ave_protocol_summary.md", "w") as f:
+    with open(output_path("ave_protocol_summary.md"), "w") as f:
         f.write(protocol_summary)
 
     print("Protocol summary written to ave_protocol_summary.md")
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(
+        description="Analyze one recording with AVE Forensics Laboratory."
+    )
+    parser.add_argument(
+        "audio_path",
+        nargs="?",
+        default=DEFAULT_AUDIO_PATH,
+        help="Audio recording to analyze.",
+    )
+    parser.add_argument(
+        "--output-dir",
+        default=".",
+        help="Directory for generated analysis artifacts.",
+    )
+    arguments = parser.parse_args()
+    main(arguments.audio_path, arguments.output_dir)
