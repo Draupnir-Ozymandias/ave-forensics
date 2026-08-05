@@ -6,6 +6,7 @@ import pytest
 from evidence.adapters import (
     carrier_pair_to_evidence,
     modulation_spectrum_to_evidence,
+    protocol_hypothesis_to_evidence,
 )
 from evidence.schema import (
     EvidenceValidationError,
@@ -82,6 +83,37 @@ def test_modulation_adapter_produces_reconstruction():
 
     validate_evidence_object(evidence)
     assert evidence["evidence_level"] == "reconstruction"
+
+
+def test_hypothesis_ranking_score_can_exceed_one():
+    hypothesis = {
+        "intent": "delta relaxation / sleep-depth candidate",
+        "average_difference_hz": 0.5,
+        "brainwave_band": "delta",
+        "duration_seconds": 3600.0,
+        "average_confidence": 0.8657,
+        "frequency_stability": 1.0,
+        "hypothesis_score": 1.0821,
+        "evidence_type": "persistent_frequency_track",
+    }
+
+    evidence = protocol_hypothesis_to_evidence(hypothesis)
+
+    validate_evidence_object(evidence)
+    assert evidence["confidence"] == {
+        "score": 0.8657,
+        "method": "persistent_track_average_confidence",
+    }
+    ranking_measurement = next(
+        item
+        for item in evidence["measurements"]
+        if item["name"] == "hypothesis_score"
+    )
+    assert ranking_measurement == {
+        "name": "hypothesis_score",
+        "value": 1.0821,
+        "unit": "ranking_score",
+    }
 
 
 def test_exports_evidence_document(tmp_path):

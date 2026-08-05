@@ -157,8 +157,16 @@ def protocol_hypothesis_to_evidence(
             measurement("average_difference_frequency", hypothesis["average_difference_hz"], "Hz"),
             measurement("duration", hypothesis["duration_seconds"], "seconds"),
             measurement("brainwave_band", hypothesis["brainwave_band"], "classification"),
+            measurement(
+                "hypothesis_score",
+                hypothesis["hypothesis_score"],
+                "ranking_score",
+            ),
         ],
-        confidence={"score": hypothesis["hypothesis_score"], "method": "protocol_hypothesis_score"},
+        confidence={
+            "score": hypothesis["average_confidence"],
+            "method": "persistent_track_average_confidence",
+        },
         provenance=provenance,
         limitations=["Hypothesis is not evidence of physiological or clinical effect."],
     )
