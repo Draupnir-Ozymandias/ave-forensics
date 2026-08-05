@@ -13,6 +13,21 @@ from scipy.signal import (
 )
 
 
+def select_envelope_carrier_pair(
+    carrier_pairs: list[dict[str, Any]],
+    minimum_center_hz: float = 20.0,
+) -> dict[str, Any] | None:
+    """Return the strongest pair suitable for acoustic envelope analysis."""
+    for pair in carrier_pairs:
+        center_hz = (
+            float(pair["left_carrier_hz"])
+            + float(pair["right_carrier_hz"])
+        ) / 2.0
+        if center_hz >= minimum_center_hz:
+            return pair
+    return None
+
+
 def _validate_band(
     low_hz: float,
     high_hz: float,

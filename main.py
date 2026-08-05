@@ -27,6 +27,7 @@ from analysis.carrier_tracker import (
 from analysis.envelope import (
     analyze_carrier_envelope,
     analyze_envelope_over_time,
+    select_envelope_carrier_pair,
 )
 from reports.envelope_console import (
     print_envelope_timeline,
@@ -163,8 +164,10 @@ def main(audio_path: str = DEFAULT_AUDIO_PATH, output_dir: str = "."):
             f"confidence {pair['confidence']:.4f}"
         )
 
-    if selected_carrier_pairs:
-        strongest_pair = selected_carrier_pairs[0]
+    envelope_carrier_pair = select_envelope_carrier_pair(selected_carrier_pairs)
+
+    if envelope_carrier_pair:
+        strongest_pair = envelope_carrier_pair
 
         carrier_center_hz = (
             strongest_pair["left_carrier_hz"]
@@ -277,7 +280,7 @@ def main(audio_path: str = DEFAULT_AUDIO_PATH, output_dir: str = "."):
         )
     else:
         print("\nCarrier-envelope analysis:")
-        print("No persistent carrier pair was available for envelope analysis.")
+        print("No suitable acoustic carrier pair was available for envelope analysis.")
 
     print("\nPersistent left-channel carriers:")
     for track in carrier_tracks["left_tracks"][:15]:

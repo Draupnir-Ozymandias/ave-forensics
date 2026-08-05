@@ -2,6 +2,7 @@ import json
 import subprocess
 from pathlib import Path
 
+import batch.corpus_runner as corpus_runner
 from batch.corpus_runner import build_corpus, run_corpus
 
 
@@ -118,3 +119,76 @@ def test_subprocess_launch_failure_is_recorded(tmp_path, monkeypatch):
     assert results[0]["error"] == "synthetic launch failure"
     error_log = Path(results[0]["output_dir"]) / "errors.log"
     assert error_log.read_text() == "synthetic launch failure\n"
+
+
+def test_oversized_recording_is_deferred(tmp_path, monkeypatch):
+    project = tmp_path / "project"
+    samples = project / "samples"
+    audio = samples / "long.wav"
+    samples.mkdir(parents=True)
+    audio.write_bytes(b"audio")
+    manifest = samples / "manifest.csv"
+    write_manifest(manifest, "long.wav")
+    monkeypatch.setattr(corpus_runner, "probe_duration_seconds", lambda path: 6812.1)
+
+    results = run_corpus(
+        project_root=project,
+        samples_root=samples,
+        manifest_path=manifest,
+        output_root=project / "batch",
+        max_duration_seconds=3600.0,
+    )
+
+    assert results[0]["status"] == "deferred"
+    assert "exceeds limit" in results[0]["reason"]
+
+
+def test_exclusion_pattern_is_reported(tmp_path):
+    project = tmp_path / "project"
+    samples = project / "samples"
+    audio = samples / "Multiverse_long.wav"
+    samples.mkdir(parents=True)
+    audio.write_bytes(b"audio")
+    manifest = samples / "manifest.csv"
+    write_manifest(manifest, "Multiverse_long.wav")
+
+    results = run_corpus(
+        project_root=project,
+        samples_root=samples,
+        manifest_path=manifest,
+        output_root=project / "batch",
+        exclude_patterns=("*Multiverse*",),
+    )
+
+    assert results[0]["status"] == "excluded"
+
+
+def test_timeout_is_captured_and_batch_can_continue(tmp_path, monkeypatch):
+    project = tmp_path / "project"
+    samples = project / "samples"
+    audio = samples / "slow.wav"
+    samples.mkdir(parents=True)
+    audio.write_bytes(b"audio")
+    manifest = samples / "manifest.csv"
+    write_manifest(manifest, "slow.wav")
+    monkeypatch.setattr(corpus_runner, "probe_duration_seconds", lambda path: 10.0)
+
+    def time_out(command, **kwargs):
+        raise subprocess.TimeoutExpired(
+            command,
+            kwargs["timeout"],
+            output="partial output",
+            stderr="still running",
+        )
+
+    monkeypatch.setattr(subprocess, "run", time_out)
+    results = run_corpus(
+        project_root=project,
+        samples_root=samples,
+        manifest_path=manifest,
+        output_root=project / "batch",
+        timeout_seconds=1.0,
+    )
+
+    assert results[0]["status"] == "timed_out"
+    assert results[0]["error"] == "analysis exceeded timeout of 1.0s"

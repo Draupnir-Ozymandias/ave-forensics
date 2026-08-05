@@ -33,6 +33,12 @@ Useful controls:
 - `--no-resume` reruns recordings that already have evidence output.
 - `--manifest-only` excludes recordings not represented in `samples/manifest.csv`.
 - `--samples-root`, `--manifest`, and `--output-root` override default paths.
+- `--exclude '*pattern*'` explicitly excludes matching corpus paths and records them.
+- `--max-duration-minutes N` defers longer recordings (default: 60 minutes).
+- `--timeout-minutes N` stops one slow analysis and continues (default: 180 minutes).
+
+Deferred and excluded recordings remain visible in `batch_summary.json`. Use `0` for
+either time limit to disable it deliberately.
 
 Run the test suite with:
 

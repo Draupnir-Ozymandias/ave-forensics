@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import fnmatch
 import hashlib
 import json
 import os
@@ -10,8 +11,18 @@ import sys
 from pathlib import Path
 from typing import Any, Callable
 
+import soundfile as sf
+
 
 AUDIO_EXTENSIONS = {".mp3", ".wav", ".flac", ".m4a", ".aac", ".ogg"}
+
+
+def probe_duration_seconds(path: Path) -> float | None:
+    """Read duration from the media header without decoding the recording."""
+    try:
+        return float(sf.info(path).duration)
+    except (RuntimeError, TypeError, ValueError):
+        return None
 
 
 def _slug(relative_path: Path) -> str:
@@ -131,6 +142,9 @@ def run_corpus(
     dry_run: bool = False,
     limit: int | None = None,
     progress: Callable[[str], None] | None = None,
+    exclude_patterns: tuple[str, ...] = (),
+    max_duration_seconds: float | None = None,
+    timeout_seconds: float | None = None,
 ) -> list[dict[str, Any]]:
     corpus = build_corpus(samples_root, manifest_path, include_discovered)
     if limit is not None:
@@ -155,6 +169,24 @@ def run_corpus(
         recording_output = output_root / _slug(relative_path)
         evidence_path = recording_output / "ave_evidence.json"
 
+        if any(
+            fnmatch.fnmatch(record["relative_path"], pattern)
+            for pattern in exclude_patterns
+        ):
+            if progress:
+                progress(f"{label} — excluded")
+            results.append(
+                {
+                    **record,
+                    "path": str(audio_path),
+                    "output_dir": str(recording_output),
+                    "status": "excluded",
+                    "reason": "matched an exclusion pattern",
+                }
+            )
+            _write_summary(summary_path, results)
+            continue
+
         if resume and evidence_path.exists():
             if progress:
                 progress(f"{label} — already complete")
@@ -164,6 +196,31 @@ def run_corpus(
                     "path": str(audio_path),
                     "output_dir": str(recording_output),
                     "status": "skipped_complete",
+                }
+            )
+            _write_summary(summary_path, results)
+            continue
+
+        duration_seconds = probe_duration_seconds(audio_path)
+        if (
+            max_duration_seconds is not None
+            and duration_seconds is not None
+            and duration_seconds > max_duration_seconds
+        ):
+            reason = (
+                f"duration {duration_seconds:.1f}s exceeds limit "
+                f"{max_duration_seconds:.1f}s"
+            )
+            if progress:
+                progress(f"{label} — deferred ({reason})")
+            results.append(
+                {
+                    **record,
+                    "path": str(audio_path),
+                    "output_dir": str(recording_output),
+                    "duration_seconds": round(duration_seconds, 3),
+                    "status": "deferred",
+                    "reason": reason,
                 }
             )
             _write_summary(summary_path, results)
@@ -200,6 +257,7 @@ def run_corpus(
                     text=True,
                     check=False,
                     env=environment,
+                    timeout=timeout_seconds,
                 )
                 (recording_output / "console.log").write_text(completed.stdout)
                 (recording_output / "errors.log").write_text(completed.stderr)
@@ -216,6 +274,20 @@ def run_corpus(
                 status = "failed"
                 (recording_output / "console.log").write_text("")
                 (recording_output / "errors.log").write_text(f"{error}\n")
+            except subprocess.TimeoutExpired as exc:
+                return_code = None
+                error = f"analysis exceeded timeout of {timeout_seconds:.1f}s"
+                status = "timed_out"
+                stdout = exc.stdout or ""
+                stderr = exc.stderr or ""
+                if isinstance(stdout, bytes):
+                    stdout = stdout.decode(errors="replace")
+                if isinstance(stderr, bytes):
+                    stderr = stderr.decode(errors="replace")
+                (recording_output / "console.log").write_text(stdout)
+                (recording_output / "errors.log").write_text(
+                    f"{stderr}\n{error}\n"
+                )
             if progress:
                 progress(f"{label} — {status}")
 
@@ -227,6 +299,11 @@ def run_corpus(
                 "status": status,
                 "return_code": return_code,
                 "error": error,
+                "duration_seconds": (
+                    round(duration_seconds, 3)
+                    if duration_seconds is not None
+                    else None
+                ),
                 "command": command,
             }
         )

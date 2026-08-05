@@ -28,7 +28,37 @@ def main() -> None:
     parser.add_argument("--no-resume", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--limit", type=int)
+    parser.add_argument(
+        "--exclude",
+        action="append",
+        default=[],
+        metavar="GLOB",
+        help="Exclude matching corpus paths; may be supplied more than once.",
+    )
+    parser.add_argument(
+        "--max-duration-minutes",
+        type=float,
+        default=60.0,
+        help="Defer recordings longer than this limit; use 0 to disable.",
+    )
+    parser.add_argument(
+        "--timeout-minutes",
+        type=float,
+        default=180.0,
+        help="Stop one analysis after this limit; use 0 to disable.",
+    )
     arguments = parser.parse_args()
+
+    max_duration_seconds = (
+        arguments.max_duration_minutes * 60.0
+        if arguments.max_duration_minutes > 0
+        else None
+    )
+    timeout_seconds = (
+        arguments.timeout_minutes * 60.0
+        if arguments.timeout_minutes > 0
+        else None
+    )
 
     results = run_corpus(
         project_root=project_root,
@@ -40,6 +70,9 @@ def main() -> None:
         dry_run=arguments.dry_run,
         limit=arguments.limit,
         progress=lambda message: print(message, flush=True),
+        exclude_patterns=tuple(arguments.exclude),
+        max_duration_seconds=max_duration_seconds,
+        timeout_seconds=timeout_seconds,
     )
 
     counts = {}

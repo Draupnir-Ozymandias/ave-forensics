@@ -1,6 +1,9 @@
 import numpy as np
 
-from analysis.envelope import analyze_carrier_envelope
+from analysis.envelope import (
+    analyze_carrier_envelope,
+    select_envelope_carrier_pair,
+)
 
 
 def generate_am_signal(
@@ -64,3 +67,14 @@ def test_rejects_invalid_carrier_band():
         return
 
     raise AssertionError("Expected invalid Nyquist band to raise ValueError")
+
+
+def test_selects_acoustic_carrier_instead_of_low_frequency_track():
+    pairs = [
+        {"left_carrier_hz": 2.72, "right_carrier_hz": 2.74},
+        {"left_carrier_hz": 130.97, "right_carrier_hz": 130.96},
+    ]
+
+    selected = select_envelope_carrier_pair(pairs)
+
+    assert selected == pairs[1]
