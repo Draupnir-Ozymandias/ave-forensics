@@ -1,0 +1,40 @@
+{
+  "curation": {
+    "category_override": null,
+    "claimed_intent_override": null,
+    "notes": "",
+    "review_status": "unreviewed",
+    "source_override": null
+  },
+  "duplicates": {
+    "is_duplicate": false,
+    "matching_relative_paths": []
+  },
+  "identity": {
+    "hash_algorithm": "sha256",
+    "sha256": "5ebf95a90fe9f7310ecb09879a6c85de47b3bdad3700f9efc27ba26b6a6c7aae"
+  },
+  "inferred_labels": {
+    "basis": "corpus_directory_structure",
+    "category": "meditate",
+    "claimed_intent": "unguided",
+    "source": "brainfm"
+  },
+  "manifest_schema_version": "1.0.0",
+  "media": {
+    "channels": 2,
+    "codec_subtype": "MPEG_LAYER_III",
+    "container_extension": ".mp3",
+    "duration_seconds": 900.0,
+    "frame_count": 39690000,
+    "sample_rate": 44100,
+    "size_bytes": 12804693
+  },
+  "provenance": {
+    "generator": "corpus.manifests",
+    "generator_version": "1.0.0",
+    "source": "local_corpus_file"
+  },
+  "recording_id": "ave_recording_5ebf95a90fe9f731",
+  "relative_path": "brainfm/meditate/unguided/Avalon_Meditate_UnguidedMeditation_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3"
+}

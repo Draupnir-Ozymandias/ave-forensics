@@ -1,0 +1,40 @@
+{
+  "curation": {
+    "category_override": null,
+    "claimed_intent_override": null,
+    "notes": "",
+    "review_status": "unreviewed",
+    "source_override": null
+  },
+  "duplicates": {
+    "is_duplicate": false,
+    "matching_relative_paths": []
+  },
+  "identity": {
+    "hash_algorithm": "sha256",
+    "sha256": "612008e0d1b3ef72c90afb6db9977807ef110dc48bf6779149326d28b161c930"
+  },
+  "inferred_labels": {
+    "basis": "corpus_directory_structure",
+    "category": "focus",
+    "claimed_intent": "deep_work",
+    "source": "brainfm"
+  },
+  "manifest_schema_version": "1.0.0",
+  "media": {
+    "channels": 2,
+    "codec_subtype": "MPEG_LAYER_III",
+    "container_extension": ".mp3",
+    "duration_seconds": 1800.0,
+    "frame_count": 79380000,
+    "sample_rate": 44100,
+    "size_bytes": 27720990
+  },
+  "provenance": {
+    "generator": "corpus.manifests",
+    "generator_version": "1.0.0",
+    "source": "local_corpus_file"
+  },
+  "recording_id": "ave_recording_612008e0d1b3ef72",
+  "relative_path": "brainfm/focus/deep_work/PureSky_Focus_DeepWork_Electronic_30_95BPM_MedNEL_Nrmlzd2_VBR5.mp3"
+}

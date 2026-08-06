@@ -1,0 +1,40 @@
+{
+  "curation": {
+    "category_override": null,
+    "claimed_intent_override": null,
+    "notes": "",
+    "review_status": "unreviewed",
+    "source_override": null
+  },
+  "duplicates": {
+    "is_duplicate": false,
+    "matching_relative_paths": []
+  },
+  "identity": {
+    "hash_algorithm": "sha256",
+    "sha256": "f47160d783874b423d56a80136e2b02adf6edfd83f37cb7ee7becb87df2ea884"
+  },
+  "inferred_labels": {
+    "basis": "corpus_directory_structure",
+    "category": "focus",
+    "claimed_intent": "learning",
+    "source": "brainfm"
+  },
+  "manifest_schema_version": "1.0.0",
+  "media": {
+    "channels": 2,
+    "codec_subtype": "MPEG_LAYER_III",
+    "container_extension": ".mp3",
+    "duration_seconds": 1800.0,
+    "frame_count": 79380000,
+    "sample_rate": 44100,
+    "size_bytes": 25285798
+  },
+  "provenance": {
+    "generator": "corpus.manifests",
+    "generator_version": "1.0.0",
+    "source": "local_corpus_file"
+  },
+  "recording_id": "ave_recording_f47160d783874b42",
+  "relative_path": "brainfm/focus/learning/Lights in the Darkness Cinematic Focus Study Conor 90bpm_1.2_Nrmlzd2_VBR5.mp3"
+}

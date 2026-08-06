@@ -62,3 +62,20 @@ behavior, and the top protocol hypothesis. Deferred and invalid recordings remai
 visible rather than disappearing from the corpus.
 
 Use `--no-hash` only for a provisional index when input hashing is unnecessary.
+
+## Generate Per-Recording Metadata Manifests
+
+Create one versioned JSON sidecar beside every supported corpus recording:
+
+```bash
+.venv/bin/python recording_manifests.py
+.venv/bin/python corpus_index.py
+```
+
+Each `<recording>.<extension>.metadata.json` sidecar records SHA-256 identity,
+media properties, directory-derived source/category/intent labels, duplicate-file
+aliases, and generation provenance. Machine-inferred labels remain separate from
+the `curation` block so reviewed human overrides survive later regeneration.
+
+The Corpus Evidence Index automatically validates available sidecars and prefers
+their resolved labels while retaining the original batch metadata for auditability.

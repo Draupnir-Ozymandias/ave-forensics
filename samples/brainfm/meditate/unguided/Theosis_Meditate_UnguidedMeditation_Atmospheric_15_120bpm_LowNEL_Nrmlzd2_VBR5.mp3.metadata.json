@@ -1,0 +1,40 @@
+{
+  "curation": {
+    "category_override": null,
+    "claimed_intent_override": null,
+    "notes": "",
+    "review_status": "unreviewed",
+    "source_override": null
+  },
+  "duplicates": {
+    "is_duplicate": false,
+    "matching_relative_paths": []
+  },
+  "identity": {
+    "hash_algorithm": "sha256",
+    "sha256": "95145fc49dcd4f111ebe54cfe1982b61bd6a79373dfcf180c295706fd8df42c6"
+  },
+  "inferred_labels": {
+    "basis": "corpus_directory_structure",
+    "category": "meditate",
+    "claimed_intent": "unguided",
+    "source": "brainfm"
+  },
+  "manifest_schema_version": "1.0.0",
+  "media": {
+    "channels": 2,
+    "codec_subtype": "MPEG_LAYER_III",
+    "container_extension": ".mp3",
+    "duration_seconds": 900.0,
+    "frame_count": 39690000,
+    "sample_rate": 44100,
+    "size_bytes": 11372926
+  },
+  "provenance": {
+    "generator": "corpus.manifests",
+    "generator_version": "1.0.0",
+    "source": "local_corpus_file"
+  },
+  "recording_id": "ave_recording_95145fc49dcd4f11",
+  "relative_path": "brainfm/meditate/unguided/Theosis_Meditate_UnguidedMeditation_Atmospheric_15_120bpm_LowNEL_Nrmlzd2_VBR5.mp3"
+}

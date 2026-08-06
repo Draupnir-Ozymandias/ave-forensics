@@ -1,0 +1,40 @@
+{
+  "curation": {
+    "category_override": null,
+    "claimed_intent_override": null,
+    "notes": "",
+    "review_status": "unreviewed",
+    "source_override": null
+  },
+  "duplicates": {
+    "is_duplicate": false,
+    "matching_relative_paths": []
+  },
+  "identity": {
+    "hash_algorithm": "sha256",
+    "sha256": "8514d990f6f394da0872190e7d9fca0c2e6837a1d68f2185b3fe682442fe3ea5"
+  },
+  "inferred_labels": {
+    "basis": "corpus_directory_structure",
+    "category": "sleep",
+    "claimed_intent": "power_nap",
+    "source": "brainfm"
+  },
+  "manifest_schema_version": "1.0.0",
+  "media": {
+    "channels": 2,
+    "codec_subtype": "MPEG_LAYER_III",
+    "container_extension": ".mp3",
+    "duration_seconds": 3600.0,
+    "frame_count": 158760000,
+    "sample_rate": 44100,
+    "size_bytes": 49990850
+  },
+  "provenance": {
+    "generator": "corpus.manifests",
+    "generator_version": "1.0.0",
+    "source": "local_corpus_file"
+  },
+  "recording_id": "ave_recording_8514d990f6f394da",
+  "relative_path": "brainfm/sleep/power_nap/SilentEmbrace_Sleep_Powernap_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3"
+}

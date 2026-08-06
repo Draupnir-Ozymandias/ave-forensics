@@ -1,0 +1,40 @@
+{
+  "curation": {
+    "category_override": null,
+    "claimed_intent_override": null,
+    "notes": "",
+    "review_status": "unreviewed",
+    "source_override": null
+  },
+  "duplicates": {
+    "is_duplicate": false,
+    "matching_relative_paths": []
+  },
+  "identity": {
+    "hash_algorithm": "sha256",
+    "sha256": "e8a9540d28a77df230cdc6eac58636aef6d53d90016fab1c1b5ed654a44396be"
+  },
+  "inferred_labels": {
+    "basis": "corpus_directory_structure",
+    "category": "focus",
+    "claimed_intent": "deep_work",
+    "source": "brainfm"
+  },
+  "manifest_schema_version": "1.0.0",
+  "media": {
+    "channels": 2,
+    "codec_subtype": "MPEG_LAYER_III",
+    "container_extension": ".mp3",
+    "duration_seconds": 1800.0,
+    "frame_count": 79380000,
+    "sample_rate": 44100,
+    "size_bytes": 28589934
+  },
+  "provenance": {
+    "generator": "corpus.manifests",
+    "generator_version": "1.0.0",
+    "source": "local_corpus_file"
+  },
+  "recording_id": "ave_recording_e8a9540d28a77df2",
+  "relative_path": "brainfm/focus/deep_work/Beyond_Stars_Focus_DeepWork_Cinematic_30_110bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+}

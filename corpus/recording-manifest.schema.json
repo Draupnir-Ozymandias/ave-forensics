@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ave-forensics.local/schemas/recording-manifest-1.0.0.json",
+  "title": "AVE Recording Metadata Manifest",
+  "type": "object",
+  "required": [
+    "manifest_schema_version",
+    "recording_id",
+    "relative_path",
+    "identity",
+    "media",
+    "inferred_labels",
+    "curation",
+    "duplicates",
+    "provenance"
+  ],
+  "properties": {
+    "manifest_schema_version": {"const": "1.0.0"},
+    "recording_id": {"type": "string", "pattern": "^ave_recording_[0-9a-f]{16}$"},
+    "relative_path": {"type": "string", "minLength": 1},
+    "identity": {
+      "type": "object",
+      "required": ["hash_algorithm", "sha256"],
+      "properties": {
+        "hash_algorithm": {"const": "sha256"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      },
+      "additionalProperties": false
+    },
+    "media": {
+      "type": "object",
+      "required": ["container_extension", "size_bytes", "duration_seconds", "sample_rate", "channels", "frame_count", "codec_subtype"],
+      "properties": {
+        "container_extension": {"type": "string"},
+        "size_bytes": {"type": "integer", "minimum": 1},
+        "duration_seconds": {"type": "number", "exclusiveMinimum": 0},
+        "sample_rate": {"type": "integer", "minimum": 1},
+        "channels": {"type": "integer", "minimum": 1},
+        "frame_count": {"type": "integer", "minimum": 1},
+        "codec_subtype": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "inferred_labels": {
+      "type": "object",
+      "required": ["source", "category", "claimed_intent", "basis"],
+      "properties": {
+        "source": {"type": "string", "minLength": 1},
+        "category": {"type": "string", "minLength": 1},
+        "claimed_intent": {"type": "string", "minLength": 1},
+        "basis": {"const": "corpus_directory_structure"}
+      },
+      "additionalProperties": false
+    },
+    "curation": {
+      "type": "object",
+      "required": ["review_status", "source_override", "category_override", "claimed_intent_override", "notes"],
+      "properties": {
+        "review_status": {"enum": ["unreviewed", "reviewed"]},
+        "source_override": {"type": ["string", "null"]},
+        "category_override": {"type": ["string", "null"]},
+        "claimed_intent_override": {"type": ["string", "null"]},
+        "notes": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "duplicates": {
+      "type": "object",
+      "required": ["is_duplicate", "matching_relative_paths"],
+      "properties": {
+        "is_duplicate": {"type": "boolean"},
+        "matching_relative_paths": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      },
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["generator", "generator_version", "source"],
+      "properties": {
+        "generator": {"const": "corpus.manifests"},
+        "generator_version": {"const": "1.0.0"},
+        "source": {"const": "local_corpus_file"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -3,7 +3,11 @@ import hashlib
 import json
 from pathlib import Path
 
+import numpy as np
+import soundfile as sf
+
 from corpus.index import build_corpus_index, write_corpus_index
+from corpus.manifests import build_recording_manifests, write_recording_manifests
 from evidence.schema import SCHEMA_VERSION, create_evidence_object, measurement
 
 
@@ -199,3 +203,40 @@ def test_identifies_byte_identical_inputs(tmp_path):
     assert index["recordings"][0]["duplicate_input_paths"] == [
         "renamed-copy.wav"
     ]
+
+
+def test_index_uses_validated_manifest_instead_of_stale_batch_labels(tmp_path):
+    project = tmp_path / "project"
+    samples = project / "samples"
+    audio = samples / "brainfm" / "meditate" / "unguided" / "session.wav"
+    audio.parent.mkdir(parents=True)
+    sf.write(audio, np.zeros(8000, dtype=np.float32), 8000)
+    write_recording_manifests(build_recording_manifests(samples))
+    batch = {
+        "recording_count": 1,
+        "status_counts": {"deferred": 1},
+        "recordings": [
+            {
+                "relative_path": "brainfm/meditation/session.wav",
+                "path": str(audio),
+                "output_dir": str(project / "artifacts" / "session"),
+                "source": "brain.fm",
+                "category": "meditation",
+                "stated_intent": "meditation",
+                "notes": "stale",
+                "status": "deferred",
+            }
+        ],
+    }
+    summary_path = project / "batch_summary.json"
+    summary_path.write_text(json.dumps(batch))
+
+    index = build_corpus_index(summary_path, project)
+    record = index["recordings"][0]
+
+    assert record["relative_path"] == "brainfm/meditate/unguided/session.wav"
+    assert record["source"] == "brainfm"
+    assert record["category"] == "meditate"
+    assert record["stated_intent"] == "unguided"
+    assert record["metadata_status"] == "validated"
+    assert record["batch_metadata"]["category"] == "meditation"

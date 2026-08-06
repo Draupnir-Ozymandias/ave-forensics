@@ -193,6 +193,12 @@ def build_corpus_index(
     *,
     hash_inputs: bool = True,
 ) -> dict[str, Any]:
+    from corpus.manifests import (
+        manifest_path_for,
+        resolved_labels,
+        validate_recording_manifest,
+    )
+
     batch = json.loads(batch_summary_path.read_text())
     indexed_recordings = []
 
@@ -207,6 +213,17 @@ def build_corpus_index(
             "category": batch_record.get("category", ""),
             "stated_intent": batch_record.get("stated_intent", ""),
             "notes": batch_record.get("notes", ""),
+            "batch_metadata": {
+                "relative_path": batch_record["relative_path"],
+                "source": batch_record.get("source", ""),
+                "category": batch_record.get("category", ""),
+                "stated_intent": batch_record.get("stated_intent", ""),
+            },
+            "metadata_status": "missing",
+            "metadata_manifest_path": None,
+            "metadata_schema_version": None,
+            "metadata_error": None,
+            "label_source": "batch_summary",
             "batch_status": batch_record["status"],
             "index_status": batch_record["status"],
             "input_size_bytes": None,
@@ -222,6 +239,34 @@ def build_corpus_index(
             record["input_size_bytes"] = input_path.stat().st_size
             if hash_inputs:
                 record["input_sha256"] = sha256_file(input_path)
+
+            metadata_path = manifest_path_for(input_path)
+            if metadata_path.exists():
+                record["metadata_manifest_path"] = _relative_path(
+                    metadata_path,
+                    project_root,
+                )
+                try:
+                    metadata = json.loads(metadata_path.read_text())
+                    validate_recording_manifest(metadata)
+                    metadata_hash = metadata["identity"]["sha256"]
+                    if record["input_sha256"] and metadata_hash != record["input_sha256"]:
+                        raise ValueError("metadata SHA-256 does not match input")
+                    labels = resolved_labels(metadata)
+                    record["relative_path"] = metadata["relative_path"]
+                    record["source"] = labels["source"]
+                    record["category"] = labels["category"]
+                    record["stated_intent"] = labels["claimed_intent"]
+                    record["label_source"] = labels["label_source"]
+                    record["metadata_schema_version"] = metadata[
+                        "manifest_schema_version"
+                    ]
+                    record["metadata_status"] = "validated"
+                    if metadata["curation"]["notes"]:
+                        record["notes"] = metadata["curation"]["notes"]
+                except (OSError, ValueError, TypeError, KeyError) as exc:
+                    record["metadata_status"] = "invalid"
+                    record["metadata_error"] = str(exc)
 
         output_dir = batch_record.get("output_dir")
         evidence_path = Path(output_dir) / "ave_evidence.json" if output_dir else None
@@ -240,6 +285,8 @@ def build_corpus_index(
                 record["index_error"] = str(exc)
 
         indexed_recordings.append(record)
+
+    indexed_recordings.sort(key=lambda item: item["relative_path"])
 
     records_by_hash: dict[str, list[dict[str, Any]]] = {}
     for record in indexed_recordings:
@@ -261,6 +308,7 @@ def build_corpus_index(
     source_counts = Counter(item["source"] for item in indexed_recordings)
     category_counts = Counter(item["category"] for item in indexed_recordings)
     intent_counts = Counter(item["stated_intent"] for item in indexed_recordings)
+    metadata_counts = Counter(item["metadata_status"] for item in indexed_recordings)
     evidence_total = sum(
         item["evidence_summary"]["evidence_count"]
         for item in indexed_recordings
@@ -278,6 +326,7 @@ def build_corpus_index(
         "source_counts": dict(sorted(source_counts.items())),
         "category_counts": dict(sorted(category_counts.items())),
         "stated_intent_counts": dict(sorted(intent_counts.items())),
+        "metadata_status_counts": dict(sorted(metadata_counts.items())),
         "duplicate_input_groups": duplicate_groups,
         "recordings": indexed_recordings,
     }
@@ -288,6 +337,9 @@ CSV_FIELDS = [
     "source",
     "category",
     "stated_intent",
+    "label_source",
+    "metadata_status",
+    "metadata_manifest_path",
     "batch_status",
     "index_status",
     "duration_seconds",
@@ -324,6 +376,9 @@ def _csv_row(record: dict[str, Any]) -> dict[str, Any]:
         "source": record["source"],
         "category": record["category"],
         "stated_intent": record["stated_intent"],
+        "label_source": record.get("label_source"),
+        "metadata_status": record.get("metadata_status"),
+        "metadata_manifest_path": record.get("metadata_manifest_path"),
         "batch_status": record["batch_status"],
         "index_status": record["index_status"],
         "duration_seconds": record["duration_seconds"],

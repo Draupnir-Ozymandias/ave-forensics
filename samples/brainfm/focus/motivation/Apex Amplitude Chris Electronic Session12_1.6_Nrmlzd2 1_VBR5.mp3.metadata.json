@@ -1,0 +1,40 @@
+{
+  "curation": {
+    "category_override": null,
+    "claimed_intent_override": null,
+    "notes": "",
+    "review_status": "unreviewed",
+    "source_override": null
+  },
+  "duplicates": {
+    "is_duplicate": false,
+    "matching_relative_paths": []
+  },
+  "identity": {
+    "hash_algorithm": "sha256",
+    "sha256": "609add9dc0e91b49c67f6950b10357e264b93350f6539f36d9ce1eca3b05597a"
+  },
+  "inferred_labels": {
+    "basis": "corpus_directory_structure",
+    "category": "focus",
+    "claimed_intent": "motivation",
+    "source": "brainfm"
+  },
+  "manifest_schema_version": "1.0.0",
+  "media": {
+    "channels": 2,
+    "codec_subtype": "MPEG_LAYER_III",
+    "container_extension": ".mp3",
+    "duration_seconds": 1800.0,
+    "frame_count": 79380000,
+    "sample_rate": 44100,
+    "size_bytes": 18048753
+  },
+  "provenance": {
+    "generator": "corpus.manifests",
+    "generator_version": "1.0.0",
+    "source": "local_corpus_file"
+  },
+  "recording_id": "ave_recording_609add9dc0e91b49",
+  "relative_path": "brainfm/focus/motivation/Apex Amplitude Chris Electronic Session12_1.6_Nrmlzd2 1_VBR5.mp3"
+}
