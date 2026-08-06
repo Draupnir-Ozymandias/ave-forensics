@@ -1,0 +1,54 @@
+# Local forensic evidence and proprietary specimens
+specimens/
+captured/
+downloads/
+dynamic/
+static/
+mobsf-data/
+
+# Generated/large binary artifacts
+*.apk
+*.aab
+*.apks
+*.xapk
+*.dex
+*.so
+*.bin
+*.pcap
+*.pcapng
+*.hci
+*.zip
+*.tar
+*.tgz
+*.sqlite
+*.db
+*.log
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# Tool/runtime state
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.idea/
+.vscode/
+.DS_Store
+
+# Reviewed, sanitized project outputs remain trackable
+!protocol_reconstruction/
+!protocol_reconstruction/**
+!physical_validation/
+!physical_validation/**
+!reports/
+!reports/**
+!contracts/
+!contracts/**

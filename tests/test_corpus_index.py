@@ -1,0 +1,201 @@
+import csv
+import hashlib
+import json
+from pathlib import Path
+
+from corpus.index import build_corpus_index, write_corpus_index
+from evidence.schema import SCHEMA_VERSION, create_evidence_object, measurement
+
+
+def hypothesis_evidence() -> dict:
+    return create_evidence_object(
+        evidence_level="hypothesis",
+        evidence_type="protocol_intent_hypothesis",
+        source_module="analysis.protocol_hypothesis",
+        summary="delta relaxation / sleep-depth candidate",
+        measurements=[
+            measurement("average_difference_frequency", 0.5, "Hz"),
+            measurement("duration", 3600.0, "seconds"),
+            measurement("brainwave_band", "delta", "classification"),
+            measurement("hypothesis_score", 1.0821, "ranking_score"),
+        ],
+        confidence={
+            "score": 0.8657,
+            "method": "persistent_track_average_confidence",
+        },
+    )
+
+
+def evidence_document(evidence: list[dict]) -> dict:
+    return {
+        "schema_version": SCHEMA_VERSION,
+        "evidence_count": len(evidence),
+        "run_metadata": {"duration_seconds": 3600.0, "sample_rate": 44100},
+        "evidence": evidence,
+    }
+
+
+def test_builds_index_with_hashes_statuses_and_invalid_evidence(tmp_path):
+    project = tmp_path / "project"
+    audio = project / "samples" / "complete.wav"
+    audio.parent.mkdir(parents=True)
+    audio.write_bytes(b"known audio bytes")
+    complete_output = project / "artifacts" / "complete"
+    complete_output.mkdir(parents=True)
+    (complete_output / "ave_evidence.json").write_text(
+        json.dumps(evidence_document([hypothesis_evidence()]))
+    )
+
+    invalid_audio = project / "samples" / "invalid.wav"
+    invalid_audio.write_bytes(b"invalid evidence audio")
+    invalid_output = project / "artifacts" / "invalid"
+    invalid_output.mkdir(parents=True)
+    (invalid_output / "ave_evidence.json").write_text("not json")
+
+    deferred_audio = project / "samples" / "deferred.wav"
+    deferred_audio.write_bytes(b"deferred audio")
+    batch = {
+        "recording_count": 3,
+        "status_counts": {"completed": 1, "deferred": 1, "failed": 1},
+        "recordings": [
+            {
+                "relative_path": "complete.wav",
+                "path": str(audio),
+                "output_dir": str(complete_output),
+                "source": "synthetic",
+                "category": "control",
+                "stated_intent": "test",
+                "notes": "valid",
+                "status": "completed",
+            },
+            {
+                "relative_path": "deferred.wav",
+                "path": str(deferred_audio),
+                "output_dir": str(project / "artifacts" / "deferred"),
+                "source": "synthetic",
+                "category": "control",
+                "stated_intent": "test",
+                "notes": "long",
+                "status": "deferred",
+                "duration_seconds": 6812.1,
+            },
+            {
+                "relative_path": "invalid.wav",
+                "path": str(invalid_audio),
+                "output_dir": str(invalid_output),
+                "source": "synthetic",
+                "category": "control",
+                "stated_intent": "test",
+                "notes": "bad evidence",
+                "status": "failed",
+            },
+        ],
+    }
+    summary_path = project / "artifacts" / "batch_summary.json"
+    summary_path.write_text(json.dumps(batch))
+
+    index = build_corpus_index(summary_path, project)
+
+    assert index["recording_count"] == 3
+    assert index["indexed_recording_count"] == 1
+    assert index["indexed_evidence_count"] == 1
+    assert index["index_status_counts"] == {
+        "deferred": 1,
+        "indexed": 1,
+        "invalid_evidence": 1,
+    }
+    complete = next(
+        item for item in index["recordings"] if item["relative_path"] == "complete.wav"
+    )
+    assert complete["input_sha256"] == hashlib.sha256(b"known audio bytes").hexdigest()
+    assert complete["evidence_summary"]["top_hypothesis"]["ranking_score"] == 1.0821
+    assert complete["evidence_summary"]["top_hypothesis"]["confidence"] == 0.8657
+    assert index["duplicate_input_groups"] == []
+
+
+def test_writes_deterministic_json_and_flat_csv(tmp_path):
+    index = {
+        "index_schema_version": "1.0.0",
+        "evidence_schema_version": "1.0.0",
+        "recording_count": 1,
+        "indexed_recording_count": 0,
+        "indexed_evidence_count": 0,
+        "input_hash_algorithm": "sha256",
+        "batch_status_counts": {"deferred": 1},
+        "index_status_counts": {"deferred": 1},
+        "source_counts": {"synthetic": 1},
+        "category_counts": {"control": 1},
+        "stated_intent_counts": {"test": 1},
+        "duplicate_input_groups": [],
+        "recordings": [
+            {
+                "relative_path": "long.wav",
+                "source": "synthetic",
+                "category": "control",
+                "stated_intent": "test",
+                "notes": "long",
+                "batch_status": "deferred",
+                "index_status": "deferred",
+                "input_size_bytes": 10,
+                "input_sha256": "abc",
+                "duplicate_input_paths": [],
+                "duration_seconds": 6812.1,
+                "evidence_path": None,
+                "evidence_summary": None,
+                "index_error": None,
+            }
+        ],
+    }
+
+    json_path, csv_path = write_corpus_index(index, tmp_path)
+
+    assert json.loads(json_path.read_text()) == index
+    with csv_path.open(newline="") as input_file:
+        rows = list(csv.DictReader(input_file))
+    assert rows[0]["relative_path"] == "long.wav"
+    assert rows[0]["index_status"] == "deferred"
+
+
+def test_identifies_byte_identical_inputs(tmp_path):
+    project = tmp_path / "project"
+    samples = project / "samples"
+    samples.mkdir(parents=True)
+    first = samples / "first.wav"
+    second = samples / "renamed-copy.wav"
+    first.write_bytes(b"identical")
+    second.write_bytes(b"identical")
+    records = []
+    for path in (first, second):
+        records.append(
+            {
+                "relative_path": path.name,
+                "path": str(path),
+                "output_dir": str(project / "artifacts" / path.stem),
+                "source": "synthetic",
+                "category": "control",
+                "stated_intent": "test",
+                "notes": "duplicate test",
+                "status": "deferred",
+            }
+        )
+    summary_path = project / "batch_summary.json"
+    summary_path.write_text(
+        json.dumps(
+            {
+                "recording_count": 2,
+                "status_counts": {"deferred": 2},
+                "recordings": records,
+            }
+        )
+    )
+
+    index = build_corpus_index(summary_path, project)
+
+    assert len(index["duplicate_input_groups"]) == 1
+    assert index["duplicate_input_groups"][0]["relative_paths"] == [
+        "first.wav",
+        "renamed-copy.wav",
+    ]
+    assert index["recordings"][0]["duplicate_input_paths"] == [
+        "renamed-copy.wav"
+    ]

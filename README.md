@@ -45,3 +45,20 @@ Run the test suite with:
 ```bash
 .venv/bin/python -B -m pytest -q -p no:cacheprovider
 ```
+
+## Build the Corpus Evidence Index
+
+After a batch run, consolidate every recording and validated evidence document:
+
+```bash
+.venv/bin/python corpus_index.py
+```
+
+The command writes `artifacts/corpus/corpus_index.json` for complete structured
+analysis and `artifacts/corpus/corpus_index.csv` for comparison, filtering, and
+dashboard work. Each row preserves batch status, source metadata, duration,
+SHA-256 input identity, evidence counts, dominant signal relationships, phase
+behavior, and the top protocol hypothesis. Deferred and invalid recordings remain
+visible rather than disappearing from the corpus.
+
+Use `--no-hash` only for a provisional index when input hashing is unnecessary.
