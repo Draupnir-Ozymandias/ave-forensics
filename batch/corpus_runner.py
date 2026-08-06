@@ -13,8 +13,33 @@ from typing import Any, Callable
 
 import soundfile as sf
 
+from provenance.run import validate_run_provenance
+from core.media import AUDIO_EXTENSIONS
 
-AUDIO_EXTENSIONS = {".mp3", ".wav", ".flac", ".m4a", ".aac", ".ogg"}
+
+def read_evidence_provenance(evidence_path: Path) -> dict[str, Any]:
+    try:
+        document = json.loads(evidence_path.read_text())
+        provenance = document.get("run_provenance")
+        if provenance is None:
+            return {
+                "provenance_status": "legacy_missing",
+                "run_id": None,
+                "input_sha256": None,
+            }
+        validate_run_provenance(provenance)
+        return {
+            "provenance_status": "validated",
+            "run_id": provenance["run_id"],
+            "input_sha256": provenance["input"]["sha256"],
+        }
+    except (OSError, ValueError, TypeError, KeyError, json.JSONDecodeError) as exc:
+        return {
+            "provenance_status": "invalid",
+            "run_id": None,
+            "input_sha256": None,
+            "provenance_error": str(exc),
+        }
 
 
 def probe_duration_seconds(path: Path) -> float | None:
@@ -188,6 +213,7 @@ def run_corpus(
             continue
 
         if resume and evidence_path.exists():
+            provenance_summary = read_evidence_provenance(evidence_path)
             if progress:
                 progress(f"{label} — already complete")
             results.append(
@@ -196,6 +222,7 @@ def run_corpus(
                     "path": str(audio_path),
                     "output_dir": str(recording_output),
                     "status": "skipped_complete",
+                    **provenance_summary,
                 }
             )
             _write_summary(summary_path, results)
@@ -268,12 +295,30 @@ def run_corpus(
                     if return_code == 0 and evidence_path.exists()
                     else "failed"
                 )
+                provenance_summary = (
+                    read_evidence_provenance(evidence_path)
+                    if evidence_path.exists()
+                    else {
+                        "provenance_status": "not_available",
+                        "run_id": None,
+                        "input_sha256": None,
+                    }
+                )
+                if status == "completed" and provenance_summary[
+                    "provenance_status"
+                ] != "validated":
+                    status = "failed"
             except OSError as exc:
                 return_code = None
                 error = str(exc)
                 status = "failed"
                 (recording_output / "console.log").write_text("")
                 (recording_output / "errors.log").write_text(f"{error}\n")
+                provenance_summary = {
+                    "provenance_status": "not_available",
+                    "run_id": None,
+                    "input_sha256": None,
+                }
             except subprocess.TimeoutExpired as exc:
                 return_code = None
                 error = f"analysis exceeded timeout of {timeout_seconds:.1f}s"
@@ -288,6 +333,11 @@ def run_corpus(
                 (recording_output / "errors.log").write_text(
                     f"{stderr}\n{error}\n"
                 )
+                provenance_summary = {
+                    "provenance_status": "not_available",
+                    "run_id": None,
+                    "input_sha256": None,
+                }
             if progress:
                 progress(f"{label} — {status}")
 
@@ -305,6 +355,15 @@ def run_corpus(
                     else None
                 ),
                 "command": command,
+                **(
+                    provenance_summary
+                    if not dry_run
+                    else {
+                        "provenance_status": "planned",
+                        "run_id": None,
+                        "input_sha256": None,
+                    }
+                ),
             }
         )
         _write_summary(summary_path, results)

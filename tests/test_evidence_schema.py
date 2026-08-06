@@ -15,6 +15,8 @@ from evidence.schema import (
     validate_evidence_object,
 )
 from reports.evidence_export import export_evidence_json
+from provenance.run import build_run_provenance
+from analysis.config import ANALYSIS_CONFIGURATION
 
 
 def test_creates_valid_deterministic_json_evidence():
@@ -130,6 +132,43 @@ def test_exports_evidence_document(tmp_path):
 
     assert document["evidence_count"] == 1
     assert document["evidence"][0]["evidence_id"] == evidence["evidence_id"]
+    assert document["run_provenance"] is None
+
+
+def test_exports_validated_run_provenance(tmp_path, monkeypatch):
+    audio_path = tmp_path / "tone.wav"
+    audio_path.write_bytes(b"synthetic audio")
+    monkeypatch.setattr(
+        "provenance.run._git_identity",
+        lambda root: {"commit": "a" * 40, "branch": "main", "dirty": False},
+    )
+    monkeypatch.setattr("provenance.run._source_tree_sha256", lambda root: "b" * 64)
+    monkeypatch.setattr(
+        "provenance.run._dependency_versions",
+        lambda: {"numpy": "1.0"},
+    )
+    provenance = build_run_provenance(
+        input_path=audio_path,
+        project_root=tmp_path,
+        analysis_configuration=ANALYSIS_CONFIGURATION,
+    )
+    evidence = create_evidence_object(
+        evidence_level="measurement",
+        evidence_type="synthetic_measurement",
+        source_module="tests.synthetic",
+        summary="Provenance export",
+        measurements=[measurement("frequency", 3.0, "Hz")],
+    )
+    output_path = tmp_path / "evidence.json"
+
+    export_evidence_json(
+        [evidence],
+        str(output_path),
+        run_provenance=provenance,
+    )
+
+    document = json.loads(output_path.read_text())
+    assert document["run_provenance"]["run_id"] == provenance["run_id"]
 
 
 def test_formal_json_schema_matches_runtime_contract():

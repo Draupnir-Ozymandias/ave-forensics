@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ave-forensics.local/schemas/run-provenance-1.0.0.json",
+  "title": "AVE Analysis Run Provenance",
+  "type": "object",
+  "required": [
+    "provenance_schema_version",
+    "run_id",
+    "toolkit",
+    "git",
+    "runtime",
+    "input",
+    "recording_manifest",
+    "analysis_configuration"
+  ],
+  "properties": {
+    "provenance_schema_version": {"const": "1.0.0"},
+    "run_id": {"type": "string", "pattern": "^ave_run_[0-9a-f]{16}$"},
+    "toolkit": {
+      "type": "object",
+      "required": ["name", "version", "source_tree_sha256"],
+      "properties": {
+        "name": {"const": "AVE Forensics Laboratory"},
+        "version": {"type": "string", "minLength": 1},
+        "source_tree_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "git": {
+      "type": "object",
+      "required": ["commit", "branch", "dirty"],
+      "properties": {
+        "commit": {"type": ["string", "null"]},
+        "branch": {"type": ["string", "null"]},
+        "dirty": {"type": ["boolean", "null"]}
+      }
+    },
+    "runtime": {"type": "object"},
+    "input": {
+      "type": "object",
+      "required": ["relative_path", "size_bytes", "hash_algorithm", "sha256"],
+      "properties": {
+        "relative_path": {"type": "string", "minLength": 1},
+        "size_bytes": {"type": "integer", "minimum": 1},
+        "hash_algorithm": {"const": "sha256"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "recording_manifest": {"type": ["object", "null"]},
+    "analysis_configuration": {"type": "object"}
+  }
+}

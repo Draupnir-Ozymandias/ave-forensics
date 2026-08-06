@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ave-forensics.local/schemas/evidence-document-1.0.0.json",
+  "title": "AVE Evidence Document",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "evidence_count",
+    "run_metadata",
+    "run_provenance",
+    "evidence"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "evidence_count": {"type": "integer", "minimum": 0},
+    "run_metadata": {"type": "object"},
+    "run_provenance": {
+      "oneOf": [
+        {"$ref": "../provenance/run-provenance.schema.json"},
+        {"type": "null"}
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "items": {"$ref": "evidence-object.schema.json"}
+    }
+  },
+  "additionalProperties": false
+}

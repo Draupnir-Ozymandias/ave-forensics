@@ -93,6 +93,7 @@ def test_resume_skips_existing_evidence(tmp_path):
     )
 
     assert resumed[0]["status"] == "skipped_complete"
+    assert resumed[0]["provenance_status"] == "legacy_missing"
 
 
 def test_subprocess_launch_failure_is_recorded(tmp_path, monkeypatch):

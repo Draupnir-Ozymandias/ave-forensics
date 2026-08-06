@@ -79,3 +79,21 @@ the `curation` block so reviewed human overrides survive later regeneration.
 
 The Corpus Evidence Index automatically validates available sidecars and prefers
 their resolved labels while retaining the original batch metadata for auditability.
+
+## Input Hashing and Run Provenance
+
+Every new `main.py` or `batch_runner.py` analysis embeds a validated
+`run_provenance` object in `ave_evidence.json`. It binds the evidence to:
+
+- the input file's SHA-256 digest and size;
+- the recording manifest ID, schema version, and manifest SHA-256;
+- the AVE toolkit version and deterministic source-tree hash;
+- the active Git commit, branch, and dirty-worktree state;
+- Python and analysis dependency versions; and
+- the complete versioned analysis configuration.
+
+The deterministic `ave_run_<digest>` identifier changes whenever any bound input,
+manifest, source, dependency, Git state, or analysis parameter changes. The Corpus
+Evidence Index reports provenance as `validated`, `legacy_missing`, or `invalid`.
+Evidence created before this feature remains explicitly marked as legacy rather
+than receiving reconstructed historical provenance.

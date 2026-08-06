@@ -1,24 +1,16 @@
 from __future__ import annotations
 
 import csv
-import hashlib
 import json
 from collections import Counter
 from pathlib import Path
 from typing import Any
 
 from evidence.schema import SCHEMA_VERSION, validate_evidence_object
+from core.hashing import sha256_file
 
 
 INDEX_SCHEMA_VERSION = "1.0.0"
-
-
-def sha256_file(path: Path, chunk_size: int = 1024 * 1024) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as input_file:
-        for chunk in iter(lambda: input_file.read(chunk_size), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
 
 
 def _measurement_map(evidence: dict[str, Any]) -> dict[str, Any]:
@@ -154,6 +146,8 @@ def _top_hypothesis(evidence: list[dict[str, Any]]) -> dict[str, Any] | None:
 
 
 def summarize_evidence_document(document: dict[str, Any]) -> dict[str, Any]:
+    from provenance.run import validate_run_provenance
+
     if document.get("schema_version") != SCHEMA_VERSION:
         raise ValueError("unsupported evidence document schema version")
     evidence = document.get("evidence")
@@ -164,6 +158,13 @@ def summarize_evidence_document(document: dict[str, Any]) -> dict[str, Any]:
     for item in evidence:
         validate_evidence_object(item)
 
+    run_provenance = document.get("run_provenance")
+    if run_provenance is None:
+        provenance_status = "legacy_missing"
+    else:
+        validate_run_provenance(run_provenance)
+        provenance_status = "validated"
+
     type_counts = Counter(item["evidence_type"] for item in evidence)
     level_counts = Counter(item["evidence_level"] for item in evidence)
     return {
@@ -172,6 +173,8 @@ def summarize_evidence_document(document: dict[str, Any]) -> dict[str, Any]:
         "evidence_type_counts": dict(sorted(type_counts.items())),
         "evidence_level_counts": dict(sorted(level_counts.items())),
         "run_metadata": document.get("run_metadata", {}),
+        "run_provenance": run_provenance,
+        "provenance_status": provenance_status,
         "strongest_carrier_pair": _strongest_carrier_pair(evidence),
         "dominant_envelope": _dominant_envelope(evidence),
         "modulation_reconstruction": _modulation_reconstruction(evidence),
@@ -233,6 +236,8 @@ def build_corpus_index(
             "evidence_path": None,
             "evidence_summary": None,
             "index_error": None,
+            "provenance_status": "not_available",
+            "run_id": None,
         }
 
         if input_path and input_path.exists():
@@ -274,7 +279,22 @@ def build_corpus_index(
             record["evidence_path"] = _relative_path(evidence_path, project_root)
             try:
                 document = json.loads(evidence_path.read_text())
-                record["evidence_summary"] = summarize_evidence_document(document)
+                evidence_summary = summarize_evidence_document(document)
+                run_provenance = evidence_summary["run_provenance"]
+                if (
+                    run_provenance is not None
+                    and record["input_sha256"] is not None
+                    and run_provenance["input"]["sha256"]
+                    != record["input_sha256"]
+                ):
+                    raise ValueError("run provenance SHA-256 does not match input")
+                record["evidence_summary"] = evidence_summary
+                record["provenance_status"] = evidence_summary[
+                    "provenance_status"
+                ]
+                record["run_id"] = (
+                    run_provenance["run_id"] if run_provenance else None
+                )
                 record["duration_seconds"] = document.get("run_metadata", {}).get(
                     "duration_seconds",
                     record["duration_seconds"],
@@ -309,6 +329,9 @@ def build_corpus_index(
     category_counts = Counter(item["category"] for item in indexed_recordings)
     intent_counts = Counter(item["stated_intent"] for item in indexed_recordings)
     metadata_counts = Counter(item["metadata_status"] for item in indexed_recordings)
+    provenance_counts = Counter(
+        item["provenance_status"] for item in indexed_recordings
+    )
     evidence_total = sum(
         item["evidence_summary"]["evidence_count"]
         for item in indexed_recordings
@@ -327,6 +350,7 @@ def build_corpus_index(
         "category_counts": dict(sorted(category_counts.items())),
         "stated_intent_counts": dict(sorted(intent_counts.items())),
         "metadata_status_counts": dict(sorted(metadata_counts.items())),
+        "provenance_status_counts": dict(sorted(provenance_counts.items())),
         "duplicate_input_groups": duplicate_groups,
         "recordings": indexed_recordings,
     }
@@ -340,6 +364,8 @@ CSV_FIELDS = [
     "label_source",
     "metadata_status",
     "metadata_manifest_path",
+    "provenance_status",
+    "run_id",
     "batch_status",
     "index_status",
     "duration_seconds",
@@ -379,6 +405,8 @@ def _csv_row(record: dict[str, Any]) -> dict[str, Any]:
         "label_source": record.get("label_source"),
         "metadata_status": record.get("metadata_status"),
         "metadata_manifest_path": record.get("metadata_manifest_path"),
+        "provenance_status": record.get("provenance_status"),
+        "run_id": record.get("run_id"),
         "batch_status": record["batch_status"],
         "index_status": record["index_status"],
         "duration_seconds": record["duration_seconds"],

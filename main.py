@@ -4,6 +4,7 @@ from pathlib import Path
 from core.audio_loader import load_audio
 from core.metadata import describe_audio
 from analysis.spectrum import analyze_spectrum
+from analysis.config import ANALYSIS_CONFIGURATION
 from analysis.stereo import analyze_stereo
 from analysis.entrainment import classify_binaural_candidates
 from reports import protocol_summary
@@ -45,11 +46,21 @@ from evidence.adapters import (
     protocol_hypothesis_to_evidence,
 )
 from reports.evidence_export import export_evidence_json
+from provenance.run import build_run_provenance
 
 DEFAULT_AUDIO_PATH = "/Users/eric/Projects/media/ave_forensics/samples/brainfm/meditate/unguided/Altered_State_Unguided_Meditation_Session_4_1.2_Nrmlzd2 1_15mins_VBR5.mp3"
 
 
 def main(audio_path: str = DEFAULT_AUDIO_PATH, output_dir: str = "."):
+    project_root = Path(__file__).resolve().parent
+    input_path = Path(audio_path).resolve()
+    analysis_config = ANALYSIS_CONFIGURATION
+    run_provenance = build_run_provenance(
+        input_path=input_path,
+        project_root=project_root,
+        analysis_configuration=analysis_config,
+    )
+    audio_path = str(input_path)
     output_directory = Path(output_dir)
     output_directory.mkdir(parents=True, exist_ok=True)
 
@@ -58,7 +69,16 @@ def main(audio_path: str = DEFAULT_AUDIO_PATH, output_dir: str = "."):
 
     y, sr = load_audio(audio_path)
     metadata = describe_audio(y, sr)
-    spectrum = analyze_spectrum(y, sr)
+    spectrum_config = analysis_config["global_spectrum"]
+    spectrum = analyze_spectrum(
+        y,
+        sr,
+        top_n=spectrum_config["top_n"],
+        min_frequency=spectrum_config["min_frequency_hz"],
+        max_frequency=spectrum_config["max_frequency_hz"],
+        max_fft_seconds=spectrum_config["max_fft_seconds"],
+        max_segments=spectrum_config["max_segments"],
+    )
     stereo = analyze_stereo(y, sr)
 
     print("=== AVE FORENSICS LABORATORY ===")
@@ -84,7 +104,14 @@ def main(audio_path: str = DEFAULT_AUDIO_PATH, output_dir: str = "."):
 
     print("\nReport written to ave_report.md")
 
-    timeline = analyze_time_resolved(y, sr, window_seconds=10, hop_seconds=5)
+    timeline_config = analysis_config["timeline"]
+    timeline = analyze_time_resolved(
+        y,
+        sr,
+        window_seconds=timeline_config["window_seconds"],
+        hop_seconds=timeline_config["hop_seconds"],
+        peaks_per_channel=timeline_config["peaks_per_channel"],
+    )
 
     print("\nTime-resolved entrainment timeline:")
     printed = 0
@@ -121,29 +148,36 @@ def main(audio_path: str = DEFAULT_AUDIO_PATH, output_dir: str = "."):
 
     tracks = build_protocol_tracks(timeline)
 
+    carrier_tracking_config = analysis_config["carrier_tracking"]
     carrier_tracks = build_carrier_tracks(
         timeline,
-        max_frequency_jump_hz=1.0,
-        max_gap_windows=2,
-        min_track_windows=6,
+        max_frequency_jump_hz=carrier_tracking_config["max_frequency_jump_hz"],
+        max_gap_windows=carrier_tracking_config["max_gap_windows"],
+        min_track_windows=carrier_tracking_config["min_track_windows"],
     )
 
+    carrier_pairing_config = analysis_config["carrier_pairing"]
     carrier_pairs = associate_carrier_pairs(
         carrier_tracks,
-        min_overlap_ratio=0.75,
-        max_pair_difference_hz=40.0,
-        min_difference_hz=0.0,
-        min_duration_seconds=30.0,
-        min_amplitude_balance=0.25,
+        min_overlap_ratio=carrier_pairing_config["min_overlap_ratio"],
+        max_pair_difference_hz=carrier_pairing_config["max_pair_difference_hz"],
+        min_difference_hz=carrier_pairing_config["min_difference_hz"],
+        min_duration_seconds=carrier_pairing_config["min_duration_seconds"],
+        min_amplitude_balance=carrier_pairing_config["min_amplitude_balance"],
     )
 
     selected_carrier_pairs = select_best_carrier_pairs(carrier_pairs)
     evidence_provenance = {
-        "input_path": audio_path,
-        "analysis_parameters": {
-            "timeline_window_seconds": 10,
-            "timeline_hop_seconds": 5,
-        },
+        "run_id": run_provenance["run_id"],
+        "input_sha256": run_provenance["input"]["sha256"],
+        "recording_id": (
+            run_provenance["recording_manifest"]["recording_id"]
+            if run_provenance["recording_manifest"]
+            else None
+        ),
+        "analysis_configuration_version": analysis_config[
+            "configuration_schema_version"
+        ],
     }
     evidence_objects = [
         carrier_pair_to_evidence(pair, evidence_provenance)
@@ -164,7 +198,11 @@ def main(audio_path: str = DEFAULT_AUDIO_PATH, output_dir: str = "."):
             f"confidence {pair['confidence']:.4f}"
         )
 
-    envelope_carrier_pair = select_envelope_carrier_pair(selected_carrier_pairs)
+    envelope_config = analysis_config["envelope"]
+    envelope_carrier_pair = select_envelope_carrier_pair(
+        selected_carrier_pairs,
+        minimum_center_hz=envelope_config["minimum_carrier_center_hz"],
+    )
 
     if envelope_carrier_pair:
         strongest_pair = envelope_carrier_pair
@@ -181,44 +219,44 @@ def main(audio_path: str = DEFAULT_AUDIO_PATH, output_dir: str = "."):
             audio=left_audio,
             sample_rate=sr,
             center_frequency_hz=carrier_center_hz,
-            bandwidth_hz=8.0,
-            envelope_sample_rate=200,
-            min_modulation_hz=0.1,
-            max_modulation_hz=40.0,
+            bandwidth_hz=envelope_config["bandwidth_hz"],
+            envelope_sample_rate=envelope_config["sample_rate"],
+            min_modulation_hz=envelope_config["global_min_modulation_hz"],
+            max_modulation_hz=envelope_config["global_max_modulation_hz"],
         )
 
         right_envelope_result = analyze_carrier_envelope(
             audio=right_audio,
             sample_rate=sr,
             center_frequency_hz=carrier_center_hz,
-            bandwidth_hz=8.0,
-            envelope_sample_rate=200,
-            min_modulation_hz=0.1,
-            max_modulation_hz=40.0,
+            bandwidth_hz=envelope_config["bandwidth_hz"],
+            envelope_sample_rate=envelope_config["sample_rate"],
+            min_modulation_hz=envelope_config["global_min_modulation_hz"],
+            max_modulation_hz=envelope_config["global_max_modulation_hz"],
         )
 
         left_envelope_timeline = analyze_envelope_over_time(
             audio=left_audio,
             sample_rate=sr,
             center_frequency_hz=carrier_center_hz,
-            bandwidth_hz=8.0,
-            window_seconds=30.0,
-            hop_seconds=15.0,
-            envelope_sample_rate=200,
-            min_modulation_hz=0.1,
-            max_modulation_hz=10.0,
+            bandwidth_hz=envelope_config["bandwidth_hz"],
+            window_seconds=envelope_config["window_seconds"],
+            hop_seconds=envelope_config["hop_seconds"],
+            envelope_sample_rate=envelope_config["sample_rate"],
+            min_modulation_hz=envelope_config["timeline_min_modulation_hz"],
+            max_modulation_hz=envelope_config["timeline_max_modulation_hz"],
         )
 
         right_envelope_timeline = analyze_envelope_over_time(
             audio=right_audio,
             sample_rate=sr,
             center_frequency_hz=carrier_center_hz,
-            bandwidth_hz=8.0,
-            window_seconds=30.0,
-            hop_seconds=15.0,
-            envelope_sample_rate=200,
-            min_modulation_hz=0.1,
-            max_modulation_hz=10.0,
+            bandwidth_hz=envelope_config["bandwidth_hz"],
+            window_seconds=envelope_config["window_seconds"],
+            hop_seconds=envelope_config["hop_seconds"],
+            envelope_sample_rate=envelope_config["sample_rate"],
+            min_modulation_hz=envelope_config["timeline_min_modulation_hz"],
+            max_modulation_hz=envelope_config["timeline_max_modulation_hz"],
         )
 
         print_global_envelope_results(
@@ -247,9 +285,17 @@ def main(audio_path: str = DEFAULT_AUDIO_PATH, output_dir: str = "."):
             limit=20,
         )
 
+        modulation_config = analysis_config["modulation_spectrum"]
         modulation_result = analyze_modulation_spectrum(
             left_timeline=left_envelope_timeline,
             right_timeline=right_envelope_timeline,
+            max_frequency_jump_hz=modulation_config["max_frequency_jump_hz"],
+            max_stereo_difference_hz=modulation_config[
+                "max_stereo_difference_hz"
+            ],
+            min_track_windows=modulation_config["min_track_windows"],
+            min_relative_power=modulation_config["min_relative_power"],
+            min_modulation_depth=modulation_config["min_modulation_depth"],
         )
 
         print_modulation_spectrum_summary(modulation_result)
@@ -260,15 +306,17 @@ def main(audio_path: str = DEFAULT_AUDIO_PATH, output_dir: str = "."):
             )
         )
 
+        phase_config = analysis_config["phase"]
         phase_timeline = analyze_phase_over_time(
             left_audio=left_audio,
             right_audio=right_audio,
             sample_rate=sr,
             left_center_frequency_hz=strongest_pair["left_carrier_hz"],
             right_center_frequency_hz=strongest_pair["right_carrier_hz"],
-            bandwidth_hz=8.0,
-            window_seconds=30.0,
-            hop_seconds=15.0,
+            bandwidth_hz=phase_config["bandwidth_hz"],
+            window_seconds=phase_config["window_seconds"],
+            hop_seconds=phase_config["hop_seconds"],
+            trim_seconds=phase_config["trim_seconds"],
         )
 
         print_phase_timeline(phase_timeline, limit=20)
@@ -343,8 +391,15 @@ def main(audio_path: str = DEFAULT_AUDIO_PATH, output_dir: str = "."):
             f"score {t['score']}"
         )
 
-    raw_hypotheses = generate_protocol_hypotheses(tracks, min_score=0.005)
-    hypotheses = deduplicate_hypotheses(raw_hypotheses)       
+    hypothesis_config = analysis_config["hypothesis"]
+    raw_hypotheses = generate_protocol_hypotheses(
+        tracks,
+        min_score=hypothesis_config["minimum_score"],
+    )
+    hypotheses = deduplicate_hypotheses(
+        raw_hypotheses,
+        tolerance_hz=hypothesis_config["deduplication_tolerance_hz"],
+    )
     evidence_objects.extend(
         protocol_hypothesis_to_evidence(
             hypothesis,
@@ -374,10 +429,11 @@ def main(audio_path: str = DEFAULT_AUDIO_PATH, output_dir: str = "."):
         evidence_objects,
         output_path("ave_evidence.json"),
         run_metadata={
-            "input_path": audio_path,
+            "input_path": run_provenance["input"]["relative_path"],
             "sample_rate": sr,
             "duration_seconds": metadata["duration_seconds"],
         },
+        run_provenance=run_provenance,
     )
 
     print("\nProtocol tracks written to ave_protocol_tracks.csv")

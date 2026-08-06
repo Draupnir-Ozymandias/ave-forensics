@@ -8,8 +8,8 @@ from typing import Any
 
 import soundfile as sf
 
-from batch.corpus_runner import AUDIO_EXTENSIONS
-from corpus.index import sha256_file
+from core.hashing import sha256_file
+from core.media import AUDIO_EXTENSIONS
 
 
 MANIFEST_SCHEMA_VERSION = "1.0.0"
