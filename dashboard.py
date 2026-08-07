@@ -20,14 +20,26 @@ def main() -> None:
         type=Path,
         default=project_root / "artifacts" / "dashboard",
     )
+    parser.add_argument(
+        "--clusters",
+        type=Path,
+        default=project_root / "artifacts" / "clustering" / "protocol_families.json",
+        help="Optional protocol-family artifact; loaded when the file exists.",
+    )
     arguments = parser.parse_args()
     index = json.loads(arguments.corpus_index.read_text())
-    data = build_dashboard_data(index)
+    clustering = (
+        json.loads(arguments.clusters.read_text())
+        if arguments.clusters.exists()
+        else None
+    )
+    data = build_dashboard_data(index, clustering)
     output_path = write_dashboard(data, arguments.output_dir)
     overview = data["overview"]
     print(f"Recording aliases: {overview['recording_alias_count']}")
     print(f"Unique inputs:     {overview['unique_input_count']}")
     print(f"Unique analyzed:   {overview['unique_indexed_count']}")
+    print(f"Protocol families: {overview['protocol_family_count']}")
     print(f"Dashboard:         {output_path}")
 
 

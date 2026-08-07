@@ -98,19 +98,41 @@ Evidence Index reports provenance as `validated`, `legacy_missing`, or `invalid`
 Evidence created before this feature remains explicitly marked as legacy rather
 than receiving reconstructed historical provenance.
 
+## Discover Protocol Families
+
+After building the Corpus Evidence Index, discover recurring signal families:
+
+```bash
+.venv/bin/python protocol_clustering.py
+```
+
+The command writes a validated JSON family document and a flat assignment CSV to
+`artifacts/clustering/`. It uses robust-standardized carrier, envelope, shared
+modulation, phase, and hypothesis measurements. Provider, category, claimed-intent,
+notes, and transcript fields are explicitly excluded. Byte-identical inputs receive
+one canonical assignment, and model selection reports silhouette quality so weak
+boundaries remain visible. Hypothesis ranking strength is also excluded because its
+legacy and current score sources are not directly comparable.
+
+See `docs/CORPUS_CONTEXT_LAYERS.md` for the policy governing provider taxonomy,
+guided speech, transcripts, outcome claims, and future generator integration.
+
 ## Generate the Reference-Library Comparison Dashboard
 
 Build the Corpus Evidence Index, then generate the local dashboard:
 
 ```bash
 .venv/bin/python corpus_index.py
+.venv/bin/python protocol_clustering.py
 .venv/bin/python dashboard.py
 ```
 
 Open `artifacts/dashboard/index.html` in a browser. The self-contained dashboard
 requires no server or network connection. It provides corpus filters, carrier and
 modulation distributions, phase and hypothesis comparisons, recording drill-down,
-and filtered CSV/JSON exports.
+protocol-family profiles, and filtered CSV/JSON exports. When a current clustering
+artifact exists, the dashboard validates that it was produced from the exact same
+Corpus Evidence Index before displaying any assignment.
 
 Comparison statistics use one canonical recording per SHA-256 input by default so
 byte-identical aliases cannot bias the results. Uncheck **Unique inputs** to inspect

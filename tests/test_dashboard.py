@@ -67,6 +67,7 @@ def test_dashboard_deduplicates_comparisons_but_preserves_aliases():
         "unique_indexed_count": 1,
         "indexed_evidence_count": 10,
         "duplicate_group_count": 1,
+        "protocol_family_count": 0,
     }
     assert len(data["recordings"]) == 3
     assert len(data["comparison_recordings"]) == 2
@@ -103,3 +104,20 @@ def test_dashboard_html_is_self_contained_and_deterministic(tmp_path):
     )[1].split("</script>", 1)[0]
     parsed = json.loads(embedded.replace("<\\/", "</"))
     assert parsed["overview"]["unique_input_count"] == 1
+
+
+def test_dashboard_accepts_clustering_bound_to_the_same_index():
+    from clustering.protocol_families import build_protocol_families
+    from tests.test_protocol_clustering import synthetic_index
+
+    index = synthetic_index()
+    clustering = build_protocol_families(index)
+    data = build_dashboard_data(index, clustering)
+
+    assert data["clustering_status"] == "validated"
+    assert data["overview"]["protocol_family_count"] == 2
+    assert all(
+        record["protocol_family_id"]
+        for record in data["comparison_recordings"]
+        if record["index_status"] == "indexed"
+    )

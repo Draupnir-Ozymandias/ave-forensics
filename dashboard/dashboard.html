@@ -41,12 +41,12 @@
     .warnings { display: grid; gap: 8px; margin-bottom: 18px; }
     .warning { display: flex; gap: 12px; align-items: baseline; padding: 10px 13px; border: 1px solid #654d22; background: #211b0f; color: #e8cf99; }
     .warning strong { color: var(--amber); min-width: 2ch; }
-    .kpis { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 18px; }
+    .kpis { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-bottom: 18px; }
     .kpi { border: 1px solid var(--line); background: rgba(16,25,21,.88); padding: 16px; min-height: 100px; }
     .kpi .value { display: block; font: 500 30px/1 Georgia, serif; margin: 10px 0 8px; color: var(--green); }
     .kpi .label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
     .kpi .note { color: var(--dim); font-size: 10px; }
-    .controls { position: sticky; top: 0; z-index: 5; display: grid; grid-template-columns: 2fr repeat(6, 1fr) auto; gap: 9px; padding: 12px; border: 1px solid var(--line); background: rgba(8,16,12,.96); backdrop-filter: blur(12px); }
+    .controls { position: sticky; top: 0; z-index: 5; display: grid; grid-template-columns: 2fr repeat(7, 1fr) auto; gap: 9px; padding: 12px; border: 1px solid var(--line); background: rgba(8,16,12,.96); backdrop-filter: blur(12px); }
     input, select, button { border: 1px solid var(--line); background: var(--panel-2); color: var(--ink); padding: 9px 10px; min-width: 0; }
     input::placeholder { color: var(--dim); }
     button { cursor: pointer; }
@@ -77,6 +77,12 @@
     .metric-label { color: var(--muted); font-size: 10px; }
     .empty { color: var(--dim); padding: 24px 0; }
     .hypotheses { display: grid; grid-template-columns: 1fr 1.5fr; gap: 10px; }
+    .family-layout { display: grid; grid-template-columns: .8fr 2.2fr; gap: 10px; }
+    .family-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 9px; }
+    .family-card { border: 1px solid var(--line); padding: 13px; background: #111e18; }
+    .family-card h3 { color: var(--green); margin-bottom: 7px; }
+    .family-card p { color: var(--muted); margin: 0 0 10px; font-size: 11px; }
+    .family-stats { display: flex; flex-wrap: wrap; gap: 6px 12px; color: var(--dim); font-size: 10px; }
     table { width: 100%; border-collapse: collapse; }
     th { color: var(--dim); font-size: 10px; text-align: left; text-transform: uppercase; letter-spacing: .08em; padding: 9px 10px; border-bottom: 1px solid var(--line); }
     td { padding: 10px; border-bottom: 1px solid #1d3027; vertical-align: top; }
@@ -107,7 +113,7 @@
     @media (max-width: 1050px) {
       .kpis { grid-template-columns: repeat(3, 1fr); }
       .controls { grid-template-columns: 2fr 1fr 1fr; }
-      .charts, .hypotheses { grid-template-columns: 1fr; }
+      .charts, .hypotheses, .family-layout { grid-template-columns: 1fr; }
     }
     @media (max-width: 650px) {
       .shell { width: min(100% - 18px, 1540px); padding-top: 22px; }
@@ -116,6 +122,7 @@
       .controls { position: static; grid-template-columns: 1fr 1fr; }
       .controls input[type=search] { grid-column: 1 / -1; }
       .detail-grid { grid-template-columns: 1fr 1fr; }
+      .family-cards { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -141,7 +148,14 @@
       <select id="duration" aria-label="Filter by duration"><option value="">All durations</option><option value="short">Under 20 min</option><option value="medium">20–40 min</option><option value="long">40–60 min</option><option value="extended">Over 60 min</option></select>
       <select id="status" aria-label="Filter by index status"><option value="">All statuses</option></select>
       <select id="provenance" aria-label="Filter by provenance"><option value="">All provenance</option></select>
+      <select id="family" aria-label="Filter by protocol family"><option value="">All families</option></select>
       <label class="toggle"><input id="unique" type="checkbox" checked> Unique inputs</label>
+    </section>
+
+    <div class="section-head"><h2>Discovered protocol families</h2><span class="section-meta" id="cluster-quality"></span></div>
+    <section class="family-layout">
+      <article class="panel"><h3>Family membership</h3><div class="hint">Evidence-only assignments · duplicate inputs excluded</div><div id="family-chart"></div></article>
+      <article class="panel"><h3>Family signatures</h3><div class="hint">Median measurements and dominant observed behavior</div><div class="family-cards" id="family-cards"></div></article>
     </section>
 
     <div class="section-head"><h2>Observed signatures</h2><span class="section-meta" id="comparison-count"></span></div>
@@ -164,7 +178,7 @@
     </div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Recording</th><th>Library label</th><th>Status</th><th>Carrier Δ</th><th>Shared mod.</th><th>Phase</th><th>Top hypothesis</th><th>Score</th></tr></thead>
+        <thead><tr><th>Recording</th><th>Library label</th><th>Family</th><th>Status</th><th>Carrier Δ</th><th>Shared mod.</th><th>Phase</th><th>Top hypothesis</th><th>Score</th></tr></thead>
         <tbody id="recordings"></tbody>
       </table>
     </div>
@@ -180,12 +194,13 @@
   <script>
     const DATA = JSON.parse(document.getElementById('dashboard-data').textContent);
     const $ = id => document.getElementById(id);
-    const controls = ['search', 'source', 'category', 'intent', 'duration', 'status', 'provenance', 'unique'];
+    const controls = ['search', 'source', 'category', 'intent', 'duration', 'status', 'provenance', 'family', 'unique'];
     const safe = value => String(value ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
     const human = value => String(value ?? 'not available').replaceAll('_', ' ');
     const number = (value, digits = 3) => value == null ? '—' : Number(value).toLocaleString(undefined, {maximumFractionDigits: digits});
     const duration = seconds => seconds == null ? '—' : `${number(seconds / 60, 1)} min`;
     const percent = value => value == null ? '—' : `${number(value * 100, 1)}%`;
+    const familyName = value => value ? value.replace('ave_family_', 'Family ') : '—';
     const badge = value => `<span class="badge ${safe(value)}">${safe(human(value))}</span>`;
 
     function option(select, values) {
@@ -196,6 +211,7 @@
     option($('intent'), DATA.facets.stated_intents);
     option($('status'), DATA.facets.index_statuses);
     option($('provenance'), DATA.facets.provenance_statuses);
+    DATA.protocol_families.forEach(family => $('family').insertAdjacentHTML('beforeend', `<option value="${safe(family.family_id)}">${safe(family.family_id.replace('ave_family_', 'Family '))}</option>`));
 
     function filtered() {
       const records = $('unique').checked ? DATA.comparison_recordings : DATA.recordings;
@@ -209,7 +225,8 @@
           (!$('intent').value || r.stated_intent === $('intent').value) &&
           (!$('duration').value || durationBand(r.duration_seconds) === $('duration').value) &&
           (!$('status').value || r.index_status === $('status').value) &&
-          (!$('provenance').value || r.provenance_status === $('provenance').value);
+          (!$('provenance').value || r.provenance_status === $('provenance').value) &&
+          (!$('family').value || r.protocol_family_id === $('family').value);
       });
     }
 
@@ -258,10 +275,28 @@
         [records.length, 'Visible records', uniqueLabel],
         [analyzed.length, 'Analyzed', `${percent(analyzed.length / Math.max(records.length, 1))} coverage`],
         [evidence.toLocaleString(), 'Evidence objects', 'within visible records'],
+        [new Set(records.map(r => r.protocol_family_id).filter(Boolean)).size, 'Protocol families', 'evidence-led groups in view'],
         [new Set(records.map(r => r.stated_intent)).size, 'Claimed intents', 'library metadata labels'],
         [legacy, 'Legacy lineage', legacy ? 'rerun required for provenance' : 'all available runs validated'],
       ];
       $('kpis').innerHTML = items.map(([value,label,note]) => `<article class="kpi"><span class="label">${safe(label)}</span><span class="value">${value}</span><span class="note">${safe(note)}</span></article>`).join('');
+    }
+
+    function renderFamilies(records) {
+      const visibleIds = new Set(records.map(r => r.protocol_family_id).filter(Boolean));
+      const families = DATA.protocol_families.filter(family => visibleIds.has(family.family_id));
+      const visibleCounts = countBy(records.filter(r => r.protocol_family_id), 'protocol_family_id');
+      $('family-chart').innerHTML = bars(countBy(records.filter(r => r.protocol_family_id), 'protocol_family_id'));
+      if (!families.length) {
+        $('family-cards').innerHTML = '<div class="empty">No protocol-family assignments match these filters.</div>';
+        return;
+      }
+      $('family-cards').innerHTML = families.map(family => {
+        const numeric = family.numeric_medians;
+        const visible = visibleCounts[family.family_id] || 0;
+        const membership = visible === family.member_count ? `n=${family.member_count}` : `${visible} visible / ${family.member_count}`;
+        return `<article class="family-card"><h3>${safe(familyName(family.family_id))} · ${membership}</h3><p>${safe(family.descriptor)}</p><div class="family-stats"><span>carrier Δ ${number(numeric.carrier_difference_hz)} Hz</span><span>envelope ${number(numeric.envelope_modulation_hz)} Hz</span><span>shared ${number(numeric.shared_modulation_hz)} Hz</span><span>silhouette ${number(family.mean_silhouette_score, 3)}</span></div></article>`;
+      }).join('');
     }
 
     function renderHypotheses(records) {
@@ -271,7 +306,7 @@
     }
 
     function renderTable(records) {
-      $('recordings').innerHTML = records.map(r => `<tr tabindex="0" data-path="${safe(r.relative_path)}"><td><div class="path" title="${safe(r.relative_path)}">${safe(r.filename)}</div></td><td>${safe(human(r.category))} / ${safe(human(r.stated_intent))}</td><td>${badge(r.index_status)} ${badge(r.provenance_status)}</td><td class="number">${number(r.carrier_difference_hz)} Hz</td><td class="number">${number(r.shared_modulation_hz)} Hz</td><td>${safe(human(r.phase_behavior))}</td><td>${safe(human(r.hypothesis_band))}</td><td class="number">${number(r.hypothesis_ranking_score, 4)}</td></tr>`).join('') || '<tr><td colspan="8" class="empty">No recordings match these filters.</td></tr>';
+      $('recordings').innerHTML = records.map(r => `<tr tabindex="0" data-path="${safe(r.relative_path)}"><td><div class="path" title="${safe(r.relative_path)}">${safe(r.filename)}</div></td><td>${safe(human(r.category))} / ${safe(human(r.stated_intent))}</td><td>${safe(familyName(r.protocol_family_id))}</td><td>${badge(r.index_status)} ${badge(r.provenance_status)}</td><td class="number">${number(r.carrier_difference_hz)} Hz</td><td class="number">${number(r.shared_modulation_hz)} Hz</td><td>${safe(human(r.phase_behavior))}</td><td>${safe(human(r.hypothesis_band))}</td><td class="number">${number(r.hypothesis_ranking_score, 4)}</td></tr>`).join('') || '<tr><td colspan="9" class="empty">No recordings match these filters.</td></tr>';
     }
 
     function detail(record) {
@@ -279,6 +314,7 @@
       const values = [
         ['Corpus path', record.relative_path], ['Duration', duration(record.duration_seconds)], ['Input size', record.input_size_bytes == null ? '—' : `${number(record.input_size_bytes / 1048576, 2)} MiB`],
         ['SHA-256', record.input_sha256], ['Run ID', record.run_id], ['Evidence objects', record.evidence_count],
+        ['Protocol family', familyName(record.protocol_family_id)], ['Family silhouette', number(record.protocol_family_silhouette, 4)], ['Family signature', record.protocol_family_descriptor],
         ['Carrier pair', record.carrier_pair_type], ['Left / right', `${number(record.carrier_left_hz)} / ${number(record.carrier_right_hz)} Hz`], ['Carrier difference', `${number(record.carrier_difference_hz)} Hz`],
         ['Envelope modulation', `${number(record.envelope_modulation_hz)} Hz`], ['Shared modulation', `${number(record.shared_modulation_hz)} Hz`], ['Shared coverage', percent(record.shared_window_coverage)],
         ['Phase behavior', human(record.phase_behavior)], ['Phase coverage', percent(record.phase_window_coverage)], ['Phase-derived difference', `${number(record.phase_median_difference_hz)} Hz`],
@@ -308,7 +344,7 @@
       if (kind === 'json') {
         body = JSON.stringify({dashboard_schema_version: DATA.dashboard_schema_version, filtered_recordings: records}, null, 2); type = 'application/json'; extension = 'json';
       } else {
-        const fields = ['relative_path','category','stated_intent','index_status','provenance_status','duration_seconds','input_sha256','carrier_difference_hz','envelope_modulation_hz','shared_modulation_hz','phase_behavior','hypothesis_band','hypothesis_ranking_score'];
+        const fields = ['relative_path','category','stated_intent','protocol_family_id','protocol_family_silhouette','index_status','provenance_status','duration_seconds','input_sha256','carrier_difference_hz','envelope_modulation_hz','shared_modulation_hz','phase_behavior','hypothesis_band','hypothesis_ranking_score'];
         const cell = v => `"${String(v ?? '').replaceAll('"','""')}"`;
         body = [fields.join(','), ...records.map(r => fields.map(f => cell(r[f])).join(','))].join('\n'); type = 'text/csv'; extension = 'csv';
       }
@@ -327,12 +363,14 @@
       $('phase-chart').innerHTML = bars(countBy(records.filter(r => r.phase_behavior), 'phase_behavior'));
       $('band-chart').innerHTML = bars(countBy(records.filter(r => r.hypothesis_band), 'hypothesis_band'));
       $('intent-chart').innerHTML = bars(countBy(records, 'stated_intent'));
+      renderFamilies(records);
       renderHypotheses(records);
       renderTable(records);
     }
     controls.forEach(id => $(id).addEventListener(id === 'search' ? 'input' : 'change', render));
     $('warnings').innerHTML = DATA.warnings.map(w => `<div class="warning"><strong>${w.count}</strong><span>${safe(w.message)}</span></div>`).join('');
     $('index-stamp').innerHTML = `INDEX ${safe(DATA.source_index_schema_version)}<br>SHA-256 ${safe(DATA.source_index_sha256.slice(0,16))}…`;
+    $('cluster-quality').textContent = DATA.clustering_method ? `${DATA.clustering_method.selected_family_count} families · silhouette ${number(DATA.clustering_method.overall_silhouette_score, 3)} · exploratory unsupervised result` : 'No current clustering artifact';
     $('footer').textContent = `Dashboard schema ${DATA.dashboard_schema_version} · Source index SHA-256 ${DATA.source_index_sha256} · Generated locally with no network dependencies.`;
     render();
   </script>
