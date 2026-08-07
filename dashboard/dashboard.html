@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AVE Reference-Library Comparison</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #eef4ef;
+      --muted: #95a89e;
+      --dim: #60736a;
+      --panel: #101915;
+      --panel-2: #15221c;
+      --line: #294035;
+      --green: #9ee493;
+      --cyan: #65d6ce;
+      --amber: #efc36c;
+      --red: #ff8b7b;
+      --bg: #08100c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 85% -10%, rgba(71, 141, 113, .2), transparent 34rem),
+        linear-gradient(180deg, #0b1510 0, var(--bg) 28rem);
+      color: var(--ink);
+      font: 14px/1.45 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    button, input, select { font: inherit; }
+    button:focus-visible, input:focus-visible, select:focus-visible, tr:focus-visible {
+      outline: 2px solid var(--cyan); outline-offset: 2px;
+    }
+    .shell { width: min(1540px, calc(100% - 32px)); margin: 0 auto; padding: 36px 0 64px; }
+    header { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 28px; }
+    .eyebrow { color: var(--green); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
+    h1 { margin: 8px 0 6px; font: 500 clamp(26px, 4vw, 44px)/1.05 Georgia, serif; letter-spacing: -.025em; }
+    .subtitle { color: var(--muted); margin: 0; max-width: 760px; }
+    .index-stamp { color: var(--dim); text-align: right; font-size: 11px; white-space: nowrap; }
+    .warnings { display: grid; gap: 8px; margin-bottom: 18px; }
+    .warning { display: flex; gap: 12px; align-items: baseline; padding: 10px 13px; border: 1px solid #654d22; background: #211b0f; color: #e8cf99; }
+    .warning strong { color: var(--amber); min-width: 2ch; }
+    .kpis { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 18px; }
+    .kpi { border: 1px solid var(--line); background: rgba(16,25,21,.88); padding: 16px; min-height: 100px; }
+    .kpi .value { display: block; font: 500 30px/1 Georgia, serif; margin: 10px 0 8px; color: var(--green); }
+    .kpi .label { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
+    .kpi .note { color: var(--dim); font-size: 10px; }
+    .controls { position: sticky; top: 0; z-index: 5; display: grid; grid-template-columns: 2fr repeat(6, 1fr) auto; gap: 9px; padding: 12px; border: 1px solid var(--line); background: rgba(8,16,12,.96); backdrop-filter: blur(12px); }
+    input, select, button { border: 1px solid var(--line); background: var(--panel-2); color: var(--ink); padding: 9px 10px; min-width: 0; }
+    input::placeholder { color: var(--dim); }
+    button { cursor: pointer; }
+    button:hover { border-color: var(--green); color: var(--green); }
+    .toggle { display: flex; align-items: center; gap: 8px; padding: 0 10px; color: var(--muted); white-space: nowrap; }
+    .toggle input { accent-color: var(--green); }
+    .section-head { display: flex; justify-content: space-between; align-items: baseline; margin: 30px 0 12px; }
+    h2 { font: 500 19px/1.2 Georgia, serif; margin: 0; }
+    .section-meta { color: var(--muted); font-size: 11px; }
+    .charts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .panel { border: 1px solid var(--line); background: var(--panel); padding: 16px; min-width: 0; }
+    .panel h3 { margin: 0 0 3px; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+    .panel .hint { color: var(--dim); font-size: 10px; margin-bottom: 16px; }
+    .bars { display: grid; gap: 8px; }
+    .bar-row { display: grid; grid-template-columns: minmax(100px, 1.25fr) 3fr 44px; align-items: center; gap: 9px; font-size: 11px; }
+    .bar-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--muted); }
+    .bar-track { height: 9px; background: #1b2a23; overflow: hidden; }
+    .bar-fill { height: 100%; min-width: 2px; background: linear-gradient(90deg, var(--green), var(--cyan)); }
+    .bar-value { text-align: right; color: var(--ink); }
+    .dual-legend { display: flex; gap: 15px; color: var(--muted); font-size: 10px; margin: -7px 0 14px; }
+    .swatch { display: inline-block; width: 8px; height: 8px; margin-right: 5px; }
+    .swatch.envelope { background: var(--green); } .swatch.shared { background: var(--cyan); }
+    .metric-row { display: grid; grid-template-columns: 82px 1fr 1fr; gap: 7px; align-items: center; margin-bottom: 8px; }
+    .metric-row .mini { height: 7px; background: #1b2a23; }
+    .metric-row .mini > span { display: block; height: 100%; }
+    .metric-row .mini:first-of-type > span { background: var(--green); }
+    .metric-row .mini:last-of-type > span { background: var(--cyan); }
+    .metric-label { color: var(--muted); font-size: 10px; }
+    .empty { color: var(--dim); padding: 24px 0; }
+    .hypotheses { display: grid; grid-template-columns: 1fr 1.5fr; gap: 10px; }
+    table { width: 100%; border-collapse: collapse; }
+    th { color: var(--dim); font-size: 10px; text-align: left; text-transform: uppercase; letter-spacing: .08em; padding: 9px 10px; border-bottom: 1px solid var(--line); }
+    td { padding: 10px; border-bottom: 1px solid #1d3027; vertical-align: top; }
+    tbody tr { cursor: pointer; }
+    tbody tr:hover { background: #14241c; }
+    .path { max-width: 430px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+    .number { font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .badge { display: inline-block; border: 1px solid var(--line); padding: 2px 6px; color: var(--muted); font-size: 10px; white-space: nowrap; }
+    .badge.indexed, .badge.validated { border-color: #315e46; color: var(--green); }
+    .badge.deferred, .badge.legacy_missing { border-color: #705827; color: var(--amber); }
+    .badge.invalid_evidence { border-color: #784137; color: var(--red); }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); background: var(--panel); }
+    .table-actions { display: flex; gap: 8px; }
+    .table-actions button { padding: 6px 9px; font-size: 11px; }
+    dialog { width: min(820px, calc(100% - 24px)); max-height: 90vh; overflow: auto; color: var(--ink); border: 1px solid var(--green); background: #0d1712; padding: 0; box-shadow: 0 30px 100px #000; }
+    dialog::backdrop { background: rgba(0, 0, 0, .74); }
+    .dialog-head { position: sticky; top: 0; display: flex; justify-content: space-between; gap: 15px; padding: 16px 20px; border-bottom: 1px solid var(--line); background: #0d1712; }
+    .dialog-head h2 { overflow-wrap: anywhere; }
+    .dialog-body { padding: 20px; }
+    .detail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
+    .detail { border: 1px solid var(--line); padding: 10px; min-height: 74px; }
+    .detail dt { color: var(--dim); font-size: 9px; text-transform: uppercase; letter-spacing: .08em; }
+    .detail dd { margin: 7px 0 0; overflow-wrap: anywhere; }
+    .detail-section { margin-top: 20px; }
+    .detail-links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+    a { color: var(--cyan); }
+    footer { color: var(--dim); font-size: 10px; margin-top: 30px; }
+    @media (max-width: 1050px) {
+      .kpis { grid-template-columns: repeat(3, 1fr); }
+      .controls { grid-template-columns: 2fr 1fr 1fr; }
+      .charts, .hypotheses { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 650px) {
+      .shell { width: min(100% - 18px, 1540px); padding-top: 22px; }
+      header { display: block; } .index-stamp { text-align: left; margin-top: 12px; }
+      .kpis { grid-template-columns: repeat(2, 1fr); }
+      .controls { position: static; grid-template-columns: 1fr 1fr; }
+      .controls input[type=search] { grid-column: 1 / -1; }
+      .detail-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div>
+        <div class="eyebrow">AVE Forensics Laboratory / Corpus Evidence Index</div>
+        <h1>Reference-Library Comparison</h1>
+        <p class="subtitle">Explore observed signal relationships across the corpus. Measurements describe evidence; they do not establish physiological effect or vendor intent.</p>
+      </div>
+      <div class="index-stamp" id="index-stamp"></div>
+    </header>
+
+    <section class="warnings" id="warnings" aria-label="Corpus warnings"></section>
+    <section class="kpis" id="kpis" aria-label="Filtered corpus overview"></section>
+
+    <section class="controls" aria-label="Comparison filters">
+      <input id="search" type="search" placeholder="Search recording, hypothesis, SHA-256…" aria-label="Search recordings">
+      <select id="source" aria-label="Filter by source"><option value="">All sources</option></select>
+      <select id="category" aria-label="Filter by category"><option value="">All categories</option></select>
+      <select id="intent" aria-label="Filter by stated intent"><option value="">All intents</option></select>
+      <select id="duration" aria-label="Filter by duration"><option value="">All durations</option><option value="short">Under 20 min</option><option value="medium">20–40 min</option><option value="long">40–60 min</option><option value="extended">Over 60 min</option></select>
+      <select id="status" aria-label="Filter by index status"><option value="">All statuses</option></select>
+      <select id="provenance" aria-label="Filter by provenance"><option value="">All provenance</option></select>
+      <label class="toggle"><input id="unique" type="checkbox" checked> Unique inputs</label>
+    </section>
+
+    <div class="section-head"><h2>Observed signatures</h2><span class="section-meta" id="comparison-count"></span></div>
+    <section class="charts">
+      <article class="panel"><h3>Inter-channel carrier difference</h3><div class="hint">Strongest persistent pair · Hz distribution</div><div id="carrier-chart"></div></article>
+      <article class="panel"><h3>Modulation spectrum</h3><div class="hint">Dominant envelope versus shared reconstructed modulation · Hz</div><div id="modulation-chart"></div></article>
+      <article class="panel"><h3>Phase relationship</h3><div class="hint">Dominant time-resolved phase behavior</div><div id="phase-chart"></div></article>
+      <article class="panel"><h3>Hypothesis bands</h3><div class="hint">Top-ranked protocol hypothesis per recording</div><div id="band-chart"></div></article>
+    </section>
+
+    <div class="section-head"><h2>Top hypotheses</h2><span class="section-meta">Ranking score is unrestricted; confidence is separately bounded when available.</span></div>
+    <section class="hypotheses">
+      <article class="panel"><h3>Claimed-intent coverage</h3><div class="hint">Filtered recording count by library label</div><div id="intent-chart"></div></article>
+      <article class="panel"><h3>Highest ranking measurements</h3><div class="hint">Exploratory ordering, not a probability</div><div id="hypothesis-list"></div></article>
+    </section>
+
+    <div class="section-head">
+      <h2>Recording evidence</h2>
+      <div class="table-actions"><button id="export-json">Export filtered JSON</button><button id="export-csv">Export filtered CSV</button></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Recording</th><th>Library label</th><th>Status</th><th>Carrier Δ</th><th>Shared mod.</th><th>Phase</th><th>Top hypothesis</th><th>Score</th></tr></thead>
+        <tbody id="recordings"></tbody>
+      </table>
+    </div>
+    <footer id="footer"></footer>
+  </main>
+
+  <dialog id="detail-dialog">
+    <div class="dialog-head"><h2 id="detail-title"></h2><button id="detail-close" aria-label="Close details">Close</button></div>
+    <div class="dialog-body" id="detail-body"></div>
+  </dialog>
+
+  <script id="dashboard-data" type="application/json">__AVE_DASHBOARD_DATA__</script>
+  <script>
+    const DATA = JSON.parse(document.getElementById('dashboard-data').textContent);
+    const $ = id => document.getElementById(id);
+    const controls = ['search', 'source', 'category', 'intent', 'duration', 'status', 'provenance', 'unique'];
+    const safe = value => String(value ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+    const human = value => String(value ?? 'not available').replaceAll('_', ' ');
+    const number = (value, digits = 3) => value == null ? '—' : Number(value).toLocaleString(undefined, {maximumFractionDigits: digits});
+    const duration = seconds => seconds == null ? '—' : `${number(seconds / 60, 1)} min`;
+    const percent = value => value == null ? '—' : `${number(value * 100, 1)}%`;
+    const badge = value => `<span class="badge ${safe(value)}">${safe(human(value))}</span>`;
+
+    function option(select, values) {
+      values.forEach(value => select.insertAdjacentHTML('beforeend', `<option value="${safe(value)}">${safe(human(value))}</option>`));
+    }
+    option($('source'), DATA.facets.sources);
+    option($('category'), DATA.facets.categories);
+    option($('intent'), DATA.facets.stated_intents);
+    option($('status'), DATA.facets.index_statuses);
+    option($('provenance'), DATA.facets.provenance_statuses);
+
+    function filtered() {
+      const records = $('unique').checked ? DATA.comparison_recordings : DATA.recordings;
+      const query = $('search').value.trim().toLowerCase();
+      const durationBand = seconds => seconds == null ? 'unknown' : seconds < 1200 ? 'short' : seconds <= 2400 ? 'medium' : seconds <= 3600 ? 'long' : 'extended';
+      return records.filter(r => {
+        const haystack = [r.relative_path, ...(r.all_aliases || []), r.hypothesis_intent, r.input_sha256, r.phase_behavior, r.modulation_classification].join(' ').toLowerCase();
+        return (!query || haystack.includes(query)) &&
+          (!$('source').value || r.source === $('source').value) &&
+          (!$('category').value || r.category === $('category').value) &&
+          (!$('intent').value || r.stated_intent === $('intent').value) &&
+          (!$('duration').value || durationBand(r.duration_seconds) === $('duration').value) &&
+          (!$('status').value || r.index_status === $('status').value) &&
+          (!$('provenance').value || r.provenance_status === $('provenance').value);
+      });
+    }
+
+    function countBy(records, field) {
+      return records.reduce((counts, record) => {
+        const key = record[field] ?? 'not_available';
+        counts[key] = (counts[key] || 0) + 1;
+        return counts;
+      }, {});
+    }
+
+    function bars(counts, limit = 20) {
+      const rows = Object.entries(counts).sort((a,b) => b[1]-a[1] || a[0].localeCompare(b[0])).slice(0, limit);
+      if (!rows.length) return '<div class="empty">No measurements match these filters.</div>';
+      const max = Math.max(...rows.map(row => row[1]));
+      return `<div class="bars">${rows.map(([label, value]) => `<div class="bar-row"><div class="bar-label" title="${safe(human(label))}">${safe(human(label))}</div><div class="bar-track"><div class="bar-fill" style="width:${100*value/max}%"></div></div><div class="bar-value">${value}</div></div>`).join('')}</div>`;
+    }
+
+    function histogram(records, field, bins = 8) {
+      const values = records.map(r => r[field]).filter(v => Number.isFinite(v));
+      if (!values.length) return '<div class="empty">No measurements match these filters.</div>';
+      const min = Math.min(...values), max = Math.max(...values);
+      if (min === max) return bars({[`${number(min)} Hz`]: values.length});
+      const width = (max - min) / bins;
+      const counts = Array(bins).fill(0);
+      values.forEach(v => counts[Math.min(bins - 1, Math.floor((v - min) / width))]++);
+      const labeled = {};
+      counts.forEach((count, i) => labeled[`${number(min + i*width, 2)}–${number(min + (i+1)*width, 2)}`] = count);
+      return bars(labeled);
+    }
+
+    function modulation(records) {
+      const values = records.flatMap(r => [r.envelope_modulation_hz, r.shared_modulation_hz]).filter(Number.isFinite);
+      if (!values.length) return '<div class="empty">No measurements match these filters.</div>';
+      const max = Math.max(...values, 1);
+      const rows = records.filter(r => Number.isFinite(r.envelope_modulation_hz) || Number.isFinite(r.shared_modulation_hz)).sort((a,b) => (b.shared_modulation_hz || 0) - (a.shared_modulation_hz || 0)).slice(0, 12);
+      return `<div class="dual-legend"><span><i class="swatch envelope"></i>Envelope</span><span><i class="swatch shared"></i>Shared reconstruction</span></div>${rows.map(r => `<div class="metric-row" title="${safe(r.filename)}"><span class="metric-label">${safe(r.stated_intent)}</span><div class="mini"><span style="width:${100*(r.envelope_modulation_hz || 0)/max}%"></span></div><div class="mini"><span style="width:${100*(r.shared_modulation_hz || 0)/max}%"></span></div></div>`).join('')}`;
+    }
+
+    function renderKpis(records) {
+      const analyzed = records.filter(r => r.index_status === 'indexed');
+      const evidence = analyzed.reduce((sum, r) => sum + (r.evidence_count || 0), 0);
+      const legacy = records.filter(r => r.provenance_status === 'legacy_missing').length;
+      const uniqueLabel = $('unique').checked ? 'unique SHA-256 inputs' : 'recording aliases';
+      const items = [
+        [records.length, 'Visible records', uniqueLabel],
+        [analyzed.length, 'Analyzed', `${percent(analyzed.length / Math.max(records.length, 1))} coverage`],
+        [evidence.toLocaleString(), 'Evidence objects', 'within visible records'],
+        [new Set(records.map(r => r.stated_intent)).size, 'Claimed intents', 'library metadata labels'],
+        [legacy, 'Legacy lineage', legacy ? 'rerun required for provenance' : 'all available runs validated'],
+      ];
+      $('kpis').innerHTML = items.map(([value,label,note]) => `<article class="kpi"><span class="label">${safe(label)}</span><span class="value">${value}</span><span class="note">${safe(note)}</span></article>`).join('');
+    }
+
+    function renderHypotheses(records) {
+      const ranked = records.filter(r => Number.isFinite(r.hypothesis_ranking_score)).sort((a,b) => b.hypothesis_ranking_score - a.hypothesis_ranking_score).slice(0, 8);
+      if (!ranked.length) { $('hypothesis-list').innerHTML = '<div class="empty">No hypotheses match these filters.</div>'; return; }
+      $('hypothesis-list').innerHTML = `<table><thead><tr><th>Recording</th><th>Band</th><th>Score</th></tr></thead><tbody>${ranked.map(r => `<tr tabindex="0" data-path="${safe(r.relative_path)}"><td class="path" title="${safe(r.relative_path)}">${safe(r.filename)}</td><td>${safe(human(r.hypothesis_band))}</td><td class="number">${number(r.hypothesis_ranking_score, 4)}</td></tr>`).join('')}</tbody></table>`;
+    }
+
+    function renderTable(records) {
+      $('recordings').innerHTML = records.map(r => `<tr tabindex="0" data-path="${safe(r.relative_path)}"><td><div class="path" title="${safe(r.relative_path)}">${safe(r.filename)}</div></td><td>${safe(human(r.category))} / ${safe(human(r.stated_intent))}</td><td>${badge(r.index_status)} ${badge(r.provenance_status)}</td><td class="number">${number(r.carrier_difference_hz)} Hz</td><td class="number">${number(r.shared_modulation_hz)} Hz</td><td>${safe(human(r.phase_behavior))}</td><td>${safe(human(r.hypothesis_band))}</td><td class="number">${number(r.hypothesis_ranking_score, 4)}</td></tr>`).join('') || '<tr><td colspan="8" class="empty">No recordings match these filters.</td></tr>';
+    }
+
+    function detail(record) {
+      $('detail-title').textContent = record.filename;
+      const values = [
+        ['Corpus path', record.relative_path], ['Duration', duration(record.duration_seconds)], ['Input size', record.input_size_bytes == null ? '—' : `${number(record.input_size_bytes / 1048576, 2)} MiB`],
+        ['SHA-256', record.input_sha256], ['Run ID', record.run_id], ['Evidence objects', record.evidence_count],
+        ['Carrier pair', record.carrier_pair_type], ['Left / right', `${number(record.carrier_left_hz)} / ${number(record.carrier_right_hz)} Hz`], ['Carrier difference', `${number(record.carrier_difference_hz)} Hz`],
+        ['Envelope modulation', `${number(record.envelope_modulation_hz)} Hz`], ['Shared modulation', `${number(record.shared_modulation_hz)} Hz`], ['Shared coverage', percent(record.shared_window_coverage)],
+        ['Phase behavior', human(record.phase_behavior)], ['Phase coverage', percent(record.phase_window_coverage)], ['Phase-derived difference', `${number(record.phase_median_difference_hz)} Hz`],
+        ['Top hypothesis', record.hypothesis_intent], ['Brainwave band', human(record.hypothesis_band)], ['Ranking score', number(record.hypothesis_ranking_score, 4)],
+      ];
+      const aliases = record.all_aliases || [record.relative_path, ...record.duplicate_aliases];
+      const link = path => path ? `<a href="../../${safe(path)}" target="_blank">${safe(path.split('/').pop())}</a>` : '';
+      $('detail-body').innerHTML = `<dl class="detail-grid">${values.map(([term,value]) => `<div class="detail"><dt>${safe(term)}</dt><dd>${safe(value ?? '—')}</dd></div>`).join('')}</dl>${aliases.length > 1 ? `<div class="detail-section"><h3>Byte-identical aliases</h3>${aliases.map(item => `<div>${safe(item)}</div>`).join('')}</div>` : ''}<div class="detail-links">${link(record.evidence_path)} ${link(record.metadata_manifest_path)}</div>`;
+      $('detail-dialog').showModal();
+    }
+
+    function activeRecord(path) {
+      return [...DATA.comparison_recordings, ...DATA.recordings].find(r => r.relative_path === path);
+    }
+    document.addEventListener('click', event => {
+      const row = event.target.closest('tr[data-path]');
+      if (row) detail(activeRecord(row.dataset.path));
+    });
+    document.addEventListener('keydown', event => {
+      if ((event.key === 'Enter' || event.key === ' ') && event.target.matches('tr[data-path]')) { event.preventDefault(); detail(activeRecord(event.target.dataset.path)); }
+    });
+    $('detail-close').addEventListener('click', () => $('detail-dialog').close());
+
+    function exportData(kind) {
+      const records = filtered();
+      let body, type, extension;
+      if (kind === 'json') {
+        body = JSON.stringify({dashboard_schema_version: DATA.dashboard_schema_version, filtered_recordings: records}, null, 2); type = 'application/json'; extension = 'json';
+      } else {
+        const fields = ['relative_path','category','stated_intent','index_status','provenance_status','duration_seconds','input_sha256','carrier_difference_hz','envelope_modulation_hz','shared_modulation_hz','phase_behavior','hypothesis_band','hypothesis_ranking_score'];
+        const cell = v => `"${String(v ?? '').replaceAll('"','""')}"`;
+        body = [fields.join(','), ...records.map(r => fields.map(f => cell(r[f])).join(','))].join('\n'); type = 'text/csv'; extension = 'csv';
+      }
+      const url = URL.createObjectURL(new Blob([body], {type}));
+      const anchor = document.createElement('a'); anchor.href = url; anchor.download = `ave-comparison-filtered.${extension}`; anchor.click(); URL.revokeObjectURL(url);
+    }
+    $('export-json').addEventListener('click', () => exportData('json'));
+    $('export-csv').addEventListener('click', () => exportData('csv'));
+
+    function render() {
+      const records = filtered();
+      renderKpis(records);
+      $('comparison-count').textContent = `${records.length} ${$('unique').checked ? 'unique inputs' : 'recording aliases'} in view`;
+      $('carrier-chart').innerHTML = histogram(records, 'carrier_difference_hz');
+      $('modulation-chart').innerHTML = modulation(records);
+      $('phase-chart').innerHTML = bars(countBy(records.filter(r => r.phase_behavior), 'phase_behavior'));
+      $('band-chart').innerHTML = bars(countBy(records.filter(r => r.hypothesis_band), 'hypothesis_band'));
+      $('intent-chart').innerHTML = bars(countBy(records, 'stated_intent'));
+      renderHypotheses(records);
+      renderTable(records);
+    }
+    controls.forEach(id => $(id).addEventListener(id === 'search' ? 'input' : 'change', render));
+    $('warnings').innerHTML = DATA.warnings.map(w => `<div class="warning"><strong>${w.count}</strong><span>${safe(w.message)}</span></div>`).join('');
+    $('index-stamp').innerHTML = `INDEX ${safe(DATA.source_index_schema_version)}<br>SHA-256 ${safe(DATA.source_index_sha256.slice(0,16))}…`;
+    $('footer').textContent = `Dashboard schema ${DATA.dashboard_schema_version} · Source index SHA-256 ${DATA.source_index_sha256} · Generated locally with no network dependencies.`;
+    render();
+  </script>
+</body>
+</html>

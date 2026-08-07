@@ -97,3 +97,23 @@ manifest, source, dependency, Git state, or analysis parameter changes. The Corp
 Evidence Index reports provenance as `validated`, `legacy_missing`, or `invalid`.
 Evidence created before this feature remains explicitly marked as legacy rather
 than receiving reconstructed historical provenance.
+
+## Generate the Reference-Library Comparison Dashboard
+
+Build the Corpus Evidence Index, then generate the local dashboard:
+
+```bash
+.venv/bin/python corpus_index.py
+.venv/bin/python dashboard.py
+```
+
+Open `artifacts/dashboard/index.html` in a browser. The self-contained dashboard
+requires no server or network connection. It provides corpus filters, carrier and
+modulation distributions, phase and hypothesis comparisons, recording drill-down,
+and filtered CSV/JSON exports.
+
+Comparison statistics use one canonical recording per SHA-256 input by default so
+byte-identical aliases cannot bias the results. Uncheck **Unique inputs** to inspect
+every corpus path. Deferred, invalid, duplicate, and legacy-provenance conditions
+remain visible as forensic warnings. Dashboard results describe measured signal
+relationships; they do not establish physiological effect or vendor intent.
