@@ -1,0 +1,40 @@
+{
+  "curation": {
+    "category_override": null,
+    "claimed_intent_override": null,
+    "notes": "",
+    "review_status": "unreviewed",
+    "source_override": null
+  },
+  "duplicates": {
+    "is_duplicate": false,
+    "matching_relative_paths": []
+  },
+  "identity": {
+    "hash_algorithm": "sha256",
+    "sha256": "556d97e4bbb977ff65f288ae60dcc6578c59f5ce0db004a21d92db7d29a163ed"
+  },
+  "inferred_labels": {
+    "basis": "corpus_directory_structure",
+    "category": "meditate",
+    "claimed_intent": "guided",
+    "source": "brainfm"
+  },
+  "manifest_schema_version": "1.0.0",
+  "media": {
+    "channels": 2,
+    "codec_subtype": "MPEG_LAYER_III",
+    "container_extension": ".mp3",
+    "duration_seconds": 900.0,
+    "frame_count": 39690000,
+    "sample_rate": 44100,
+    "size_bytes": 10868291
+  },
+  "provenance": {
+    "generator": "corpus.manifests",
+    "generator_version": "1.0.0",
+    "source": "local_corpus_file"
+  },
+  "recording_id": "ave_recording_556d97e4bbb977ff",
+  "relative_path": "brainfm/meditate/guided/InnerSilence_Meditate_GuidedMeditation_Atmospheric_15_120bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+}

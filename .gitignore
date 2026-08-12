@@ -42,6 +42,11 @@ samples/**/*.aif
 !samples/**/*.json
 !captured/.gitkeep
 
+# Raw provider-response captures may contain expiring access tokens. Derived,
+# validated *.provider.json sidecars remain trackable through the JSON exception.
+samples/**/brainfm_*_json
+samples/**/*.har
+
 # ---------------------------------------------------------------------------
 # Generated AVE outputs
 # ---------------------------------------------------------------------------

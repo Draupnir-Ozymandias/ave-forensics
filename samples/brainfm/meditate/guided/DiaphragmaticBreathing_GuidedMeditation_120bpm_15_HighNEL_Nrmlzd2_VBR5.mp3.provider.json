@@ -1,0 +1,93 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 2,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-05-28T19:12:50.893Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.27,
+    "complexity_level": 0.04,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.99
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "DiaphragmaticBreathing_GuidedMeditation_120bpm_15_HighNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Diaphragmatic Breathing",
+    "track_id": "66562cb2ff1110852ad247df",
+    "variation_id": "66562cb2ff1110852ad247e1"
+  },
+  "recording": {
+    "filename": "DiaphragmaticBreathing_GuidedMeditation_120bpm_15_HighNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "57b10f68ba0f79f9b1af4e4cbd910f22fff3a8b950585171512cc83786a75485",
+    "size_bytes": 10897680
+  },
+  "source_capture": {
+    "filename": "brainfm_gioded_meditation_json",
+    "format": "concatenated_json",
+    "hash_algorithm": "sha256",
+    "json_document_count": 7,
+    "sha256": "40d3476a61d3fcaecc85c259b4f418cb8d59ff1c17607fe6cdd609bad3c8cbf0"
+  },
+  "taxonomy": {
+    "activity": "Guided",
+    "all_provider_tags": {
+      "activity": [
+        "Guided"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Processed Strings",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Floating",
+        "Meditative",
+        "Optimistic"
+      ],
+      "release": [
+        "Guided Release May 2024"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Processed Strings",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Meditate",
+    "moods": [
+      "Calm",
+      "Floating",
+      "Meditative",
+      "Optimistic"
+    ],
+    "release_tags": [
+      "Guided Release May 2024"
+    ],
+    "style": "guided",
+    "subgenres": [
+      "Ambient"
+    ]
+  }
+}

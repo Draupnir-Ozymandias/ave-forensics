@@ -1,0 +1,101 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 6,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-05-28T19:12:11.566Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.31,
+    "complexity_level": 0.31,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.91
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "HealingTemple_Meditate_GuidedMeditation_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Healing Temple",
+    "track_id": "66562c8bff1110852ad24615",
+    "variation_id": "66562c8bff1110852ad24617"
+  },
+  "recording": {
+    "filename": "HealingTemple_Meditate_GuidedMeditation_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "b590f2395386b6f19043f5f8a2973c655fd41f92e0db3a36aff2dfba6cf132e3",
+    "size_bytes": 11112276
+  },
+  "source_capture": {
+    "filename": "brainfm_gioded_meditation_json",
+    "format": "concatenated_json",
+    "hash_algorithm": "sha256",
+    "json_document_count": 7,
+    "sha256": "40d3476a61d3fcaecc85c259b4f418cb8d59ff1c17607fe6cdd609bad3c8cbf0"
+  },
+  "taxonomy": {
+    "activity": "Guided",
+    "all_provider_tags": {
+      "activity": [
+        "Guided"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Orchestral Strings",
+        "Orchestral Winds",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Epic",
+        "Inspiring",
+        "Meditative",
+        "Serene"
+      ],
+      "release": [
+        "Guided Release May 2024"
+      ],
+      "subgenre": [
+        "Ambient",
+        "Electronica",
+        "Orchestral"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Orchestral Strings",
+      "Orchestral Winds",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Meditate",
+    "moods": [
+      "Calm",
+      "Epic",
+      "Inspiring",
+      "Meditative",
+      "Serene"
+    ],
+    "release_tags": [
+      "Guided Release May 2024"
+    ],
+    "style": "guided",
+    "subgenres": [
+      "Ambient",
+      "Electronica",
+      "Orchestral"
+    ]
+  }
+}

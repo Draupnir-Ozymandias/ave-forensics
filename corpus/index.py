@@ -226,6 +226,10 @@ def build_corpus_index(
             "metadata_manifest_path": None,
             "metadata_schema_version": None,
             "metadata_error": None,
+            "provider_metadata_status": "missing",
+            "provider_metadata_path": None,
+            "provider_metadata_error": None,
+            "provider_metadata": None,
             "label_source": "batch_summary",
             "batch_status": batch_record["status"],
             "index_status": batch_record["status"],
@@ -272,6 +276,32 @@ def build_corpus_index(
                 except (OSError, ValueError, TypeError, KeyError) as exc:
                     record["metadata_status"] = "invalid"
                     record["metadata_error"] = str(exc)
+
+            from provider.brainfm import (
+                provider_sidecar_path_for,
+                validate_provider_sidecar,
+            )
+
+            provider_path = provider_sidecar_path_for(input_path)
+            if provider_path.exists():
+                record["provider_metadata_path"] = _relative_path(
+                    provider_path,
+                    project_root,
+                )
+                try:
+                    provider_metadata = json.loads(provider_path.read_text())
+                    validate_provider_sidecar(provider_metadata)
+                    if (
+                        record["input_sha256"]
+                        and provider_metadata["recording"]["sha256"]
+                        != record["input_sha256"]
+                    ):
+                        raise ValueError("provider metadata SHA-256 does not match input")
+                    record["provider_metadata"] = provider_metadata
+                    record["provider_metadata_status"] = "validated"
+                except (OSError, ValueError, TypeError, KeyError, json.JSONDecodeError) as exc:
+                    record["provider_metadata_status"] = "invalid"
+                    record["provider_metadata_error"] = str(exc)
 
         output_dir = batch_record.get("output_dir")
         evidence_path = Path(output_dir) / "ave_evidence.json" if output_dir else None
@@ -329,6 +359,9 @@ def build_corpus_index(
     category_counts = Counter(item["category"] for item in indexed_recordings)
     intent_counts = Counter(item["stated_intent"] for item in indexed_recordings)
     metadata_counts = Counter(item["metadata_status"] for item in indexed_recordings)
+    provider_metadata_counts = Counter(
+        item["provider_metadata_status"] for item in indexed_recordings
+    )
     provenance_counts = Counter(
         item["provenance_status"] for item in indexed_recordings
     )
@@ -350,6 +383,9 @@ def build_corpus_index(
         "category_counts": dict(sorted(category_counts.items())),
         "stated_intent_counts": dict(sorted(intent_counts.items())),
         "metadata_status_counts": dict(sorted(metadata_counts.items())),
+        "provider_metadata_status_counts": dict(
+            sorted(provider_metadata_counts.items())
+        ),
         "provenance_status_counts": dict(sorted(provenance_counts.items())),
         "duplicate_input_groups": duplicate_groups,
         "recordings": indexed_recordings,
@@ -364,6 +400,15 @@ CSV_FIELDS = [
     "label_source",
     "metadata_status",
     "metadata_manifest_path",
+    "provider_metadata_status",
+    "provider_metadata_path",
+    "provider_track_title",
+    "provider_mental_state",
+    "provider_activity",
+    "provider_style",
+    "provider_brightness_level",
+    "provider_complexity_level",
+    "provider_neural_effect_level",
     "provenance_status",
     "run_id",
     "batch_status",
@@ -387,6 +432,7 @@ CSV_FIELDS = [
     "top_hypothesis_ranking_source",
     "evidence_path",
     "index_error",
+    "provider_metadata_error",
 ]
 
 
@@ -397,6 +443,10 @@ def _csv_row(record: dict[str, Any]) -> dict[str, Any]:
     modulation = summary.get("modulation_reconstruction") or {}
     phase = summary.get("phase_relationship") or {}
     hypothesis = summary.get("top_hypothesis") or {}
+    provider_metadata = record.get("provider_metadata") or {}
+    provider_track = provider_metadata.get("provider_track") or {}
+    provider_taxonomy = provider_metadata.get("taxonomy") or {}
+    provider_measurements = provider_metadata.get("provider_measurements") or {}
     return {
         "relative_path": record["relative_path"],
         "source": record["source"],
@@ -405,6 +455,21 @@ def _csv_row(record: dict[str, Any]) -> dict[str, Any]:
         "label_source": record.get("label_source"),
         "metadata_status": record.get("metadata_status"),
         "metadata_manifest_path": record.get("metadata_manifest_path"),
+        "provider_metadata_status": record.get("provider_metadata_status"),
+        "provider_metadata_path": record.get("provider_metadata_path"),
+        "provider_track_title": provider_track.get("title"),
+        "provider_mental_state": provider_taxonomy.get("mental_state"),
+        "provider_activity": provider_taxonomy.get("activity"),
+        "provider_style": provider_taxonomy.get("style"),
+        "provider_brightness_level": provider_measurements.get(
+            "brightness_level"
+        ),
+        "provider_complexity_level": provider_measurements.get(
+            "complexity_level"
+        ),
+        "provider_neural_effect_level": provider_measurements.get(
+            "neural_effect_level"
+        ),
         "provenance_status": record.get("provenance_status"),
         "run_id": record.get("run_id"),
         "batch_status": record["batch_status"],
@@ -432,6 +497,7 @@ def _csv_row(record: dict[str, Any]) -> dict[str, Any]:
         "top_hypothesis_ranking_source": hypothesis.get("ranking_source"),
         "evidence_path": record["evidence_path"],
         "index_error": record["index_error"],
+        "provider_metadata_error": record.get("provider_metadata_error"),
     }
 
 

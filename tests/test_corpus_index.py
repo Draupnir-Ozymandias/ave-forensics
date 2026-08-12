@@ -9,6 +9,7 @@ import soundfile as sf
 from corpus.index import build_corpus_index, write_corpus_index
 from corpus.manifests import build_recording_manifests, write_recording_manifests
 from evidence.schema import SCHEMA_VERSION, create_evidence_object, measurement
+from provider.brainfm import extract_brainfm_sidecars, write_provider_sidecars
 
 
 def hypothesis_evidence() -> dict:
@@ -240,3 +241,65 @@ def test_index_uses_validated_manifest_instead_of_stale_batch_labels(tmp_path):
     assert record["stated_intent"] == "unguided"
     assert record["metadata_status"] == "validated"
     assert record["batch_metadata"]["category"] == "meditation"
+
+
+def test_index_validates_and_flattens_provider_metadata(tmp_path):
+    project = tmp_path / "project"
+    samples = project / "samples"
+    audio = samples / "brainfm" / "meditate" / "guided" / "session.wav"
+    audio.parent.mkdir(parents=True)
+    sf.write(audio, np.zeros(8000, dtype=np.float32), 8000)
+    provider_track = {
+        "id": "track-1",
+        "name": "Calm Session",
+        "beatsPerMinute": 120,
+        "brightnessLevel": 0.25,
+        "complexityLevel": 0.5,
+        "createdAt": "2026-08-12T00:00:00Z",
+        "releaseStatus": "published",
+        "hasMultipleNELs": False,
+        "mentalState": {"displayValue": "Meditate"},
+        "mobileActivity": {"displayValue": "Guided"},
+        "tags": [{"type": "mood", "value": "Calm"}],
+        "variations": [
+            {
+                "id": "variation-1",
+                "url": audio.name,
+                "lengthInSeconds": 1,
+                "neuralEffectLevel": 0.9,
+                "style": "guided",
+            }
+        ],
+    }
+    capture = project / "captured-response"
+    capture.write_text(json.dumps({"result": {"track": provider_track}}))
+    write_provider_sidecars(extract_brainfm_sidecars(capture, audio.parent))
+    batch = {
+        "recording_count": 1,
+        "status_counts": {"deferred": 1},
+        "recordings": [
+            {
+                "relative_path": "brainfm/meditate/guided/session.wav",
+                "path": str(audio),
+                "output_dir": str(project / "artifacts" / "session"),
+                "source": "brainfm",
+                "category": "meditate",
+                "stated_intent": "guided",
+                "status": "deferred",
+            }
+        ],
+    }
+    summary_path = project / "batch_summary.json"
+    summary_path.write_text(json.dumps(batch))
+
+    index = build_corpus_index(summary_path, project)
+    record = index["recordings"][0]
+
+    assert index["provider_metadata_status_counts"] == {"validated": 1}
+    assert record["provider_metadata_status"] == "validated"
+    assert record["provider_metadata"]["provider_track"]["title"] == "Calm Session"
+    _, csv_path = write_corpus_index(index, project / "corpus")
+    with csv_path.open(newline="") as input_file:
+        row = next(csv.DictReader(input_file))
+    assert row["provider_activity"] == "Guided"
+    assert row["provider_neural_effect_level"] == "0.9"

@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ave-forensics.local/schemas/provider-metadata-1.0.0.json",
+  "title": "AVE Provider Metadata Sidecar",
+  "type": "object",
+  "required": [
+    "provider_metadata_schema_version", "provider", "recording",
+    "source_capture", "match", "provider_track", "taxonomy",
+    "provider_measurements", "provider_lifecycle", "extraction_provenance"
+  ],
+  "properties": {
+    "provider_metadata_schema_version": {"const": "1.0.0"},
+    "provider": {"const": "brain.fm"},
+    "recording": {
+      "type": "object",
+      "required": ["filename", "hash_algorithm", "sha256", "size_bytes"],
+      "properties": {
+        "filename": {"type": "string", "minLength": 1},
+        "hash_algorithm": {"const": "sha256"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "size_bytes": {"type": "integer", "minimum": 1}
+      },
+      "additionalProperties": false
+    },
+    "source_capture": {
+      "type": "object",
+      "required": ["filename", "hash_algorithm", "sha256", "format", "json_document_count"],
+      "properties": {
+        "filename": {"type": "string", "minLength": 1},
+        "hash_algorithm": {"const": "sha256"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "format": {"enum": ["json", "concatenated_json", "har_json_responses"]},
+        "json_document_count": {"type": "integer", "minimum": 1}
+      },
+      "additionalProperties": false
+    },
+    "match": {
+      "type": "object",
+      "required": ["strategy", "matching_occurrence_count", "unique_canonical_record_count"],
+      "properties": {
+        "strategy": {"const": "exact_variation_filename"},
+        "matching_occurrence_count": {"type": "integer", "minimum": 1},
+        "unique_canonical_record_count": {"const": 1}
+      },
+      "additionalProperties": false
+    },
+    "provider_track": {
+      "type": "object",
+      "required": ["track_id", "variation_id", "title", "filename"],
+      "properties": {
+        "track_id": {"type": "string", "minLength": 1},
+        "variation_id": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1},
+        "filename": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "taxonomy": {
+      "type": "object",
+      "required": ["mental_state", "activity", "style", "genres", "subgenres", "moods", "instruments", "release_tags", "all_provider_tags"],
+      "properties": {
+        "mental_state": {"type": ["string", "null"]},
+        "activity": {"type": ["string", "null"]},
+        "style": {"type": ["string", "null"]},
+        "genres": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "subgenres": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "moods": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "instruments": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "release_tags": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "all_provider_tags": {"type": "object", "additionalProperties": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}}
+      },
+      "additionalProperties": false
+    },
+    "provider_measurements": {
+      "type": "object",
+      "required": ["beats_per_minute", "brightness_level", "complexity_level", "neural_effect_level", "declared_duration_seconds"],
+      "properties": {
+        "beats_per_minute": {"type": ["number", "null"], "exclusiveMinimum": 0},
+        "brightness_level": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "complexity_level": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "neural_effect_level": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+        "declared_duration_seconds": {"type": ["number", "null"], "exclusiveMinimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "provider_lifecycle": {
+      "type": "object",
+      "required": ["created_at", "release_status", "has_multiple_neural_effect_levels"],
+      "properties": {
+        "created_at": {"type": ["string", "null"]},
+        "release_status": {"type": ["string", "null"]},
+        "has_multiple_neural_effect_levels": {"type": ["boolean", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "extraction_provenance": {
+      "type": "object",
+      "required": ["generator", "generator_version", "sensitive_url_policy"],
+      "properties": {
+        "generator": {"const": "provider.brainfm"},
+        "generator_version": {"const": "1.0.0"},
+        "sensitive_url_policy": {"const": "omit_all_provider_urls_and_tokens"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

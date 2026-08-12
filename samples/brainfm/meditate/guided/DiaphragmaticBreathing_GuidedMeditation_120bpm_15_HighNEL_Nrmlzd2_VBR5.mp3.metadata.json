@@ -1,0 +1,40 @@
+{
+  "curation": {
+    "category_override": null,
+    "claimed_intent_override": null,
+    "notes": "",
+    "review_status": "unreviewed",
+    "source_override": null
+  },
+  "duplicates": {
+    "is_duplicate": false,
+    "matching_relative_paths": []
+  },
+  "identity": {
+    "hash_algorithm": "sha256",
+    "sha256": "57b10f68ba0f79f9b1af4e4cbd910f22fff3a8b950585171512cc83786a75485"
+  },
+  "inferred_labels": {
+    "basis": "corpus_directory_structure",
+    "category": "meditate",
+    "claimed_intent": "guided",
+    "source": "brainfm"
+  },
+  "manifest_schema_version": "1.0.0",
+  "media": {
+    "channels": 2,
+    "codec_subtype": "MPEG_LAYER_III",
+    "container_extension": ".mp3",
+    "duration_seconds": 900.0,
+    "frame_count": 43200000,
+    "sample_rate": 48000,
+    "size_bytes": 10897680
+  },
+  "provenance": {
+    "generator": "corpus.manifests",
+    "generator_version": "1.0.0",
+    "source": "local_corpus_file"
+  },
+  "recording_id": "ave_recording_57b10f68ba0f79f9",
+  "relative_path": "brainfm/meditate/guided/DiaphragmaticBreathing_GuidedMeditation_120bpm_15_HighNEL_Nrmlzd2_VBR5.mp3"
+}

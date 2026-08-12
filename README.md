@@ -117,6 +117,22 @@ legacy and current score sources are not directly comparable.
 See `docs/CORPUS_CONTEXT_LAYERS.md` for the policy governing provider taxonomy,
 guided speech, transcripts, outcome claims, and future generator integration.
 
+## Extract Brain.fm Provider Metadata
+
+Sanitize a raw Brain.fm JSON or HAR capture into one validated provider sidecar per
+local recording:
+
+```bash
+.venv/bin/python provider_metadata.py /path/to/capture.har \
+  --recordings-dir samples/brainfm/meditate/guided
+```
+
+The extractor matches exact MP3 variation filenames, deduplicates repeated response
+records, rejects conflicts, binds outputs to recording and capture SHA-256 digests,
+and omits all provider URLs and tokens. Raw captures belong under ignored
+`captured/` storage; only sanitized `*.provider.json` sidecars should be committed.
+See `docs/BRAINFM_CAPTURE_WORKFLOW.md` for the Favorites collection workflow.
+
 ## Generate the Reference-Library Comparison Dashboard
 
 Build the Corpus Evidence Index, then generate the local dashboard:

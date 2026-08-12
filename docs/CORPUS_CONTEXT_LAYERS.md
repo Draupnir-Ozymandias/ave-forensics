@@ -40,6 +40,13 @@ Future harvesting should capture these fields at download time, along with the
 track title, provider, page or application location, and capture date. Screenshots
 are valuable source records when an export is unavailable.
 
+The first six-recording guided harvest subsequently confirmed that Brain.fm exposes
+stable track and variation IDs, exact MP3 filenames, mental state, guided activity,
+style, BPM, numeric brightness and complexity, neural-effect level, declared
+duration, genres, subgenres, moods, instruments, creation time, and release state.
+These fields now live in validated `*.provider.json` sidecars. Provider URLs and
+access tokens are deliberately excluded.
+
 ## Guided recordings
 
 Guided recordings may be ingested by the existing batch runner. However, speech is
