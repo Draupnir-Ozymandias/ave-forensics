@@ -54,6 +54,8 @@
     .toggle { display: flex; align-items: center; gap: 8px; padding: 0 10px; color: var(--muted); white-space: nowrap; }
     .toggle input { accent-color: var(--green); }
     .section-head { display: flex; justify-content: space-between; align-items: baseline; margin: 30px 0 12px; }
+    .section-tools { display: flex; align-items: center; gap: 9px; color: var(--muted); font-size: 11px; }
+    .section-tools select { padding: 6px 9px; }
     h2 { font: 500 19px/1.2 Georgia, serif; margin: 0; }
     .section-meta { color: var(--muted); font-size: 11px; }
     .charts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
@@ -170,12 +172,12 @@
       <article class="panel"><h3>Family signatures</h3><div class="hint">Median measurements and dominant observed behavior</div><div class="family-cards" id="family-cards"></div></article>
     </section>
 
-    <div class="section-head"><h2>Observed signatures</h2><span class="section-meta" id="comparison-count"></span></div>
+    <div class="section-head"><h2>Observed signatures</h2><div class="section-tools"><span class="section-meta" id="comparison-count"></span><label for="hypothesis-mode">Hypothesis view</label><select id="hypothesis-mode"><option value="top">Top-ranked</option><option value="all">All retained</option></select></div></div>
     <section class="charts">
       <article class="panel"><h3>Inter-channel carrier difference</h3><div class="hint">Strongest persistent pair · Hz distribution</div><div id="carrier-chart"></div></article>
       <article class="panel"><h3>Modulation spectrum</h3><div class="hint">Dominant envelope versus shared reconstructed modulation · Hz</div><div id="modulation-chart"></div></article>
       <article class="panel"><h3>Phase relationship</h3><div class="hint">Dominant time-resolved phase behavior</div><div id="phase-chart"></div></article>
-      <article class="panel"><h3>Hypothesis bands</h3><div class="hint">Top-ranked protocol hypothesis per recording</div><div id="band-chart"></div></article>
+      <article class="panel"><h3>Hypothesis bands</h3><div class="hint" id="band-hint">Top-ranked protocol hypothesis per recording</div><div id="band-chart"></div></article>
     </section>
 
     <div class="section-head"><h2>Top hypotheses</h2><span class="section-meta">Ranking score is unrestricted; confidence is separately bounded when available.</span></div>
@@ -234,7 +236,7 @@
       const query = $('search').value.trim().toLowerCase();
       const durationBand = seconds => seconds == null ? 'unknown' : seconds < 1200 ? 'short' : seconds <= 2400 ? 'medium' : seconds <= 3600 ? 'long' : 'extended';
       return records.filter(r => {
-        const haystack = [r.relative_path, ...(r.all_aliases || []), r.hypothesis_intent, r.input_sha256, r.phase_behavior, r.modulation_classification, r.provider_title, r.provider_mental_state, r.provider_activity, r.provider_style, ...(r.provider_moods || []), ...(r.provider_instruments || [])].join(' ').toLowerCase();
+        const haystack = [r.relative_path, ...(r.all_aliases || []), r.hypothesis_intent, ...Object.keys(r.hypothesis_band_counts || {}), r.input_sha256, r.phase_behavior, r.modulation_classification, r.provider_title, r.provider_mental_state, r.provider_activity, r.provider_style, ...(r.provider_moods || []), ...(r.provider_instruments || [])].join(' ').toLowerCase();
         return (!query || haystack.includes(query)) &&
           (!$('source').value || r.source === $('source').value) &&
           (!$('category').value || r.category === $('category').value) &&
@@ -254,6 +256,13 @@
       return records.reduce((counts, record) => {
         const key = record[field] ?? 'not_available';
         counts[key] = (counts[key] || 0) + 1;
+        return counts;
+      }, {});
+    }
+
+    function retainedBandCounts(records) {
+      return records.reduce((counts, record) => {
+        Object.entries(record.hypothesis_band_counts || {}).forEach(([band, count]) => counts[band] = (counts[band] || 0) + count);
         return counts;
       }, {});
     }
@@ -321,9 +330,9 @@
     }
 
     function renderHypotheses(records) {
-      const ranked = records.filter(r => Number.isFinite(r.hypothesis_ranking_score)).sort((a,b) => b.hypothesis_ranking_score - a.hypothesis_ranking_score).slice(0, 8);
+      const ranked = ($('hypothesis-mode').value === 'top' ? records : records.flatMap(record => Object.values(record.hypothesis_best_by_band || {}).map(hypothesis => ({...record, hypothesis_band: hypothesis.brainwave_band, hypothesis_ranking_score: hypothesis.ranking_score, hypothesis_difference_hz: hypothesis.difference_hz})))).filter(r => Number.isFinite(r.hypothesis_ranking_score)).sort((a,b) => b.hypothesis_ranking_score - a.hypothesis_ranking_score).slice(0, 8);
       if (!ranked.length) { $('hypothesis-list').innerHTML = '<div class="empty">No hypotheses match these filters.</div>'; return; }
-      $('hypothesis-list').innerHTML = `<table><thead><tr><th>Recording</th><th>Band</th><th>Score</th></tr></thead><tbody>${ranked.map(r => `<tr tabindex="0" data-path="${safe(r.relative_path)}"><td class="path" title="${safe(r.relative_path)}">${safe(r.filename)}</td><td>${safe(human(r.hypothesis_band))}</td><td class="number">${number(r.hypothesis_ranking_score, 4)}</td></tr>`).join('')}</tbody></table>`;
+      $('hypothesis-list').innerHTML = `<table><thead><tr><th>Recording</th><th>Band</th><th>Difference</th><th>Score</th></tr></thead><tbody>${ranked.map(r => `<tr tabindex="0" data-path="${safe(r.relative_path)}"><td class="path" title="${safe(r.relative_path)}">${safe(r.filename)}</td><td>${safe(human(r.hypothesis_band))}</td><td class="number">${number(r.hypothesis_difference_hz)} Hz</td><td class="number">${number(r.hypothesis_ranking_score, 4)}</td></tr>`).join('')}</tbody></table>`;
     }
 
     function renderTable(records) {
@@ -343,6 +352,7 @@
         ['Envelope modulation', `${number(record.envelope_modulation_hz)} Hz`], ['Shared modulation', `${number(record.shared_modulation_hz)} Hz`], ['Shared coverage', percent(record.shared_window_coverage)],
         ['Phase behavior', human(record.phase_behavior)], ['Phase coverage', percent(record.phase_window_coverage)], ['Phase-derived difference', `${number(record.phase_median_difference_hz)} Hz`],
         ['Top hypothesis', record.hypothesis_intent], ['Brainwave band', human(record.hypothesis_band)], ['Ranking score', number(record.hypothesis_ranking_score, 4)],
+        ['Retained hypotheses', record.retained_hypothesis_count], ['Retained band counts', Object.entries(record.hypothesis_band_counts || {}).map(([band,count]) => `${human(band)}: ${count}`).join(', ') || '—'], ['Gamma best score', number((record.hypothesis_best_by_band.gamma || {}).ranking_score, 4)],
       ];
       const aliases = record.all_aliases || [record.relative_path, ...record.duplicate_aliases];
       const link = path => path ? `<a href="../../${safe(path)}" target="_blank">${safe(path.split('/').pop())}</a>` : '';
@@ -368,7 +378,7 @@
       if (kind === 'json') {
         body = JSON.stringify({dashboard_schema_version: DATA.dashboard_schema_version, filtered_recordings: records}, null, 2); type = 'application/json'; extension = 'json';
       } else {
-        const fields = ['relative_path','category','stated_intent','provider_metadata_status','provider_title','provider_mental_state','provider_activity','provider_style','provider_beats_per_minute','provider_neural_effect_level','protocol_family_id','protocol_family_silhouette','index_status','provenance_status','duration_seconds','input_sha256','carrier_difference_hz','envelope_modulation_hz','shared_modulation_hz','phase_behavior','hypothesis_band','hypothesis_ranking_score'];
+        const fields = ['relative_path','category','stated_intent','provider_metadata_status','provider_title','provider_mental_state','provider_activity','provider_style','provider_beats_per_minute','provider_neural_effect_level','protocol_family_id','protocol_family_silhouette','index_status','provenance_status','duration_seconds','input_sha256','carrier_difference_hz','envelope_modulation_hz','shared_modulation_hz','phase_behavior','hypothesis_band','hypothesis_ranking_score','retained_hypothesis_count'];
         const cell = v => `"${String(v ?? '').replaceAll('"','""')}"`;
         body = [fields.join(','), ...records.map(r => fields.map(f => cell(r[f])).join(','))].join('\n'); type = 'text/csv'; extension = 'csv';
       }
@@ -385,7 +395,9 @@
       $('carrier-chart').innerHTML = histogram(records, 'carrier_difference_hz');
       $('modulation-chart').innerHTML = modulation(records);
       $('phase-chart').innerHTML = bars(countBy(records.filter(r => r.phase_behavior), 'phase_behavior'));
-      $('band-chart').innerHTML = bars(countBy(records.filter(r => r.hypothesis_band), 'hypothesis_band'));
+      const allHypotheses = $('hypothesis-mode').value === 'all';
+      $('band-chart').innerHTML = bars(allHypotheses ? retainedBandCounts(records) : countBy(records.filter(r => r.hypothesis_band), 'hypothesis_band'));
+      $('band-hint').textContent = allHypotheses ? 'Every retained candidate · one recording may contribute multiple candidates' : 'Top-ranked protocol hypothesis per recording';
       $('intent-chart').innerHTML = bars(countBy(records, 'stated_intent'));
       $('mental-state-chart').innerHTML = bars(countBy(records.filter(r => r.provider_mental_state), 'provider_mental_state'));
       $('provider-activity-chart').innerHTML = bars(countBy(records.filter(r => r.provider_activity), 'provider_activity'));
@@ -395,6 +407,7 @@
       renderTable(records);
     }
     controls.forEach(id => $(id).addEventListener(id === 'search' ? 'input' : 'change', render));
+    $('hypothesis-mode').addEventListener('change', render);
     $('warnings').innerHTML = DATA.warnings.map(w => `<div class="warning"><strong>${w.count}</strong><span>${safe(w.message)}</span></div>`).join('');
     $('index-stamp').innerHTML = `INDEX ${safe(DATA.source_index_schema_version)}<br>SHA-256 ${safe(DATA.source_index_sha256.slice(0,16))}…`;
     $('cluster-quality').textContent = DATA.clustering_method ? `${DATA.clustering_method.selected_family_count} families · silhouette ${number(DATA.clustering_method.overall_silhouette_score, 3)} · exploratory unsupervised result` : 'No current clustering artifact';

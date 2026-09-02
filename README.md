@@ -159,9 +159,11 @@ requires no server or network connection. It provides corpus filters, carrier an
 modulation distributions, phase and hypothesis comparisons, recording drill-down,
 protocol-family profiles, contextual provider-taxonomy filters and summaries, and
 filtered CSV/JSON exports. Provider labels remain visibly separate from measured
-evidence and are excluded from clustering. When a current clustering artifact
-exists, the dashboard validates that it was produced from the exact same Corpus
-Evidence Index before displaying any assignment.
+evidence and are excluded from clustering. The hypothesis view switches between
+one top-ranked candidate per recording and every retained candidate, keeping
+secondary bands such as gamma visible without presenting them as leading results.
+When a current clustering artifact exists, the dashboard validates that it was
+produced from the exact same Corpus Evidence Index before displaying any assignment.
 
 Comparison statistics use one canonical recording per SHA-256 input by default so
 byte-identical aliases cannot bias the results. Uncheck **Unique inputs** to inspect

@@ -101,6 +101,8 @@ def test_dashboard_html_is_self_contained_and_deterministic(tmp_path):
     assert "danger-<\\/script>.wav" in first_text
     assert "Reference-Library Comparison" in first_text
     assert 'id="provider-activity"' in first_text
+    assert 'id="hypothesis-mode"' in first_text
+    assert "All retained" in first_text
     assert "Provider taxonomy" in first_text
     embedded = first_text.split(
         '<script id="dashboard-data" type="application/json">', 1
@@ -168,3 +170,36 @@ def test_dashboard_exposes_provider_taxonomy_as_context():
     assert flattened["provider_title"] == "Quiet Mind"
     assert flattened["provider_moods"] == ["Calm"]
     assert flattened["provider_neural_effect_level"] == 0.8
+
+
+def test_dashboard_preserves_retained_hypothesis_band_summary():
+    item = record("gamma.wav", "gamma-hash")
+    item["evidence_summary"]["hypothesis_band_summary"] = {
+        "candidate_count": 4,
+        "counts": {"delta": 1, "gamma": 3},
+        "best_by_band": {
+            "delta": {
+                "brainwave_band": "delta",
+                "difference_hz": 2.0,
+                "ranking_score": 0.7,
+            },
+            "gamma": {
+                "brainwave_band": "gamma",
+                "difference_hz": 38.0,
+                "ranking_score": 0.3,
+            },
+        },
+    }
+
+    data = build_dashboard_data(
+        {
+            "index_schema_version": "1.1.0",
+            "duplicate_input_groups": [],
+            "recordings": [item],
+        }
+    )
+
+    flattened = data["recordings"][0]
+    assert flattened["retained_hypothesis_count"] == 4
+    assert flattened["hypothesis_band_counts"] == {"delta": 1, "gamma": 3}
+    assert flattened["hypothesis_best_by_band"]["gamma"]["ranking_score"] == 0.3

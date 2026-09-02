@@ -6,7 +6,7 @@ from pathlib import Path
 import numpy as np
 import soundfile as sf
 
-from corpus.index import build_corpus_index, write_corpus_index
+from corpus.index import build_corpus_index, summarize_evidence_document, write_corpus_index
 from corpus.manifests import build_recording_manifests, write_recording_manifests
 from evidence.schema import SCHEMA_VERSION, create_evidence_object, measurement
 from provider.brainfm import extract_brainfm_sidecars, write_provider_sidecars
@@ -38,6 +38,46 @@ def evidence_document(evidence: list[dict]) -> dict:
         "run_metadata": {"duration_seconds": 3600.0, "sample_rate": 44100},
         "evidence": evidence,
     }
+
+
+def test_summarizes_all_retained_hypothesis_bands_and_best_candidates():
+    gamma_low = create_evidence_object(
+        evidence_level="hypothesis",
+        evidence_type="protocol_intent_hypothesis",
+        source_module="analysis.protocol_hypothesis",
+        summary="low-gamma candidate",
+        measurements=[
+            measurement("average_difference_frequency", 34.0, "Hz"),
+            measurement("duration", 120.0, "seconds"),
+            measurement("brainwave_band", "gamma", "classification"),
+            measurement("hypothesis_score", 0.2, "ranking_score"),
+        ],
+        confidence={"score": 0.4, "method": "persistent_track_average_confidence"},
+    )
+    gamma_high = create_evidence_object(
+        evidence_level="hypothesis",
+        evidence_type="protocol_intent_hypothesis",
+        source_module="analysis.protocol_hypothesis",
+        summary="low-gamma candidate",
+        measurements=[
+            measurement("average_difference_frequency", 38.0, "Hz"),
+            measurement("duration", 120.0, "seconds"),
+            measurement("brainwave_band", "gamma", "classification"),
+            measurement("hypothesis_score", 0.3, "ranking_score"),
+        ],
+        confidence={"score": 0.5, "method": "persistent_track_average_confidence"},
+    )
+
+    summary = summarize_evidence_document(
+        evidence_document([hypothesis_evidence(), gamma_low, gamma_high])
+    )
+
+    bands = summary["hypothesis_band_summary"]
+    assert bands["candidate_count"] == 3
+    assert bands["counts"] == {"delta": 1, "gamma": 2}
+    assert bands["best_by_band"]["gamma"]["difference_hz"] == 38.0
+    assert bands["best_by_band"]["gamma"]["ranking_score"] == 0.3
+    assert summary["top_hypothesis"]["brainwave_band"] == "delta"
 
 
 def test_builds_index_with_hashes_statuses_and_invalid_evidence(tmp_path):

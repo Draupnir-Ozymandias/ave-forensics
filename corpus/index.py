@@ -10,7 +10,7 @@ from evidence.schema import SCHEMA_VERSION, validate_evidence_object
 from core.hashing import sha256_file
 
 
-INDEX_SCHEMA_VERSION = "1.0.0"
+INDEX_SCHEMA_VERSION = "1.1.0"
 
 
 def _measurement_map(evidence: dict[str, Any]) -> dict[str, Any]:
@@ -106,7 +106,7 @@ def _phase_relationship(evidence: list[dict[str, Any]]) -> dict[str, Any] | None
     }
 
 
-def _top_hypothesis(evidence: list[dict[str, Any]]) -> dict[str, Any] | None:
+def _hypotheses(evidence: list[dict[str, Any]]) -> list[dict[str, Any]]:
     candidates = []
     for item in evidence:
         if item["evidence_type"] != "protocol_intent_hypothesis":
@@ -123,25 +123,42 @@ def _top_hypothesis(evidence: list[dict[str, Any]]) -> dict[str, Any] | None:
             ranking_source = "legacy_protocol_hypothesis_confidence"
         else:
             continue
-        candidates.append((ranking_score, ranking_source, item, values))
-    if not candidates:
-        return None
-    ranking_score, ranking_source, item, values = max(
+        candidates.append(
+            {
+                "intent": item["summary"],
+                "difference_hz": values["average_difference_frequency"],
+                "brainwave_band": values["brainwave_band"],
+                "duration_seconds": values["duration"],
+                "ranking_score": ranking_score,
+                "ranking_source": ranking_source,
+                "confidence": (
+                    _confidence_score(item)
+                    if ranking_source == "hypothesis_score_measurement"
+                    else None
+                ),
+            }
+        )
+    return sorted(
         candidates,
-        key=lambda candidate: candidate[0],
-    )
-    return {
-        "intent": item["summary"],
-        "difference_hz": values["average_difference_frequency"],
-        "brainwave_band": values["brainwave_band"],
-        "duration_seconds": values["duration"],
-        "ranking_score": ranking_score,
-        "ranking_source": ranking_source,
-        "confidence": (
-            _confidence_score(item)
-            if ranking_source == "hypothesis_score_measurement"
-            else None
+        key=lambda candidate: (
+            -candidate["ranking_score"],
+            candidate["brainwave_band"],
+            candidate["difference_hz"],
         ),
+    )
+
+
+def _hypothesis_band_summary(
+    hypotheses: list[dict[str, Any]],
+) -> dict[str, Any]:
+    counts = Counter(item["brainwave_band"] for item in hypotheses)
+    best_by_band = {}
+    for hypothesis in hypotheses:
+        best_by_band.setdefault(hypothesis["brainwave_band"], hypothesis)
+    return {
+        "candidate_count": len(hypotheses),
+        "counts": dict(sorted(counts.items())),
+        "best_by_band": dict(sorted(best_by_band.items())),
     }
 
 
@@ -167,6 +184,7 @@ def summarize_evidence_document(document: dict[str, Any]) -> dict[str, Any]:
 
     type_counts = Counter(item["evidence_type"] for item in evidence)
     level_counts = Counter(item["evidence_level"] for item in evidence)
+    hypotheses = _hypotheses(evidence)
     return {
         "evidence_schema_version": document["schema_version"],
         "evidence_count": len(evidence),
@@ -179,7 +197,8 @@ def summarize_evidence_document(document: dict[str, Any]) -> dict[str, Any]:
         "dominant_envelope": _dominant_envelope(evidence),
         "modulation_reconstruction": _modulation_reconstruction(evidence),
         "phase_relationship": _phase_relationship(evidence),
-        "top_hypothesis": _top_hypothesis(evidence),
+        "top_hypothesis": hypotheses[0] if hypotheses else None,
+        "hypothesis_band_summary": _hypothesis_band_summary(hypotheses),
     }
 
 

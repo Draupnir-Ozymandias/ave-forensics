@@ -18,6 +18,7 @@ def _flatten_record(record: dict[str, Any]) -> dict[str, Any]:
     modulation = summary.get("modulation_reconstruction") or {}
     phase = summary.get("phase_relationship") or {}
     hypothesis = summary.get("top_hypothesis") or {}
+    hypothesis_bands = summary.get("hypothesis_band_summary") or {}
     provider_metadata = record.get("provider_metadata") or {}
     provider_track = provider_metadata.get("provider_track") or {}
     provider_taxonomy = provider_metadata.get("taxonomy") or {}
@@ -77,6 +78,9 @@ def _flatten_record(record: dict[str, Any]) -> dict[str, Any]:
         "hypothesis_difference_hz": hypothesis.get("difference_hz"),
         "hypothesis_ranking_score": hypothesis.get("ranking_score"),
         "hypothesis_confidence": hypothesis.get("confidence"),
+        "retained_hypothesis_count": hypothesis_bands.get("candidate_count", 0),
+        "hypothesis_band_counts": hypothesis_bands.get("counts") or {},
+        "hypothesis_best_by_band": hypothesis_bands.get("best_by_band") or {},
         "protocol_family_id": None,
         "protocol_family_descriptor": None,
         "protocol_family_silhouette": None,
