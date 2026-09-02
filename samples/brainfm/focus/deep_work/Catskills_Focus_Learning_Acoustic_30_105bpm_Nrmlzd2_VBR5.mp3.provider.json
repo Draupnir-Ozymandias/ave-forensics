@@ -1,0 +1,108 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 3,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2023-11-07T21:08:31.426Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 105,
+    "brightness_level": 0.88,
+    "complexity_level": 0.95,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.54
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "Catskills_Focus_Learning_Acoustic_30_105bpm_Nrmlzd2_VBR5.mp3",
+    "title": "Catskills",
+    "track_id": "654aa74f62cef539b98bb253",
+    "variation_id": "654aa74f62cef532568bb257"
+  },
+  "recording": {
+    "filename": "Catskills_Focus_Learning_Acoustic_30_105bpm_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "981765797d57bcc2aff57485e7c9cd0b9008e1cd635597985684a81c3513bded",
+    "size_bytes": 28943488
+  },
+  "source_capture": {
+    "filename": "Catskills_Focus_Learning_Acoustic_30_105bpm_Nrmlzd2_VBR5.json",
+    "format": "concatenated_json",
+    "hash_algorithm": "sha256",
+    "json_document_count": 3,
+    "sha256": "550bbe07dd19d95f779b02b00511b307e4d336e82dba98beca052f439507de9c"
+  },
+  "taxonomy": {
+    "activity": "Study & Read",
+    "all_provider_tags": {
+      "activity": [
+        "Learning",
+        "Study & Read"
+      ],
+      "genre": [
+        "Acoustic"
+      ],
+      "instrument": [
+        "Acoustic Guitar",
+        "Electric Bass",
+        "Organic Percussion",
+        "Pedal Steel"
+      ],
+      "mood": [
+        "Driving",
+        "Energizing",
+        "Hopeful",
+        "Optimistic",
+        "Playful",
+        "Upbeat",
+        "Uplifting"
+      ],
+      "release": [
+        "November 7 2023"
+      ],
+      "subgenre": [
+        "Acoustic",
+        "Folk",
+        "Rock"
+      ]
+    },
+    "genres": [
+      "Acoustic"
+    ],
+    "instruments": [
+      "Acoustic Guitar",
+      "Electric Bass",
+      "Organic Percussion",
+      "Pedal Steel"
+    ],
+    "mental_state": "Focus",
+    "moods": [
+      "Driving",
+      "Energizing",
+      "Hopeful",
+      "Optimistic",
+      "Playful",
+      "Upbeat",
+      "Uplifting"
+    ],
+    "release_tags": [
+      "November 7 2023"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Acoustic",
+      "Folk",
+      "Rock"
+    ]
+  }
+}

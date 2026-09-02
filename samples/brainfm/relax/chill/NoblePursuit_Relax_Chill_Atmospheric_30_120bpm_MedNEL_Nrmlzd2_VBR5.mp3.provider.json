@@ -1,0 +1,97 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2025-11-17T15:20:59.877Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.2,
+    "complexity_level": 0.17,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.38
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "NoblePursuit_Relax_Chill_Atmospheric_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Noble Pursuit",
+    "track_id": "691b3d5bae74f7305d6d17ab",
+    "variation_id": "691b3d5bae74f7305d6d17af"
+  },
+  "recording": {
+    "filename": "NoblePursuit_Relax_Chill_Atmospheric_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "6bb686e0af27004253a95d1b0270d26a62d6f4facdb34c08860e0b3d891bb4cc",
+    "size_bytes": 11830656
+  },
+  "source_capture": {
+    "filename": "NoblePursuit_Relax_Chill_Atmospheric_30_120bpm_MedNEL_Nrmlzd2_VBR5",
+    "format": "json",
+    "hash_algorithm": "sha256",
+    "json_document_count": 1,
+    "sha256": "5241c7629bec448c77c4a9ab7fc34f8950e6f7c3a185d176da4ad9ecc1ed7b34"
+  },
+  "taxonomy": {
+    "activity": "Chill",
+    "all_provider_tags": {
+      "activity": [
+        "Chill"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Synth Bass",
+        "Synth Pad",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Serene"
+      ],
+      "release": [
+        "November 17 2025"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Synth Bass",
+      "Synth Pad",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Relax",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Serene"
+    ],
+    "release_tags": [
+      "November 17 2025"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ]
+  }
+}

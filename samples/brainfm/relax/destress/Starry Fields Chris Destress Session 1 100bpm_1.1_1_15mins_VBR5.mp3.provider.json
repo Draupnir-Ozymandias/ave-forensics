@@ -1,0 +1,94 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T20:52:55.645Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 100,
+    "brightness_level": 0.37,
+    "complexity_level": 0.78,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.96
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "Starry Fields Chris Destress Session 1 100bpm_1.1_1_15mins_VBR5.mp3",
+    "title": "Starry Fields",
+    "track_id": "62b38127592411e36af4e850",
+    "variation_id": "62b395ce59241119b6f574ec"
+  },
+  "recording": {
+    "filename": "Starry Fields Chris Destress Session 1 100bpm_1.1_1_15mins_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "b36bcc4a126179a8801b66f70dbf285db148f337387212bc977cd18e091268b0",
+    "size_bytes": 11707053
+  },
+  "source_capture": {
+    "filename": "Starry Fields Chris Destress Session 1 100bpm_1.1_1_15mins_VBR5",
+    "format": "json",
+    "hash_algorithm": "sha256",
+    "json_document_count": 1,
+    "sha256": "506b81883643a0492556369e41b3cd24312985126f1cd2cb9bb589a261c54f87"
+  },
+  "taxonomy": {
+    "activity": "Destress",
+    "all_provider_tags": {
+      "activity": [
+        "Destress",
+        "Recharge"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Chimes/Bells"
+      ],
+      "mood": [
+        "Chill",
+        "Meditative",
+        "Ponderous"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Ambient",
+        "Electronica"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Chimes/Bells"
+    ],
+    "mental_state": "Relax",
+    "moods": [
+      "Chill",
+      "Meditative",
+      "Ponderous"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient",
+      "Electronica"
+    ]
+  }
+}

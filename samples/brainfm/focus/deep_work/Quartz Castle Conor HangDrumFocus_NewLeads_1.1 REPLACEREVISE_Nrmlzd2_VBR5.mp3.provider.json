@@ -1,0 +1,112 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T20:52:20.273Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.68,
+    "complexity_level": 0.46,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.11
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "Quartz Castle Conor HangDrumFocus_NewLeads_1.1 REPLACEREVISE_Nrmlzd2_VBR5.mp3",
+    "title": "Quartz Castle",
+    "track_id": "62b3810459241114d2f4df42",
+    "variation_id": "62b38104592411bd0ef4df44"
+  },
+  "recording": {
+    "filename": "Quartz Castle Conor HangDrumFocus_NewLeads_1.1 REPLACEREVISE_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "1d8dfcf8a1cf51c687082dda8ba4f49d72caa7a989da9cbce4beba14cea2becf",
+    "size_bytes": 19914791
+  },
+  "source_capture": {
+    "filename": "Quartz Castle Conor HangDrumFocus_NewLeads_1.1 REPLACEREVISE_Nrmlzd2_VBR5.json",
+    "format": "json",
+    "hash_algorithm": "sha256",
+    "json_document_count": 1,
+    "sha256": "a8ee258decdc1a86ecb7de3e413d12e9cacd915a8229d894cb1e99ffd807f145"
+  },
+  "taxonomy": {
+    "activity": "Light Work",
+    "all_provider_tags": {
+      "activity": [
+        "Learning",
+        "Light Work"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Arp Synth Bass",
+        "Mallets",
+        "Processed Strings"
+      ],
+      "mood": [
+        "Chill",
+        "Dreamlike",
+        "Driving",
+        "Energizing",
+        "Floating",
+        "Hopeful",
+        "Optimistic",
+        "Upbeat",
+        "Uplifting"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Downtempo",
+        "Electronica",
+        "World/Ethnic"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Arp Synth Bass",
+      "Mallets",
+      "Processed Strings"
+    ],
+    "mental_state": "Focus",
+    "moods": [
+      "Chill",
+      "Dreamlike",
+      "Driving",
+      "Energizing",
+      "Floating",
+      "Hopeful",
+      "Optimistic",
+      "Upbeat",
+      "Uplifting"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Downtempo",
+      "Electronica",
+      "World/Ethnic"
+    ]
+  }
+}

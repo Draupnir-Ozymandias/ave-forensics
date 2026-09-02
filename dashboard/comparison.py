@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 
-DASHBOARD_SCHEMA_VERSION = "1.0.0"
+DASHBOARD_SCHEMA_VERSION = "1.1.0"
 TEMPLATE_PATH = Path(__file__).with_name("dashboard.html")
 
 
@@ -18,6 +18,10 @@ def _flatten_record(record: dict[str, Any]) -> dict[str, Any]:
     modulation = summary.get("modulation_reconstruction") or {}
     phase = summary.get("phase_relationship") or {}
     hypothesis = summary.get("top_hypothesis") or {}
+    provider_metadata = record.get("provider_metadata") or {}
+    provider_track = provider_metadata.get("provider_track") or {}
+    provider_taxonomy = provider_metadata.get("taxonomy") or {}
+    provider_measurements = provider_metadata.get("provider_measurements") or {}
     aliases = sorted(record.get("duplicate_input_paths") or [])
     return {
         "relative_path": record["relative_path"],
@@ -36,6 +40,22 @@ def _flatten_record(record: dict[str, Any]) -> dict[str, Any]:
         "evidence_count": summary.get("evidence_count"),
         "evidence_path": record.get("evidence_path"),
         "metadata_manifest_path": record.get("metadata_manifest_path"),
+        "provider_metadata_status": record.get("provider_metadata_status") or "missing",
+        "provider_metadata_path": record.get("provider_metadata_path"),
+        "provider_title": provider_track.get("title"),
+        "provider_mental_state": provider_taxonomy.get("mental_state"),
+        "provider_activity": provider_taxonomy.get("activity"),
+        "provider_style": provider_taxonomy.get("style"),
+        "provider_genres": provider_taxonomy.get("genres") or [],
+        "provider_subgenres": provider_taxonomy.get("subgenres") or [],
+        "provider_moods": provider_taxonomy.get("moods") or [],
+        "provider_instruments": provider_taxonomy.get("instruments") or [],
+        "provider_beats_per_minute": provider_measurements.get("beats_per_minute"),
+        "provider_brightness_level": provider_measurements.get("brightness_level"),
+        "provider_complexity_level": provider_measurements.get("complexity_level"),
+        "provider_neural_effect_level": provider_measurements.get(
+            "neural_effect_level"
+        ),
         "index_error": record.get("index_error"),
         "duplicate_aliases": aliases,
         "carrier_left_hz": carrier.get("left_hz"),
@@ -75,6 +95,7 @@ def _canonical_records(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
             groups[identity],
             key=lambda item: (
                 item["index_status"] != "indexed",
+                item["provider_metadata_status"] != "validated",
                 item["relative_path"],
             ),
         )
@@ -197,6 +218,9 @@ def build_dashboard_data(
             ),
             "duplicate_group_count": len(index.get("duplicate_input_groups", [])),
             "protocol_family_count": len(protocol_families),
+            "provider_metadata_count": sum(
+                item["provider_metadata_status"] == "validated" for item in canonical
+            ),
         },
         "facets": {
             "sources": sorted(Counter(r["source"] for r in records)),
@@ -209,6 +233,18 @@ def build_dashboard_data(
             "protocol_families": [
                 family["family_id"] for family in protocol_families
             ],
+            "provider_metadata_statuses": sorted(
+                Counter(r["provider_metadata_status"] for r in records)
+            ),
+            "provider_mental_states": sorted(
+                {r["provider_mental_state"] for r in records if r["provider_mental_state"]}
+            ),
+            "provider_activities": sorted(
+                {r["provider_activity"] for r in records if r["provider_activity"]}
+            ),
+            "provider_styles": sorted(
+                {r["provider_style"] for r in records if r["provider_style"]}
+            ),
         },
         "clustering_status": clustering_status,
         "clustering_method": clustering.get("method") if clustering_status == "validated" else None,

@@ -1,0 +1,113 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 2,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2025-02-24T14:57:27.662Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.79,
+    "complexity_level": 0.68,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.04
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "RustedShut_Relax_Chill_Electronic_15_120bpm_LowNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Rusted Shut",
+    "track_id": "67bc88d79461efdd5d8d4187",
+    "variation_id": "67bc88d79461efdd5d8d418a"
+  },
+  "recording": {
+    "filename": "RustedShut_Relax_Chill_Electronic_15_120bpm_LowNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "fc26581fdc3ced3c6442a7480b77b08edb6590ccd9bfe5c29d59039625ea3eae",
+    "size_bytes": 14592912
+  },
+  "source_capture": {
+    "filename": "RustedShut_Relax_Chill_Electronic_15_120bpm_LowNEL_Nrmlzd2_VBR5",
+    "format": "json",
+    "hash_algorithm": "sha256",
+    "json_document_count": 1,
+    "sha256": "11cd11d6263c708a673db58a025c627f87d44c495051939417da304867bd0c8d"
+  },
+  "taxonomy": {
+    "activity": "Chill",
+    "all_provider_tags": {
+      "activity": [
+        "Chill"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Acoustic Drumset",
+        "Electric Bass",
+        "Electric Guitar",
+        "Organic Percussion",
+        "Processed Strings",
+        "Synth Bass",
+        "Synth Pad",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Downtempo",
+        "Dreamlike",
+        "Meditative",
+        "Ponderous"
+      ],
+      "release": [
+        "February 24 2025"
+      ],
+      "subgenre": [
+        "Ambient",
+        "Downtempo",
+        "Post-Rock"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Acoustic Drumset",
+      "Electric Bass",
+      "Electric Guitar",
+      "Organic Percussion",
+      "Processed Strings",
+      "Synth Bass",
+      "Synth Pad",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Relax",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Downtempo",
+      "Dreamlike",
+      "Meditative",
+      "Ponderous"
+    ],
+    "release_tags": [
+      "February 24 2025"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient",
+      "Downtempo",
+      "Post-Rock"
+    ]
+  }
+}

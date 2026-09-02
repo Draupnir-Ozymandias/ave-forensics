@@ -22,7 +22,30 @@ the export. Do not edit it, publish it, or place it in a commit.
 
 ## Extract sanitized sidecars
 
-Run the extractor against the capture and the directory containing its recordings:
+For individual per-track captures stored beneath `captured/brainfm/`, first audit
+the complete tree without writing anything:
+
+```bash
+.venv/bin/python provider_metadata.py --batch --dry-run
+```
+
+When the report contains no unexpected `invalid_capture`, `ambiguous_capture`, or
+`unmatched_capture` entries, generate the sanitized sidecars:
+
+```bash
+.venv/bin/python provider_metadata.py --batch
+```
+
+The batch command pairs capture basenames to audio stems across the Brain.fm corpus,
+then confirms the exact MP3 variation filename inside every payload. This allows a
+capture directory such as `captured/brainfm/focus/` to feed recordings in more
+specific sample directories without inferring taxonomy from folder placement.
+`missing_capture` entries document older or intentionally incomplete recordings and
+do not block valid packages. A repeated run reports current outputs as `unchanged`;
+different existing sidecars are protected unless `--overwrite` is supplied.
+
+For a single multi-recording capture, run the extractor against that file and the
+directory containing its recordings:
 
 ```bash
 .venv/bin/python provider_metadata.py \

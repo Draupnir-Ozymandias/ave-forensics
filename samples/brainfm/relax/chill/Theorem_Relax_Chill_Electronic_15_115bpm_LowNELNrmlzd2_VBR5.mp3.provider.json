@@ -1,0 +1,107 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2025-06-16T18:08:19.932Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 115,
+    "brightness_level": 0.51,
+    "complexity_level": 0.52,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.05
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "Theorem_Relax_Chill_Electronic_15_115bpm_LowNELNrmlzd2_VBR5.mp3",
+    "title": "Theorem",
+    "track_id": "68505d935de2e833e430b6aa",
+    "variation_id": "68505d935de2e833e430b6ad"
+  },
+  "recording": {
+    "filename": "Theorem_Relax_Chill_Electronic_15_115bpm_LowNELNrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "aa531c1c7c16e040343d6613aa5675b252b4f3c792fd194c1344c35562e4aee6",
+    "size_bytes": 15076224
+  },
+  "source_capture": {
+    "filename": "Theorem_Relax_Chill_Electronic_15_115bpm_LowNELNrmlzd2_VBR5",
+    "format": "json",
+    "hash_algorithm": "sha256",
+    "json_document_count": 1,
+    "sha256": "80986a1da4b794b640b9d9e39838357bda834a5290de074c5dae824d8e493e3a"
+  },
+  "taxonomy": {
+    "activity": "Chill",
+    "all_provider_tags": {
+      "activity": [
+        "Chill"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Electric Keys",
+        "Electronic Percussion",
+        "Organic Percussion",
+        "Synth Bass",
+        "Synth Pad",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Chill",
+        "Dreamlike",
+        "Meditative",
+        "Mysterious",
+        "Ponderous",
+        "Serene"
+      ],
+      "release": [
+        "June 16 2025"
+      ],
+      "subgenre": [
+        "Downtempo",
+        "Electronica"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Electric Keys",
+      "Electronic Percussion",
+      "Organic Percussion",
+      "Synth Bass",
+      "Synth Pad",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Relax",
+    "moods": [
+      "Chill",
+      "Dreamlike",
+      "Meditative",
+      "Mysterious",
+      "Ponderous",
+      "Serene"
+    ],
+    "release_tags": [
+      "June 16 2025"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Downtempo",
+      "Electronica"
+    ]
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 5,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-06-14T19:38:24.972Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.46,
+    "complexity_level": 0.44,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.94
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "First Contact Unguided Meditation Conor_1.8_Nrmlzd2_15mins_VBR5.mp3",
+    "title": "First Contact",
+    "track_id": "666c9c30644ac8615d52aacb",
+    "variation_id": "666c9c31644ac8615d52aacd"
+  },
+  "recording": {
+    "filename": "First Contact Unguided Meditation Conor_1.8_Nrmlzd2_15mins_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "909521e3b250cd4fd6b43cef3217f10c857a677f25086dae5d86b1934decc14d",
+    "size_bytes": 11707614
+  },
+  "source_capture": {
+    "filename": "First Contact Unguided Meditation Conor_1.8_Nrmlzd2_15mins_VBR5",
+    "format": "concatenated_json",
+    "hash_algorithm": "sha256",
+    "json_document_count": 4,
+    "sha256": "fb46e056ea1831beafc5570c56bda63c93eb81efd79857ab22c64f6b4ba19c57"
+  },
+  "taxonomy": {
+    "activity": "Unguided",
+    "all_provider_tags": {
+      "activity": [
+        "Unguided"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Arp Synth",
+        "Electric Guitar",
+        "Mallets",
+        "Orchestral Percussion",
+        "Organic Percussion",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Hopeful",
+        "Meditative",
+        "Playful",
+        "Serene",
+        "Uplifting"
+      ],
+      "release": [
+        "June 17 2024"
+      ],
+      "subgenre": [
+        "Ambient",
+        "Electronica"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Arp Synth",
+      "Electric Guitar",
+      "Mallets",
+      "Orchestral Percussion",
+      "Organic Percussion",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Meditate",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Hopeful",
+      "Meditative",
+      "Playful",
+      "Serene",
+      "Uplifting"
+    ],
+    "release_tags": [
+      "June 17 2024"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient",
+      "Electronica"
+    ]
+  }
+}

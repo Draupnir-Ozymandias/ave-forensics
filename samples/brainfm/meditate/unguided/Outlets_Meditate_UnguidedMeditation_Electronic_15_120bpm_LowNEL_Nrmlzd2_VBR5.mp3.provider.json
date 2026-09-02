@@ -1,0 +1,111 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-04-19T20:05:55.207Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.39,
+    "complexity_level": 0.63,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.21
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "Outlets_Meditate_UnguidedMeditation_Electronic_15_120bpm_LowNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Outlets",
+    "track_id": "6622cea3918ea2b454f7a514",
+    "variation_id": "6622cea3918ea2b454f7a517"
+  },
+  "recording": {
+    "filename": "Outlets_Meditate_UnguidedMeditation_Electronic_15_120bpm_LowNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "cf6052f417b22ec21a714fba436ef02a861a4c08be885e687a1e9c5cfe1af373",
+    "size_bytes": 13566277
+  },
+  "source_capture": {
+    "filename": "Outlets_Meditate_UnguidedMeditation_Electronic_15_120bpm_LowNEL_Nrmlzd2_VBR5",
+    "format": "json",
+    "hash_algorithm": "sha256",
+    "json_document_count": 1,
+    "sha256": "785cc0674e079748085480b54aae84e123a9662c5a330bd145e016aaf444bac2"
+  },
+  "taxonomy": {
+    "activity": "Unguided",
+    "all_provider_tags": {
+      "activity": [
+        "Unguided"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Electric Keys",
+        "Ethnic Strings",
+        "Organic Percussion",
+        "Processed Strings",
+        "Processed Vocals",
+        "Synth Bass",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Meditative",
+        "Mysterious"
+      ],
+      "release": [
+        "April 22 2024"
+      ],
+      "subgenre": [
+        "Ambient",
+        "Downtempo",
+        "Electronica"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Electric Keys",
+      "Ethnic Strings",
+      "Organic Percussion",
+      "Processed Strings",
+      "Processed Vocals",
+      "Synth Bass",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Meditate",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Meditative",
+      "Mysterious"
+    ],
+    "release_tags": [
+      "April 22 2024"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient",
+      "Downtempo",
+      "Electronica"
+    ]
+  }
+}

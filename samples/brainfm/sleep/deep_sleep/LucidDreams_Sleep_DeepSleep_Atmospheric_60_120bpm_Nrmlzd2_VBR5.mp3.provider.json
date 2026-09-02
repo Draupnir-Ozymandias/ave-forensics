@@ -1,0 +1,95 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-07-29T17:50:05.076Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.02,
+    "complexity_level": 0.02,
+    "declared_duration_seconds": 3600,
+    "neural_effect_level": 0.61
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "LucidDreams_Sleep_DeepSleep_Atmospheric_60_120bpm_Nrmlzd2_VBR5.mp3",
+    "title": "Lucid Dreams",
+    "track_id": "62e41dcd5e954c07e0f686ce",
+    "variation_id": "62e41dcd5e954c7597f686d0"
+  },
+  "recording": {
+    "filename": "LucidDreams_Sleep_DeepSleep_Atmospheric_60_120bpm_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "92868f1409ea9f30cac58b955f86fffa534ae105ed2aee0c5953ecb7d7579409",
+    "size_bytes": 38907627
+  },
+  "source_capture": {
+    "filename": "LucidDreams_Sleep_DeepSleep_Atmospheric_60_120bpm_Nrmlzd2_VBR5",
+    "format": "json",
+    "hash_algorithm": "sha256",
+    "json_document_count": 1,
+    "sha256": "60f6b271ee695fc4c48aab6fcab158515febc726827b298332007865cb7947f0"
+  },
+  "taxonomy": {
+    "activity": "Deep Sleep",
+    "all_provider_tags": {
+      "activity": [
+        "Deep Sleep"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Meditative",
+        "Serene"
+      ],
+      "release": [
+        "July 29 2022"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Textural Soundscape"
+    ],
+    "mental_state": "Sleep",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Meditative",
+      "Serene"
+    ],
+    "release_tags": [
+      "July 29 2022"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ]
+  }
+}

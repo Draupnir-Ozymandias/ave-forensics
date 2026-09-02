@@ -4,6 +4,7 @@ import base64
 import json
 import re
 from collections import Counter, defaultdict
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -20,6 +21,16 @@ SENSITIVE_KEY_PATTERN = re.compile(
 
 class ProviderMetadataError(ValueError):
     """Raised when provider metadata cannot be extracted or validated safely."""
+
+
+@dataclass(frozen=True)
+class ProviderBatchEntry:
+    status: str
+    recording_path: Path | None = None
+    capture_path: Path | None = None
+    output_path: Path | None = None
+    sidecar: dict[str, Any] | None = None
+    message: str | None = None
 
 
 def provider_sidecar_path_for(recording_path: Path) -> Path:
@@ -283,7 +294,6 @@ def extract_brainfm_sidecars(
     capture_path: Path,
     recordings_directory: Path,
 ) -> list[tuple[Path, dict[str, Any]]]:
-    documents, capture_format = parse_capture(capture_path)
     recordings = sorted(
         path
         for path in recordings_directory.iterdir()
@@ -291,6 +301,14 @@ def extract_brainfm_sidecars(
     )
     if not recordings:
         raise ProviderMetadataError("recordings directory contains no supported audio")
+    return _extract_brainfm_sidecars_for_recordings(capture_path, recordings)
+
+
+def _extract_brainfm_sidecars_for_recordings(
+    capture_path: Path,
+    recordings: list[Path],
+) -> list[tuple[Path, dict[str, Any]]]:
+    documents, capture_format = parse_capture(capture_path)
     filenames = {path.name for path in recordings}
     candidates: dict[str, list[dict[str, Any]]] = defaultdict(list)
     occurrence_counts: Counter[str] = Counter()
@@ -346,6 +364,174 @@ def extract_brainfm_sidecars(
         validate_provider_sidecar(sidecar)
         results.append((provider_sidecar_path_for(recording), sidecar))
     return results
+
+
+def _capture_key(capture_path: Path) -> str:
+    name = capture_path.name
+    for suffix in (".json", ".har"):
+        if name.lower().endswith(suffix):
+            return name[: -len(suffix)]
+    return name
+
+
+def _is_capture_candidate(path: Path) -> bool:
+    lowered = path.name.lower()
+    if path.name.startswith("."):
+        return False
+    if lowered.endswith(
+        (
+            ".png",
+            ".jpg",
+            ".jpeg",
+            ".gif",
+            ".webp",
+            ".metadata.json",
+            ".provider.json",
+        )
+    ):
+        return False
+    return path.is_file()
+
+
+def extract_brainfm_capture_tree(
+    captures_root: Path,
+    recordings_root: Path,
+) -> list[ProviderBatchEntry]:
+    """Validate a capture tree and prepare deterministic provider sidecars.
+
+    Capture basenames are joined to audio stems globally so a broad capture folder
+    can safely feed a more specific corpus taxonomy. Every candidate is still
+    verified against the exact provider variation filename inside the payload.
+    """
+    if not captures_root.is_dir():
+        raise ProviderMetadataError(f"captures root is not a directory: {captures_root}")
+    if not recordings_root.is_dir():
+        raise ProviderMetadataError(
+            f"recordings root is not a directory: {recordings_root}"
+        )
+
+    recordings = sorted(
+        path
+        for path in recordings_root.rglob("*")
+        if path.is_file() and path.suffix.lower() in AUDIO_EXTENSIONS
+    )
+    by_stem: dict[str, list[Path]] = defaultdict(list)
+    for recording in recordings:
+        by_stem[recording.stem].append(recording)
+
+    captures = sorted(
+        path for path in captures_root.rglob("*") if _is_capture_candidate(path)
+    )
+    by_key: dict[str, list[Path]] = defaultdict(list)
+    for capture in captures:
+        by_key[_capture_key(capture)].append(capture)
+
+    entries: list[ProviderBatchEntry] = []
+    paired_recordings: set[Path] = set()
+    for key in sorted(by_key):
+        capture_group = by_key[key]
+        matched_recordings = by_stem.get(key, [])
+        if len(capture_group) > 1:
+            for capture in capture_group:
+                entries.append(
+                    ProviderBatchEntry(
+                        status="ambiguous_capture",
+                        capture_path=capture,
+                        message=f"multiple captures share basename: {key}",
+                    )
+                )
+            continue
+        capture = capture_group[0]
+        if not matched_recordings:
+            entries.append(
+                ProviderBatchEntry(
+                    status="unmatched_capture",
+                    capture_path=capture,
+                    message=f"no local audio has stem: {key}",
+                )
+            )
+            continue
+        try:
+            sidecars = _extract_brainfm_sidecars_for_recordings(
+                capture, matched_recordings
+            )
+        except (OSError, UnicodeError, ProviderMetadataError) as error:
+            entries.append(
+                ProviderBatchEntry(
+                    status="invalid_capture",
+                    capture_path=capture,
+                    message=str(error),
+                )
+            )
+            continue
+        for (output_path, sidecar), recording in zip(
+            sidecars, matched_recordings, strict=True
+        ):
+            paired_recordings.add(recording)
+            status = "ready"
+            message = None
+            if output_path.exists():
+                try:
+                    existing = json.loads(output_path.read_text())
+                    validate_provider_sidecar(existing)
+                    if existing == sidecar:
+                        status = "unchanged"
+                    else:
+                        status = "stale_sidecar"
+                        message = "existing sidecar differs; use overwrite to replace it"
+                except (OSError, json.JSONDecodeError, ProviderMetadataError) as error:
+                    status = "stale_sidecar"
+                    message = f"existing sidecar is invalid: {error}"
+            entries.append(
+                ProviderBatchEntry(
+                    status=status,
+                    recording_path=recording,
+                    capture_path=capture,
+                    output_path=output_path,
+                    sidecar=sidecar,
+                    message=message,
+                )
+            )
+
+    for recording in recordings:
+        if recording in paired_recordings:
+            continue
+        output_path = provider_sidecar_path_for(recording)
+        status = "existing_sidecar" if output_path.exists() else "missing_capture"
+        entries.append(
+            ProviderBatchEntry(
+                status=status,
+                recording_path=recording,
+                output_path=output_path if output_path.exists() else None,
+                message=None if output_path.exists() else "no capture basename matched",
+            )
+        )
+    return sorted(
+        entries,
+        key=lambda item: (
+            str(item.recording_path or ""),
+            str(item.capture_path or ""),
+            item.status,
+        ),
+    )
+
+
+def write_brainfm_capture_tree(
+    entries: list[ProviderBatchEntry],
+    *,
+    overwrite: bool = False,
+) -> list[Path]:
+    writable_statuses = {"ready"}
+    if overwrite:
+        writable_statuses.add("stale_sidecar")
+    sidecars = [
+        (entry.output_path, entry.sidecar)
+        for entry in entries
+        if entry.status in writable_statuses
+        and entry.output_path is not None
+        and entry.sidecar is not None
+    ]
+    return write_provider_sidecars(sidecars)
 
 
 def write_provider_sidecars(

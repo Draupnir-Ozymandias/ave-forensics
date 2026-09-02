@@ -1,0 +1,95 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 4,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T20:49:33.522Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.12,
+    "complexity_level": 0.81,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.66
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "Atma Simple Unguided Meditation 4 Chris RSR1 1_30mins_VBR5.mp3",
+    "title": "Atma",
+    "track_id": "62b3805d592411114ef4bd5d",
+    "variation_id": "62b3805d5924115073f4bd5f"
+  },
+  "recording": {
+    "filename": "Atma Simple Unguided Meditation 4 Chris RSR1 1_30mins_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "2cfcf25ec23dec8ee4bb945a7e1b63d51a27f4656300af0f5a62b3438a8a0784",
+    "size_bytes": 20388978
+  },
+  "source_capture": {
+    "filename": "Atma Simple Unguided Meditation 4 Chris RSR1 1_30mins_VBR5",
+    "format": "concatenated_json",
+    "hash_algorithm": "sha256",
+    "json_document_count": 2,
+    "sha256": "9d11f60ca56e24b750c18057ff612baf2c450e137308cb22b7e529e92bbd3dcf"
+  },
+  "taxonomy": {
+    "activity": null,
+    "all_provider_tags": {
+      "activity": [
+        "Power Nap"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Meditative",
+        "Serene"
+      ],
+      "release": [
+        "Desktop Import"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Textural Soundscape"
+    ],
+    "mental_state": "Sleep",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Meditative",
+      "Serene"
+    ],
+    "release_tags": [
+      "Desktop Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ]
+  }
+}

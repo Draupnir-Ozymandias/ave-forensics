@@ -1,0 +1,102 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-12-02T16:25:38.474Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 72,
+    "brightness_level": 0.3,
+    "complexity_level": 0.25,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.56
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "Bardo_Focus_Creativity_Atmospheric_30_72BPM_Nrmlzd2_MidNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Bardo",
+    "track_id": "674ddf82657c71542c9996e0",
+    "variation_id": "674ddf82657c71542c9996e4"
+  },
+  "recording": {
+    "filename": "Bardo_Focus_Creativity_Atmospheric_30_72BPM_Nrmlzd2_MidNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "4e32072816c098ae0544ecfc82ed1e87e3cc835f7bc44ae91d74e47c98aec775",
+    "size_bytes": 26578189
+  },
+  "source_capture": {
+    "filename": "Bardo_Focus_Creativity_Atmospheric_30_72BPM_Nrmlzd2_MidNEL_Nrmlzd2_VBR5.json",
+    "format": "json",
+    "hash_algorithm": "sha256",
+    "json_document_count": 1,
+    "sha256": "0a668ae7dd1df5030c93d3f37532ced13bef025335f4cefb3ee60647b583c56e"
+  },
+  "taxonomy": {
+    "activity": "Light Work",
+    "all_provider_tags": {
+      "activity": [
+        "Creativity",
+        "Light Work"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Acoustic Piano",
+        "Organic Percussion",
+        "Processed Strings",
+        "Textural Soundscape",
+        "White Noise"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Ponderous"
+      ],
+      "release": [
+        "December 2 2024"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Acoustic Piano",
+      "Organic Percussion",
+      "Processed Strings",
+      "Textural Soundscape",
+      "White Noise"
+    ],
+    "mental_state": "Focus",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Ponderous"
+    ],
+    "release_tags": [
+      "December 2 2024"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ]
+  }
+}

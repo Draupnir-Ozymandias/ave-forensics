@@ -1,0 +1,94 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-09-09T14:18:44.002Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.44,
+    "complexity_level": 0.47,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.43
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "OutintheOpen_Relax_Recharge_Atmospheric_15_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Out in the Open",
+    "track_id": "66df03c4edad688793837242",
+    "variation_id": "66df03c4edad688793837246"
+  },
+  "recording": {
+    "filename": "OutintheOpen_Relax_Recharge_Atmospheric_15_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "3be15a73df12424a2b4abf970ec8f3914870bb5fe03cf307ee910f6d134dfe90",
+    "size_bytes": 14349336
+  },
+  "source_capture": {
+    "filename": "OutintheOpen_Relax_Recharge_Atmospheric_15_120bpm_MedNEL_Nrmlzd2_VBR5",
+    "format": "json",
+    "hash_algorithm": "sha256",
+    "json_document_count": 1,
+    "sha256": "4712227bcfd70b4d52dcf389ef34010548adda5930fc796f6238706913c46e6e"
+  },
+  "taxonomy": {
+    "activity": "Destress",
+    "all_provider_tags": {
+      "activity": [
+        "Destress",
+        "Recharge"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Processed Strings",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Floating",
+        "Meditative",
+        "Serene"
+      ],
+      "release": [
+        "September 9 2024"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Processed Strings",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Relax",
+    "moods": [
+      "Calm",
+      "Floating",
+      "Meditative",
+      "Serene"
+    ],
+    "release_tags": [
+      "September 9 2024"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ]
+  }
+}

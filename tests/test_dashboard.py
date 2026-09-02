@@ -68,6 +68,7 @@ def test_dashboard_deduplicates_comparisons_but_preserves_aliases():
         "indexed_evidence_count": 10,
         "duplicate_group_count": 1,
         "protocol_family_count": 0,
+        "provider_metadata_count": 0,
     }
     assert len(data["recordings"]) == 3
     assert len(data["comparison_recordings"]) == 2
@@ -99,6 +100,8 @@ def test_dashboard_html_is_self_contained_and_deterministic(tmp_path):
     assert "__AVE_DASHBOARD_DATA__" not in first_text
     assert "danger-<\\/script>.wav" in first_text
     assert "Reference-Library Comparison" in first_text
+    assert 'id="provider-activity"' in first_text
+    assert "Provider taxonomy" in first_text
     embedded = first_text.split(
         '<script id="dashboard-data" type="application/json">', 1
     )[1].split("</script>", 1)[0]
@@ -121,3 +124,47 @@ def test_dashboard_accepts_clustering_bound_to_the_same_index():
         for record in data["comparison_recordings"]
         if record["index_status"] == "indexed"
     )
+
+
+def test_dashboard_exposes_provider_taxonomy_as_context():
+    item = record("guided.wav", "provider-hash")
+    item.update(
+        {
+            "provider_metadata_status": "validated",
+            "provider_metadata_path": "samples/guided.wav.provider.json",
+            "provider_metadata": {
+                "provider_track": {"title": "Quiet Mind"},
+                "taxonomy": {
+                    "mental_state": "Meditate",
+                    "activity": "Guided",
+                    "style": "guided",
+                    "genres": ["Atmospheric"],
+                    "subgenres": [],
+                    "moods": ["Calm"],
+                    "instruments": ["Voice"],
+                },
+                "provider_measurements": {
+                    "beats_per_minute": 120,
+                    "brightness_level": 0.25,
+                    "complexity_level": 0.5,
+                    "neural_effect_level": 0.8,
+                },
+            },
+        }
+    )
+
+    data = build_dashboard_data(
+        {
+            "index_schema_version": "1.0.0",
+            "duplicate_input_groups": [],
+            "recordings": [item],
+        }
+    )
+
+    flattened = data["recordings"][0]
+    assert data["overview"]["provider_metadata_count"] == 1
+    assert data["facets"]["provider_mental_states"] == ["Meditate"]
+    assert data["facets"]["provider_activities"] == ["Guided"]
+    assert flattened["provider_title"] == "Quiet Mind"
+    assert flattened["provider_moods"] == ["Calm"]
+    assert flattened["provider_neural_effect_level"] == 0.8

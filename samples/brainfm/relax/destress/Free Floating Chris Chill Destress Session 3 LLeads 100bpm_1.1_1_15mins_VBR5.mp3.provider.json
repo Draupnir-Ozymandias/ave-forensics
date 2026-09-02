@@ -1,0 +1,98 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 2,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T21:27:41.894Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 100,
+    "brightness_level": 0.47,
+    "complexity_level": 0.79,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.9
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "Free Floating Chris Chill Destress Session 3 LLeads 100bpm_1.1_1_15mins_VBR5.mp3",
+    "title": "Free Floating",
+    "track_id": "62b3894d59241190c7f532f7",
+    "variation_id": "62b395e35924113877f575a9"
+  },
+  "recording": {
+    "filename": "Free Floating Chris Chill Destress Session 3 LLeads 100bpm_1.1_1_15mins_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "19b27365d4e757ba8723543f59ca48ae9d53c142e78e00c8e5fbc4f916dba9eb",
+    "size_bytes": 11972282
+  },
+  "source_capture": {
+    "filename": "Free Floating Chris Chill Destress Session 3 LLeads 100bpm_1.1_1_15mins_VBR5",
+    "format": "json",
+    "hash_algorithm": "sha256",
+    "json_document_count": 1,
+    "sha256": "6f4215a5671a930cf1ea7ca03ae893ccd624e4e91f1169cbd12ceca740756e03"
+  },
+  "taxonomy": {
+    "activity": "Destress",
+    "all_provider_tags": {
+      "activity": [
+        "Destress",
+        "Recharge"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Arp Synth",
+        "Chimes/Bells",
+        "Synth Bass"
+      ],
+      "mood": [
+        "Dreamlike",
+        "Floating",
+        "Hopeful"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Ambient",
+        "Electronica"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Arp Synth",
+      "Chimes/Bells",
+      "Synth Bass"
+    ],
+    "mental_state": "Relax",
+    "moods": [
+      "Dreamlike",
+      "Floating",
+      "Hopeful"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient",
+      "Electronica"
+    ]
+  }
+}

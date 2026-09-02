@@ -1,0 +1,95 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 2,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T20:52:25.500Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.12,
+    "complexity_level": 0.46,
+    "declared_duration_seconds": 3600,
+    "neural_effect_level": 0.7
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "Drifting Off Sleep Ambient 2 Conor Loop New 3D_1.9_Nrmlzd2_VBR5.mp3",
+    "title": "Drifting Off",
+    "track_id": "62b381095924113fd9f4e0ed",
+    "variation_id": "62b38109592411531ef4e0ef"
+  },
+  "recording": {
+    "filename": "Drifting Off Sleep Ambient 2 Conor Loop New 3D_1.9_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "0513c7273a0bf3ee56768993f262664fd3900304ddbf16405c0b599c2401bffb",
+    "size_bytes": 42128047
+  },
+  "source_capture": {
+    "filename": "Drifting Off Sleep Ambient 2 Conor Loop New 3D_1.9_Nrmlzd2_VBR5",
+    "format": "concatenated_json",
+    "hash_algorithm": "sha256",
+    "json_document_count": 3,
+    "sha256": "df617c7a200430b775b046e69706833a5829d3119560268e0f74c3148b1e005d"
+  },
+  "taxonomy": {
+    "activity": "Deep Sleep",
+    "all_provider_tags": {
+      "activity": [
+        "Deep Sleep"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Serene"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Textural Soundscape"
+    ],
+    "mental_state": "Sleep",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Serene"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ]
+  }
+}

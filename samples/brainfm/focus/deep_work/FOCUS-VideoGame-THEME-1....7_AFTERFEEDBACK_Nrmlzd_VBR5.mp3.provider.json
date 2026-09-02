@@ -1,0 +1,97 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 3,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T21:30:13.293Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.14,
+    "complexity_level": 0.58,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.86
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "FOCUS-VideoGame-THEME-1....7_AFTERFEEDBACK_Nrmlzd_VBR5.mp3",
+    "title": "Perpetual Motion",
+    "track_id": "62b389e5592411a759f539b1",
+    "variation_id": "62b389e55924116bdff539b3"
+  },
+  "recording": {
+    "filename": "FOCUS-VideoGame-THEME-1....7_AFTERFEEDBACK_Nrmlzd_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "77d1455e89db2159d7217d4ee96a76b2a28897b8fbb5135216cf62a00f8525ad",
+    "size_bytes": 18641351
+  },
+  "source_capture": {
+    "filename": "FOCUS-VideoGame-THEME-1....7_AFTERFEEDBACK_Nrmlzd_VBR5.json",
+    "format": "concatenated_json",
+    "hash_algorithm": "sha256",
+    "json_document_count": 3,
+    "sha256": "77481fae350bdca4a1c5850a1bc12004aa8b3cdf2026a658eccfefaf3ec8c9be"
+  },
+  "taxonomy": {
+    "activity": "Deep Work",
+    "all_provider_tags": {
+      "activity": [
+        "Deep Work"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Arp Synth",
+        "Arp Synth Bass"
+      ],
+      "mood": [
+        "Driving",
+        "Energizing",
+        "Mysterious"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Electronica",
+        "House",
+        "Techno"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Arp Synth",
+      "Arp Synth Bass"
+    ],
+    "mental_state": "Focus",
+    "moods": [
+      "Driving",
+      "Energizing",
+      "Mysterious"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Electronica",
+      "House",
+      "Techno"
+    ]
+  }
+}

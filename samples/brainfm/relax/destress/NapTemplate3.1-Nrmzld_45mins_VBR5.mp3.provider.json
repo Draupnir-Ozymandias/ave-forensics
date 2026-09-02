@@ -1,0 +1,98 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 3,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T21:24:41.304Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.04,
+    "complexity_level": 0.91,
+    "declared_duration_seconds": 2700,
+    "neural_effect_level": 0.46
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "NapTemplate3.1-Nrmzld_45mins_VBR5.mp3",
+    "title": "In Plain Air",
+    "track_id": "62b38899592411a19cf523ea",
+    "variation_id": "62b395a8592411755df5748b"
+  },
+  "recording": {
+    "filename": "NapTemplate3.1-Nrmzld_45mins_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "6ea2e7c1107450897a9f9494293fac12fbd45eb6306c561ab1b189377eed1f81",
+    "size_bytes": 28495116
+  },
+  "source_capture": {
+    "filename": "NapTemplate3.1-Nrmzld_45mins_VBR5",
+    "format": "concatenated_json",
+    "hash_algorithm": "sha256",
+    "json_document_count": 3,
+    "sha256": "1b36869703beb74989ed49ff39804043a3fa086d8768600c75456aaaebd2a98a"
+  },
+  "taxonomy": {
+    "activity": "Destress",
+    "all_provider_tags": {
+      "activity": [
+        "Destress",
+        "Recharge"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Meditative",
+        "Serene"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Textural Soundscape"
+    ],
+    "mental_state": "Relax",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Meditative",
+      "Serene"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ]
+  }
+}

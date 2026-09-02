@@ -1,0 +1,96 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 2,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-04-05T20:44:23.659Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.6,
+    "complexity_level": 0.89,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.92
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "LotusBlossom_Relax_Recharge_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Lotus Blossom",
+    "track_id": "661062a788d74c5142fdf370",
+    "variation_id": "661062a788d74c5142fdf372"
+  },
+  "recording": {
+    "filename": "LotusBlossom_Relax_Recharge_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "7fd72867ea3531594af0f8cf52c57ace0578acdf87bbf8e8f7e4c727ab821a86",
+    "size_bytes": 11070209
+  },
+  "source_capture": {
+    "filename": "LotusBlossom_Relax_Recharge_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5",
+    "format": "json",
+    "hash_algorithm": "sha256",
+    "json_document_count": 1,
+    "sha256": "60f6b271ee695fc4c48aab6fcab158515febc726827b298332007865cb7947f0"
+  },
+  "taxonomy": {
+    "activity": "Recharge",
+    "all_provider_tags": {
+      "activity": [
+        "Recharge",
+        "Unwind"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Processed Strings",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Floating",
+        "Meditative",
+        "Serene"
+      ],
+      "release": [
+        "April 8 2024"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Processed Strings",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Relax",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Floating",
+      "Meditative",
+      "Serene"
+    ],
+    "release_tags": [
+      "April 8 2024"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ]
+  }
+}

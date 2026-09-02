@@ -127,9 +127,20 @@ local recording:
   --recordings-dir samples/brainfm/meditate/guided
 ```
 
+For the normal one-capture-per-recording archive, validate and ingest the entire
+tree recursively:
+
+```bash
+.venv/bin/python provider_metadata.py --batch --dry-run
+.venv/bin/python provider_metadata.py --batch
+```
+
 The extractor matches exact MP3 variation filenames, deduplicates repeated response
-records, rejects conflicts, binds outputs to recording and capture SHA-256 digests,
-and omits all provider URLs and tokens. Raw captures belong under ignored
+records, rejects conflicts and ambiguous capture basenames, binds outputs to
+recording and capture SHA-256 digests, and omits all provider URLs and tokens.
+Batch matching works across differing capture/corpus category depths and reports
+missing or unmatched packages without blocking valid ones. Existing sidecars are
+never replaced unless `--overwrite` is explicit. Raw captures belong under ignored
 `captured/` storage; only sanitized `*.provider.json` sidecars should be committed.
 See `docs/BRAINFM_CAPTURE_WORKFLOW.md` for the Favorites collection workflow.
 
@@ -146,9 +157,11 @@ Build the Corpus Evidence Index, then generate the local dashboard:
 Open `artifacts/dashboard/index.html` in a browser. The self-contained dashboard
 requires no server or network connection. It provides corpus filters, carrier and
 modulation distributions, phase and hypothesis comparisons, recording drill-down,
-protocol-family profiles, and filtered CSV/JSON exports. When a current clustering
-artifact exists, the dashboard validates that it was produced from the exact same
-Corpus Evidence Index before displaying any assignment.
+protocol-family profiles, contextual provider-taxonomy filters and summaries, and
+filtered CSV/JSON exports. Provider labels remain visibly separate from measured
+evidence and are excluded from clustering. When a current clustering artifact
+exists, the dashboard validates that it was produced from the exact same Corpus
+Evidence Index before displaying any assignment.
 
 Comparison statistics use one canonical recording per SHA-256 input by default so
 byte-identical aliases cannot bias the results. Uncheck **Unique inputs** to inspect

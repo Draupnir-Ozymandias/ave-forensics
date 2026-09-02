@@ -1,0 +1,95 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 4,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T21:05:51.530Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.3,
+    "complexity_level": 0.5,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.81
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "Astral Bodies Simple Unguided Meditation 10 Chris RSF2 1_30mins_VBR5.mp3",
+    "title": "Astral Bodies",
+    "track_id": "62b3842f5924112ec6f50273",
+    "variation_id": "62b3842f592411369ef50275"
+  },
+  "recording": {
+    "filename": "Astral Bodies Simple Unguided Meditation 10 Chris RSF2 1_30mins_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "533be8272c626948a3f9320ca558740b94ab58ff61fdf93fcfbda0be0eda8009",
+    "size_bytes": 20826106
+  },
+  "source_capture": {
+    "filename": "Astral Bodies Simple Unguided Meditation 10 Chris RSF2 1_30mins_VBR5",
+    "format": "concatenated_json",
+    "hash_algorithm": "sha256",
+    "json_document_count": 4,
+    "sha256": "567c0e8d30ab9704eefd37583a3176416a54ee8445507a9719d83afd603e7426"
+  },
+  "taxonomy": {
+    "activity": null,
+    "all_provider_tags": {
+      "activity": [
+        "Power Nap"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Meditative",
+        "Serene"
+      ],
+      "release": [
+        "Desktop Import"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Textural Soundscape"
+    ],
+    "mental_state": "Sleep",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Meditative",
+      "Serene"
+    ],
+    "release_tags": [
+      "Desktop Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ]
+  }
+}

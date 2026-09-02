@@ -3,9 +3,11 @@ import json
 
 from provider.brainfm import (
     ProviderMetadataError,
+    extract_brainfm_capture_tree,
     extract_brainfm_sidecars,
     parse_capture,
     validate_provider_sidecar,
+    write_brainfm_capture_tree,
     write_provider_sidecars,
 )
 
@@ -144,3 +146,76 @@ def test_validator_rejects_tokenized_content(tmp_path):
         assert "sensitive field" in str(error)
     else:
         raise AssertionError("sensitive provider content was accepted")
+
+
+def test_batch_pairs_capture_tree_globally_and_preserves_aliases(tmp_path):
+    captures = tmp_path / "captured" / "brainfm"
+    recordings = tmp_path / "samples" / "brainfm"
+    (captures / "focus").mkdir(parents=True)
+    (recordings / "focus" / "deep_work").mkdir(parents=True)
+    (recordings / "focus" / "light_work").mkdir(parents=True)
+    (recordings / "sleep").mkdir(parents=True)
+    filename = "shared.name_VBR5.mp3"
+    for directory in (
+        recordings / "focus" / "deep_work",
+        recordings / "focus" / "light_work",
+    ):
+        (directory / filename).write_bytes(b"same audio")
+    (recordings / "sleep" / "missing.mp3").write_bytes(b"no capture")
+    (captures / "focus" / "shared.name_VBR5.json").write_text(
+        json.dumps({"track": track(filename)})
+    )
+    (captures / "focus" / "orphan.json").write_text(json.dumps({"unused": True}))
+    (captures / "focus" / "shared.name_VBR5.png").write_bytes(b"screenshot")
+
+    entries = extract_brainfm_capture_tree(captures, recordings)
+
+    ready = [entry for entry in entries if entry.status == "ready"]
+    assert len(ready) == 2
+    assert {entry.recording_path.parent.name for entry in ready} == {
+        "deep_work",
+        "light_work",
+    }
+    assert len([entry for entry in entries if entry.status == "missing_capture"]) == 1
+    assert len([entry for entry in entries if entry.status == "unmatched_capture"]) == 1
+
+    written = write_brainfm_capture_tree(entries)
+    assert len(written) == 2
+    rerun = extract_brainfm_capture_tree(captures, recordings)
+    assert len([entry for entry in rerun if entry.status == "unchanged"]) == 2
+
+
+def test_batch_rejects_duplicate_capture_basenames(tmp_path):
+    captures = tmp_path / "captured"
+    recordings = tmp_path / "recordings"
+    captures.mkdir()
+    recordings.mkdir()
+    (recordings / "guided.mp3").write_bytes(b"audio")
+    payload = json.dumps({"track": track("guided.mp3")})
+    (captures / "guided").write_text(payload)
+    (captures / "guided.json").write_text(payload)
+
+    entries = extract_brainfm_capture_tree(captures, recordings)
+
+    assert len([entry for entry in entries if entry.status == "ambiguous_capture"]) == 2
+    assert len([entry for entry in entries if entry.status == "missing_capture"]) == 1
+    assert not write_brainfm_capture_tree(entries)
+
+
+def test_batch_marks_conflicting_provider_records_invalid(tmp_path):
+    captures = tmp_path / "captured"
+    recordings = tmp_path / "recordings"
+    captures.mkdir()
+    recordings.mkdir()
+    (recordings / "guided.mp3").write_bytes(b"audio")
+    (captures / "guided").write_text(
+        json.dumps({"track": track("guided.mp3", title="First")})
+        + json.dumps({"track": track("guided.mp3", title="Second")})
+    )
+
+    entries = extract_brainfm_capture_tree(captures, recordings)
+
+    invalid = [entry for entry in entries if entry.status == "invalid_capture"]
+    assert len(invalid) == 1
+    assert "conflicting provider records" in invalid[0].message
+    assert not write_brainfm_capture_tree(entries)
