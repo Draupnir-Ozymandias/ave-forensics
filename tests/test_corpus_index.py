@@ -41,6 +41,42 @@ def evidence_document(evidence: list[dict]) -> dict:
     }
 
 
+def speech_context_evidence() -> dict:
+    return create_evidence_object(
+        evidence_level="association",
+        evidence_type="speech_context_comparison",
+        source_module="analysis.speech_context",
+        summary="Speech-aware comparison",
+        measurements=[
+            measurement("buffered_speech_coverage", 0.38, "ratio"),
+            measurement("speech_active_window_count", 72, "count"),
+            measurement("speech_sparse_window_count", 106, "count"),
+            measurement("direct_comparison_available", True, "boolean"),
+            measurement("speech_active_candidate_rate", 1.0, "ratio"),
+            measurement("speech_sparse_candidate_rate", 1.0, "ratio"),
+            measurement("speech_active_median_difference", 1.25, "Hz"),
+            measurement("speech_sparse_median_difference", 0.5, "Hz"),
+        ],
+        context={
+            "entrainment_band_counts": {
+                "speech_active": {"delta": 42, "gamma": 10},
+                "speech_sparse": {"delta": 106},
+            }
+        },
+    )
+
+
+def test_summarizes_speech_context_comparison():
+    summary = summarize_evidence_document(
+        evidence_document([hypothesis_evidence(), speech_context_evidence()])
+    )
+
+    comparison = summary["speech_context_comparison"]
+    assert comparison["direct_comparison_available"] is True
+    assert comparison["active_median_difference_hz"] == 1.25
+    assert comparison["sparse_band_counts"] == {"delta": 106}
+
+
 def test_summarizes_all_retained_hypothesis_bands_and_best_candidates():
     gamma_low = create_evidence_object(
         evidence_level="hypothesis",

@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 
-DASHBOARD_SCHEMA_VERSION = "1.2.0"
+DASHBOARD_SCHEMA_VERSION = "1.3.0"
 TEMPLATE_PATH = Path(__file__).with_name("dashboard.html")
 
 
@@ -17,6 +17,7 @@ def _flatten_record(record: dict[str, Any]) -> dict[str, Any]:
     envelope = summary.get("dominant_envelope") or {}
     modulation = summary.get("modulation_reconstruction") or {}
     phase = summary.get("phase_relationship") or {}
+    speech_context = summary.get("speech_context_comparison") or {}
     hypothesis = summary.get("top_hypothesis") or {}
     hypothesis_bands = summary.get("hypothesis_band_summary") or {}
     provider_metadata = record.get("provider_metadata") or {}
@@ -74,6 +75,30 @@ def _flatten_record(record: dict[str, Any]) -> dict[str, Any]:
         "transcript_mean_pronunciation_confidence": transcript_statistics.get(
             "mean_pronunciation_confidence"
         ),
+        "speech_context_comparison_available": speech_context.get(
+            "direct_comparison_available", False
+        ),
+        "speech_context_buffered_coverage_ratio": speech_context.get(
+            "buffered_speech_coverage"
+        ),
+        "speech_active_window_count": speech_context.get("active_window_count"),
+        "speech_sparse_window_count": speech_context.get("sparse_window_count"),
+        "speech_active_candidate_rate": speech_context.get("active_candidate_rate"),
+        "speech_sparse_candidate_rate": speech_context.get("sparse_candidate_rate"),
+        "speech_active_median_difference_hz": speech_context.get(
+            "active_median_difference_hz"
+        ),
+        "speech_sparse_median_difference_hz": speech_context.get(
+            "sparse_median_difference_hz"
+        ),
+        "speech_active_median_phase_locking": speech_context.get(
+            "active_median_phase_locking"
+        ),
+        "speech_sparse_median_phase_locking": speech_context.get(
+            "sparse_median_phase_locking"
+        ),
+        "speech_active_band_counts": speech_context.get("active_band_counts") or {},
+        "speech_sparse_band_counts": speech_context.get("sparse_band_counts") or {},
         "index_error": record.get("index_error"),
         "duplicate_aliases": aliases,
         "carrier_left_hz": carrier.get("left_hz"),
@@ -245,6 +270,9 @@ def build_dashboard_data(
             ),
             "transcript_sidecar_count": sum(
                 item["transcript_status"] == "validated" for item in canonical
+            ),
+            "speech_context_comparison_count": sum(
+                item["speech_context_comparison_available"] for item in canonical
             ),
         },
         "facets": {

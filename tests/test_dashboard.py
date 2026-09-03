@@ -70,6 +70,7 @@ def test_dashboard_deduplicates_comparisons_but_preserves_aliases():
         "protocol_family_count": 0,
         "provider_metadata_count": 0,
         "transcript_sidecar_count": 0,
+        "speech_context_comparison_count": 0,
     }
     assert len(data["recordings"]) == 3
     assert len(data["comparison_recordings"]) == 2
@@ -107,6 +108,8 @@ def test_dashboard_html_is_self_contained_and_deterministic(tmp_path):
     assert "Provider taxonomy" in first_text
     assert 'id="transcript-status"' in first_text
     assert "Speech context" in first_text
+    assert 'id="speech-difference-chart"' in first_text
+    assert 'id="speech-band-chart"' in first_text
     embedded = first_text.split(
         '<script id="dashboard-data" type="application/json">', 1
     )[1].split("</script>", 1)[0]
@@ -243,3 +246,34 @@ def test_dashboard_exposes_text_free_transcript_context():
     assert data["facets"]["transcript_languages"] == ["en-US"]
     assert flattened["transcript_segment_count"] == 71
     assert flattened["transcript_speech_coverage_ratio"] == 0.321
+
+
+def test_dashboard_exposes_speech_aware_signal_comparison():
+    item = record("guided.wav", "speech-context-hash")
+    item["evidence_summary"]["speech_context_comparison"] = {
+        "buffered_speech_coverage": 0.38,
+        "active_window_count": 72,
+        "sparse_window_count": 106,
+        "direct_comparison_available": True,
+        "active_candidate_rate": 1.0,
+        "sparse_candidate_rate": 1.0,
+        "active_median_difference_hz": 1.25,
+        "sparse_median_difference_hz": 0.5,
+        "active_median_phase_locking": 0.0815,
+        "sparse_median_phase_locking": 0.0902,
+        "active_band_counts": {"beta": 15, "delta": 42, "gamma": 10},
+        "sparse_band_counts": {"delta": 106},
+    }
+
+    data = build_dashboard_data(
+        {
+            "index_schema_version": "1.3.0",
+            "duplicate_input_groups": [],
+            "recordings": [item],
+        }
+    )
+
+    flattened = data["recordings"][0]
+    assert data["overview"]["speech_context_comparison_count"] == 1
+    assert flattened["speech_active_median_difference_hz"] == 1.25
+    assert flattened["speech_sparse_band_counts"] == {"delta": 106}

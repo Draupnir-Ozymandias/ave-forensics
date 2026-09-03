@@ -1,4 +1,5 @@
 import argparse
+import json
 from pathlib import Path
 
 from core.audio_loader import load_audio
@@ -44,6 +45,7 @@ from evidence.adapters import (
     modulation_spectrum_to_evidence,
     phase_timeline_to_evidence,
     protocol_hypothesis_to_evidence,
+    speech_context_to_evidence,
 )
 from reports.evidence_export import export_evidence_json
 from provenance.run import build_run_provenance
@@ -183,6 +185,10 @@ def main(audio_path: str = DEFAULT_AUDIO_PATH, output_dir: str = "."):
         carrier_pair_to_evidence(pair, evidence_provenance)
         for pair in selected_carrier_pairs
     ]
+
+    left_envelope_timeline = None
+    right_envelope_timeline = None
+    phase_timeline = None
 
     print("\nBest non-conflicting carrier-pair associations:")
 
@@ -407,6 +413,70 @@ def main(audio_path: str = DEFAULT_AUDIO_PATH, output_dir: str = "."):
         )
         for hypothesis in hypotheses
     )
+
+    from analysis.speech_context import build_speech_context_analysis
+    from transcripts.sidecar import (
+        TranscriptSidecarError,
+        transcript_sidecar_path_for,
+        validate_transcript_sidecar,
+    )
+
+    transcript_path = transcript_sidecar_path_for(input_path)
+    if transcript_path.exists():
+        try:
+            transcript_sidecar = json.loads(transcript_path.read_text())
+            validate_transcript_sidecar(transcript_sidecar)
+            if transcript_sidecar["recording"]["sha256"] != run_provenance["input"]["sha256"]:
+                raise TranscriptSidecarError(
+                    "transcript sidecar SHA-256 does not match analysis input"
+                )
+            speech_config = analysis_config["speech_context"]
+            speech_context = build_speech_context_analysis(
+                transcript_sidecar=transcript_sidecar,
+                duration_seconds=metadata["duration_seconds"],
+                entrainment_timeline=timeline,
+                left_envelope_timeline=left_envelope_timeline,
+                right_envelope_timeline=right_envelope_timeline,
+                phase_timeline=phase_timeline,
+                padding_seconds=speech_config["padding_seconds"],
+                active_minimum_overlap=speech_config["active_minimum_overlap"],
+                sparse_maximum_overlap=speech_config["sparse_maximum_overlap"],
+            )
+            supporting_ids = [
+                item["evidence_id"]
+                for item in evidence_objects
+                if item["evidence_type"]
+                in {
+                    "carrier_envelope_analysis",
+                    "time_resolved_phase_relationship",
+                }
+            ]
+            evidence_objects.append(
+                speech_context_to_evidence(
+                    speech_context,
+                    evidence_provenance,
+                    supporting_evidence_ids=supporting_ids,
+                )
+            )
+            with open(output_path("ave_speech_context.json"), "w") as output_file:
+                json.dump(speech_context, output_file, indent=2, sort_keys=True)
+                output_file.write("\n")
+            active = speech_context["window_analyses"]["entrainment"]["speech_active"]
+            sparse = speech_context["window_analyses"]["entrainment"]["speech_sparse"]
+            print("\nSpeech-aware signal comparison:")
+            print(
+                f"  speech-active windows: {active['window_count']} "
+                f"(candidate rate {active['candidate_window_rate']})"
+            )
+            print(
+                f"  speech-sparse windows: {sparse['window_count']} "
+                f"(candidate rate {sparse['candidate_window_rate']})"
+            )
+            print("Speech context written to ave_speech_context.json")
+        except (OSError, ValueError, TypeError, KeyError, json.JSONDecodeError) as error:
+            print(f"\nSpeech-aware signal comparison skipped: {error}")
+    else:
+        print("\nSpeech-aware signal comparison: no transcript sidecar available")
 
     print("\nGenerated protocol hypotheses:")
     for h in hypotheses[:25]:

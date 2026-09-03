@@ -1,7 +1,7 @@
 """Versioned parameters for the canonical AVE analysis pipeline."""
 
 ANALYSIS_CONFIGURATION = {
-    "configuration_schema_version": "1.0.0",
+    "configuration_schema_version": "1.1.0",
     "global_spectrum": {
         "top_n": 10,
         "min_frequency_hz": 1.0,
@@ -53,5 +53,10 @@ ANALYSIS_CONFIGURATION = {
     "hypothesis": {
         "minimum_score": 0.005,
         "deduplication_tolerance_hz": 0.35,
+    },
+    "speech_context": {
+        "padding_seconds": 0.5,
+        "active_minimum_overlap": 0.5,
+        "sparse_maximum_overlap": 0.1,
     },
 }

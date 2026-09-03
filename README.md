@@ -164,6 +164,13 @@ Raw responses remain in ignored `captured/transcripts/` storage. The derived
 timing, confidence, and coverage statistics while rejecting verbatim text, account
 identifiers, job names, and cloud locations. See `docs/TRANSCRIPT_SIDECARS.md`.
 
+When a validated transcript sidecar is present, the canonical analyzer also builds
+`ave_speech_context.json`. Existing 10- and 30-second signal-analysis windows are
+classified as speech-active, speech-sparse, or mixed using buffered transcript
+timing. Active and sparse windows are compared without cutting or concatenating
+audio, and a `speech_context_comparison` evidence object is added to the canonical
+evidence document. See `docs/SPEECH_AWARE_SEGMENTATION.md`.
+
 ## Generate the Reference-Library Comparison Dashboard
 
 Build the Corpus Evidence Index, then generate the local dashboard:
@@ -178,9 +185,10 @@ Open `artifacts/dashboard/index.html` in a browser. The self-contained dashboard
 requires no server or network connection. It provides corpus filters, carrier and
 modulation distributions, phase and hypothesis comparisons, recording drill-down,
 protocol-family profiles, contextual provider-taxonomy filters and summaries, and
-text-free transcript coverage, timing, and confidence summaries. Provider and
-speech context remain visibly separate from measured evidence and are excluded
-from clustering. The hypothesis view switches between
+text-free transcript coverage, timing, confidence, and active-versus-sparse signal
+comparisons. Provider context and transcript contents remain separate from measured
+evidence; speech-aware comparisons are derived acoustic evidence but are excluded
+from protocol-family clustering in this initial version. The hypothesis view switches between
 one top-ranked candidate per recording and every retained candidate, keeping
 secondary bands such as gamma visible without presenting them as leading results.
 When a current clustering artifact exists, the dashboard validates that it was

@@ -171,6 +171,8 @@
     <section class="charts">
       <article class="panel"><h3>Transcript coverage</h3><div class="hint">Validated transcript sidecars in the filtered corpus</div><div id="transcript-status-chart"></div></article>
       <article class="panel"><h3>Speech-active coverage</h3><div class="hint">Provider segments as a share of complete recording duration</div><div id="speech-coverage-chart"></div></article>
+      <article class="panel"><h3>Signal difference by speech context</h3><div class="hint">Median inter-channel candidate difference · active versus sparse windows</div><div id="speech-difference-chart"></div></article>
+      <article class="panel"><h3>Hypothesis bands by speech context</h3><div class="hint">Top candidate per classified window · speech can introduce broadband structure</div><div id="speech-band-chart"></div></article>
     </section>
 
     <div class="section-head"><h2>Discovered protocol families</h2><span class="section-meta" id="cluster-quality"></span></div>
@@ -310,6 +312,25 @@
       return `<div class="bars">${rows.map(r => `<div class="bar-row"><div class="bar-label" title="${safe(r.filename)}">${safe(r.filename)}</div><div class="bar-track"><div class="bar-fill" style="width:${100*r.transcript_speech_coverage_ratio}%"></div></div><div class="bar-value">${percent(r.transcript_speech_coverage_ratio)}</div></div>`).join('')}</div>`;
     }
 
+    function speechDifference(records) {
+      const rows = records.filter(r => Number.isFinite(r.speech_active_median_difference_hz) || Number.isFinite(r.speech_sparse_median_difference_hz));
+      if (!rows.length) return '<div class="empty">No speech-aware comparison matches these filters.</div>';
+      const max = Math.max(...rows.flatMap(r => [r.speech_active_median_difference_hz || 0, r.speech_sparse_median_difference_hz || 0]), 1);
+      return `<div class="dual-legend"><span><i class="swatch envelope"></i>Speech active</span><span><i class="swatch shared"></i>Speech sparse</span></div>${rows.slice(0, 12).map(r => `<div class="metric-row" title="${safe(r.filename)} · active ${number(r.speech_active_median_difference_hz)} Hz · sparse ${number(r.speech_sparse_median_difference_hz)} Hz"><span class="metric-label">${safe(r.filename)}</span><div class="mini"><span style="width:${100*(r.speech_active_median_difference_hz || 0)/max}%"></span></div><div class="mini"><span style="width:${100*(r.speech_sparse_median_difference_hz || 0)/max}%"></span></div></div>`).join('')}`;
+    }
+
+    function speechBandContrast(records) {
+      const active = {}, sparse = {};
+      records.forEach(record => {
+        Object.entries(record.speech_active_band_counts || {}).forEach(([band, count]) => active[band] = (active[band] || 0) + count);
+        Object.entries(record.speech_sparse_band_counts || {}).forEach(([band, count]) => sparse[band] = (sparse[band] || 0) + count);
+      });
+      const labels = [...new Set([...Object.keys(active), ...Object.keys(sparse)])].sort();
+      if (!labels.length) return '<div class="empty">No speech-aware band comparison matches these filters.</div>';
+      const max = Math.max(...labels.flatMap(label => [active[label] || 0, sparse[label] || 0]), 1);
+      return `<div class="dual-legend"><span><i class="swatch envelope"></i>Speech active</span><span><i class="swatch shared"></i>Speech sparse</span></div>${labels.map(label => `<div class="metric-row" title="${safe(human(label))} · active ${active[label] || 0} · sparse ${sparse[label] || 0}"><span class="metric-label">${safe(human(label))}</span><div class="mini"><span style="width:${100*(active[label] || 0)/max}%"></span></div><div class="mini"><span style="width:${100*(sparse[label] || 0)/max}%"></span></div></div>`).join('')}`;
+    }
+
     function renderKpis(records) {
       const analyzed = records.filter(r => r.index_status === 'indexed');
       const evidence = analyzed.reduce((sum, r) => sum + (r.evidence_count || 0), 0);
@@ -366,7 +387,10 @@
         ['Provider BPM', number(record.provider_beats_per_minute, 1)], ['Provider NEL', number(record.provider_neural_effect_level, 3)], ['Brightness / complexity', `${number(record.provider_brightness_level, 3)} / ${number(record.provider_complexity_level, 3)}`],
         ['Transcript status', human(record.transcript_status)], ['Transcript engine', record.transcript_provider], ['Transcript language', record.transcript_language_code],
         ['Speech segments', record.transcript_segment_count], ['Timed pronunciations', record.transcript_timed_pronunciation_count], ['Speech coverage', percent(record.transcript_speech_coverage_ratio)],
-        ['Mean word confidence', percent(record.transcript_mean_pronunciation_confidence)],
+        ['Mean word confidence', percent(record.transcript_mean_pronunciation_confidence)], ['Speech-context comparison', record.speech_context_comparison_available ? 'available' : '—'],
+        ['Buffered speech coverage', percent(record.speech_context_buffered_coverage_ratio)], ['Active / sparse windows', `${number(record.speech_active_window_count, 0)} / ${number(record.speech_sparse_window_count, 0)}`],
+        ['Active / sparse candidate rate', `${percent(record.speech_active_candidate_rate)} / ${percent(record.speech_sparse_candidate_rate)}`], ['Active / sparse median difference', `${number(record.speech_active_median_difference_hz)} / ${number(record.speech_sparse_median_difference_hz)} Hz`],
+        ['Active / sparse phase locking', `${number(record.speech_active_median_phase_locking)} / ${number(record.speech_sparse_median_phase_locking)}`],
         ['Carrier pair', record.carrier_pair_type], ['Left / right', `${number(record.carrier_left_hz)} / ${number(record.carrier_right_hz)} Hz`], ['Carrier difference', `${number(record.carrier_difference_hz)} Hz`],
         ['Envelope modulation', `${number(record.envelope_modulation_hz)} Hz`], ['Shared modulation', `${number(record.shared_modulation_hz)} Hz`], ['Shared coverage', percent(record.shared_window_coverage)],
         ['Phase behavior', human(record.phase_behavior)], ['Phase coverage', percent(record.phase_window_coverage)], ['Phase-derived difference', `${number(record.phase_median_difference_hz)} Hz`],
@@ -397,7 +421,7 @@
       if (kind === 'json') {
         body = JSON.stringify({dashboard_schema_version: DATA.dashboard_schema_version, filtered_recordings: records}, null, 2); type = 'application/json'; extension = 'json';
       } else {
-        const fields = ['relative_path','category','stated_intent','provider_metadata_status','provider_title','provider_mental_state','provider_activity','provider_style','provider_beats_per_minute','provider_neural_effect_level','transcript_status','transcript_provider','transcript_language_code','transcript_segment_count','transcript_timed_pronunciation_count','transcript_speech_coverage_ratio','transcript_mean_pronunciation_confidence','protocol_family_id','protocol_family_silhouette','index_status','provenance_status','duration_seconds','input_sha256','carrier_difference_hz','envelope_modulation_hz','shared_modulation_hz','phase_behavior','hypothesis_band','hypothesis_ranking_score','retained_hypothesis_count'];
+        const fields = ['relative_path','category','stated_intent','provider_metadata_status','provider_title','provider_mental_state','provider_activity','provider_style','provider_beats_per_minute','provider_neural_effect_level','transcript_status','transcript_provider','transcript_language_code','transcript_segment_count','transcript_timed_pronunciation_count','transcript_speech_coverage_ratio','transcript_mean_pronunciation_confidence','speech_context_comparison_available','speech_context_buffered_coverage_ratio','speech_active_window_count','speech_sparse_window_count','speech_active_candidate_rate','speech_sparse_candidate_rate','speech_active_median_difference_hz','speech_sparse_median_difference_hz','speech_active_median_phase_locking','speech_sparse_median_phase_locking','protocol_family_id','protocol_family_silhouette','index_status','provenance_status','duration_seconds','input_sha256','carrier_difference_hz','envelope_modulation_hz','shared_modulation_hz','phase_behavior','hypothesis_band','hypothesis_ranking_score','retained_hypothesis_count'];
         const cell = v => `"${String(v ?? '').replaceAll('"','""')}"`;
         body = [fields.join(','), ...records.map(r => fields.map(f => cell(r[f])).join(','))].join('\n'); type = 'text/csv'; extension = 'csv';
       }
@@ -423,6 +447,8 @@
       $('provider-style-chart').innerHTML = bars(countBy(records.filter(r => r.provider_style), 'provider_style'));
       $('transcript-status-chart').innerHTML = bars(countBy(records, 'transcript_status'));
       $('speech-coverage-chart').innerHTML = speechCoverage(records);
+      $('speech-difference-chart').innerHTML = speechDifference(records);
+      $('speech-band-chart').innerHTML = speechBandContrast(records);
       renderFamilies(records);
       renderHypotheses(records);
       renderTable(records);

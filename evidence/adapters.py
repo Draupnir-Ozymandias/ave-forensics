@@ -170,3 +170,79 @@ def protocol_hypothesis_to_evidence(
         provenance=provenance,
         limitations=["Hypothesis is not evidence of physiological or clinical effect."],
     )
+
+
+def speech_context_to_evidence(
+    result: dict[str, Any],
+    provenance: dict[str, Any] | None = None,
+    supporting_evidence_ids: list[str] | None = None,
+) -> dict[str, Any]:
+    entrainment = result["window_analyses"]["entrainment"]
+    active = entrainment["speech_active"]
+    sparse = entrainment["speech_sparse"]
+    measurements = [
+        measurement(
+            "buffered_speech_coverage",
+            result["regions"]["speech_active"]["coverage_ratio"],
+            "ratio",
+        ),
+        measurement("speech_active_window_count", active["window_count"], "count"),
+        measurement("speech_sparse_window_count", sparse["window_count"], "count"),
+        measurement(
+            "direct_comparison_available",
+            result["comparison"]["direct_comparison_available"],
+            "boolean",
+        ),
+    ]
+    for name, value in (
+        ("speech_active_candidate_rate", active["candidate_window_rate"]),
+        ("speech_sparse_candidate_rate", sparse["candidate_window_rate"]),
+        (
+            "candidate_rate_difference_active_minus_sparse",
+            result["comparison"]["candidate_rate_difference_active_minus_sparse"],
+        ),
+        ("speech_active_median_difference", active["median_difference_hz"]),
+        ("speech_sparse_median_difference", sparse["median_difference_hz"]),
+    ):
+        if value is not None:
+            unit = "Hz" if "difference" in name and "rate_difference" not in name else "ratio"
+            measurements.append(measurement(name, value, unit))
+
+    phase = result["window_analyses"].get("phase")
+    if phase:
+        for name, value in (
+            (
+                "speech_active_median_phase_locking",
+                phase["speech_active"]["median_detrended_phase_locking"],
+            ),
+            (
+                "speech_sparse_median_phase_locking",
+                phase["speech_sparse"]["median_detrended_phase_locking"],
+            ),
+        ):
+            if value is not None:
+                measurements.append(measurement(name, value, "ratio"))
+
+    return create_evidence_object(
+        evidence_level="association",
+        evidence_type="speech_context_comparison",
+        source_module="analysis.speech_context",
+        summary="Signal-window comparison across speech-active and speech-sparse regions",
+        channels=["left", "right"],
+        time_range_seconds={
+            "start": 0.0,
+            "end": result["recording"]["duration_seconds"],
+        },
+        measurements=measurements,
+        context={
+            "classification_configuration": result["configuration"],
+            "transcript_binding": result["transcript_binding"],
+            "entrainment_band_counts": {
+                "speech_active": active["brainwave_band_counts"],
+                "speech_sparse": sparse["brainwave_band_counts"],
+            },
+        },
+        provenance=provenance,
+        supporting_evidence_ids=supporting_evidence_ids,
+        limitations=result["limitations"],
+    )

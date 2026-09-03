@@ -54,12 +54,20 @@ broadband, nonstationary audio and may affect envelope, modulation, phase, and
 clustering features. A guided recording must therefore retain its `Guided` label
 and should not be assumed directly comparable with an unguided recording.
 
-The recommended future analysis adds speech-aware segmentation:
+AVE now performs speech-aware segmentation when a validated transcript sidecar is
+available:
 
 - analyze the complete mixed program as delivered;
 - identify speech-active and speech-sparse intervals;
-- analyze speech-sparse intervals separately when sufficient audio remains; and
-- compare both result sets while preserving the original timeline.
+- classify existing analysis windows by their overlap with buffered speech timing;
+- compare speech-active and speech-sparse window populations while retaining mixed
+  windows as an explicit ambiguous class; and
+- preserve the complete-program analysis as the primary evidence.
+
+This avoids concatenating discontinuous audio regions, which could introduce false
+spectral boundaries. The derived comparison is stored in `ave_speech_context.json`
+and as a canonical `speech_context_comparison` evidence object. See
+`SPEECH_AWARE_SEGMENTATION.md`.
 
 An external speech-to-text tool is acceptable. Raw time-aligned output remains in
 ignored `captured/transcripts/` storage because it may contain copyrighted text and

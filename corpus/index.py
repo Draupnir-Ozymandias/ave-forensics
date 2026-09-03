@@ -10,7 +10,7 @@ from evidence.schema import SCHEMA_VERSION, validate_evidence_object
 from core.hashing import sha256_file
 
 
-INDEX_SCHEMA_VERSION = "1.2.0"
+INDEX_SCHEMA_VERSION = "1.3.0"
 
 
 def _measurement_map(evidence: dict[str, Any]) -> dict[str, Any]:
@@ -106,6 +106,48 @@ def _phase_relationship(evidence: list[dict[str, Any]]) -> dict[str, Any] | None
     }
 
 
+def _speech_context_comparison(
+    evidence: list[dict[str, Any]],
+) -> dict[str, Any] | None:
+    item = next(
+        (
+            candidate
+            for candidate in evidence
+            if candidate["evidence_type"] == "speech_context_comparison"
+        ),
+        None,
+    )
+    if item is None:
+        return None
+    values = _measurement_map(item)
+    band_counts = item.get("context", {}).get("entrainment_band_counts", {})
+    return {
+        "buffered_speech_coverage": values.get("buffered_speech_coverage"),
+        "active_window_count": values.get("speech_active_window_count"),
+        "sparse_window_count": values.get("speech_sparse_window_count"),
+        "direct_comparison_available": values.get("direct_comparison_available"),
+        "active_candidate_rate": values.get("speech_active_candidate_rate"),
+        "sparse_candidate_rate": values.get("speech_sparse_candidate_rate"),
+        "candidate_rate_difference": values.get(
+            "candidate_rate_difference_active_minus_sparse"
+        ),
+        "active_median_difference_hz": values.get(
+            "speech_active_median_difference"
+        ),
+        "sparse_median_difference_hz": values.get(
+            "speech_sparse_median_difference"
+        ),
+        "active_median_phase_locking": values.get(
+            "speech_active_median_phase_locking"
+        ),
+        "sparse_median_phase_locking": values.get(
+            "speech_sparse_median_phase_locking"
+        ),
+        "active_band_counts": band_counts.get("speech_active", {}),
+        "sparse_band_counts": band_counts.get("speech_sparse", {}),
+    }
+
+
 def _hypotheses(evidence: list[dict[str, Any]]) -> list[dict[str, Any]]:
     candidates = []
     for item in evidence:
@@ -197,6 +239,7 @@ def summarize_evidence_document(document: dict[str, Any]) -> dict[str, Any]:
         "dominant_envelope": _dominant_envelope(evidence),
         "modulation_reconstruction": _modulation_reconstruction(evidence),
         "phase_relationship": _phase_relationship(evidence),
+        "speech_context_comparison": _speech_context_comparison(evidence),
         "top_hypothesis": hypotheses[0] if hypotheses else None,
         "hypothesis_band_summary": _hypothesis_band_summary(hypotheses),
     }
@@ -468,6 +511,16 @@ CSV_FIELDS = [
     "transcript_timed_pronunciation_count",
     "transcript_speech_coverage_ratio",
     "transcript_mean_pronunciation_confidence",
+    "speech_context_comparison_available",
+    "speech_context_buffered_coverage_ratio",
+    "speech_active_window_count",
+    "speech_sparse_window_count",
+    "speech_active_candidate_rate",
+    "speech_sparse_candidate_rate",
+    "speech_active_median_difference_hz",
+    "speech_sparse_median_difference_hz",
+    "speech_active_median_phase_locking",
+    "speech_sparse_median_phase_locking",
     "provenance_status",
     "run_id",
     "batch_status",
@@ -510,6 +563,7 @@ def _csv_row(record: dict[str, Any]) -> dict[str, Any]:
     transcript_sidecar = record.get("transcript_sidecar") or {}
     transcript_engine = transcript_sidecar.get("transcription_engine") or {}
     transcript_statistics = transcript_sidecar.get("statistics") or {}
+    speech_context = summary.get("speech_context_comparison") or {}
     return {
         "relative_path": record["relative_path"],
         "source": record["source"],
@@ -546,6 +600,28 @@ def _csv_row(record: dict[str, Any]) -> dict[str, Any]:
         ),
         "transcript_mean_pronunciation_confidence": transcript_statistics.get(
             "mean_pronunciation_confidence"
+        ),
+        "speech_context_comparison_available": speech_context.get(
+            "direct_comparison_available"
+        ),
+        "speech_context_buffered_coverage_ratio": speech_context.get(
+            "buffered_speech_coverage"
+        ),
+        "speech_active_window_count": speech_context.get("active_window_count"),
+        "speech_sparse_window_count": speech_context.get("sparse_window_count"),
+        "speech_active_candidate_rate": speech_context.get("active_candidate_rate"),
+        "speech_sparse_candidate_rate": speech_context.get("sparse_candidate_rate"),
+        "speech_active_median_difference_hz": speech_context.get(
+            "active_median_difference_hz"
+        ),
+        "speech_sparse_median_difference_hz": speech_context.get(
+            "sparse_median_difference_hz"
+        ),
+        "speech_active_median_phase_locking": speech_context.get(
+            "active_median_phase_locking"
+        ),
+        "speech_sparse_median_phase_locking": speech_context.get(
+            "sparse_median_phase_locking"
         ),
         "provenance_status": record.get("provenance_status"),
         "run_id": record.get("run_id"),
