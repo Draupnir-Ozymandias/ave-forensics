@@ -1,0 +1,99 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 2,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T20:49:36.671Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.6,
+    "complexity_level": 0.92,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.66
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "Guided Meditation Catherine 5 Conor 15min_1.6_Nrmlzd2_VBR5.mp3",
+    "title": "Quiet Mind",
+    "track_id": "62b380605924110922f4bfe8",
+    "variation_id": "62b3806059241127b5f4bfea"
+  },
+  "recording": {
+    "filename": "Guided Meditation Catherine 5 Conor 15min_1.6_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "f799496ffc435614fa8247d6365748bc3764bff04f090f3a20509b131e478fb0",
+    "size_bytes": 10259884
+  },
+  "source_capture": {
+    "filename": "Guided Meditation Catherine 5 Conor 15min_1.6_Nrmlzd2_VBR5",
+    "format": "concatenated_json",
+    "hash_algorithm": "sha256",
+    "json_document_count": 2,
+    "sha256": "53dcb9b5ad10c46d8eab749493536511b25475ffa91e30ac471e9a6982631d82"
+  },
+  "taxonomy": {
+    "activity": "Guided",
+    "all_provider_tags": {
+      "activity": [
+        "Guided"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Meditative",
+        "Serene"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Ambient",
+        "Electronica"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Textural Soundscape"
+    ],
+    "mental_state": "Meditate",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Meditative",
+      "Serene"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "guided",
+    "subgenres": [
+      "Ambient",
+      "Electronica"
+    ]
+  }
+}
