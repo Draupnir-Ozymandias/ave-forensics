@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ave-forensics.local/schemas/transcript-sidecar-1.0.0.json",
+  "title": "AVE Transcript Sidecar",
+  "type": "object",
+  "required": [
+    "transcript_sidecar_schema_version", "recording", "raw_transcript",
+    "transcription_engine", "job_configuration", "job_timing",
+    "speech_timeline", "statistics", "content_policy", "extraction_provenance"
+  ],
+  "properties": {
+    "transcript_sidecar_schema_version": {"const": "1.0.0"},
+    "recording": {
+      "type": "object",
+      "required": ["filename", "hash_algorithm", "sha256", "size_bytes", "duration_seconds"],
+      "properties": {
+        "filename": {"type": "string", "minLength": 1},
+        "hash_algorithm": {"const": "sha256"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "size_bytes": {"type": "integer", "minimum": 1},
+        "duration_seconds": {"type": "number", "exclusiveMinimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "raw_transcript": {
+      "type": "object",
+      "required": ["filename", "format", "hash_algorithm", "sha256", "size_bytes", "verbatim_content_sha256", "storage_policy"],
+      "properties": {
+        "filename": {"type": "string", "minLength": 1},
+        "format": {"type": "string", "minLength": 1},
+        "hash_algorithm": {"const": "sha256"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "size_bytes": {"type": "integer", "minimum": 1},
+        "verbatim_content_sha256": {"$ref": "#/$defs/sha256"},
+        "storage_policy": {"const": "ignored_private_capture"}
+      },
+      "additionalProperties": false
+    },
+    "transcription_engine": {
+      "type": "object",
+      "required": ["provider", "service", "region", "language_code", "language_identification_mode", "model_kind", "model_name"],
+      "properties": {
+        "provider": {"type": "string", "minLength": 1},
+        "service": {"type": "string", "minLength": 1},
+        "region": {"type": ["string", "null"]},
+        "language_code": {"type": "string", "minLength": 1},
+        "language_identification_mode": {"type": "string", "minLength": 1},
+        "model_kind": {"enum": ["standard", "custom", "unknown"]},
+        "model_name": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "job_configuration": {
+      "type": "object",
+      "required": ["media_format", "media_sample_rate_hz"],
+      "properties": {
+        "media_format": {"type": "string", "minLength": 1},
+        "media_sample_rate_hz": {"type": "integer", "minimum": 1},
+        "audio_identification": {"type": "boolean"},
+        "alternative_results": {"type": "boolean"},
+        "custom_vocabulary": {"type": ["string", "null"]},
+        "pii_redaction": {"type": "boolean"},
+        "vocabulary_filter": {"type": ["string", "null"]},
+        "toxicity_detection": {"type": "boolean"},
+        "speaker_labels": {"type": "boolean"},
+        "channel_identification": {"type": "boolean"}
+      },
+      "additionalProperties": true
+    },
+    "job_timing": {
+      "type": "object",
+      "required": ["created_at", "started_at", "completed_at", "timezone"],
+      "properties": {
+        "created_at": {"type": ["string", "null"]},
+        "started_at": {"type": ["string", "null"]},
+        "completed_at": {"type": ["string", "null"]},
+        "timezone": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "speech_timeline": {
+      "type": "object",
+      "required": ["timebase", "segments", "pronunciation_items"],
+      "properties": {
+        "timebase": {"const": "seconds_from_recording_start"},
+        "segments": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/segment"}
+        },
+        "pronunciation_items": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/pronunciation"}
+        }
+      },
+      "additionalProperties": false
+    },
+    "statistics": {
+      "type": "object",
+      "required": ["transcript_character_count", "segment_count", "pronunciation_count", "timed_pronunciation_count", "untimed_pronunciation_count", "punctuation_count", "mean_pronunciation_confidence", "minimum_pronunciation_confidence", "maximum_pronunciation_confidence", "speech_start_seconds", "speech_end_seconds", "speech_duration_seconds", "speech_coverage_ratio"],
+      "properties": {
+        "transcript_character_count": {"type": "integer", "minimum": 0},
+        "segment_count": {"type": "integer", "minimum": 0},
+        "pronunciation_count": {"type": "integer", "minimum": 0},
+        "timed_pronunciation_count": {"type": "integer", "minimum": 0},
+        "untimed_pronunciation_count": {"type": "integer", "minimum": 0},
+        "punctuation_count": {"type": "integer", "minimum": 0},
+        "mean_pronunciation_confidence": {"$ref": "#/$defs/nullableRatio"},
+        "minimum_pronunciation_confidence": {"$ref": "#/$defs/nullableRatio"},
+        "maximum_pronunciation_confidence": {"$ref": "#/$defs/nullableRatio"},
+        "speech_start_seconds": {"type": ["number", "null"], "minimum": 0},
+        "speech_end_seconds": {"type": ["number", "null"], "minimum": 0},
+        "speech_duration_seconds": {"type": "number", "minimum": 0},
+        "speech_coverage_ratio": {"type": "number", "minimum": 0, "maximum": 1}
+      },
+      "additionalProperties": false
+    },
+    "content_policy": {
+      "const": {
+        "sidecar_contains_verbatim_text": false,
+        "sidecar_contains_provider_account_identifiers": false,
+        "sidecar_contains_cloud_storage_locations": false,
+        "verbatim_text_location": "ignored_private_capture_only"
+      }
+    },
+    "extraction_provenance": {
+      "type": "object",
+      "required": ["generator", "generator_version", "importer"],
+      "properties": {
+        "generator": {"const": "transcripts.sidecar"},
+        "generator_version": {"const": "1.0.0"},
+        "importer": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "nullableRatio": {
+      "anyOf": [
+        {"type": "null"},
+        {"type": "number", "minimum": 0, "maximum": 1}
+      ]
+    },
+    "segment": {
+      "type": "object",
+      "required": ["segment_id", "start_seconds", "end_seconds", "timed_pronunciation_count", "mean_confidence", "minimum_confidence"],
+      "properties": {
+        "segment_id": {"type": ["integer", "string", "null"]},
+        "start_seconds": {"type": "number", "minimum": 0},
+        "end_seconds": {"type": "number", "minimum": 0},
+        "timed_pronunciation_count": {"type": "integer", "minimum": 0},
+        "mean_confidence": {"$ref": "#/$defs/nullableRatio"},
+        "minimum_confidence": {"$ref": "#/$defs/nullableRatio"}
+      },
+      "additionalProperties": false
+    },
+    "pronunciation": {
+      "type": "object",
+      "required": ["item_id", "start_seconds", "end_seconds", "confidence"],
+      "properties": {
+        "item_id": {"type": ["integer", "string", "null"]},
+        "start_seconds": {"type": "number", "minimum": 0},
+        "end_seconds": {"type": "number", "minimum": 0},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

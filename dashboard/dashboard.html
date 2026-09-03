@@ -156,6 +156,7 @@
       <select id="mental-state" aria-label="Filter by provider mental state"><option value="">All provider states</option></select>
       <select id="provider-activity" aria-label="Filter by provider activity"><option value="">All provider activities</option></select>
       <select id="provider-style" aria-label="Filter by provider style"><option value="">All provider styles</option></select>
+      <select id="transcript-status" aria-label="Filter by transcript status"><option value="">All transcript statuses</option></select>
       <label class="toggle"><input id="unique" type="checkbox" checked> Unique inputs</label>
     </section>
 
@@ -164,6 +165,12 @@
       <article class="panel"><h3>Mental state</h3><div class="hint">Brain.fm label, not an observed effect</div><div id="mental-state-chart"></div></article>
       <article class="panel"><h3>Activity</h3><div class="hint">Provider activity assigned to the recording</div><div id="provider-activity-chart"></div></article>
       <article class="panel"><h3>Style</h3><div class="hint">Provider variation style</div><div id="provider-style-chart"></div></article>
+    </section>
+
+    <div class="section-head"><h2>Speech context</h2><span class="section-meta">Text-free timing and confidence · verbatim transcripts remain private</span></div>
+    <section class="charts">
+      <article class="panel"><h3>Transcript coverage</h3><div class="hint">Validated transcript sidecars in the filtered corpus</div><div id="transcript-status-chart"></div></article>
+      <article class="panel"><h3>Speech-active coverage</h3><div class="hint">Provider segments as a share of complete recording duration</div><div id="speech-coverage-chart"></div></article>
     </section>
 
     <div class="section-head"><h2>Discovered protocol families</h2><span class="section-meta" id="cluster-quality"></span></div>
@@ -192,7 +199,7 @@
     </div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Recording</th><th>Library label</th><th>Provider label</th><th>Family</th><th>Status</th><th>Carrier Δ</th><th>Shared mod.</th><th>Phase</th><th>Top hypothesis</th><th>Score</th></tr></thead>
+        <thead><tr><th>Recording</th><th>Library label</th><th>Provider label</th><th>Transcript</th><th>Family</th><th>Status</th><th>Carrier Δ</th><th>Shared mod.</th><th>Phase</th><th>Top hypothesis</th><th>Score</th></tr></thead>
         <tbody id="recordings"></tbody>
       </table>
     </div>
@@ -208,7 +215,7 @@
   <script>
     const DATA = JSON.parse(document.getElementById('dashboard-data').textContent);
     const $ = id => document.getElementById(id);
-    const controls = ['search', 'source', 'category', 'intent', 'duration', 'status', 'provenance', 'family', 'provider-status', 'mental-state', 'provider-activity', 'provider-style', 'unique'];
+    const controls = ['search', 'source', 'category', 'intent', 'duration', 'status', 'provenance', 'family', 'provider-status', 'mental-state', 'provider-activity', 'provider-style', 'transcript-status', 'unique'];
     const safe = value => String(value ?? '').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
     const human = value => String(value ?? 'not available').replaceAll('_', ' ');
     const number = (value, digits = 3) => value == null ? '—' : Number(value).toLocaleString(undefined, {maximumFractionDigits: digits});
@@ -229,6 +236,7 @@
     option($('mental-state'), DATA.facets.provider_mental_states);
     option($('provider-activity'), DATA.facets.provider_activities);
     option($('provider-style'), DATA.facets.provider_styles);
+    option($('transcript-status'), DATA.facets.transcript_statuses);
     DATA.protocol_families.forEach(family => $('family').insertAdjacentHTML('beforeend', `<option value="${safe(family.family_id)}">${safe(family.family_id.replace('ave_family_', 'Family '))}</option>`));
 
     function filtered() {
@@ -236,7 +244,7 @@
       const query = $('search').value.trim().toLowerCase();
       const durationBand = seconds => seconds == null ? 'unknown' : seconds < 1200 ? 'short' : seconds <= 2400 ? 'medium' : seconds <= 3600 ? 'long' : 'extended';
       return records.filter(r => {
-        const haystack = [r.relative_path, ...(r.all_aliases || []), r.hypothesis_intent, ...Object.keys(r.hypothesis_band_counts || {}), r.input_sha256, r.phase_behavior, r.modulation_classification, r.provider_title, r.provider_mental_state, r.provider_activity, r.provider_style, ...(r.provider_moods || []), ...(r.provider_instruments || [])].join(' ').toLowerCase();
+        const haystack = [r.relative_path, ...(r.all_aliases || []), r.hypothesis_intent, ...Object.keys(r.hypothesis_band_counts || {}), r.input_sha256, r.phase_behavior, r.modulation_classification, r.provider_title, r.provider_mental_state, r.provider_activity, r.provider_style, r.transcript_provider, r.transcript_language_code, ...(r.provider_moods || []), ...(r.provider_instruments || [])].join(' ').toLowerCase();
         return (!query || haystack.includes(query)) &&
           (!$('source').value || r.source === $('source').value) &&
           (!$('category').value || r.category === $('category').value) &&
@@ -248,7 +256,8 @@
           (!$('provider-status').value || r.provider_metadata_status === $('provider-status').value) &&
           (!$('mental-state').value || r.provider_mental_state === $('mental-state').value) &&
           (!$('provider-activity').value || r.provider_activity === $('provider-activity').value) &&
-          (!$('provider-style').value || r.provider_style === $('provider-style').value);
+          (!$('provider-style').value || r.provider_style === $('provider-style').value) &&
+          (!$('transcript-status').value || r.transcript_status === $('transcript-status').value);
       });
     }
 
@@ -295,18 +304,25 @@
       return `<div class="dual-legend"><span><i class="swatch envelope"></i>Envelope</span><span><i class="swatch shared"></i>Shared reconstruction</span></div>${rows.map(r => `<div class="metric-row" title="${safe(r.filename)}"><span class="metric-label">${safe(r.stated_intent)}</span><div class="mini"><span style="width:${100*(r.envelope_modulation_hz || 0)/max}%"></span></div><div class="mini"><span style="width:${100*(r.shared_modulation_hz || 0)/max}%"></span></div></div>`).join('')}`;
     }
 
+    function speechCoverage(records) {
+      const rows = records.filter(r => Number.isFinite(r.transcript_speech_coverage_ratio)).sort((a,b) => b.transcript_speech_coverage_ratio - a.transcript_speech_coverage_ratio).slice(0, 12);
+      if (!rows.length) return '<div class="empty">No validated transcript timing matches these filters.</div>';
+      return `<div class="bars">${rows.map(r => `<div class="bar-row"><div class="bar-label" title="${safe(r.filename)}">${safe(r.filename)}</div><div class="bar-track"><div class="bar-fill" style="width:${100*r.transcript_speech_coverage_ratio}%"></div></div><div class="bar-value">${percent(r.transcript_speech_coverage_ratio)}</div></div>`).join('')}</div>`;
+    }
+
     function renderKpis(records) {
       const analyzed = records.filter(r => r.index_status === 'indexed');
       const evidence = analyzed.reduce((sum, r) => sum + (r.evidence_count || 0), 0);
       const legacy = records.filter(r => r.provenance_status === 'legacy_missing').length;
       const provider = records.filter(r => r.provider_metadata_status === 'validated').length;
+      const transcripts = records.filter(r => r.transcript_status === 'validated').length;
       const uniqueLabel = $('unique').checked ? 'unique SHA-256 inputs' : 'recording aliases';
       const items = [
         [records.length, 'Visible records', uniqueLabel],
         [analyzed.length, 'Analyzed', `${percent(analyzed.length / Math.max(records.length, 1))} coverage`],
         [evidence.toLocaleString(), 'Evidence objects', 'within visible records'],
         [new Set(records.map(r => r.protocol_family_id).filter(Boolean)).size, 'Protocol families', 'evidence-led groups in view'],
-        [new Set(records.map(r => r.stated_intent)).size, 'Claimed intents', `${provider} with provider taxonomy`],
+        [new Set(records.map(r => r.stated_intent)).size, 'Claimed intents', `${provider} provider · ${transcripts} transcript sidecars`],
         [legacy, 'Legacy lineage', legacy ? 'rerun required for provenance' : 'all available runs validated'],
       ];
       $('kpis').innerHTML = items.map(([value,label,note]) => `<article class="kpi"><span class="label">${safe(label)}</span><span class="value">${value}</span><span class="note">${safe(note)}</span></article>`).join('');
@@ -336,7 +352,7 @@
     }
 
     function renderTable(records) {
-      $('recordings').innerHTML = records.map(r => `<tr tabindex="0" data-path="${safe(r.relative_path)}"><td><div class="path" title="${safe(r.relative_path)}">${safe(r.filename)}</div></td><td>${safe(human(r.category))} / ${safe(human(r.stated_intent))}</td><td>${safe(human(r.provider_mental_state))} / ${safe(human(r.provider_activity))}</td><td>${safe(familyName(r.protocol_family_id))}</td><td>${badge(r.index_status)} ${badge(r.provenance_status)}</td><td class="number">${number(r.carrier_difference_hz)} Hz</td><td class="number">${number(r.shared_modulation_hz)} Hz</td><td>${safe(human(r.phase_behavior))}</td><td>${safe(human(r.hypothesis_band))}</td><td class="number">${number(r.hypothesis_ranking_score, 4)}</td></tr>`).join('') || '<tr><td colspan="10" class="empty">No recordings match these filters.</td></tr>';
+      $('recordings').innerHTML = records.map(r => `<tr tabindex="0" data-path="${safe(r.relative_path)}"><td><div class="path" title="${safe(r.relative_path)}">${safe(r.filename)}</div></td><td>${safe(human(r.category))} / ${safe(human(r.stated_intent))}</td><td>${safe(human(r.provider_mental_state))} / ${safe(human(r.provider_activity))}</td><td>${badge(r.transcript_status)} ${r.transcript_language_code ? safe(r.transcript_language_code) : ''}</td><td>${safe(familyName(r.protocol_family_id))}</td><td>${badge(r.index_status)} ${badge(r.provenance_status)}</td><td class="number">${number(r.carrier_difference_hz)} Hz</td><td class="number">${number(r.shared_modulation_hz)} Hz</td><td>${safe(human(r.phase_behavior))}</td><td>${safe(human(r.hypothesis_band))}</td><td class="number">${number(r.hypothesis_ranking_score, 4)}</td></tr>`).join('') || '<tr><td colspan="11" class="empty">No recordings match these filters.</td></tr>';
     }
 
     function detail(record) {
@@ -348,6 +364,9 @@
         ['Provider title', record.provider_title], ['Provider mental state', human(record.provider_mental_state)], ['Provider activity', human(record.provider_activity)],
         ['Provider style', human(record.provider_style)], ['Provider moods', (record.provider_moods || []).join(', ') || '—'], ['Provider instruments', (record.provider_instruments || []).join(', ') || '—'],
         ['Provider BPM', number(record.provider_beats_per_minute, 1)], ['Provider NEL', number(record.provider_neural_effect_level, 3)], ['Brightness / complexity', `${number(record.provider_brightness_level, 3)} / ${number(record.provider_complexity_level, 3)}`],
+        ['Transcript status', human(record.transcript_status)], ['Transcript engine', record.transcript_provider], ['Transcript language', record.transcript_language_code],
+        ['Speech segments', record.transcript_segment_count], ['Timed pronunciations', record.transcript_timed_pronunciation_count], ['Speech coverage', percent(record.transcript_speech_coverage_ratio)],
+        ['Mean word confidence', percent(record.transcript_mean_pronunciation_confidence)],
         ['Carrier pair', record.carrier_pair_type], ['Left / right', `${number(record.carrier_left_hz)} / ${number(record.carrier_right_hz)} Hz`], ['Carrier difference', `${number(record.carrier_difference_hz)} Hz`],
         ['Envelope modulation', `${number(record.envelope_modulation_hz)} Hz`], ['Shared modulation', `${number(record.shared_modulation_hz)} Hz`], ['Shared coverage', percent(record.shared_window_coverage)],
         ['Phase behavior', human(record.phase_behavior)], ['Phase coverage', percent(record.phase_window_coverage)], ['Phase-derived difference', `${number(record.phase_median_difference_hz)} Hz`],
@@ -356,7 +375,7 @@
       ];
       const aliases = record.all_aliases || [record.relative_path, ...record.duplicate_aliases];
       const link = path => path ? `<a href="../../${safe(path)}" target="_blank">${safe(path.split('/').pop())}</a>` : '';
-      $('detail-body').innerHTML = `<dl class="detail-grid">${values.map(([term,value]) => `<div class="detail"><dt>${safe(term)}</dt><dd>${safe(value ?? '—')}</dd></div>`).join('')}</dl>${aliases.length > 1 ? `<div class="detail-section"><h3>Byte-identical aliases</h3>${aliases.map(item => `<div>${safe(item)}</div>`).join('')}</div>` : ''}<div class="detail-links">${link(record.evidence_path)} ${link(record.metadata_manifest_path)} ${link(record.provider_metadata_path)}</div>`;
+      $('detail-body').innerHTML = `<dl class="detail-grid">${values.map(([term,value]) => `<div class="detail"><dt>${safe(term)}</dt><dd>${safe(value ?? '—')}</dd></div>`).join('')}</dl>${aliases.length > 1 ? `<div class="detail-section"><h3>Byte-identical aliases</h3>${aliases.map(item => `<div>${safe(item)}</div>`).join('')}</div>` : ''}<div class="detail-links">${link(record.evidence_path)} ${link(record.metadata_manifest_path)} ${link(record.provider_metadata_path)} ${link(record.transcript_path)}</div>`;
       $('detail-dialog').showModal();
     }
 
@@ -378,7 +397,7 @@
       if (kind === 'json') {
         body = JSON.stringify({dashboard_schema_version: DATA.dashboard_schema_version, filtered_recordings: records}, null, 2); type = 'application/json'; extension = 'json';
       } else {
-        const fields = ['relative_path','category','stated_intent','provider_metadata_status','provider_title','provider_mental_state','provider_activity','provider_style','provider_beats_per_minute','provider_neural_effect_level','protocol_family_id','protocol_family_silhouette','index_status','provenance_status','duration_seconds','input_sha256','carrier_difference_hz','envelope_modulation_hz','shared_modulation_hz','phase_behavior','hypothesis_band','hypothesis_ranking_score','retained_hypothesis_count'];
+        const fields = ['relative_path','category','stated_intent','provider_metadata_status','provider_title','provider_mental_state','provider_activity','provider_style','provider_beats_per_minute','provider_neural_effect_level','transcript_status','transcript_provider','transcript_language_code','transcript_segment_count','transcript_timed_pronunciation_count','transcript_speech_coverage_ratio','transcript_mean_pronunciation_confidence','protocol_family_id','protocol_family_silhouette','index_status','provenance_status','duration_seconds','input_sha256','carrier_difference_hz','envelope_modulation_hz','shared_modulation_hz','phase_behavior','hypothesis_band','hypothesis_ranking_score','retained_hypothesis_count'];
         const cell = v => `"${String(v ?? '').replaceAll('"','""')}"`;
         body = [fields.join(','), ...records.map(r => fields.map(f => cell(r[f])).join(','))].join('\n'); type = 'text/csv'; extension = 'csv';
       }
@@ -402,6 +421,8 @@
       $('mental-state-chart').innerHTML = bars(countBy(records.filter(r => r.provider_mental_state), 'provider_mental_state'));
       $('provider-activity-chart').innerHTML = bars(countBy(records.filter(r => r.provider_activity), 'provider_activity'));
       $('provider-style-chart').innerHTML = bars(countBy(records.filter(r => r.provider_style), 'provider_style'));
+      $('transcript-status-chart').innerHTML = bars(countBy(records, 'transcript_status'));
+      $('speech-coverage-chart').innerHTML = speechCoverage(records);
       renderFamilies(records);
       renderHypotheses(records);
       renderTable(records);

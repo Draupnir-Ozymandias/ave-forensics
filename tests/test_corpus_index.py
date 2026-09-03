@@ -10,6 +10,7 @@ from corpus.index import build_corpus_index, summarize_evidence_document, write_
 from corpus.manifests import build_recording_manifests, write_recording_manifests
 from evidence.schema import SCHEMA_VERSION, create_evidence_object, measurement
 from provider.brainfm import extract_brainfm_sidecars, write_provider_sidecars
+from transcripts.sidecar import import_aws_transcribe, write_transcript_sidecar
 
 
 def hypothesis_evidence() -> dict:
@@ -343,3 +344,56 @@ def test_index_validates_and_flattens_provider_metadata(tmp_path):
         row = next(csv.DictReader(input_file))
     assert row["provider_activity"] == "Guided"
     assert row["provider_neural_effect_level"] == "0.9"
+
+
+def test_index_validates_and_flattens_transcript_sidecar(tmp_path):
+    from tests.test_transcript_metadata import aws_response
+
+    project = tmp_path / "project"
+    audio = project / "samples" / "brainfm" / "meditate" / "guided" / "session.wav"
+    audio.parent.mkdir(parents=True)
+    sf.write(audio, np.zeros(80_000, dtype=np.float32), 8_000)
+    raw = project / "captured" / "session.json"
+    raw.parent.mkdir()
+    raw.write_text(json.dumps(aws_response()))
+    sidecar = import_aws_transcribe(
+        raw,
+        audio,
+        region="us-east-2",
+        language_code="en-US",
+        media_format="wav",
+        media_sample_rate_hz=8_000,
+    )
+    write_transcript_sidecar(sidecar, audio)
+    batch = {
+        "recording_count": 1,
+        "status_counts": {"deferred": 1},
+        "recordings": [
+            {
+                "relative_path": "brainfm/meditate/guided/session.wav",
+                "path": str(audio),
+                "output_dir": str(project / "artifacts" / "session"),
+                "source": "brainfm",
+                "category": "meditate",
+                "stated_intent": "guided",
+                "status": "deferred",
+            }
+        ],
+    }
+    summary_path = project / "batch_summary.json"
+    summary_path.write_text(json.dumps(batch))
+
+    index = build_corpus_index(summary_path, project)
+    record = index["recordings"][0]
+
+    assert index["transcript_status_counts"] == {"validated": 1}
+    assert record["transcript_status"] == "validated"
+    assert record["transcript_sidecar"]["content_policy"][
+        "sidecar_contains_verbatim_text"
+    ] is False
+    _, csv_path = write_corpus_index(index, project / "corpus")
+    with csv_path.open(newline="") as input_file:
+        row = next(csv.DictReader(input_file))
+    assert row["transcript_provider"] == "aws"
+    assert row["transcript_language_code"] == "en-US"
+    assert row["transcript_speech_coverage_ratio"] == "0.2"

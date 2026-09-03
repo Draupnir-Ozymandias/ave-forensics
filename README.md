@@ -144,6 +144,26 @@ never replaced unless `--overwrite` is explicit. Raw captures belong under ignor
 `captured/` storage; only sanitized `*.provider.json` sidecars should be committed.
 See `docs/BRAINFM_CAPTURE_WORKFLOW.md` for the Favorites collection workflow.
 
+## Import Private Transcripts Safely
+
+Convert a completed AWS Transcribe response into a text-free, commit-safe timing
+sidecar:
+
+```bash
+.venv/bin/python transcript_metadata.py /path/to/raw-response.json \
+  /path/to/recording.mp3 \
+  --region us-east-2 \
+  --language-code en-US \
+  --media-format mp3 \
+  --media-sample-rate-hz 48000 \
+  --dry-run
+```
+
+Raw responses remain in ignored `captured/transcripts/` storage. The derived
+`*.transcript.json` sidecar retains hashes, engine provenance, text-free speech
+timing, confidence, and coverage statistics while rejecting verbatim text, account
+identifiers, job names, and cloud locations. See `docs/TRANSCRIPT_SIDECARS.md`.
+
 ## Generate the Reference-Library Comparison Dashboard
 
 Build the Corpus Evidence Index, then generate the local dashboard:
@@ -158,8 +178,9 @@ Open `artifacts/dashboard/index.html` in a browser. The self-contained dashboard
 requires no server or network connection. It provides corpus filters, carrier and
 modulation distributions, phase and hypothesis comparisons, recording drill-down,
 protocol-family profiles, contextual provider-taxonomy filters and summaries, and
-filtered CSV/JSON exports. Provider labels remain visibly separate from measured
-evidence and are excluded from clustering. The hypothesis view switches between
+text-free transcript coverage, timing, and confidence summaries. Provider and
+speech context remain visibly separate from measured evidence and are excluded
+from clustering. The hypothesis view switches between
 one top-ranked candidate per recording and every retained candidate, keeping
 secondary bands such as gamma visible without presenting them as leading results.
 When a current clustering artifact exists, the dashboard validates that it was

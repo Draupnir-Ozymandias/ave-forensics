@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 
-DASHBOARD_SCHEMA_VERSION = "1.1.0"
+DASHBOARD_SCHEMA_VERSION = "1.2.0"
 TEMPLATE_PATH = Path(__file__).with_name("dashboard.html")
 
 
@@ -23,6 +23,9 @@ def _flatten_record(record: dict[str, Any]) -> dict[str, Any]:
     provider_track = provider_metadata.get("provider_track") or {}
     provider_taxonomy = provider_metadata.get("taxonomy") or {}
     provider_measurements = provider_metadata.get("provider_measurements") or {}
+    transcript_sidecar = record.get("transcript_sidecar") or {}
+    transcript_engine = transcript_sidecar.get("transcription_engine") or {}
+    transcript_statistics = transcript_sidecar.get("statistics") or {}
     aliases = sorted(record.get("duplicate_input_paths") or [])
     return {
         "relative_path": record["relative_path"],
@@ -56,6 +59,20 @@ def _flatten_record(record: dict[str, Any]) -> dict[str, Any]:
         "provider_complexity_level": provider_measurements.get("complexity_level"),
         "provider_neural_effect_level": provider_measurements.get(
             "neural_effect_level"
+        ),
+        "transcript_status": record.get("transcript_status") or "missing",
+        "transcript_path": record.get("transcript_path"),
+        "transcript_provider": transcript_engine.get("provider"),
+        "transcript_language_code": transcript_engine.get("language_code"),
+        "transcript_segment_count": transcript_statistics.get("segment_count"),
+        "transcript_timed_pronunciation_count": transcript_statistics.get(
+            "timed_pronunciation_count"
+        ),
+        "transcript_speech_coverage_ratio": transcript_statistics.get(
+            "speech_coverage_ratio"
+        ),
+        "transcript_mean_pronunciation_confidence": transcript_statistics.get(
+            "mean_pronunciation_confidence"
         ),
         "index_error": record.get("index_error"),
         "duplicate_aliases": aliases,
@@ -100,6 +117,7 @@ def _canonical_records(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
             key=lambda item: (
                 item["index_status"] != "indexed",
                 item["provider_metadata_status"] != "validated",
+                item["transcript_status"] != "validated",
                 item["relative_path"],
             ),
         )
@@ -225,6 +243,9 @@ def build_dashboard_data(
             "provider_metadata_count": sum(
                 item["provider_metadata_status"] == "validated" for item in canonical
             ),
+            "transcript_sidecar_count": sum(
+                item["transcript_status"] == "validated" for item in canonical
+            ),
         },
         "facets": {
             "sources": sorted(Counter(r["source"] for r in records)),
@@ -248,6 +269,16 @@ def build_dashboard_data(
             ),
             "provider_styles": sorted(
                 {r["provider_style"] for r in records if r["provider_style"]}
+            ),
+            "transcript_statuses": sorted(
+                Counter(r["transcript_status"] for r in records)
+            ),
+            "transcript_languages": sorted(
+                {
+                    r["transcript_language_code"]
+                    for r in records
+                    if r["transcript_language_code"]
+                }
             ),
         },
         "clustering_status": clustering_status,

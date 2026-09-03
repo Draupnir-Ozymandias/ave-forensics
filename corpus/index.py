@@ -10,7 +10,7 @@ from evidence.schema import SCHEMA_VERSION, validate_evidence_object
 from core.hashing import sha256_file
 
 
-INDEX_SCHEMA_VERSION = "1.1.0"
+INDEX_SCHEMA_VERSION = "1.2.0"
 
 
 def _measurement_map(evidence: dict[str, Any]) -> dict[str, Any]:
@@ -249,6 +249,10 @@ def build_corpus_index(
             "provider_metadata_path": None,
             "provider_metadata_error": None,
             "provider_metadata": None,
+            "transcript_status": "missing",
+            "transcript_path": None,
+            "transcript_error": None,
+            "transcript_sidecar": None,
             "label_source": "batch_summary",
             "batch_status": batch_record["status"],
             "index_status": batch_record["status"],
@@ -322,6 +326,32 @@ def build_corpus_index(
                     record["provider_metadata_status"] = "invalid"
                     record["provider_metadata_error"] = str(exc)
 
+            from transcripts.sidecar import (
+                transcript_sidecar_path_for,
+                validate_transcript_sidecar,
+            )
+
+            transcript_path = transcript_sidecar_path_for(input_path)
+            if transcript_path.exists():
+                record["transcript_path"] = _relative_path(
+                    transcript_path,
+                    project_root,
+                )
+                try:
+                    transcript_sidecar = json.loads(transcript_path.read_text())
+                    validate_transcript_sidecar(transcript_sidecar)
+                    if (
+                        record["input_sha256"]
+                        and transcript_sidecar["recording"]["sha256"]
+                        != record["input_sha256"]
+                    ):
+                        raise ValueError("transcript sidecar SHA-256 does not match input")
+                    record["transcript_sidecar"] = transcript_sidecar
+                    record["transcript_status"] = "validated"
+                except (OSError, ValueError, TypeError, KeyError, json.JSONDecodeError) as exc:
+                    record["transcript_status"] = "invalid"
+                    record["transcript_error"] = str(exc)
+
         output_dir = batch_record.get("output_dir")
         evidence_path = Path(output_dir) / "ave_evidence.json" if output_dir else None
         if evidence_path and evidence_path.exists():
@@ -381,6 +411,7 @@ def build_corpus_index(
     provider_metadata_counts = Counter(
         item["provider_metadata_status"] for item in indexed_recordings
     )
+    transcript_counts = Counter(item["transcript_status"] for item in indexed_recordings)
     provenance_counts = Counter(
         item["provenance_status"] for item in indexed_recordings
     )
@@ -405,6 +436,7 @@ def build_corpus_index(
         "provider_metadata_status_counts": dict(
             sorted(provider_metadata_counts.items())
         ),
+        "transcript_status_counts": dict(sorted(transcript_counts.items())),
         "provenance_status_counts": dict(sorted(provenance_counts.items())),
         "duplicate_input_groups": duplicate_groups,
         "recordings": indexed_recordings,
@@ -428,6 +460,14 @@ CSV_FIELDS = [
     "provider_brightness_level",
     "provider_complexity_level",
     "provider_neural_effect_level",
+    "transcript_status",
+    "transcript_path",
+    "transcript_provider",
+    "transcript_language_code",
+    "transcript_segment_count",
+    "transcript_timed_pronunciation_count",
+    "transcript_speech_coverage_ratio",
+    "transcript_mean_pronunciation_confidence",
     "provenance_status",
     "run_id",
     "batch_status",
@@ -452,6 +492,7 @@ CSV_FIELDS = [
     "evidence_path",
     "index_error",
     "provider_metadata_error",
+    "transcript_error",
 ]
 
 
@@ -466,6 +507,9 @@ def _csv_row(record: dict[str, Any]) -> dict[str, Any]:
     provider_track = provider_metadata.get("provider_track") or {}
     provider_taxonomy = provider_metadata.get("taxonomy") or {}
     provider_measurements = provider_metadata.get("provider_measurements") or {}
+    transcript_sidecar = record.get("transcript_sidecar") or {}
+    transcript_engine = transcript_sidecar.get("transcription_engine") or {}
+    transcript_statistics = transcript_sidecar.get("statistics") or {}
     return {
         "relative_path": record["relative_path"],
         "source": record["source"],
@@ -488,6 +532,20 @@ def _csv_row(record: dict[str, Any]) -> dict[str, Any]:
         ),
         "provider_neural_effect_level": provider_measurements.get(
             "neural_effect_level"
+        ),
+        "transcript_status": record.get("transcript_status"),
+        "transcript_path": record.get("transcript_path"),
+        "transcript_provider": transcript_engine.get("provider"),
+        "transcript_language_code": transcript_engine.get("language_code"),
+        "transcript_segment_count": transcript_statistics.get("segment_count"),
+        "transcript_timed_pronunciation_count": transcript_statistics.get(
+            "timed_pronunciation_count"
+        ),
+        "transcript_speech_coverage_ratio": transcript_statistics.get(
+            "speech_coverage_ratio"
+        ),
+        "transcript_mean_pronunciation_confidence": transcript_statistics.get(
+            "mean_pronunciation_confidence"
         ),
         "provenance_status": record.get("provenance_status"),
         "run_id": record.get("run_id"),
@@ -517,6 +575,7 @@ def _csv_row(record: dict[str, Any]) -> dict[str, Any]:
         "evidence_path": record["evidence_path"],
         "index_error": record["index_error"],
         "provider_metadata_error": record.get("provider_metadata_error"),
+        "transcript_error": record.get("transcript_error"),
     }
 
 

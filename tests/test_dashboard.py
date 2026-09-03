@@ -69,6 +69,7 @@ def test_dashboard_deduplicates_comparisons_but_preserves_aliases():
         "duplicate_group_count": 1,
         "protocol_family_count": 0,
         "provider_metadata_count": 0,
+        "transcript_sidecar_count": 0,
     }
     assert len(data["recordings"]) == 3
     assert len(data["comparison_recordings"]) == 2
@@ -104,6 +105,8 @@ def test_dashboard_html_is_self_contained_and_deterministic(tmp_path):
     assert 'id="hypothesis-mode"' in first_text
     assert "All retained" in first_text
     assert "Provider taxonomy" in first_text
+    assert 'id="transcript-status"' in first_text
+    assert "Speech context" in first_text
     embedded = first_text.split(
         '<script id="dashboard-data" type="application/json">', 1
     )[1].split("</script>", 1)[0]
@@ -203,3 +206,40 @@ def test_dashboard_preserves_retained_hypothesis_band_summary():
     assert flattened["retained_hypothesis_count"] == 4
     assert flattened["hypothesis_band_counts"] == {"delta": 1, "gamma": 3}
     assert flattened["hypothesis_best_by_band"]["gamma"]["ranking_score"] == 0.3
+
+
+def test_dashboard_exposes_text_free_transcript_context():
+    item = record("guided.wav", "transcript-hash")
+    item.update(
+        {
+            "transcript_status": "validated",
+            "transcript_path": "samples/guided.wav.transcript.json",
+            "transcript_sidecar": {
+                "transcription_engine": {
+                    "provider": "aws",
+                    "language_code": "en-US",
+                },
+                "statistics": {
+                    "segment_count": 71,
+                    "timed_pronunciation_count": 557,
+                    "speech_coverage_ratio": 0.321,
+                    "mean_pronunciation_confidence": 0.976,
+                },
+            },
+        }
+    )
+
+    data = build_dashboard_data(
+        {
+            "index_schema_version": "1.2.0",
+            "duplicate_input_groups": [],
+            "recordings": [item],
+        }
+    )
+
+    flattened = data["recordings"][0]
+    assert data["overview"]["transcript_sidecar_count"] == 1
+    assert data["facets"]["transcript_statuses"] == ["validated"]
+    assert data["facets"]["transcript_languages"] == ["en-US"]
+    assert flattened["transcript_segment_count"] == 71
+    assert flattened["transcript_speech_coverage_ratio"] == 0.321

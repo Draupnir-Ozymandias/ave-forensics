@@ -61,10 +61,13 @@ The recommended future analysis adds speech-aware segmentation:
 - analyze speech-sparse intervals separately when sufficient audio remains; and
 - compare both result sets while preserving the original timeline.
 
-An external speech-to-text tool is acceptable. Store its time-aligned output as a
-sidecar with the audio SHA-256, transcript SHA-256, language, engine/model version,
-generation parameters, and timestamps. AVE can ingest and validate that sidecar
-without becoming a speech-recognition project itself.
+An external speech-to-text tool is acceptable. Raw time-aligned output remains in
+ignored `captured/transcripts/` storage because it may contain copyrighted text and
+cloud identifiers. AVE's committed transcript sidecar stores audio, raw-response,
+and verbatim-content SHA-256 digests; language and engine/model provenance;
+generation parameters; and text-free speech timestamps and confidence. AVE can
+therefore validate speech context without becoming a speech-recognition project or
+publishing the source script. See `TRANSCRIPT_SIDECARS.md`.
 
 Text-to-speech synthesis belongs in `ave_generator`. The generator should retain
 the source script, voice/model configuration, and generated-audio provenance. The
