@@ -140,6 +140,22 @@ efficacy, causal effect, subjective outcome, or clinical validity.
 
 See `docs/INTENT_ALIGNMENT.md` for the complete interpretation policy.
 
+## Preserve and Compare Corpus States
+
+After rebuilding the index, clusters, and intent alignment, capture the current state:
+
+```bash
+.venv/bin/python corpus_history.py
+```
+
+The first run creates a compact, content-addressed baseline under
+`history/corpus_snapshots/`. Later runs preserve a new snapshot and compare it with
+the most recent distinct state. Comparisons report added and removed inputs, family
+transitions, family overlap, context-label changes, analysis-configuration changes,
+cross-context reuse, and changes in corpus-level intent association.
+
+See `docs/LONGITUDINAL_CORPUS.md` for the snapshot and interpretation policy.
+
 ## Extract Brain.fm Provider Metadata
 
 Sanitize a raw Brain.fm JSON or HAR capture into one validated provider sidecar per

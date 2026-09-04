@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ave-forensics.local/schemas/corpus-snapshot-1.0.0.json",
+  "title": "AVE Longitudinal Corpus Snapshot",
+  "type": "object",
+  "required": ["snapshot_schema_version", "snapshot_id", "captured_at", "method_version", "source_documents", "summary", "global_intent_association", "intent_profiles", "reuse_groups", "records_without_digest", "recordings"],
+  "properties": {
+    "snapshot_schema_version": {"const": "1.0.0"},
+    "snapshot_id": {"type": "string", "pattern": "^ave_snapshot_[0-9a-f]{16}$"},
+    "captured_at": {"type": "string"},
+    "method_version": {"type": "string"},
+    "source_documents": {"type": "object"},
+    "summary": {"type": "object"},
+    "global_intent_association": {"type": "object"},
+    "intent_profiles": {"type": "array"},
+    "reuse_groups": {"type": "array"},
+    "records_without_digest": {"type": "array"},
+    "recordings": {"type": "array"}
+  },
+  "additionalProperties": false
+}

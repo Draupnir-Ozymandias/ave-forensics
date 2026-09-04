@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ave-forensics.local/schemas/corpus-comparison-1.0.0.json",
+  "title": "AVE Longitudinal Corpus Comparison",
+  "type": "object",
+  "required": ["comparison_schema_version", "method_version", "baseline_snapshot_id", "current_snapshot_id", "summary", "added_inputs", "removed_inputs", "family_transitions", "family_overlap", "context_changes", "configuration_changes", "intent_association_changes"],
+  "properties": {
+    "comparison_schema_version": {"const": "1.0.0"},
+    "method_version": {"type": "string"},
+    "baseline_snapshot_id": {"type": "string", "pattern": "^ave_snapshot_[0-9a-f]{16}$"},
+    "current_snapshot_id": {"type": "string", "pattern": "^ave_snapshot_[0-9a-f]{16}$"},
+    "summary": {"type": "object"},
+    "added_inputs": {"type": "array"},
+    "removed_inputs": {"type": "array"},
+    "family_transitions": {"type": "array"},
+    "family_overlap": {"type": "array"},
+    "context_changes": {"type": "array"},
+    "configuration_changes": {"type": "array"},
+    "intent_association_changes": {"type": "object"}
+  },
+  "additionalProperties": false
+}
