@@ -86,6 +86,8 @@
     .family-card h3 { color: var(--green); margin-bottom: 7px; }
     .family-card p { color: var(--muted); margin: 0 0 10px; font-size: 11px; }
     .family-stats { display: flex; flex-wrap: wrap; gap: 6px 12px; color: var(--dim); font-size: 10px; }
+    .family-signatures { margin: 10px 0 0; padding-left: 17px; color: var(--muted); font-size: 10px; line-height: 1.55; }
+    .family-representatives { margin-top: 9px; color: var(--dim); font-size: 9px; line-height: 1.45; overflow-wrap: anywhere; }
     table { width: 100%; border-collapse: collapse; }
     th { color: var(--dim); font-size: 10px; text-align: left; text-transform: uppercase; letter-spacing: .08em; padding: 9px 10px; border-bottom: 1px solid var(--line); }
     td { padding: 10px; border-bottom: 1px solid #1d3027; vertical-align: top; }
@@ -239,7 +241,7 @@
     option($('provider-activity'), DATA.facets.provider_activities);
     option($('provider-style'), DATA.facets.provider_styles);
     option($('transcript-status'), DATA.facets.transcript_statuses);
-    DATA.protocol_families.forEach(family => $('family').insertAdjacentHTML('beforeend', `<option value="${safe(family.family_id)}">${safe(family.family_id.replace('ave_family_', 'Family '))}</option>`));
+    DATA.protocol_families.forEach(family => $('family').insertAdjacentHTML('beforeend', `<option value="${safe(family.family_id)}">${safe(family.semantic_label || family.family_id.replace('ave_family_', 'Family '))}</option>`));
 
     function filtered() {
       const records = $('unique').checked ? DATA.comparison_recordings : DATA.recordings;
@@ -362,7 +364,11 @@
         const numeric = family.numeric_medians;
         const visible = visibleCounts[family.family_id] || 0;
         const membership = visible === family.member_count ? `n=${family.member_count}` : `${visible} visible / ${family.member_count}`;
-        return `<article class="family-card"><h3>${safe(familyName(family.family_id))} · ${membership}</h3><p>${safe(family.descriptor)}</p><div class="family-stats"><span>carrier Δ ${number(numeric.carrier_difference_hz)} Hz</span><span>envelope ${number(numeric.envelope_modulation_hz)} Hz</span><span>shared ${number(numeric.shared_modulation_hz)} Hz</span><span>silhouette ${number(family.mean_silhouette_score, 3)}</span></div></article>`;
+        const signatures = (family.defining_signatures || []).map(signature => signature.kind === 'numeric_contrast'
+          ? `<li>${safe(human(signature.feature))}: ${number(signature.family_median)} vs corpus ${number(signature.corpus_median)} (${safe(signature.direction)})</li>`
+          : `<li>${safe(human(signature.feature))}: ${safe(human(signature.value))} in ${percent(signature.family_prevalence)} vs corpus ${percent(signature.corpus_prevalence)}</li>`).join('');
+        const representatives = (family.representative_recordings || []).map(item => item.relative_path.split('/').pop()).join(' · ');
+        return `<article class="family-card"><h3>${safe(family.semantic_label || familyName(family.family_id))} · ${membership}</h3><p>${safe(familyName(family.family_id))} · ${safe(family.descriptor)}</p><div class="family-stats"><span>carrier Δ ${number(numeric.carrier_difference_hz)} Hz</span><span>envelope ${number(numeric.envelope_modulation_hz)} Hz</span><span>shared ${number(numeric.shared_modulation_hz)} Hz</span><span>silhouette ${number(family.mean_silhouette_score, 3)}</span></div><ul class="family-signatures">${signatures}</ul><div class="family-representatives">Representatives: ${safe(representatives)}</div></article>`;
       }).join('');
     }
 
@@ -381,7 +387,7 @@
       const values = [
         ['Corpus path', record.relative_path], ['Duration', duration(record.duration_seconds)], ['Input size', record.input_size_bytes == null ? '—' : `${number(record.input_size_bytes / 1048576, 2)} MiB`],
         ['SHA-256', record.input_sha256], ['Run ID', record.run_id], ['Analysis configuration', record.analysis_configuration_version], ['Evidence objects', record.evidence_count],
-        ['Protocol family', familyName(record.protocol_family_id)], ['Family silhouette', number(record.protocol_family_silhouette, 4)], ['Family signature', record.protocol_family_descriptor],
+        ['Protocol family', record.protocol_family_label || familyName(record.protocol_family_id)], ['Family ID', record.protocol_family_id], ['Family silhouette', number(record.protocol_family_silhouette, 4)], ['Family signature', record.protocol_family_descriptor],
         ['Provider title', record.provider_title], ['Provider mental state', human(record.provider_mental_state)], ['Provider activity', human(record.provider_activity)],
         ['Provider style', human(record.provider_style)], ['Provider moods', (record.provider_moods || []).join(', ') || '—'], ['Provider instruments', (record.provider_instruments || []).join(', ') || '—'],
         ['Provider BPM', number(record.provider_beats_per_minute, 1)], ['Provider NEL', number(record.provider_neural_effect_level, 3)], ['Brightness / complexity', `${number(record.provider_brightness_level, 3)} / ${number(record.provider_complexity_level, 3)}`],
@@ -423,7 +429,7 @@
       if (kind === 'json') {
         body = JSON.stringify({dashboard_schema_version: DATA.dashboard_schema_version, filtered_recordings: records}, null, 2); type = 'application/json'; extension = 'json';
       } else {
-        const fields = ['relative_path','category','stated_intent','provider_metadata_status','provider_title','provider_mental_state','provider_activity','provider_style','provider_beats_per_minute','provider_neural_effect_level','transcript_status','transcript_provider','transcript_language_code','transcript_segment_count','transcript_timed_pronunciation_count','transcript_speech_coverage_ratio','transcript_mean_pronunciation_confidence','speech_context_comparison_available','speech_context_buffered_coverage_ratio','speech_active_window_count','speech_sparse_window_count','speech_active_candidate_rate','speech_sparse_candidate_rate','speech_active_median_difference_hz','speech_sparse_median_difference_hz','speech_active_median_phase_locking','speech_sparse_median_phase_locking','speech_active_persistent_difference_hz','speech_sparse_persistent_difference_hz','speech_active_persistent_band','speech_sparse_persistent_band','speech_active_persistent_score','speech_sparse_persistent_score','analysis_configuration_version','protocol_family_id','protocol_family_silhouette','index_status','provenance_status','duration_seconds','input_sha256','carrier_difference_hz','envelope_modulation_hz','shared_modulation_hz','phase_behavior','hypothesis_band','hypothesis_ranking_score','retained_hypothesis_count'];
+        const fields = ['relative_path','category','stated_intent','provider_metadata_status','provider_title','provider_mental_state','provider_activity','provider_style','provider_beats_per_minute','provider_neural_effect_level','transcript_status','transcript_provider','transcript_language_code','transcript_segment_count','transcript_timed_pronunciation_count','transcript_speech_coverage_ratio','transcript_mean_pronunciation_confidence','speech_context_comparison_available','speech_context_buffered_coverage_ratio','speech_active_window_count','speech_sparse_window_count','speech_active_candidate_rate','speech_sparse_candidate_rate','speech_active_median_difference_hz','speech_sparse_median_difference_hz','speech_active_median_phase_locking','speech_sparse_median_phase_locking','speech_active_persistent_difference_hz','speech_sparse_persistent_difference_hz','speech_active_persistent_band','speech_sparse_persistent_band','speech_active_persistent_score','speech_sparse_persistent_score','analysis_configuration_version','protocol_family_id','protocol_family_label','protocol_family_silhouette','index_status','provenance_status','duration_seconds','input_sha256','carrier_difference_hz','envelope_modulation_hz','shared_modulation_hz','phase_behavior','hypothesis_band','hypothesis_ranking_score','retained_hypothesis_count'];
         const cell = v => `"${String(v ?? '').replaceAll('"','""')}"`;
         body = [fields.join(','), ...records.map(r => fields.map(f => cell(r[f])).join(','))].join('\n'); type = 'text/csv'; extension = 'csv';
       }

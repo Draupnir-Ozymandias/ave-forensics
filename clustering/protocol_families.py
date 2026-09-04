@@ -14,8 +14,8 @@ from scipy.cluster.hierarchy import fcluster, linkage
 from scipy.spatial.distance import cdist
 
 
-CLUSTERING_SCHEMA_VERSION = "1.0.0"
-METHOD_VERSION = "ave_hierarchical_protocol_families_1.0.0"
+CLUSTERING_SCHEMA_VERSION = "1.1.0"
+METHOD_VERSION = "ave_hierarchical_protocol_families_1.1.0"
 FAMILY_ID_PATTERN = re.compile(r"^ave_family_[0-9]{2}$")
 
 NUMERIC_FEATURES = (
@@ -257,6 +257,93 @@ def _descriptor(records: list[dict[str, Any]]) -> str:
     return f"{carrier} · {modulation} · {phase}"
 
 
+def _semantic_label(records: list[dict[str, Any]]) -> str:
+    pair_labels = {
+        "shared_carrier": "shared-carrier",
+        "slight_detuning": "detuned-carrier",
+        "beat_candidate": "beat-candidate",
+        "harmonic_relationship": "harmonically related-carrier",
+        "missing": "unresolved-carrier",
+    }
+    modulation_labels = {
+        "persistent_shared_amplitude_modulation": "persistent",
+        "episodic_shared_amplitude_modulation": "episodic",
+        "weak_or_inconsistent_shared_modulation": "weak/inconsistent",
+        "missing": "unresolved",
+    }
+    pair = _dominant(records, "carrier_pair_type")
+    modulation = _dominant(records, "modulation_classification")
+    return (
+        f"{modulation_labels.get(modulation, modulation.replace('_', ' '))} "
+        f"{pair_labels.get(pair, pair.replace('_', '-'))} modulation"
+    ).capitalize()
+
+
+def _defining_signatures(
+    members: list[dict[str, Any]],
+    corpus_records: list[dict[str, Any]],
+    *,
+    limit: int = 4,
+) -> list[dict[str, Any]]:
+    candidates: list[tuple[float, dict[str, Any]]] = []
+    for feature in NUMERIC_FEATURES:
+        family_value = _median(members, feature)
+        corpus_value = _median(corpus_records, feature)
+        corpus_values = [
+            float(record[feature])
+            for record in corpus_records
+            if record.get(feature) is not None
+        ]
+        if family_value is None or corpus_value is None or not corpus_values:
+            continue
+        q1, q3 = np.percentile(corpus_values, [25, 75])
+        scale = float(q3 - q1)
+        if scale < 1e-9:
+            scale = float(np.std(corpus_values))
+        if scale < 1e-9:
+            continue
+        difference = (family_value - corpus_value) / scale
+        candidates.append(
+            (
+                abs(difference),
+                {
+                    "kind": "numeric_contrast",
+                    "feature": feature,
+                    "family_median": family_value,
+                    "corpus_median": corpus_value,
+                    "direction": "above" if difference > 0 else "below",
+                    "robust_difference": round(float(difference), 6),
+                },
+            )
+        )
+
+    for feature in CATEGORICAL_FEATURES:
+        value = _dominant(members, feature)
+        family_prevalence = sum(
+            str(record.get(feature) or "missing") == value for record in members
+        ) / len(members)
+        corpus_prevalence = sum(
+            str(record.get(feature) or "missing") == value for record in corpus_records
+        ) / len(corpus_records)
+        difference = family_prevalence - corpus_prevalence
+        candidates.append(
+            (
+                abs(difference),
+                {
+                    "kind": "categorical_contrast",
+                    "feature": feature,
+                    "value": value,
+                    "family_prevalence": round(family_prevalence, 6),
+                    "corpus_prevalence": round(corpus_prevalence, 6),
+                    "prevalence_difference": round(difference, 6),
+                },
+            )
+        )
+
+    candidates.sort(key=lambda item: (-item[0], item[1]["feature"]))
+    return [item for _, item in candidates[:limit]]
+
+
 def build_protocol_families(
     index: dict[str, Any],
     *,
@@ -322,6 +409,10 @@ def build_protocol_families(
             assignments.append(assignment)
             family_members.append(assignment)
         family_members.sort(key=lambda item: item["relative_path"])
+        representative_recordings = sorted(
+            family_members,
+            key=lambda item: (item["distance_to_centroid"], item["relative_path"]),
+        )[: min(3, len(family_members))]
         numeric_profile = {
             feature: _median(members, feature) for feature in NUMERIC_FEATURES
         }
@@ -335,11 +426,15 @@ def build_protocol_families(
         families.append(
             {
                 "family_id": family_id,
+                "semantic_label": _semantic_label(members),
                 "descriptor": _descriptor(members),
+                "interpretation_status": "exploratory_evidence_derived",
                 "member_count": len(members),
                 "mean_silhouette_score": round(float(np.mean(silhouettes[indices])), 6),
                 "numeric_medians": numeric_profile,
                 "dominant_categorical_signatures": categorical_profile,
+                "defining_signatures": _defining_signatures(members, records),
+                "representative_recordings": representative_recordings,
                 "context_distribution_not_used_for_clustering": context_distribution,
                 "members": family_members,
             }
@@ -399,6 +494,17 @@ def validate_protocol_families(document: dict[str, Any]) -> None:
         raise ValueError("each canonical recording may have only one assignment")
     if any(item.get("family_id") not in family_ids for item in assignments):
         raise ValueError("assignment references an unknown family")
+    for family in families:
+        if not isinstance(family.get("semantic_label"), str) or not family["semantic_label"]:
+            raise ValueError("each family must have a semantic_label")
+        if family.get("interpretation_status") != "exploratory_evidence_derived":
+            raise ValueError("unsupported family interpretation_status")
+        signatures = family.get("defining_signatures")
+        if not isinstance(signatures, list) or not signatures:
+            raise ValueError("each family must have defining_signatures")
+        representatives = family.get("representative_recordings")
+        if not isinstance(representatives, list) or not representatives:
+            raise ValueError("each family must have representative_recordings")
     if document.get("clustered_unique_input_count") != len(assignments):
         raise ValueError("clustered_unique_input_count does not match assignments")
     member_total = sum(family.get("member_count", -1) for family in families)
@@ -411,6 +517,7 @@ CSV_FIELDS = [
     "input_sha256",
     "aliases",
     "family_id",
+    "family_label",
     "family_descriptor",
     "silhouette_score",
     "distance_to_centroid",
@@ -429,6 +536,9 @@ def write_protocol_families(
     descriptors = {
         family["family_id"]: family["descriptor"] for family in document["families"]
     }
+    labels = {
+        family["family_id"]: family["semantic_label"] for family in document["families"]
+    }
     with csv_path.open("w", newline="") as output_file:
         writer = csv.DictWriter(output_file, fieldnames=CSV_FIELDS)
         writer.writeheader()
@@ -437,6 +547,7 @@ def write_protocol_families(
                 {
                     **assignment,
                     "aliases": " | ".join(assignment["aliases"]),
+                    "family_label": labels[assignment["family_id"]],
                     "family_descriptor": descriptors[assignment["family_id"]],
                 }
             )

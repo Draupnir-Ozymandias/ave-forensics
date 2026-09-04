@@ -133,6 +133,12 @@ def test_dashboard_accepts_clustering_bound_to_the_same_index():
         for record in data["comparison_recordings"]
         if record["index_status"] == "indexed"
     )
+    assert all(
+        record["protocol_family_label"]
+        for record in data["comparison_recordings"]
+        if record["index_status"] == "indexed"
+    )
+    assert all(family["defining_signatures"] for family in data["protocol_families"])
 
 
 def test_dashboard_exposes_provider_taxonomy_as_context():

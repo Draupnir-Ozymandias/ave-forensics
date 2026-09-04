@@ -100,6 +100,7 @@ def test_discovers_deterministic_families_without_context_labels():
     assert len(document["families"]) == 2
     assert sorted(family["member_count"] for family in document["families"]) == [6, 6]
     assert document["method"]["overall_silhouette_score"] == 1.0
+    assert document["clustering_schema_version"] == "1.1.0"
     assert document["feature_specification"]["explicitly_excluded_context"]
     assert "hypothesis_ranking_score" not in document["feature_specification"][
         "numeric_features"
@@ -115,6 +116,23 @@ def test_discovers_deterministic_families_without_context_labels():
     assert len(low_family) == 1
     assert len(high_family) == 1
     assert low_family != high_family
+    assert all(family["semantic_label"] for family in document["families"])
+    assert all(
+        family["interpretation_status"] == "exploratory_evidence_derived"
+        for family in document["families"]
+    )
+    assert all(family["defining_signatures"] for family in document["families"])
+    assert all(
+        1 <= len(family["representative_recordings"]) <= 3
+        for family in document["families"]
+    )
+    for family in document["families"]:
+        representative_distances = [
+            item["distance_to_centroid"]
+            for item in family["representative_recordings"]
+        ]
+        member_distances = sorted(item["distance_to_centroid"] for item in family["members"])
+        assert representative_distances == member_distances[:3]
 
     for record in index["recordings"]:
         if record.get("index_status") == "indexed":
@@ -136,6 +154,7 @@ def test_writes_validated_json_and_flat_assignment_csv(tmp_path):
         rows = list(csv.DictReader(input_file))
     assert len(rows) == 12
     assert rows[0]["family_id"].startswith("ave_family_")
+    assert rows[0]["family_label"]
     assert rows[0]["family_descriptor"]
 
 

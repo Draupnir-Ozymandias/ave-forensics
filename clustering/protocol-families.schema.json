@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://ave-forensics.local/schemas/protocol-families-1.0.0.json",
+  "$id": "https://ave-forensics.local/schemas/protocol-families-1.1.0.json",
   "title": "AVE Protocol Families",
   "type": "object",
   "required": [
@@ -15,7 +15,7 @@
     "assignments"
   ],
   "properties": {
-    "clustering_schema_version": {"const": "1.0.0"},
+    "clustering_schema_version": {"const": "1.1.0"},
     "source_index_schema_version": {"type": ["string", "null"]},
     "source_index_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
     "method": {"type": "object"},

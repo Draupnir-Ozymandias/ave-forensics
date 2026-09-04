@@ -38,7 +38,10 @@ def main() -> None:
     print(f"Protocol families:       {method['selected_family_count']}")
     print(f"Silhouette score:        {method['overall_silhouette_score']:.4f}")
     for family in document["families"]:
-        print(f"  {family['family_id']} ({family['member_count']}): {family['descriptor']}")
+        print(
+            f"  {family['family_id']} ({family['member_count']}): "
+            f"{family['semantic_label']} — {family['descriptor']}"
+        )
     print(f"JSON families:           {json_path}")
     print(f"CSV assignments:         {csv_path}")
 

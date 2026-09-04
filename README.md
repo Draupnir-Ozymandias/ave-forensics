@@ -112,10 +112,15 @@ modulation, phase, and hypothesis measurements. Provider, category, claimed-inte
 notes, and transcript fields are explicitly excluded. Byte-identical inputs receive
 one canonical assignment, and model selection reports silhouette quality so weak
 boundaries remain visible. Hypothesis ranking strength is also excluded because its
-legacy and current score sources are not directly comparable.
+legacy and current score sources are not directly comparable. Each discovered family
+also receives an evidence-derived semantic label, its strongest corpus-relative
+contrasts, and up to three centroid-nearest representative recordings. These labels
+describe observed signal structure; they are exploratory and are not efficacy claims.
 
 See `docs/CORPUS_CONTEXT_LAYERS.md` for the policy governing provider taxonomy,
 guided speech, transcripts, outcome claims, and future generator integration.
+See `docs/PROTOCOL_FAMILY_CHARACTERIZATION.md` for the interpretation and
+reproducibility rules governing family labels, contrasts, and representatives.
 
 ## Extract Brain.fm Provider Metadata
 

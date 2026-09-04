@@ -145,6 +145,7 @@ def _flatten_record(record: dict[str, Any]) -> dict[str, Any]:
         "hypothesis_band_counts": hypothesis_bands.get("counts") or {},
         "hypothesis_best_by_band": hypothesis_bands.get("best_by_band") or {},
         "protocol_family_id": None,
+        "protocol_family_label": None,
         "protocol_family_descriptor": None,
         "protocol_family_silhouette": None,
     }
@@ -205,6 +206,7 @@ def build_dashboard_data(
                 if assignment:
                     family = family_lookup[assignment["family_id"]]
                     record["protocol_family_id"] = assignment["family_id"]
+                    record["protocol_family_label"] = family["semantic_label"]
                     record["protocol_family_descriptor"] = family["descriptor"]
                     record["protocol_family_silhouette"] = assignment[
                         "silhouette_score"
