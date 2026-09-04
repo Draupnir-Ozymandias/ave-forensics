@@ -38,6 +38,16 @@ def main() -> None:
         default=project_root / "recommendations" / "brainfm_recommendation_graph.json",
         help="Optional sanitized provider recommendation graph.",
     )
+    parser.add_argument(
+        "--recommendation-communities",
+        type=Path,
+        default=project_root / "recommendations" / "recommendation_communities.json",
+    )
+    parser.add_argument(
+        "--recommendation-drift",
+        type=Path,
+        default=project_root / "recommendations" / "recommendation_drift.json",
+    )
     arguments = parser.parse_args()
     index = json.loads(arguments.corpus_index.read_text())
     clustering = (
@@ -55,7 +65,24 @@ def main() -> None:
         if arguments.recommendation_graph.exists()
         else None
     )
-    data = build_dashboard_data(index, clustering, alignment, recommendation_graph)
+    recommendation_communities = (
+        json.loads(arguments.recommendation_communities.read_text())
+        if arguments.recommendation_communities.exists()
+        else None
+    )
+    recommendation_drift = (
+        json.loads(arguments.recommendation_drift.read_text())
+        if arguments.recommendation_drift.exists()
+        else None
+    )
+    data = build_dashboard_data(
+        index,
+        clustering,
+        alignment,
+        recommendation_graph,
+        recommendation_communities,
+        recommendation_drift,
+    )
     output_path = write_dashboard(data, arguments.output_dir)
     overview = data["overview"]
     print(f"Recording aliases: {overview['recording_alias_count']}")
@@ -65,6 +92,11 @@ def main() -> None:
     print(f"Intent assessments: {overview['scored_intent_alignment_count']}")
     if data["recommendation_summary"]:
         print(f"Recommendation edges: {data['recommendation_summary']['edge_count']}")
+    if data["recommendation_community_summary"]:
+        print(
+            f"Recommendation communities: "
+            f"{data['recommendation_community_summary']['community_count']}"
+        )
     print(f"Dashboard:         {output_path}")
 
 

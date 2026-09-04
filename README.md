@@ -173,6 +173,22 @@ multiple list variants while omitting URLs, tokens, cookies, authorization data,
 session data. Context flags describe the capture session; they are not applied as
 intrinsic track labels. See `docs/RECOMMENDATION_CAPTURE.md` for collection guidance.
 
+## Discover Recommendation Communities and Drift
+
+After rebuilding the recommendation graph, discover topology-only neighborhoods and
+evaluate whether repeated captures are sufficient for drift measurement:
+
+```bash
+.venv/bin/python recommendation_communities.py
+.venv/bin/python dashboard.py
+```
+
+Community discovery uses only recommendation edges. Provider mental state, activity,
+local stated intent, and AVE signal family are attached afterward as exploratory
+context. Repeated-capture drift is scored only when the same seed has non-empty
+recommendation sets in at least two distinct observations. See
+`docs/RECOMMENDATION_COMMUNITIES.md`.
+
 ## Extract Brain.fm Provider Metadata
 
 Sanitize a raw Brain.fm JSON or HAR capture into one validated provider sidecar per

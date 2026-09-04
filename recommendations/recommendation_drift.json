@@ -1,0 +1,5831 @@
+{
+  "interpretation": {
+    "does_not_infer": "temporal drift from empty versus populated object representations within one response",
+    "drift_requires": "at least two distinct observations with non-empty recommendation sets for the same seed"
+  },
+  "method": {
+    "comparison_unit": "union of non-empty recommendation lists per seed and capture observation",
+    "empty_list_policy": "retained as representation evidence but not treated as a comparable recommendation set",
+    "name": "ave_repeated_recommendation_capture_drift_1.0.0",
+    "similarity_metric": "Jaccard similarity on recommended track IDs"
+  },
+  "recommendation_drift_schema_version": "1.0.0",
+  "seed_assessments": [
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3803a5924112af0f4b22c"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3803a592411ff49f4b2d7"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3803b592411159ff4b405"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3803b5924117103f4b36b"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3803c592411751cf4b569"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3803c592411a4b0f4b4ac"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3803d592411f474f4b5c8"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 6,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3803e5924117adcf4b690"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3803e592411c281f4b6f1"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380575924113b6ef4b76c"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380585924116bdaf4b821"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3805959241112eff4b970"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380595924117e88f4b9d7"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3805a592411eefcf4ba1f"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3805c5924112030f4bc07"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3805c592411392cf4bc68"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3805d592411114ef4bd5d"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3805d592411ead9f4bdc8"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3805e5924117a3ef4bde7"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380615924117ca4f4c091"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3806459241103eaf4c242"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38064592411e185f4c261"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3806559241128f5f4c375"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380655924116930f4c348"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380665924113d56f4c3e6"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38066592411673af4c405"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3806d5924117c03f4c81d"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3806f592411d581f4c91c"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380715924114a66f4c9ef"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38071592411dc30f4c9d6"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380725924110dc7f4ca5a"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380725924111aaef4ca3b"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38082592411844df4cbee"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3808259241190abf4cbc7"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38083592411bbc1f4cc51"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380845924117b91f4ccb4"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3808859241100cbf4ce5b"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3808b59241119aef4cf8f"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3808b592411791bf4cfae"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38090592411c503f4d153"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380dc59241165d1f4d1dd"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380dd592411742ff4d1fe"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380dd592411839df4d252"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380de5924114e9bf4d2b9"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380e35924110aa7f4d4ca"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380e3592411653ff4d4a9"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380e5592411f74af4d573"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380ea5924112626f4d6e7"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380ea5924113b77f4d731"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380eb592411fb6df4d775"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380ee5924113a92f4d87f"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380f059241158a2f4d928"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380f1592411ad18f4d976"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380fa5924112b46f4dc1c"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b380fd5924116bb5f4dd43"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b381025924117390f4de8d"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 6,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3810459241114d2f4df42"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b381095924113195f4e10a"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b381095924113fd9f4e0ed"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3810a592411a980f4e131"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3810b5924111f1ef4e196"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3810c592411be0cf4e1b5"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b381115924111378f4e2d5"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3811559241107c9f4e3e3"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b381155924117089f4e3c4"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3811659241120cef4e414"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3811e5924117d77f4e61a"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3811f5924118567f4e69d"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b381225924116867f4e721"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3812859241118e4f4e89a"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3812c5924118b79f4e989"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3813259241158abf4eb02"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 6,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3840b59241178fdf4fa87"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3840c5924112748f4facd"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3840d592411842bf4fb11"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3840e59241120e2f4fb2e"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3840e5924114e2cf4fb4b"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b384125924115e57f4fc65"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b384135924118807f4fc84"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38414592411431ef4fcd9"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3841559241180d7f4fd17"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38417592411a3ccf4fd97"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3841959241166fdf4fe10"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3841c592411d330f4fe90"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3841d592411f69df4feb1"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3841e5924118b19f4fefd"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3841f592411e1bbf4ff22"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3842159241134f2f4ffa8"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38425592411c732f5004d"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3842b5924112756f50168"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3842f5924112ec6f50273"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b384315924110d60f502ce"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b384345924110c9cf50388"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38434592411347df5036f"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b384385924117384f5043c"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3843a5924110275f5049f"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3843b5924111a2ef504c0"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3843d5924113f28f50556"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3843f59241168f6f5059c"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b384445924116aa5f506ae"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3875c5924114887f515c8"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3875d5924115e7af5160a"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3875f5924111072f51677"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38760592411223bf516a8"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b387615924110b0df516c7"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38763592411b34ff5173e"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b387705924111b17f519eb"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b387715924116a90f51a25"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3877b592411241bf51bda"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b387a4592411e33df51c80"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b387aa5924111a10f51d6b"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b387ac5924114314f51de9"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b387b759241129aef51fcc"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b387bd592411537ff520e4"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b387c85924116b95f5229f"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38896592411463af5238d"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b388975924117a35f523aa"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38899592411a19cf523ea"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3889d5924113d6df52483"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3889e592411b76ff524ac"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b388a2592411808bf52536"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b388ae5924113485f526fa"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b388b85924110c5bf5285f"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b388ba592411823cf5289b"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b388bc5924111d12f52908"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b388cf592411e22df529b8"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b388d15924114070f52a00"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b388d25924111a0bf52a1f"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b388d65924110769f52ab8"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b388d75924115676f52af2"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b388d9592411a447f52b51"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b388e359241139d0f52d01"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b388e55924115f3df52d4b"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b388e6592411170ff52d6c"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3893d5924110e2df5306e"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3893f5924110640f530ac"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38943592411a351f5317a"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38945592411755ef531c6"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3894d59241190c7f532f7"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38954592411b43cf533d2"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b389565924115214f53410"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b389655924114c12f5360b"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b389ce59241156e0f5370d"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b389d45924111c3cf537d9"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b389d75924115ff7f5383c"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b389d85924119b4af5385b"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b389e5592411a759f539b1"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b389e959241137c2f53a39"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b389ec592411262af53a98"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b389f0592411f2a0f53b41"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b389f85924119a45f53c30"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38a1d592411335af53f43"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38a20592411b508f53fa8"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38a255924118312f54030"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38a2c5924112b16f54129"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38a3259241166aef541d4"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38a35592411b6e7f5425a"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38a3b5924119c32f542fb"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38a6e592411e37cf543ca"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38a77592411bf86f544cc"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38a7b592411e9d5f5456d"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38a7f592411634ff545ff"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38a855924119b80f546cb"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38a915924113388f547f8"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38a945924115670f54857"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38a965924114d9cf5488f"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38a97592411e39ef548aa"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38a9c592411185bf5493a"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38ad8592411640df54a85"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38ae1592411ef33f54b7e"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38ae8592411afb6f54c3e"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38afa592411e3e4f54e25"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38aff5924118c53f54ec6"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38b055924111776f54f65"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38bb059241170b5f54fc4"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38bdc5924110921f54fe4"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38bf159241150ecf550b9"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38bf859241109b5f5516c"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38c03592411de28f55279"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38c05592411e4edf552b9"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38c0c5924115d9ff55387"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38c12592411b2d7f55428"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38c1c592411fc82f55524"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38c245924115f20f55621"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62e4174d8aeb53856dab3296"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62e419f45e954c5d35f68165"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62e41a438aeb53fe8cab38a7"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62e41b3c5e954ce5e2f68358"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62e41c895e954c67d4f6851a"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62e41dcd5e954c07e0f686ce"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62e41df05e954c22b7f686f4"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62e41e908aeb536c28ab3faa"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62e41eb65e954ce986f68771"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62e41ee95e954c0151f68795"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62e41f105e954c951bf687bc"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62e41f335e954c0773f687df"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62e41fa28aeb53873eab4087"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "631227d498e7cb7439303355"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "631229b52d3936406e9c0e2a"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "633d93eb83f4ffc296a2ba1f"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "634d5fff8930ed509d84ecb1"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "63629567a9fdb37e8c3d29a4"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "63629593a9fdb3b8b83d2b8c"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "636296ab9d9fed229a87a356"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6363dc5989c4d683135ba1f3"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "637e62fbfa040bb2120db849"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "637e638104cbdc2835c8e7c0"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "63bc770278cd3e78f07be769"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "63bc77649af14d0477d4909a"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "63bc79069af14d20e9d49962"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "63bc793c78cd3e5ca97bf62d"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "63bc7b6978cd3ed6517bffae"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "63f3d934c446aa0e80144907"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "64258e7e25782869fa8b6343"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "64258e9225782872628b63ab"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "64258ecd7fc6945572ae859e"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "64258ee725782876f28b6636"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "64258f697fc6945d3bae8814"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "643028a523c3be6c553fa627"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "643029035ee24c2437a05497"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "64302add23c3be830d3fb048"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "64302c7c23c3be6b5f3fb916"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "64302d0e23c3be8c9c3fbbb9"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "64302d735ee24cd534a06fc1"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "644ad5acee3f746ac1201e80"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "644ad677ee3f74c17c20251e"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "644ad6baee3f7413962025c3"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "644ad6db3ecf73778200f885"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "646f73d4c393a75a1a73df4d"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "646f73e3fd5c847aa3a11cc2"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "646f74b4c393a7727673e255"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "649460727dc7e2851d4a474e"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "649460ae2b77acd0a9ae2ade"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "649460d12b77ac01c2ae2b61"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "649461082b77accf90ae2c42"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "64b937e16a2068171efe3960"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "64b938076a20685f22fe39b4"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "64b93834becc0001242efa9f"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "64dcff0d177f87b4189c8cd4"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "651ddb477f63d37dc515868a"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "651ddf214489f25ab30da050"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65316386bab2d63bd119e2c2"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "653163cd87cf8772f52edf23"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65316429bab2d6f7bf19e4be"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "654aa6c662cef542c78bb0b2"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "654aa74f62cef539b98bb253"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "654aa7e262cef55d3c8bb506"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "654aa7f1698643e308b414e5"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "654aa807698643584eb4150e"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "654aa81769864300acb41534"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "654aa8a96986434a94b4176f"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "655bc787fdfce6d87a7a948c"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "655bc7affdfce6826a7a94d7"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6580654ec08ad58656f22b65"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "658065a4c08ad59ba5f22bff"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "658c8f259a74fb00089d42b0"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65a034c56f05fa0008c158af"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65a035476f05fa0008c15a3e"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65a0357d6f05fa0008c15ac0"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65b3fa0dcdef020008e0bf86"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65b3fa3b349c8a0009283e5a"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65b3fa47cdef020008e0c006"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65b3fab8cdef020008e0c087"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65b3fb22349c8a00092840a1"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65b3fb80cdef020008e0c2cd"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65b3fbcd349c8a0009284294"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65c691a411ce62000864c2e4"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65d92034636e0500086cb2b6"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65d9207f636e0500086cb35b"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65d920bb636e0500086cb401"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65d920ee636e0500086cb4c7"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65eb6a7663853a000a15a11d"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65eb6b6863853a000a15a7c5"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65eb6ba563853a000a15a99b"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65eb6c1663853a000a15ad9a"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65eb6c2d63853a000a15ae48"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65fda995cc7d1e000a587510"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65fda9c9cc7d1e000a58777c"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65fdaa26cc7d1e000a587b52"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "65fdaa4fcc7d1e000a587d9b"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6610625c88d74c5142fdf04a"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "661062a788d74c5142fdf370"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "661062cc88d74c5142fdf4a7"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6610635488d74c5142fdfa1a"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "661063a088d74c5142fdfc91"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6622ce5c918ea2b454f7a394"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6622ceb5918ea2b454f7a561"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6622ced7918ea2b454f7a5fb"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6622cefb918ea2b454f7a731"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6622cf1b918ea2b454f7a8eb"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "663536024eae15761ad4ff94"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6635366a4eae15761ad5010a"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "663536754eae15761ad50153"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6635371b4eae15761ad505a3"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "664779ae30b208e2323ed4d4"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "664779cd30b208e2323ed592"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66477a1830b208e2323ed7ca"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66477a2630b208e2323ed810"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66477a3730b208e2323ed894"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66477a4830b208e2323ed8d5"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66477a9e30b208e2323edb07"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562c46ff1110852ad244d4"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562c63ff1110852ad2453e"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562c71ff1110852ad24576"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562c7eff1110852ad245c3"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562c8bff1110852ad24615"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562c99ff1110852ad246a0"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562cb2ff1110852ad247df"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562cbfff1110852ad24834"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562ccfff1110852ad2486a"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562cdcff1110852ad248a5"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562ceaff1110852ad248cf"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562cf8ff1110852ad2492f"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562d04ff1110852ad2498c"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562d10ff1110852ad249b9"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562d1fff1110852ad24a23"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562d2cff1110852ad24a5e"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562d38ff1110852ad24ac0"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562d43ff1110852ad24b1c"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562d50ff1110852ad24b57"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562d5cff1110852ad24b98"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562d68ff1110852ad24bd8"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562d72ff1110852ad24bfd"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562dc1ff1110852ad24d6d"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562dceff1110852ad24d91"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562de8ff1110852ad24e93"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562df5ff1110852ad24ee2"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562e00ff1110852ad24f19"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562e36ff1110852ad250ce"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562e48ff1110852ad25194"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66562e6fff1110852ad25309"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "665a227e4dfb90cc19dcd9df"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "665a22994dfb90cc19dcda71"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "665a22e44dfb90cc19dcdc86"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "666c9c5d62b2df66d1d11622"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "666c9c9862b2df66d1d116e7"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "666c9cdc62b2df66d1d117aa"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "666c9d5e2ea307b6e2e44d3e"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "666c9db262b2df66d1d11a13"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "666c9dbb62b2df66d1d11a3d"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "666c9dd9644ac8615d52af45"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "666c9de6644ac8615d52af6a"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "666c9df0644ac8615d52af92"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6683fde4d98e4183c363eaf0"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6683fdf0d98e4183c363eb41"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66918b6dde19d0f1c74ea6ce"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66918b7fde19d0f1c74ea73b"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66918b87de19d0f1c74ea754"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66918c08de19d0f1c74ea99e"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66918c46de19d0f1c74eab72"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66918c5dde19d0f1c74eacb8"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66918c71de19d0f1c74ead39"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66a3fc880108b74ee995955a"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66a3fcac0108b74ee995962e"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66a3fcbe0108b74ee995968c"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66a3fceb0108b74ee995972a"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66a3fd8e0108b74ee9959af0"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66a3fdea0108b74ee9959cdd"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66a3fe080108b74ee9959da9"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66b13c640cedc1c50d90b484"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66b13c740cedc1c50d90b4b5"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66b6626e87e215f954f17a94"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66b662a687e215f954f17b97"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66cc93c247ed87e8383b730a"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66cc93d847ed87e8383b733e"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66cc93e447ed87e8383b7390"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66cc944247ed87e8383b74b9"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66cc949a47ed87e8383b75f7"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66cc94b547ed87e8383b7660"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66df0161edad688793836aa2"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66df01c5edad688793836c2e"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66df02dbedad688793836f14"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66df031cedad688793837085"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66df03b0edad68879383720c"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66df03c4edad688793837242"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66df03d0edad688793837270"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66f173b2d7073bdb17918f2b"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66f1772bd7073bdb17919679"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66f178429ef5eee4a2c96884"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "66f178fad7073bdb17919b28"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6703e1fea1f0c0804124fa27"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6703e2b1a1f0c0804124fb97"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6703e2c3a1f0c0804124fbdb"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6703e2e7a1f0c0804124fc62"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6703e2f2a1f0c0804124fc9a"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6703e35da1f0c0804124feb7"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6716a13bae8c98e954dc58c9"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6716a165ae8c98e954dc59dd"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6716a1a5ae8c98e954dc5b37"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6716a1b0ae8c98e954dc5b80"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6728eb6eebed2a29b0df431f"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6728eb7febed2a29b0df4395"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6728eb88ebed2a29b0df43be"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6728eb91ebed2a29b0df43fa"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6728ebcea39954546e6e54c9"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6728ec1ba39954546e6e5581"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "673b5e1b81e56c199c2a9d42"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "673b5e2a81e56c199c2a9d8d"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "673b5e3e593072f908bc7765"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "673b5e62593072f908bc77f9"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "673b5ef481e56c199c2a9fd8"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 6,
+      "pairwise_comparisons": [],
+      "seed_track_id": "674ddf82657c71542c9996e0"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "674ddf9a657c71542c99978e"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "674ddfbe657c71542c99984f"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "674ddfe1ed827e850ea89a0b"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "674ddff6657c71542c999954"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "674de02d5dec417226950b25"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67603f26b9509f31638d2097"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67603f564e4445c8c4dba3b7"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67603f6399a8ff2d4a85e9f4"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6772ffe9d309f299ababaac4"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67730000698f763bc2b4591d"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67730044698f763bc2b459b1"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67855b29f76968728486ab54"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67a10f6103677edafb63f3f8"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67a10f7003677edafb63f452"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67a10fa403677edafb63f607"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67aa5b3eae67ac1cf074e9f9"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67aa5b5755e93dd34369218c"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67aa5b6b55e93dd343692237"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67aa5b8055e93dd3436922c6"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67aa5b9755e93dd34369237e"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67aa5bb955e93dd34369249c"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67bc87f9dd31a1be17726671"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67bc8814dd31a1be17726712"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67bc892aaebfd9a384a2b602"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67cf0300593aad5348b95af0"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67cf0315593aad5348b95b65"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67cf0328593aad5348b95bd9"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67cf0334593aad5348b95c15"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67cf034d593aad5348b95ca7"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67cf055b593aad5348b96663"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67e17d665177e5bfbd17f3cd"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67e17df75177e5bfbd17f7b6"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "67e17e115177e5bfbd17f8b1"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6806595c563464c2de5fb054"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6818d1dac7fc795ec060efc6"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6818d1f3c7fc795ec060f0b9"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "682b554dd2f1d1682decf432"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "682b56a2d2f1d1682decf945"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "683dc6b7dd2246ed9c7c7f49"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "683dc6f3dd2246ed9c7c800a"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "683dc82d7e70e7db4e0af259"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "683dc84a7e70e7db4e0af2bc"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "683dc87fdd2246ed9c7c856b"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "683dc8ac7e70e7db4e0af427"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68505b81f6a8ec8278221529"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68505da5f6a8ec8278221d41"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6862eb6bb0ad537cfff5c5b3"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6862ee4bda2d247f1a9c715e"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6875503b3b891fead18ab720"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6875505a7e95e87bea7297c9"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "687550bd3b891fead18ab8b5"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "687550d73b891fead18ab9a0"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6875510c3b891fead18abaa2"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "687551173b891fead18abad6"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6888c7d8b997579cf699b46a"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6888c852b997579cf699b617"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6888c8d9b997579cf699b785"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6888c901b997579cf699b844"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "689a2298cc7f78cc36b7b950"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "689a22a59446c76349a3b333"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "689a22b89446c76349a3b39b"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "689a22f6cc7f78cc36b7bab5"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "689a232f9446c76349a3b590"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "689a23679446c76349a3b6a4"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "689a23cbcc7f78cc36b7bd51"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68aca3f4870c986ca59c0589"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68aca474870c986ca59c0811"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68aca481870c986ca59c084b"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68aca4cd605d1de9ea68bcce"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68bf239295e372361f91f115"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68bf23dc95e372361f91f25f"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68bf247b95e372361f91f509"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68bf249095e372361f91f5af"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68d17723a2277468b10cd0dd"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68d1775cd9158d8853b16d27"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68d17877a2277468b10cd55c"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68d1792ea2277468b10cd798"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68d17990d9158d8853b174de"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68e3d6e6c1aa1a1dfaaec8a4"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68e3d6f52d873930bbbf79bc"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68e3d7042d873930bbbf7a0e"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68e3d76dc1aa1a1dfaaeca62"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68e3d79c2d873930bbbf7cc5"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68e3d7a72d873930bbbf7d0c"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68eeaaa84cf2f80579e27832"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68f663fac7a40a338f845911"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68f6646de8a4cc0a7401bd6c"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68f6647ee8a4cc0a7401bdcc"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68f66492c7a40a338f845b83"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68f664ace8a4cc0a7401beb2"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68f66562c7a40a338f845ff0"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6909188026bc41a99c8632b2"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "690918a2312eb1fe04659013"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "690918b7312eb1fe04659099"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6909196e26bc41a99c8636a3"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69091a0026bc41a99c863937"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "691b3b52331c372ce8748026"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "691b3c16a1c962ea641efbeb"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "691b3cfaa1c962ea641efff1"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "691b3d42a1c962ea641f0117"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "692dbce066ea27cd5c91128a"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "692dbd90b8f361da92eb9e5c"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "692dbddb66ea27cd5c9116dd"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "692dbe4c66ea27cd5c911915"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "692dbeb866ea27cd5c911b7b"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "692dbed6b8f361da92eba447"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "692dbee7b8f361da92eba49b"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69405992913e2d2bff955913"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "694059aa76a1c1f80ff93945"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "694059e076a1c1f80ff93a7f"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "694059fd913e2d2bff955a86"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69405a4576a1c1f80ff93c23"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69405aad76a1c1f80ff93ed5"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6952f3379e729f65562d1043"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6952f3809e729f65562d11a1"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6952f3aab1c39edafb0debef"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6952f3c89e729f65562d12d1"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6952f3d7b1c39edafb0dec6d"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69655a1f8afa49f5711b8e99"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69655a92212c8d55194ee7e7"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69655b00212c8d55194eea54"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69655b568afa49f5711b9406"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6977b58d597917b519504b55"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6977b5b4236f65de4c7e303b"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 4,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6977c123236f65de4c7e6026"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "698a15198a4a8f35be58337b"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "698a15808a4a8f35be58376a"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "698a15bf8a4a8f35be583ad1"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "699cad4f9033fe9e7ccfa786"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "699cad699033fe9e7ccfa85f"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "699caf719033fe9e7ccfb884"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69aee17a73bfe2099d5172c4"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69aee22573bfe2099d5177f9"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69aee2b673bfe2099d517b1e"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69c2bb671b6ecfe6c4a715d3"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69c2bbd01b6ecfe6c4a719e0"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69c2bcda1b6ecfe6c4a72266"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69c2bd031b6ecfe6c4a723c1"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69d026449b9914998a32cb87"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69d0266e9b9914998a32cd7b"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69d028059b9914998a32dac5"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69e684f5dce2120639c6e024"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69e68517dce2120639c6e12d"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69e68533dce2120639c6e20f"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69e6861ddce2120639c6e996"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69e686bbdce2120639c6ef42"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69f8b8881c706aff1baf0b54"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69f8b8bb1c706aff1baf0d83"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "69f8b9231c706aff1baf1176"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a0b8b43e6017bccd74b7cb1"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a0b8bb3e6017bccd74b8216"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a0b8bd1e6017bccd74b8395"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a0b8beae6017bccd74b846f"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a1dca56b7f8597b46123760"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a1dcaafb7f8597b46123b32"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a1dcad2b7f8597b46123c08"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a1dcb98b7f8597b461242af"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a3014e37a8f5056573c7ce7"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 5,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a3017fd7a8f5056573c9544"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a4281c578a0a113b2ff3d43"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 0,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a4bb6b54518fc4e1e406191"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a54f61a6ff4d00262502495"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a54f62e6ff4d002625024ee"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a54f63e6ff4d00262502546"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a54f6536ff4d002625025c7"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a54f6636ff4d0026250261f"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a54f6706ff4d00262502665"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a54f67e6ff4d00262502701"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a54f6916ff4d0026250278b"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a54f6a06ff4d00262502805"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a54f6ac6ff4d00262502888"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a5e3818211a9ca21a152110"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a5e3830211a9ca21a1521c0"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a5e384e211a9ca21a1522a4"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a5e3861211a9ca21a152326"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a5e3872211a9ca21a1523c9"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a5e388b211a9ca21a15243d"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a5e38a0211a9ca21a1524f1"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a5e38ba211a9ca21a1525c3"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a5e38ca211a9ca21a152635"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a5e38d9211a9ca21a1526b7"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a676f27ce874cce1fe5069b"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a676f49ce874cce1fe50774"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a676f5cce874cce1fe5084a"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a676f8bce874cce1fe5099f"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a676f98ce874cce1fe50a21"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a676fa7ce874cce1fe50ad4"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a676fb9ce874cce1fe50b75"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a676fcdce874cce1fe50c5b"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a676fdfce874cce1fe50ce8"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a676ffece874cce1fe50dfb"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a70add5eb67a31ba5ceda85"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a70ade5eb67a31ba5cedb09"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a70adf6eb67a31ba5cedb90"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a70ae0aeb67a31ba5cedc32"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a70ae19eb67a31ba5cedcb5"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a70ae73eb67a31ba5cedf6e"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a70ae7feb67a31ba5cedfc1"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a70ae94eb67a31ba5cee0a8"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a70aea6eb67a31ba5cee13c"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 3,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a70c074eb67a31ba5cf5ccc"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a79e5fe551a8459629c5d44"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a79e623551a8459629c5e73"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a79e637551a8459629c5f39"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a79e65c551a8459629c60a6"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a79e66d551a8459629c616f"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a79e67e551a8459629c61ce"
+    },
+    {
+      "assessment_status": "insufficient_nonempty_repeats",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 2,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a79e6a7551a8459629c6297"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a79e6b7551a8459629c635e"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a79e6fc551a8459629c65b4"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a79e712551a8459629c6647"
+    }
+  ],
+  "source_observations": [
+    "ave_recommendation_observation_07fe005f83651a1c",
+    "ave_recommendation_observation_11598ceb66b10602",
+    "ave_recommendation_observation_19f7bf2bbfae910f",
+    "ave_recommendation_observation_4f35bad833ceb1b7",
+    "ave_recommendation_observation_712f13c6c5e34253",
+    "ave_recommendation_observation_9e3385f1bfeba782",
+    "ave_recommendation_observation_bc45a480046b818e"
+  ],
+  "summary": {
+    "assessed_seed_count": 0,
+    "observation_count": 7,
+    "observed_seed_count": 613,
+    "repeated_seed_count": 117,
+    "within_capture_variant_seed_count": 31
+  },
+  "within_capture_variants": [
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "62b380e35924110aa7f4d4ca",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "62b380e3592411653ff4d4a9",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "62b384345924110c9cf50388",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "62b389655924114c12f5360b",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "62b389d75924115ff7f5383c",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "62b389e959241137c2f53a39",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "62b38a20592411b508f53fa8",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "62b38a255924118312f54030",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "62b38a35592411b6e7f5425a",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "62b38a915924113388f547f8",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        5,
+        39
+      ],
+      "seed_track_id": "62b38ad8592411640df54a85",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "62b38ae8592411afb6f54c3e",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "62b38bf859241109b5f5516c",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        39
+      ],
+      "seed_track_id": "62b38c0c5924115d9ff55387",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "62b38c245924115f20f55621",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "66562c71ff1110852ad24576",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        5,
+        39
+      ],
+      "seed_track_id": "66562c8bff1110852ad24615",
+      "variant_count": 3
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "66562c99ff1110852ad246a0",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "66562cb2ff1110852ad247df",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "66562cbfff1110852ad24834",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "66562cf8ff1110852ad2492f",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "66562d04ff1110852ad2498c",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "66562d1fff1110852ad24a23",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        5,
+        39
+      ],
+      "seed_track_id": "66562d2cff1110852ad24a5e",
+      "variant_count": 3
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        5,
+        39
+      ],
+      "seed_track_id": "66562d38ff1110852ad24ac0",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_07fe005f83651a1c",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "66562d50ff1110852ad24b57",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_4f35bad833ceb1b7",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "6a54f61a6ff4d00262502495",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_4f35bad833ceb1b7",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "6a676f27ce874cce1fe5069b",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_4f35bad833ceb1b7",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "6a70aea6eb67a31ba5cee13c",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_4f35bad833ceb1b7",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "6a70c074eb67a31ba5cf5ccc",
+      "variant_count": 2
+    },
+    {
+      "observation_id": "ave_recommendation_observation_4f35bad833ceb1b7",
+      "recommendation_counts": [
+        0,
+        5
+      ],
+      "seed_track_id": "6a79e623551a8459629c5e73",
+      "variant_count": 2
+    }
+  ]
+}

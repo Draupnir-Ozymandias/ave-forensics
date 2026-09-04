@@ -179,6 +179,10 @@
       <article class="panel"><h3>Graph coverage</h3><div class="hint">Sanitized provider-declared relationships from captured responses</div><div class="alignment-summary" id="recommendation-summary"></div></article>
       <article class="panel"><h3>Most frequently recommended tracks</h3><div class="hint">Incoming unique edges across current capture observations</div><div id="recommendation-top"></div></article>
     </section>
+    <section class="alignment-layout" style="margin-top:10px">
+      <article class="panel"><h3>Topology communities</h3><div class="hint">Deterministic graph-only discovery · taxonomy attached afterward</div><div id="recommendation-community-summary"></div><div id="recommendation-community-list"></div></article>
+      <article class="panel"><h3>Context association and drift readiness</h3><div class="hint">Sparse local overlaps are exploratory · repeated non-empty captures required for drift</div><div class="alignment-summary" id="recommendation-association"></div><div class="family-representatives" id="recommendation-drift"></div></article>
+    </section>
 
     <div class="section-head"><h2>Speech context</h2><span class="section-meta">Text-free timing and confidence · verbatim transcripts remain private</span></div>
     <section class="charts">
@@ -428,6 +432,29 @@
         [summary.local_provider_track_count, 'Local provider IDs'],
       ].map(([value, label]) => `<div class="alignment-metric"><strong>${safe(value)}</strong><span>${safe(label)}</span></div>`).join('');
       $('recommendation-top').innerHTML = `<table><thead><tr><th>Track</th><th>Recommended by</th><th>Recommends</th><th>Local copies</th></tr></thead><tbody>${DATA.top_recommended_tracks.map(item => `<tr><td>${safe(item.title)}</td><td class="number">${item.incoming_recommendation_count}</td><td class="number">${item.outgoing_recommendation_count}</td><td class="number">${item.local_recording_count}</td></tr>`).join('')}</tbody></table>`;
+      const communities = DATA.recommendation_community_summary;
+      if (!communities) {
+        $('recommendation-community-summary').innerHTML = '<div class="empty">No current recommendation-community artifact.</div>';
+        $('recommendation-community-list').innerHTML = '';
+        $('recommendation-association').innerHTML = '';
+        $('recommendation-drift').textContent = 'Community and drift analyses are not available.';
+        return;
+      }
+      $('recommendation-community-summary').innerHTML = `<div class="family-stats"><span>${communities.community_count} communities</span><span>${communities.connected_node_count} connected</span><span>${communities.isolated_node_count} isolated</span><span>modularity ${number(communities.modularity, 3)}</span></div>`;
+      $('recommendation-community-list').innerHTML = `<table><thead><tr><th>Community</th><th>Tracks</th><th>Leading hubs</th><th>Local</th></tr></thead><tbody>${DATA.recommendation_communities.slice(0, 10).map(item => `<tr><td>${safe(item.community_id.replace('recommendation_community_', 'Community '))}</td><td class="number">${item.member_count}</td><td>${safe(item.topology_hubs.slice(0,3).map(hub => hub.title).join(' · '))}</td><td class="number">${item.context_not_used_for_community_discovery.local_recording_count}</td></tr>`).join('')}</tbody></table>`;
+      const association = DATA.recommendation_context_association;
+      const mental = association.provider_mental_state;
+      const activity = association.provider_activity;
+      const family = association.local_observed_signal_family;
+      const intent = association.local_stated_intent;
+      $('recommendation-association').innerHTML = [
+        [number(mental.normalized_mutual_information, 3), `Mental-state NMI · n=${mental.sample_count}`],
+        [number(activity.normalized_mutual_information, 3), `Activity NMI · n=${activity.sample_count}`],
+        [number(family.normalized_mutual_information, 3), `Signal-family NMI · n=${family.sample_count}`],
+        [number(intent.normalized_mutual_information, 3), `Local-intent NMI · n=${intent.sample_count}`],
+      ].map(([value, label]) => `<div class="alignment-metric"><strong>${safe(value)}</strong><span>${safe(label)}</span></div>`).join('');
+      const drift = DATA.recommendation_drift_summary;
+      $('recommendation-drift').textContent = drift ? `${drift.repeated_seed_count} seeds recur across captures; ${drift.assessed_seed_count} currently have two non-empty observations and can support temporal drift measurement. ${drift.within_capture_variant_seed_count} seeds vary within a single capture.` : 'No current drift artifact.';
     }
 
     function renderHypotheses(records) {
@@ -445,7 +472,7 @@
       const values = [
         ['Corpus path', record.relative_path], ['Duration', duration(record.duration_seconds)], ['Input size', record.input_size_bytes == null ? '—' : `${number(record.input_size_bytes / 1048576, 2)} MiB`],
         ['SHA-256', record.input_sha256], ['Run ID', record.run_id], ['Analysis configuration', record.analysis_configuration_version], ['Evidence objects', record.evidence_count],
-        ['Protocol family', record.protocol_family_label || familyName(record.protocol_family_id)], ['Family ID', record.protocol_family_id], ['Family silhouette', number(record.protocol_family_silhouette, 4)], ['Family signature', record.protocol_family_descriptor], ['Intent alignment status', human(record.intent_alignment_status)], ['Same-intent peer support', percent(record.intent_same_peer_support)], ['Corpus family baseline', percent(record.intent_corpus_baseline)], ['Intent association lift', record.intent_association_lift == null ? '—' : `${number(record.intent_association_lift, 3)}×`], ['Normalized intent alignment', number(record.intent_alignment_score, 4)], ['Recommendation in-degree', record.recommendation_in_degree], ['Recommendation out-degree', record.recommendation_out_degree], ['Recommendation list variants', record.recommendation_list_variant_count],
+        ['Protocol family', record.protocol_family_label || familyName(record.protocol_family_id)], ['Family ID', record.protocol_family_id], ['Family silhouette', number(record.protocol_family_silhouette, 4)], ['Family signature', record.protocol_family_descriptor], ['Intent alignment status', human(record.intent_alignment_status)], ['Same-intent peer support', percent(record.intent_same_peer_support)], ['Corpus family baseline', percent(record.intent_corpus_baseline)], ['Intent association lift', record.intent_association_lift == null ? '—' : `${number(record.intent_association_lift, 3)}×`], ['Normalized intent alignment', number(record.intent_alignment_score, 4)], ['Recommendation community', record.recommendation_community_id], ['Recommendation in-degree', record.recommendation_in_degree], ['Recommendation out-degree', record.recommendation_out_degree], ['Recommendation list variants', record.recommendation_list_variant_count],
         ['Provider title', record.provider_title], ['Provider mental state', human(record.provider_mental_state)], ['Provider activity', human(record.provider_activity)],
         ['Provider style', human(record.provider_style)], ['Provider moods', (record.provider_moods || []).join(', ') || '—'], ['Provider instruments', (record.provider_instruments || []).join(', ') || '—'],
         ['Provider BPM', number(record.provider_beats_per_minute, 1)], ['Provider NEL', number(record.provider_neural_effect_level, 3)], ['Brightness / complexity', `${number(record.provider_brightness_level, 3)} / ${number(record.provider_complexity_level, 3)}`],
@@ -487,7 +514,7 @@
       if (kind === 'json') {
         body = JSON.stringify({dashboard_schema_version: DATA.dashboard_schema_version, filtered_recordings: records}, null, 2); type = 'application/json'; extension = 'json';
       } else {
-        const fields = ['relative_path','category','stated_intent','provider_metadata_status','provider_track_id','provider_title','provider_mental_state','provider_activity','provider_style','provider_beats_per_minute','provider_neural_effect_level','recommendation_in_degree','recommendation_out_degree','recommendation_list_variant_count','transcript_status','transcript_provider','transcript_language_code','transcript_segment_count','transcript_timed_pronunciation_count','transcript_speech_coverage_ratio','transcript_mean_pronunciation_confidence','speech_context_comparison_available','speech_context_buffered_coverage_ratio','speech_active_window_count','speech_sparse_window_count','speech_active_candidate_rate','speech_sparse_candidate_rate','speech_active_median_difference_hz','speech_sparse_median_difference_hz','speech_active_median_phase_locking','speech_sparse_median_phase_locking','speech_active_persistent_difference_hz','speech_sparse_persistent_difference_hz','speech_active_persistent_band','speech_sparse_persistent_band','speech_active_persistent_score','speech_sparse_persistent_score','analysis_configuration_version','protocol_family_id','protocol_family_label','protocol_family_silhouette','intent_alignment_status','intent_same_peer_support','intent_corpus_baseline','intent_association_lift','intent_alignment_score','index_status','provenance_status','duration_seconds','input_sha256','carrier_difference_hz','envelope_modulation_hz','shared_modulation_hz','phase_behavior','hypothesis_band','hypothesis_ranking_score','retained_hypothesis_count'];
+        const fields = ['relative_path','category','stated_intent','provider_metadata_status','provider_track_id','provider_title','provider_mental_state','provider_activity','provider_style','provider_beats_per_minute','provider_neural_effect_level','recommendation_community_id','recommendation_in_degree','recommendation_out_degree','recommendation_list_variant_count','transcript_status','transcript_provider','transcript_language_code','transcript_segment_count','transcript_timed_pronunciation_count','transcript_speech_coverage_ratio','transcript_mean_pronunciation_confidence','speech_context_comparison_available','speech_context_buffered_coverage_ratio','speech_active_window_count','speech_sparse_window_count','speech_active_candidate_rate','speech_sparse_candidate_rate','speech_active_median_difference_hz','speech_sparse_median_difference_hz','speech_active_median_phase_locking','speech_sparse_median_phase_locking','speech_active_persistent_difference_hz','speech_sparse_persistent_difference_hz','speech_active_persistent_band','speech_sparse_persistent_band','speech_active_persistent_score','speech_sparse_persistent_score','analysis_configuration_version','protocol_family_id','protocol_family_label','protocol_family_silhouette','intent_alignment_status','intent_same_peer_support','intent_corpus_baseline','intent_association_lift','intent_alignment_score','index_status','provenance_status','duration_seconds','input_sha256','carrier_difference_hz','envelope_modulation_hz','shared_modulation_hz','phase_behavior','hypothesis_band','hypothesis_ranking_score','retained_hypothesis_count'];
         const cell = v => `"${String(v ?? '').replaceAll('"','""')}"`;
         body = [fields.join(','), ...records.map(r => fields.map(f => cell(r[f])).join(','))].join('\n'); type = 'text/csv'; extension = 'csv';
       }

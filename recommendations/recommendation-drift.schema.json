@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ave-forensics.local/schemas/recommendation-drift-1.0.0.json",
+  "title": "AVE Repeated Recommendation Capture Drift",
+  "type": "object",
+  "required": ["recommendation_drift_schema_version", "method", "source_observations", "summary", "seed_assessments", "within_capture_variants", "interpretation"],
+  "properties": {
+    "recommendation_drift_schema_version": {"const": "1.0.0"},
+    "method": {"type": "object"},
+    "source_observations": {"type": "array", "minItems": 1},
+    "summary": {"type": "object"},
+    "seed_assessments": {"type": "array"},
+    "within_capture_variants": {"type": "array"},
+    "interpretation": {"type": "object"}
+  },
+  "additionalProperties": false
+}

@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 
-DASHBOARD_SCHEMA_VERSION = "1.6.0"
+DASHBOARD_SCHEMA_VERSION = "1.7.0"
 TEMPLATE_PATH = Path(__file__).with_name("dashboard.html")
 
 
@@ -157,6 +157,7 @@ def _flatten_record(record: dict[str, Any]) -> dict[str, Any]:
         "recommendation_in_degree": None,
         "recommendation_out_degree": None,
         "recommendation_list_variant_count": None,
+        "recommendation_community_id": None,
     }
 
 
@@ -190,6 +191,8 @@ def build_dashboard_data(
     clustering: dict[str, Any] | None = None,
     alignment: dict[str, Any] | None = None,
     recommendation_graph: dict[str, Any] | None = None,
+    recommendation_communities: dict[str, Any] | None = None,
+    recommendation_drift: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     if not isinstance(index.get("recordings"), list):
         raise ValueError("corpus index must contain a recordings list")
@@ -333,6 +336,63 @@ def build_dashboard_data(
             }
             for track_id in ranked_ids[:15]
         ]
+
+    recommendation_community_status = "not_available"
+    recommendation_community_summary = None
+    recommendation_community_profiles = []
+    recommendation_context_association = None
+    if recommendation_communities is not None:
+        from recommendations.communities import validate_recommendation_communities
+
+        validate_recommendation_communities(recommendation_communities)
+        context_sources = recommendation_communities["context_sources"]
+        if (
+            recommendation_status == "validated"
+            and recommendation_communities["source_graph_sha256"]
+            == hashlib.sha256(
+                json.dumps(
+                    recommendation_graph, sort_keys=True, separators=(",", ":")
+                ).encode()
+            ).hexdigest()
+            and context_sources.get("corpus_index_sha256") == index_digest
+            and context_sources.get("clustering_sha256") == clustering_digest
+        ):
+            recommendation_community_status = "validated"
+            community_lookup = {
+                item["track_id"]: item["community_id"]
+                for item in recommendation_communities["assignments"]
+            }
+            for record in records:
+                if record["provider_track_id"] in community_lookup:
+                    record["recommendation_community_id"] = community_lookup[
+                        record["provider_track_id"]
+                    ]
+            recommendation_community_summary = recommendation_communities["summary"]
+            recommendation_community_profiles = [
+                {key: value for key, value in item.items() if key != "members"}
+                for item in recommendation_communities["communities"][:15]
+            ]
+            recommendation_context_association = recommendation_communities[
+                "posthoc_context_association"
+            ]
+        else:
+            recommendation_community_status = "stale_input_mismatch"
+
+    recommendation_drift_status = "not_available"
+    recommendation_drift_summary = None
+    if recommendation_drift is not None:
+        from recommendations.communities import validate_recommendation_drift
+
+        validate_recommendation_drift(recommendation_drift)
+        graph_observations = {
+            item["observation_id"]
+            for item in (recommendation_graph or {}).get("source_observations", [])
+        }
+        if set(recommendation_drift["source_observations"]) == graph_observations:
+            recommendation_drift_status = "validated"
+            recommendation_drift_summary = recommendation_drift["summary"]
+        else:
+            recommendation_drift_status = "stale_input_mismatch"
     canonical = _canonical_records(records)
     warnings = []
     legacy_count = sum(r["provenance_status"] == "legacy_missing" for r in records)
@@ -393,6 +453,24 @@ def build_dashboard_data(
                 "kind": "intent_alignment_exclusions",
                 "count": alignment_excluded_count,
                 "message": "unique inputs were excluded from intent alignment because duplicate copies carry conflicting intent labels",
+            }
+        )
+    if recommendation_community_status == "stale_input_mismatch":
+        warnings.append(
+            {
+                "kind": "stale_recommendation_communities",
+                "count": 1,
+                "message": "recommendation communities were built from different graph or corpus inputs and were not displayed",
+            }
+        )
+    if recommendation_drift_status == "validated" and not recommendation_drift_summary[
+        "assessed_seed_count"
+    ]:
+        warnings.append(
+            {
+                "kind": "insufficient_recommendation_drift",
+                "count": recommendation_drift_summary["repeated_seed_count"],
+                "message": "repeated seed appearances exist, but none have non-empty recommendation sets in two distinct captures; temporal drift is not yet measurable",
             }
         )
     if clustering_status == "validated":
@@ -491,6 +569,12 @@ def build_dashboard_data(
         "recommendation_status": recommendation_status,
         "recommendation_summary": recommendation_summary,
         "top_recommended_tracks": top_recommended_tracks,
+        "recommendation_community_status": recommendation_community_status,
+        "recommendation_community_summary": recommendation_community_summary,
+        "recommendation_communities": recommendation_community_profiles,
+        "recommendation_context_association": recommendation_context_association,
+        "recommendation_drift_status": recommendation_drift_status,
+        "recommendation_drift_summary": recommendation_drift_summary,
         "warnings": warnings,
         "recordings": records,
         "comparison_recordings": canonical,

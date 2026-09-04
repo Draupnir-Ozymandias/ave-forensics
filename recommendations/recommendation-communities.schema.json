@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ave-forensics.local/schemas/recommendation-communities-1.0.0.json",
+  "title": "AVE Recommendation Communities",
+  "type": "object",
+  "required": ["recommendation_community_schema_version", "source_graph_sha256", "context_sources", "method", "summary", "posthoc_context_association", "communities", "assignments", "isolated_nodes", "interpretation"],
+  "properties": {
+    "recommendation_community_schema_version": {"const": "1.0.0"},
+    "source_graph_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "context_sources": {"type": "object"},
+    "method": {"type": "object"},
+    "summary": {"type": "object"},
+    "posthoc_context_association": {"type": "object"},
+    "communities": {"type": "array"},
+    "assignments": {"type": "array"},
+    "isolated_nodes": {"type": "array"},
+    "interpretation": {"type": "object"}
+  },
+  "additionalProperties": false
+}

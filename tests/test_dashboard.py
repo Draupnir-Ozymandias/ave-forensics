@@ -116,6 +116,8 @@ def test_dashboard_html_is_self_contained_and_deterministic(tmp_path):
     assert 'id="speech-band-chart"' in first_text
     assert 'id="alignment-profiles"' in first_text
     assert 'id="recommendation-top"' in first_text
+    assert 'id="recommendation-community-list"' in first_text
+    assert 'id="recommendation-drift"' in first_text
     embedded = first_text.split(
         '<script id="dashboard-data" type="application/json">', 1
     )[1].split("</script>", 1)[0]
@@ -173,6 +175,11 @@ def test_dashboard_links_sanitized_recommendations_to_provider_tracks(tmp_path):
         aggregate_recommendation_captures,
         extract_recommendation_capture,
     )
+    from recommendations.communities import (
+        analyze_recommendation_drift,
+        build_recommendation_communities,
+    )
+    from clustering.protocol_families import build_protocol_families
     from tests.test_recommendation_graph import track
 
     item = record("local.wav", "local-hash")
@@ -191,7 +198,18 @@ def test_dashboard_links_sanitized_recommendations_to_provider_tracks(tmp_path):
     )
     capture = extract_recommendation_capture(capture_path)
     graph = aggregate_recommendation_captures([capture])
-    data = build_dashboard_data(index, recommendation_graph=graph)
+    clustering = build_protocol_families(index)
+    communities = build_recommendation_communities(
+        graph, index=index, clustering=clustering
+    )
+    drift = analyze_recommendation_drift([capture])
+    data = build_dashboard_data(
+        index,
+        clustering=clustering,
+        recommendation_graph=graph,
+        recommendation_communities=communities,
+        recommendation_drift=drift,
+    )
 
     assert data["recommendation_status"] == "validated"
     assert data["recommendation_summary"]["edge_count"] == 1
@@ -199,6 +217,9 @@ def test_dashboard_links_sanitized_recommendations_to_provider_tracks(tmp_path):
     local = data["comparison_recordings"][0]
     assert local["recommendation_out_degree"] == 1
     assert local["recommendation_in_degree"] == 0
+    assert local["recommendation_community_id"] == "recommendation_community_001"
+    assert data["recommendation_community_status"] == "validated"
+    assert data["recommendation_drift_status"] == "validated"
 
 
 def test_dashboard_exposes_provider_taxonomy_as_context():
