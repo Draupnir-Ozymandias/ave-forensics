@@ -220,9 +220,19 @@ def main(audio_path: str = DEFAULT_AUDIO_PATH, output_dir: str = "."):
 
         left_audio = y[0] if y.ndim > 1 else y
         right_audio = y[1] if y.ndim > 1 else y
+        carrier_start_seconds = strongest_pair["start_seconds"]
+        carrier_end_seconds = strongest_pair["end_seconds"]
+        carrier_start_sample = max(0, int(round(carrier_start_seconds * sr)))
+        carrier_end_sample = min(y.shape[-1], int(round(carrier_end_seconds * sr)))
+        scoped_left_audio = left_audio[carrier_start_sample:carrier_end_sample]
+        scoped_right_audio = right_audio[carrier_start_sample:carrier_end_sample]
+        carrier_time_range = {
+            "start": carrier_start_seconds,
+            "end": carrier_end_seconds,
+        }
 
         left_envelope_result = analyze_carrier_envelope(
-            audio=left_audio,
+            audio=scoped_left_audio,
             sample_rate=sr,
             center_frequency_hz=carrier_center_hz,
             bandwidth_hz=envelope_config["bandwidth_hz"],
@@ -232,7 +242,7 @@ def main(audio_path: str = DEFAULT_AUDIO_PATH, output_dir: str = "."):
         )
 
         right_envelope_result = analyze_carrier_envelope(
-            audio=right_audio,
+            audio=scoped_right_audio,
             sample_rate=sr,
             center_frequency_hz=carrier_center_hz,
             bandwidth_hz=envelope_config["bandwidth_hz"],
@@ -242,7 +252,7 @@ def main(audio_path: str = DEFAULT_AUDIO_PATH, output_dir: str = "."):
         )
 
         left_envelope_timeline = analyze_envelope_over_time(
-            audio=left_audio,
+            audio=scoped_left_audio,
             sample_rate=sr,
             center_frequency_hz=carrier_center_hz,
             bandwidth_hz=envelope_config["bandwidth_hz"],
@@ -254,7 +264,7 @@ def main(audio_path: str = DEFAULT_AUDIO_PATH, output_dir: str = "."):
         )
 
         right_envelope_timeline = analyze_envelope_over_time(
-            audio=right_audio,
+            audio=scoped_right_audio,
             sample_rate=sr,
             center_frequency_hz=carrier_center_hz,
             bandwidth_hz=envelope_config["bandwidth_hz"],
@@ -276,20 +286,37 @@ def main(audio_path: str = DEFAULT_AUDIO_PATH, output_dir: str = "."):
                     left_envelope_result,
                     "left",
                     evidence_provenance,
+                    time_range_seconds=carrier_time_range,
                 ),
                 envelope_analysis_to_evidence(
                     right_envelope_result,
                     "right",
                     evidence_provenance,
+                    time_range_seconds=carrier_time_range,
                 ),
             ]
         )
+
+        for item in left_envelope_timeline:
+            item["start_seconds"] = round(
+                item["start_seconds"] + carrier_start_seconds, 3
+            )
+            item["end_seconds"] = round(
+                item["end_seconds"] + carrier_start_seconds, 3
+            )
 
         print_envelope_timeline(
             left_timeline=left_envelope_timeline,
             right_timeline=right_envelope_timeline,
             limit=20,
         )
+        for item in right_envelope_timeline:
+            item["start_seconds"] = round(
+                item["start_seconds"] + carrier_start_seconds, 3
+            )
+            item["end_seconds"] = round(
+                item["end_seconds"] + carrier_start_seconds, 3
+            )
 
         modulation_config = analysis_config["modulation_spectrum"]
         modulation_result = analyze_modulation_spectrum(
@@ -309,13 +336,14 @@ def main(audio_path: str = DEFAULT_AUDIO_PATH, output_dir: str = "."):
             modulation_spectrum_to_evidence(
                 modulation_result,
                 evidence_provenance,
+                time_range_seconds=carrier_time_range,
             )
         )
 
         phase_config = analysis_config["phase"]
         phase_timeline = analyze_phase_over_time(
-            left_audio=left_audio,
-            right_audio=right_audio,
+            left_audio=scoped_left_audio,
+            right_audio=scoped_right_audio,
             sample_rate=sr,
             left_center_frequency_hz=strongest_pair["left_carrier_hz"],
             right_center_frequency_hz=strongest_pair["right_carrier_hz"],
@@ -324,6 +352,14 @@ def main(audio_path: str = DEFAULT_AUDIO_PATH, output_dir: str = "."):
             hop_seconds=phase_config["hop_seconds"],
             trim_seconds=phase_config["trim_seconds"],
         )
+
+        for item in phase_timeline:
+            item["start_seconds"] = round(
+                item["start_seconds"] + carrier_start_seconds, 3
+            )
+            item["end_seconds"] = round(
+                item["end_seconds"] + carrier_start_seconds, 3
+            )
 
         print_phase_timeline(phase_timeline, limit=20)
         evidence_objects.append(

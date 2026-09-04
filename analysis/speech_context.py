@@ -4,6 +4,7 @@ from collections import Counter
 from statistics import median
 from typing import Any
 
+from analysis.protocol_tracker import build_protocol_tracks
 from transcripts.sidecar import validate_transcript_sidecar
 
 
@@ -117,6 +118,11 @@ def _base_summary(items: list[dict[str, Any]]) -> dict[str, Any]:
 def _entrainment_summary(items: list[dict[str, Any]]) -> dict[str, Any]:
     summary = _base_summary(items)
     candidates = [item["top_candidate"] for item in items if item.get("top_candidate")]
+    band_counts = Counter(item["brainwave_band"] for item in candidates)
+    dominant_band, dominant_count = band_counts.most_common(1)[0] if band_counts else (None, 0)
+    dominant_candidates = [
+        item for item in candidates if item["brainwave_band"] == dominant_band
+    ]
     summary.update(
         {
             "candidate_window_count": len(candidates),
@@ -131,12 +137,71 @@ def _entrainment_summary(items: list[dict[str, Any]]) -> dict[str, Any]:
                 if candidates
                 else None
             ),
-            "brainwave_band_counts": dict(
-                sorted(Counter(item["brainwave_band"] for item in candidates).items())
+            "brainwave_band_counts": dict(sorted(band_counts.items())),
+            "dominant_brainwave_band": dominant_band,
+            "dominant_band_coverage": (
+                round(dominant_count / len(candidates), 6) if candidates else None
+            ),
+            "dominant_band_median_difference_hz": (
+                round(
+                    median(float(item["difference_hz"]) for item in dominant_candidates),
+                    6,
+                )
+                if dominant_candidates
+                else None
             ),
         }
     )
     return summary
+
+
+def _compact_track(track: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "start_seconds": track["start_seconds"],
+        "end_seconds": track["end_seconds"],
+        "duration_seconds": track["duration_seconds"],
+        "average_difference_hz": track["average_difference_hz"],
+        "brainwave_band": track["brainwave_band"],
+        "average_confidence": track["average_confidence"],
+        "frequency_stability": track["frequency_stability"],
+        "window_count": track["window_count"],
+        "score": track["score"],
+    }
+
+
+def _summarize_entrainment_timeline(
+    timeline: list[dict[str, Any]],
+    speech_intervals: list[tuple[float, float]],
+    *,
+    active_minimum_overlap: float,
+    sparse_maximum_overlap: float,
+) -> dict[str, Any]:
+    classified = classify_windows(
+        timeline,
+        speech_intervals,
+        active_minimum_overlap=active_minimum_overlap,
+        sparse_maximum_overlap=sparse_maximum_overlap,
+    )
+    summaries = {}
+    for context in CONTEXTS:
+        context_items = [
+            item for item in classified if item["speech_context"] == context
+        ]
+        summary = _entrainment_summary(context_items)
+        masked_timeline = [
+            {
+                **item,
+                "candidates": item.get("candidates", [])
+                if item["speech_context"] == context
+                else [],
+            }
+            for item in classified
+        ]
+        tracks = build_protocol_tracks(masked_timeline)
+        summary["persistent_track_count"] = len(tracks)
+        summary["top_persistent_track"] = _compact_track(tracks[0]) if tracks else None
+        summaries[context] = summary
+    return summaries
 
 
 def _envelope_summary(items: list[dict[str, Any]]) -> dict[str, Any]:
@@ -254,10 +319,9 @@ def build_speech_context_analysis(
     buffered_speech_duration = sum(end - start for start, end in speech_intervals)
 
     analyses: dict[str, Any] = {
-        "entrainment": _summarize_timeline(
+        "entrainment": _summarize_entrainment_timeline(
             entrainment_timeline,
             speech_intervals,
-            _entrainment_summary,
             active_minimum_overlap=active_minimum_overlap,
             sparse_maximum_overlap=sparse_maximum_overlap,
         )
@@ -290,6 +354,8 @@ def build_speech_context_analysis(
 
     active = analyses["entrainment"]["speech_active"]
     sparse = analyses["entrainment"]["speech_sparse"]
+    active_track = active["top_persistent_track"] or {}
+    sparse_track = sparse["top_persistent_track"] or {}
     comparison = {
         "candidate_rate_difference_active_minus_sparse": _difference(
             active["candidate_window_rate"], sparse["candidate_window_rate"]
@@ -300,6 +366,16 @@ def build_speech_context_analysis(
         "direct_comparison_available": bool(
             active["window_count"] and sparse["window_count"]
         ),
+        "active_persistent_difference_hz": active_track.get(
+            "average_difference_hz"
+        ),
+        "active_persistent_band": active_track.get("brainwave_band"),
+        "active_persistent_score": active_track.get("score"),
+        "sparse_persistent_difference_hz": sparse_track.get(
+            "average_difference_hz"
+        ),
+        "sparse_persistent_band": sparse_track.get("brainwave_band"),
+        "sparse_persistent_score": sparse_track.get("score"),
     }
 
     return {

@@ -167,9 +167,11 @@ identifiers, job names, and cloud locations. See `docs/TRANSCRIPT_SIDECARS.md`.
 When a validated transcript sidecar is present, the canonical analyzer also builds
 `ave_speech_context.json`. Existing 10- and 30-second signal-analysis windows are
 classified as speech-active, speech-sparse, or mixed using buffered transcript
-timing. Active and sparse windows are compared without cutting or concatenating
-audio, and a `speech_context_comparison` evidence object is added to the canonical
-evidence document. See `docs/SPEECH_AWARE_SEGMENTATION.md`.
+timing. Active and sparse windows are compared with continuity-qualified tracks
+without cutting or concatenating audio. Envelope and phase measurements remain
+bounded to the chosen carrier's supported interval, and simple harmonics are
+explicitly penalized. A `speech_context_comparison` evidence object is added to the
+canonical evidence document. See `docs/SPEECH_AWARE_SEGMENTATION.md`.
 
 ## Generate the Reference-Library Comparison Dashboard
 

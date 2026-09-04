@@ -5,6 +5,7 @@ import pytest
 
 from evidence.adapters import (
     carrier_pair_to_evidence,
+    envelope_analysis_to_evidence,
     modulation_spectrum_to_evidence,
     protocol_hypothesis_to_evidence,
 )
@@ -85,6 +86,26 @@ def test_modulation_adapter_produces_reconstruction():
 
     validate_evidence_object(evidence)
     assert evidence["evidence_level"] == "reconstruction"
+
+
+def test_envelope_evidence_preserves_carrier_support_scope():
+    result = {
+        "carrier_center_hz": 87.8,
+        "modulation_depth": 0.8,
+        "dominant_modulation": None,
+        "band_low_hz": 83.8,
+        "band_high_hz": 91.8,
+    }
+    evidence = envelope_analysis_to_evidence(
+        result,
+        "left",
+        time_range_seconds={"start": 260.0, "end": 515.0},
+    )
+
+    assert evidence["scope"]["time_range_seconds"] == {
+        "start": 260.0,
+        "end": 515.0,
+    }
 
 
 def test_hypothesis_ranking_score_can_exceed_one():

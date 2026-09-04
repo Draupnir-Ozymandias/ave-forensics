@@ -1,7 +1,7 @@
 """Versioned parameters for the canonical AVE analysis pipeline."""
 
 ANALYSIS_CONFIGURATION = {
-    "configuration_schema_version": "1.1.0",
+    "configuration_schema_version": "1.2.0",
     "global_spectrum": {
         "top_n": 10,
         "min_frequency_hz": 1.0,

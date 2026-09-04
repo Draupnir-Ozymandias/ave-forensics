@@ -47,6 +47,7 @@ def envelope_analysis_to_evidence(
     result: dict[str, Any],
     channel: str,
     provenance: dict[str, Any] | None = None,
+    time_range_seconds: dict[str, float] | None = None,
 ) -> dict[str, Any]:
     dominant = result.get("dominant_modulation")
     measurements = [
@@ -67,6 +68,7 @@ def envelope_analysis_to_evidence(
         source_module="analysis.envelope",
         summary=f"Amplitude-envelope analysis for the {channel} carrier region",
         channels=[channel],
+        time_range_seconds=time_range_seconds,
         measurements=measurements,
         context={
             "band_low_hz": result["band_low_hz"],
@@ -113,6 +115,7 @@ def phase_timeline_to_evidence(
 def modulation_spectrum_to_evidence(
     result: dict[str, Any],
     provenance: dict[str, Any] | None = None,
+    time_range_seconds: dict[str, float] | None = None,
 ) -> dict[str, Any]:
     primary = result.get("primary_stereo_modulation")
     measurements = [
@@ -137,6 +140,7 @@ def modulation_spectrum_to_evidence(
         source_module="analysis.modulation_spectrum",
         summary=result["classification"].replace("_", " "),
         channels=["left", "right"],
+        time_range_seconds=time_range_seconds,
         measurements=measurements,
         confidence=confidence,
         provenance=provenance,
@@ -203,9 +207,31 @@ def speech_context_to_evidence(
         ),
         ("speech_active_median_difference", active["median_difference_hz"]),
         ("speech_sparse_median_difference", sparse["median_difference_hz"]),
+        (
+            "speech_active_persistent_difference",
+            result["comparison"]["active_persistent_difference_hz"],
+        ),
+        (
+            "speech_sparse_persistent_difference",
+            result["comparison"]["sparse_persistent_difference_hz"],
+        ),
+        (
+            "speech_active_persistent_score",
+            result["comparison"]["active_persistent_score"],
+        ),
+        (
+            "speech_sparse_persistent_score",
+            result["comparison"]["sparse_persistent_score"],
+        ),
     ):
         if value is not None:
-            unit = "Hz" if "difference" in name and "rate_difference" not in name else "ratio"
+            unit = (
+                "Hz"
+                if "difference" in name and "rate_difference" not in name
+                else "ranking_score"
+                if "persistent_score" in name
+                else "ratio"
+            )
             measurements.append(measurement(name, value, unit))
 
     phase = result["window_analyses"].get("phase")
@@ -240,6 +266,14 @@ def speech_context_to_evidence(
             "entrainment_band_counts": {
                 "speech_active": active["brainwave_band_counts"],
                 "speech_sparse": sparse["brainwave_band_counts"],
+            },
+            "persistent_context": {
+                "speech_active_band": result["comparison"][
+                    "active_persistent_band"
+                ],
+                "speech_sparse_band": result["comparison"][
+                    "sparse_persistent_band"
+                ],
             },
         },
         provenance=provenance,

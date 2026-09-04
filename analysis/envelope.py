@@ -17,15 +17,25 @@ def select_envelope_carrier_pair(
     carrier_pairs: list[dict[str, Any]],
     minimum_center_hz: float = 20.0,
 ) -> dict[str, Any] | None:
-    """Return the strongest pair suitable for acoustic envelope analysis."""
+    """Return the longest-supported pair suitable for envelope analysis."""
+    eligible = []
     for pair in carrier_pairs:
         center_hz = (
             float(pair["left_carrier_hz"])
             + float(pair["right_carrier_hz"])
         ) / 2.0
-        if center_hz >= minimum_center_hz:
-            return pair
-    return None
+        if center_hz >= minimum_center_hz and pair.get("pair_type") != "harmonic_relationship":
+            eligible.append(pair)
+    if not eligible:
+        return None
+    return max(
+        eligible,
+        key=lambda pair: (
+            float(pair["duration_seconds"]),
+            float(pair["confidence"]),
+            float(pair["amplitude_balance"]),
+        ),
+    )
 
 
 def _validate_band(

@@ -77,3 +77,50 @@ def test_builds_text_free_signal_comparison(tmp_path):
     measurements = {item["name"]: item["value"] for item in evidence["measurements"]}
     assert measurements["speech_active_candidate_rate"] == 1.0
     assert measurements["speech_sparse_candidate_rate"] == 0.0
+
+
+def test_tracks_persistent_candidates_without_bridging_speech_contexts(tmp_path):
+    _, _, sidecar = import_sidecar(tmp_path)
+    sidecar["speech_timeline"]["segments"] = [
+        {
+            "segment_id": "0",
+            "start_seconds": 0.0,
+            "end_seconds": 4.5,
+            "mean_confidence": 0.9,
+            "pronunciation_count": 2,
+            "source_item_ids": ["0", "2"],
+        }
+    ]
+    sidecar["statistics"]["segment_count"] = 1
+    sidecar["statistics"]["speech_coverage_ratio"] = 0.45
+    timeline = []
+    for index in range(10):
+        difference = 2.0 if index < 5 else 6.0
+        candidate = {
+            "difference_hz": difference,
+            "confidence": 0.8,
+            "brainwave_band": "delta" if difference == 2.0 else "theta",
+            "left_hz": 100.0,
+            "right_hz": 100.0 + difference,
+        }
+        timeline.append(
+            {
+                "window_index": index,
+                "start_seconds": float(index),
+                "end_seconds": float(index + 1),
+                "top_candidate": candidate,
+                "candidates": [candidate],
+            }
+        )
+
+    result = build_speech_context_analysis(
+        transcript_sidecar=sidecar,
+        duration_seconds=10.0,
+        entrainment_timeline=timeline,
+        padding_seconds=0.0,
+    )
+
+    assert result["comparison"]["active_persistent_difference_hz"] == 2.0
+    assert result["comparison"]["active_persistent_band"] == "delta"
+    assert result["comparison"]["sparse_persistent_difference_hz"] == 6.0
+    assert result["comparison"]["sparse_persistent_band"] == "theta"

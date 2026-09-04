@@ -2,6 +2,25 @@ import numpy as np
 from analysis.spectrum import analyze_spectrum
 
 
+def simple_harmonic_ratio(
+    left_hz: float,
+    right_hz: float,
+    *,
+    maximum_harmonic: int = 4,
+    relative_tolerance: float = 0.015,
+) -> int | None:
+    """Return an integer harmonic ratio for obvious cross-channel harmonics."""
+    lower = min(left_hz, right_hz)
+    higher = max(left_hz, right_hz)
+    if lower <= 0:
+        return None
+    ratio = higher / lower
+    nearest = round(ratio)
+    if 2 <= nearest <= maximum_harmonic and abs(ratio - nearest) / nearest <= relative_tolerance:
+        return nearest
+    return None
+
+
 def analyze_stereo(y, sr):
     if y.ndim == 1:
         return {
@@ -24,6 +43,7 @@ def analyze_stereo(y, sr):
             diff = abs(lf - rf)
 
             if 0.5 <= diff <= 40:
+                harmonic_ratio = simple_harmonic_ratio(lf, rf)
                 binaural_candidates.append(
                     {
                         "left_hz": round(lf, 3),
@@ -31,6 +51,11 @@ def analyze_stereo(y, sr):
                         "difference_hz": round(diff, 3),
                         "left_magnitude": round(lm, 4),
                         "right_magnitude": round(rm, 4),
+                        "spectral_relationship": (
+                            f"harmonic_{harmonic_ratio}_to_1"
+                            if harmonic_ratio is not None
+                            else "non_harmonic"
+                        ),
                     }
                 )
 

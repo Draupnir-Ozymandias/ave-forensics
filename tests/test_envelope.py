@@ -71,10 +71,18 @@ def test_rejects_invalid_carrier_band():
 
 def test_selects_acoustic_carrier_instead_of_low_frequency_track():
     pairs = [
-        {"left_carrier_hz": 2.72, "right_carrier_hz": 2.74},
-        {"left_carrier_hz": 130.97, "right_carrier_hz": 130.96},
+        {"left_carrier_hz": 2.72, "right_carrier_hz": 2.74, "duration_seconds": 100, "confidence": .9, "amplitude_balance": 1, "pair_type": "shared_carrier"},
+        {"left_carrier_hz": 130.97, "right_carrier_hz": 130.96, "duration_seconds": 50, "confidence": .8, "amplitude_balance": 1, "pair_type": "shared_carrier"},
     ]
 
     selected = select_envelope_carrier_pair(pairs)
 
     assert selected == pairs[1]
+
+
+def test_selects_longest_supported_non_harmonic_carrier_pair():
+    short = {"left_carrier_hz": 24.0, "right_carrier_hz": 24.1, "duration_seconds": 45, "confidence": .9, "amplitude_balance": 1, "pair_type": "shared_carrier"}
+    long = {"left_carrier_hz": 87.0, "right_carrier_hz": 88.0, "duration_seconds": 255, "confidence": .6, "amplitude_balance": .9, "pair_type": "beat_candidate"}
+    harmonic = {"left_carrier_hz": 29.0, "right_carrier_hz": 58.0, "duration_seconds": 300, "confidence": 1, "amplitude_balance": 1, "pair_type": "harmonic_relationship"}
+
+    assert select_envelope_carrier_pair([short, long, harmonic]) == long

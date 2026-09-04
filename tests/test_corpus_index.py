@@ -56,12 +56,20 @@ def speech_context_evidence() -> dict:
             measurement("speech_sparse_candidate_rate", 1.0, "ratio"),
             measurement("speech_active_median_difference", 1.25, "Hz"),
             measurement("speech_sparse_median_difference", 0.5, "Hz"),
+            measurement("speech_active_persistent_difference", 0.8, "Hz"),
+            measurement("speech_sparse_persistent_difference", 0.6, "Hz"),
+            measurement("speech_active_persistent_score", 0.4, "ranking_score"),
+            measurement("speech_sparse_persistent_score", 0.5, "ranking_score"),
         ],
         context={
             "entrainment_band_counts": {
                 "speech_active": {"delta": 42, "gamma": 10},
                 "speech_sparse": {"delta": 106},
-            }
+            },
+            "persistent_context": {
+                "speech_active_band": "delta",
+                "speech_sparse_band": "delta",
+            },
         },
     )
 
@@ -75,6 +83,7 @@ def test_summarizes_speech_context_comparison():
     assert comparison["direct_comparison_available"] is True
     assert comparison["active_median_difference_hz"] == 1.25
     assert comparison["sparse_band_counts"] == {"delta": 106}
+    assert comparison["sparse_persistent_difference_hz"] == 0.6
 
 
 def test_summarizes_all_retained_hypothesis_bands_and_best_candidates():
@@ -193,6 +202,7 @@ def test_builds_index_with_hashes_statuses_and_invalid_evidence(tmp_path):
     assert complete["evidence_summary"]["top_hypothesis"]["ranking_score"] == 1.0821
     assert complete["evidence_summary"]["top_hypothesis"]["confidence"] == 0.8657
     assert index["duplicate_input_groups"] == []
+    assert index["analysis_configuration_version_counts"] == {}
 
 
 def test_writes_deterministic_json_and_flat_csv(tmp_path):

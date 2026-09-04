@@ -10,7 +10,7 @@ from evidence.schema import SCHEMA_VERSION, validate_evidence_object
 from core.hashing import sha256_file
 
 
-INDEX_SCHEMA_VERSION = "1.3.0"
+INDEX_SCHEMA_VERSION = "1.4.0"
 
 
 def _measurement_map(evidence: dict[str, Any]) -> dict[str, Any]:
@@ -121,6 +121,7 @@ def _speech_context_comparison(
         return None
     values = _measurement_map(item)
     band_counts = item.get("context", {}).get("entrainment_band_counts", {})
+    persistent_context = item.get("context", {}).get("persistent_context", {})
     return {
         "buffered_speech_coverage": values.get("buffered_speech_coverage"),
         "active_window_count": values.get("speech_active_window_count"),
@@ -143,6 +144,16 @@ def _speech_context_comparison(
         "sparse_median_phase_locking": values.get(
             "speech_sparse_median_phase_locking"
         ),
+        "active_persistent_difference_hz": values.get(
+            "speech_active_persistent_difference"
+        ),
+        "sparse_persistent_difference_hz": values.get(
+            "speech_sparse_persistent_difference"
+        ),
+        "active_persistent_score": values.get("speech_active_persistent_score"),
+        "sparse_persistent_score": values.get("speech_sparse_persistent_score"),
+        "active_persistent_band": persistent_context.get("speech_active_band"),
+        "sparse_persistent_band": persistent_context.get("speech_sparse_band"),
         "active_band_counts": band_counts.get("speech_active", {}),
         "sparse_band_counts": band_counts.get("speech_sparse", {}),
     }
@@ -308,6 +319,7 @@ def build_corpus_index(
             "index_error": None,
             "provenance_status": "not_available",
             "run_id": None,
+            "analysis_configuration_version": None,
         }
 
         if input_path and input_path.exists():
@@ -417,6 +429,13 @@ def build_corpus_index(
                 record["run_id"] = (
                     run_provenance["run_id"] if run_provenance else None
                 )
+                record["analysis_configuration_version"] = (
+                    run_provenance["analysis_configuration"].get(
+                        "configuration_schema_version"
+                    )
+                    if run_provenance
+                    else None
+                )
                 record["duration_seconds"] = document.get("run_metadata", {}).get(
                     "duration_seconds",
                     record["duration_seconds"],
@@ -458,6 +477,11 @@ def build_corpus_index(
     provenance_counts = Counter(
         item["provenance_status"] for item in indexed_recordings
     )
+    analysis_configuration_counts = Counter(
+        item["analysis_configuration_version"]
+        for item in indexed_recordings
+        if item["analysis_configuration_version"]
+    )
     evidence_total = sum(
         item["evidence_summary"]["evidence_count"]
         for item in indexed_recordings
@@ -481,6 +505,9 @@ def build_corpus_index(
         ),
         "transcript_status_counts": dict(sorted(transcript_counts.items())),
         "provenance_status_counts": dict(sorted(provenance_counts.items())),
+        "analysis_configuration_version_counts": dict(
+            sorted(analysis_configuration_counts.items())
+        ),
         "duplicate_input_groups": duplicate_groups,
         "recordings": indexed_recordings,
     }
@@ -521,8 +548,15 @@ CSV_FIELDS = [
     "speech_sparse_median_difference_hz",
     "speech_active_median_phase_locking",
     "speech_sparse_median_phase_locking",
+    "speech_active_persistent_difference_hz",
+    "speech_sparse_persistent_difference_hz",
+    "speech_active_persistent_band",
+    "speech_sparse_persistent_band",
+    "speech_active_persistent_score",
+    "speech_sparse_persistent_score",
     "provenance_status",
     "run_id",
+    "analysis_configuration_version",
     "batch_status",
     "index_status",
     "duration_seconds",
@@ -623,8 +657,29 @@ def _csv_row(record: dict[str, Any]) -> dict[str, Any]:
         "speech_sparse_median_phase_locking": speech_context.get(
             "sparse_median_phase_locking"
         ),
+        "speech_active_persistent_difference_hz": speech_context.get(
+            "active_persistent_difference_hz"
+        ),
+        "speech_sparse_persistent_difference_hz": speech_context.get(
+            "sparse_persistent_difference_hz"
+        ),
+        "speech_active_persistent_band": speech_context.get(
+            "active_persistent_band"
+        ),
+        "speech_sparse_persistent_band": speech_context.get(
+            "sparse_persistent_band"
+        ),
+        "speech_active_persistent_score": speech_context.get(
+            "active_persistent_score"
+        ),
+        "speech_sparse_persistent_score": speech_context.get(
+            "sparse_persistent_score"
+        ),
         "provenance_status": record.get("provenance_status"),
         "run_id": record.get("run_id"),
+        "analysis_configuration_version": record.get(
+            "analysis_configuration_version"
+        ),
         "batch_status": record["batch_status"],
         "index_status": record["index_status"],
         "duration_seconds": record["duration_seconds"],

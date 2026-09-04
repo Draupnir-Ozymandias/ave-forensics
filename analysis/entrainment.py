@@ -27,7 +27,13 @@ def score_candidate(candidate):
     else:
         band_score = 0.25
 
-    confidence = strength * balance * band_score
+    relationship_score = (
+        0.1
+        if str(candidate.get("spectral_relationship", "")).startswith("harmonic_")
+        else 1.0
+    )
+
+    confidence = strength * balance * band_score * relationship_score
     return round(confidence, 4)
 
 

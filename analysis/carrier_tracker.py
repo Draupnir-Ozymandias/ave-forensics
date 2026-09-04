@@ -3,6 +3,8 @@ from __future__ import annotations
 import statistics
 from typing import Any
 
+from analysis.stereo import simple_harmonic_ratio
+
 
 def _match_peak_to_track(
     track: dict[str, Any],
@@ -336,7 +338,17 @@ def _pair_confidence(
     return round(confidence, 4)
 
 
-def classify_carrier_pair(difference_hz: float) -> str:
+def classify_carrier_pair(
+    difference_hz: float,
+    left_frequency_hz: float | None = None,
+    right_frequency_hz: float | None = None,
+) -> str:
+    if (
+        left_frequency_hz is not None
+        and right_frequency_hz is not None
+        and simple_harmonic_ratio(left_frequency_hz, right_frequency_hz) is not None
+    ):
+        return "harmonic_relationship"
     if difference_hz < 0.1:
         return "shared_carrier"
 
@@ -447,7 +459,15 @@ def associate_carrier_pairs(
                         difference_hz,
                         4,
                     ),
-                    "pair_type": classify_carrier_pair(difference_hz),
+                    "pair_type": classify_carrier_pair(
+                        difference_hz,
+                        left_track["average_frequency_hz"],
+                        right_track["average_frequency_hz"],
+                    ),
+                    "harmonic_ratio": simple_harmonic_ratio(
+                        left_track["average_frequency_hz"],
+                        right_track["average_frequency_hz"],
+                    ),
                     "left_frequency_stability": left_track["frequency_stability"],
                     "right_frequency_stability": right_track["frequency_stability"],
                     "left_continuity": left_track["continuity"],

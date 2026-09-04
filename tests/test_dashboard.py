@@ -71,6 +71,7 @@ def test_dashboard_deduplicates_comparisons_but_preserves_aliases():
         "provider_metadata_count": 0,
         "transcript_sidecar_count": 0,
         "speech_context_comparison_count": 0,
+        "analysis_configuration_versions": {},
     }
     assert len(data["recordings"]) == 3
     assert len(data["comparison_recordings"]) == 2
@@ -261,6 +262,12 @@ def test_dashboard_exposes_speech_aware_signal_comparison():
         "sparse_median_difference_hz": 0.5,
         "active_median_phase_locking": 0.0815,
         "sparse_median_phase_locking": 0.0902,
+        "active_persistent_difference_hz": 0.8,
+        "sparse_persistent_difference_hz": 0.6,
+        "active_persistent_band": "delta",
+        "sparse_persistent_band": "delta",
+        "active_persistent_score": 0.4,
+        "sparse_persistent_score": 0.5,
         "active_band_counts": {"beta": 15, "delta": 42, "gamma": 10},
         "sparse_band_counts": {"delta": 106},
     }
@@ -276,4 +283,21 @@ def test_dashboard_exposes_speech_aware_signal_comparison():
     flattened = data["recordings"][0]
     assert data["overview"]["speech_context_comparison_count"] == 1
     assert flattened["speech_active_median_difference_hz"] == 1.25
+    assert flattened["speech_sparse_persistent_difference_hz"] == 0.6
     assert flattened["speech_sparse_band_counts"] == {"delta": 106}
+
+
+def test_dashboard_warns_when_analysis_configurations_are_mixed():
+    index = {
+        "index_schema_version": "1.4.0",
+        "analysis_configuration_version_counts": {"1.0.0": 34, "1.2.0": 4},
+        "duplicate_input_groups": [],
+        "recordings": [record("guided.wav", "mixed-config")],
+    }
+
+    data = build_dashboard_data(index)
+
+    assert any(
+        warning["kind"] == "mixed_analysis_configuration"
+        for warning in data["warnings"]
+    )

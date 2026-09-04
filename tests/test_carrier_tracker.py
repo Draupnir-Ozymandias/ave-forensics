@@ -1,6 +1,7 @@
 from analysis.carrier_tracker import (
     associate_carrier_pairs,
     build_carrier_tracks,
+    classify_carrier_pair,
     select_best_carrier_pairs,
 )
 
@@ -134,3 +135,8 @@ def test_selects_non_conflicting_best_pairs():
     assert selected[0]["right_track_index"] == 0
     assert selected[1]["left_track_index"] == 1
     assert selected[1]["right_track_index"] == 1
+
+
+def test_classifies_obvious_octave_as_harmonic_relationship():
+    assert classify_carrier_pair(29.1, 29.1, 58.2) == "harmonic_relationship"
+    assert classify_carrier_pair(2.0, 100.0, 102.0) == "beat_candidate"

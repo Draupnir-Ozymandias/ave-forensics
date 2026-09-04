@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 
-DASHBOARD_SCHEMA_VERSION = "1.3.0"
+DASHBOARD_SCHEMA_VERSION = "1.4.0"
 TEMPLATE_PATH = Path(__file__).with_name("dashboard.html")
 
 
@@ -39,6 +39,9 @@ def _flatten_record(record: dict[str, Any]) -> dict[str, Any]:
         "provenance_status": record.get("provenance_status") or "not_available",
         "metadata_status": record.get("metadata_status") or "missing",
         "run_id": record.get("run_id"),
+        "analysis_configuration_version": record.get(
+            "analysis_configuration_version"
+        ),
         "input_sha256": record.get("input_sha256"),
         "input_size_bytes": record.get("input_size_bytes"),
         "duration_seconds": record.get("duration_seconds"),
@@ -96,6 +99,24 @@ def _flatten_record(record: dict[str, Any]) -> dict[str, Any]:
         ),
         "speech_sparse_median_phase_locking": speech_context.get(
             "sparse_median_phase_locking"
+        ),
+        "speech_active_persistent_difference_hz": speech_context.get(
+            "active_persistent_difference_hz"
+        ),
+        "speech_sparse_persistent_difference_hz": speech_context.get(
+            "sparse_persistent_difference_hz"
+        ),
+        "speech_active_persistent_band": speech_context.get(
+            "active_persistent_band"
+        ),
+        "speech_sparse_persistent_band": speech_context.get(
+            "sparse_persistent_band"
+        ),
+        "speech_active_persistent_score": speech_context.get(
+            "active_persistent_score"
+        ),
+        "speech_sparse_persistent_score": speech_context.get(
+            "sparse_persistent_score"
         ),
         "speech_active_band_counts": speech_context.get("active_band_counts") or {},
         "speech_sparse_band_counts": speech_context.get("sparse_band_counts") or {},
@@ -250,6 +271,18 @@ def build_dashboard_data(
                     "message": f"protocol families are tentative (overall silhouette {silhouette:.3f}); interpret boundaries cautiously",
                 }
             )
+    configuration_counts = index.get("analysis_configuration_version_counts", {})
+    if len(configuration_counts) > 1:
+        warnings.append(
+            {
+                "kind": "mixed_analysis_configuration",
+                "count": sum(configuration_counts.values()),
+                "message": (
+                    "analyses span multiple configuration versions; rerun the corpus "
+                    "before treating cross-recording comparisons as calibrated"
+                ),
+            }
+        )
     return {
         "dashboard_schema_version": DASHBOARD_SCHEMA_VERSION,
         "source_index_schema_version": index.get("index_schema_version"),
@@ -274,6 +307,7 @@ def build_dashboard_data(
             "speech_context_comparison_count": sum(
                 item["speech_context_comparison_available"] for item in canonical
             ),
+            "analysis_configuration_versions": configuration_counts,
         },
         "facets": {
             "sources": sorted(Counter(r["source"] for r in records)),
