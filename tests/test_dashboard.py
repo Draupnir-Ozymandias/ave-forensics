@@ -115,6 +115,7 @@ def test_dashboard_html_is_self_contained_and_deterministic(tmp_path):
     assert 'id="speech-difference-chart"' in first_text
     assert 'id="speech-band-chart"' in first_text
     assert 'id="alignment-profiles"' in first_text
+    assert 'id="recommendation-top"' in first_text
     embedded = first_text.split(
         '<script id="dashboard-data" type="application/json">', 1
     )[1].split("</script>", 1)[0]
@@ -165,6 +166,39 @@ def test_dashboard_accepts_alignment_bound_to_current_inputs():
         for record in data["comparison_recordings"]
         if record["index_status"] == "indexed"
     )
+
+
+def test_dashboard_links_sanitized_recommendations_to_provider_tracks(tmp_path):
+    from recommendations.graph import (
+        aggregate_recommendation_captures,
+        extract_recommendation_capture,
+    )
+    from tests.test_recommendation_graph import track
+
+    item = record("local.wav", "local-hash")
+    item["provider_metadata_status"] = "validated"
+    item["provider_metadata"] = {
+        "provider_track": {"track_id": "alpha", "title": "Alpha"}
+    }
+    index = {
+        "index_schema_version": "1.0.0",
+        "duplicate_input_groups": [],
+        "recordings": [item],
+    }
+    capture_path = tmp_path / "recommendations.json"
+    capture_path.write_text(
+        json.dumps({"result": track("alpha", "Alpha", [track("beta", "Beta")])})
+    )
+    capture = extract_recommendation_capture(capture_path)
+    graph = aggregate_recommendation_captures([capture])
+    data = build_dashboard_data(index, recommendation_graph=graph)
+
+    assert data["recommendation_status"] == "validated"
+    assert data["recommendation_summary"]["edge_count"] == 1
+    assert data["recommendation_summary"]["local_provider_track_matched_count"] == 1
+    local = data["comparison_recordings"][0]
+    assert local["recommendation_out_degree"] == 1
+    assert local["recommendation_in_degree"] == 0
 
 
 def test_dashboard_exposes_provider_taxonomy_as_context():

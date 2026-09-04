@@ -73,8 +73,11 @@ def _har_documents(document: dict[str, Any]) -> list[Any] | None:
         if content.get("encoding") == "base64":
             try:
                 text = base64.b64decode(text).decode("utf-8")
-            except (ValueError, UnicodeDecodeError) as error:
-                raise ProviderMetadataError("invalid base64 JSON response in HAR") from error
+            except (ValueError, UnicodeDecodeError):
+                # Mixed HAR exports commonly include base64-encoded audio, images,
+                # and compressed bodies alongside JSON. They are unrelated to the
+                # metadata extractor and must not abort the entire capture.
+                continue
         try:
             extracted.extend(_parse_concatenated_json(text))
         except ProviderMetadataError:

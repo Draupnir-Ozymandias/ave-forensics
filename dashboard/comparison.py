@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 
-DASHBOARD_SCHEMA_VERSION = "1.5.0"
+DASHBOARD_SCHEMA_VERSION = "1.6.0"
 TEMPLATE_PATH = Path(__file__).with_name("dashboard.html")
 
 
@@ -50,6 +50,7 @@ def _flatten_record(record: dict[str, Any]) -> dict[str, Any]:
         "metadata_manifest_path": record.get("metadata_manifest_path"),
         "provider_metadata_status": record.get("provider_metadata_status") or "missing",
         "provider_metadata_path": record.get("provider_metadata_path"),
+        "provider_track_id": provider_track.get("track_id"),
         "provider_title": provider_track.get("title"),
         "provider_mental_state": provider_taxonomy.get("mental_state"),
         "provider_activity": provider_taxonomy.get("activity"),
@@ -153,6 +154,9 @@ def _flatten_record(record: dict[str, Any]) -> dict[str, Any]:
         "intent_corpus_baseline": None,
         "intent_association_lift": None,
         "intent_alignment_score": None,
+        "recommendation_in_degree": None,
+        "recommendation_out_degree": None,
+        "recommendation_list_variant_count": None,
     }
 
 
@@ -185,6 +189,7 @@ def build_dashboard_data(
     index: dict[str, Any],
     clustering: dict[str, Any] | None = None,
     alignment: dict[str, Any] | None = None,
+    recommendation_graph: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     if not isinstance(index.get("recordings"), list):
         raise ValueError("corpus index must contain a recordings list")
@@ -271,6 +276,63 @@ def build_dashboard_data(
             alignment_excluded_count = len(alignment["excluded_recordings"])
         else:
             alignment_status = "stale_input_mismatch"
+
+    recommendation_status = "not_available"
+    recommendation_summary = None
+    top_recommended_tracks = []
+    if recommendation_graph is not None:
+        from recommendations.graph import validate_recommendation_graph
+
+        validate_recommendation_graph(recommendation_graph)
+        recommendation_status = "validated"
+        node_lookup = {
+            item["track_id"]: item for item in recommendation_graph["nodes"]
+        }
+        incoming = Counter(
+            item["recommended_track_id"] for item in recommendation_graph["edges"]
+        )
+        outgoing = Counter(item["seed_track_id"] for item in recommendation_graph["edges"])
+        variant_counts = {
+            item["seed_track_id"]: item["variant_count"]
+            for item in recommendation_graph["seed_list_variants"]
+        }
+        local_counts = Counter(
+            record["provider_track_id"] for record in records if record["provider_track_id"]
+        )
+        for record in records:
+            track_id = record["provider_track_id"]
+            if track_id and track_id in node_lookup:
+                record["recommendation_in_degree"] = incoming[track_id]
+                record["recommendation_out_degree"] = outgoing[track_id]
+                record["recommendation_list_variant_count"] = variant_counts.get(
+                    track_id, 0
+                )
+        recommendation_summary = {
+            **recommendation_graph["summary"],
+            "local_provider_track_count": len(local_counts),
+            "local_provider_track_matched_count": sum(
+                track_id in node_lookup for track_id in local_counts
+            ),
+        }
+        ranked_ids = sorted(
+            node_lookup,
+            key=lambda track_id: (
+                -incoming[track_id],
+                -outgoing[track_id],
+                (node_lookup[track_id].get("observed_titles") or [track_id])[0],
+                track_id,
+            ),
+        )
+        top_recommended_tracks = [
+            {
+                "track_id": track_id,
+                "title": (node_lookup[track_id].get("observed_titles") or [track_id])[0],
+                "incoming_recommendation_count": incoming[track_id],
+                "outgoing_recommendation_count": outgoing[track_id],
+                "local_recording_count": local_counts[track_id],
+            }
+            for track_id in ranked_ids[:15]
+        ]
     canonical = _canonical_records(records)
     warnings = []
     legacy_count = sum(r["provenance_status"] == "legacy_missing" for r in records)
@@ -426,6 +488,9 @@ def build_dashboard_data(
         "alignment_status": alignment_status,
         "global_intent_association": global_intent_association,
         "intent_profiles": intent_profiles,
+        "recommendation_status": recommendation_status,
+        "recommendation_summary": recommendation_summary,
+        "top_recommended_tracks": top_recommended_tracks,
         "warnings": warnings,
         "recordings": records,
         "comparison_recordings": canonical,

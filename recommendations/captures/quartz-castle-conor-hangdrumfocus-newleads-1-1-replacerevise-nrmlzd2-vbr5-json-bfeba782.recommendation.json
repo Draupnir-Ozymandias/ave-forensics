@@ -1,0 +1,1980 @@
+{
+  "edges": [],
+  "extraction_provenance": {
+    "generator": "recommendations.graph",
+    "generator_version": "ave_brainfm_recommendations_1.1.0",
+    "sensitive_data_policy": "omit_urls_tokens_cookies_and_session_data"
+  },
+  "generated_at": "2026-09-04T15:19:29+00:00",
+  "list_observations": [
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "62b3803e5924117adcf4b690"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "62b38090592411c503f4d153"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "62b3810459241114d2f4df42"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "62b3840b59241178fdf4fa87"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "62b3841c592411d330f4fe90"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "62b387705924111b17f519eb"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "62b388975924117a35f523aa"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "62b388e359241139d0f52d01"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "62b388e6592411170ff52d6c"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "64302add23c3be830d3fb048"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "649460d12b77ac01c2ae2b61"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "654aa807698643584eb4150e"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "6580654ec08ad58656f22b65"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "65d920bb636e0500086cb401"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "65fdaa26cc7d1e000a587b52"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "665a22994dfb90cc19dcda71"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "66b6626e87e215f954f17a94"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "67aa5b6b55e93dd343692237"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "67aa5bb955e93dd34369249c"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "67cf0300593aad5348b95af0"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "683dc84a7e70e7db4e0af2bc"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "687550bd3b891fead18ab8b5"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "689a23679446c76349a3b6a4"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "690918b7312eb1fe04659099"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "69c2bcda1b6ecfe6c4a72266"
+    },
+    {
+      "document_indices": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 0,
+      "recommended_track_ids": [],
+      "seed_track_id": "69f8b8bb1c706aff1baf0d83"
+    }
+  ],
+  "nodes": [
+    {
+      "activities": [
+        "Deep Work"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.27
+      ],
+      "complexity_levels": [
+        0.71
+      ],
+      "declared_duration_seconds_values": [
+        1800
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.66
+      ],
+      "observed_titles": [
+        "Into the Breach"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Work"
+        ],
+        "genre": [
+          "Cinematic"
+        ],
+        "instrument": [
+          "Arp Synth",
+          "Arp Synth Bass",
+          "Harp"
+        ],
+        "mood": [
+          "Chill",
+          "Dark",
+          "Driving",
+          "Energizing"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Electronica",
+          "Orchestral"
+        ]
+      },
+      "track_id": "62b3803e5924117adcf4b690"
+    },
+    {
+      "activities": [
+        "Deep Work"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.25
+      ],
+      "complexity_levels": [
+        0.73
+      ],
+      "declared_duration_seconds_values": [
+        1800,
+        8887
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.78
+      ],
+      "observed_titles": [
+        "Particle Alchemy"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "extended",
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Work"
+        ],
+        "genre": [
+          "Electronic"
+        ],
+        "instrument": [
+          "Arp Synth",
+          "Arp Synth Bass",
+          "Electronic Percussion",
+          "Organic Percussion",
+          "Processed Strings",
+          "Synth Bass",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Dark",
+          "Driving",
+          "Mysterious"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Dance",
+          "Downtempo",
+          "Electronica",
+          "House",
+          "Techno",
+          "Trance"
+        ]
+      },
+      "track_id": "62b38090592411c503f4d153"
+    },
+    {
+      "activities": [
+        "Light Work"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.68
+      ],
+      "complexity_levels": [
+        0.46
+      ],
+      "declared_duration_seconds_values": [
+        1800,
+        8727
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.11
+      ],
+      "observed_titles": [
+        "Quartz Castle"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "extended",
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Learning",
+          "Light Work"
+        ],
+        "genre": [
+          "Electronic"
+        ],
+        "instrument": [
+          "Arp Synth Bass",
+          "Mallets",
+          "Processed Strings"
+        ],
+        "mood": [
+          "Chill",
+          "Dreamlike",
+          "Driving",
+          "Energizing",
+          "Floating",
+          "Hopeful",
+          "Optimistic",
+          "Upbeat",
+          "Uplifting"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Downtempo",
+          "Electronica",
+          "World/Ethnic"
+        ]
+      },
+      "track_id": "62b3810459241114d2f4df42"
+    },
+    {
+      "activities": [
+        "Study & Read"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.23
+      ],
+      "complexity_levels": [
+        0.35
+      ],
+      "declared_duration_seconds_values": [
+        1800,
+        8181
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.66
+      ],
+      "observed_titles": [
+        "High Tide"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "extended",
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Learning",
+          "Study & Read"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Serene"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "62b3840b59241178fdf4fa87"
+    },
+    {
+      "activities": [
+        "Study & Read"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0
+      ],
+      "complexity_levels": [
+        0.83
+      ],
+      "declared_duration_seconds_values": [
+        1800,
+        9662
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.61
+      ],
+      "observed_titles": [
+        "Exponential Wavelength"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "extended",
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Learning",
+          "Study & Read"
+        ],
+        "genre": [
+          "Electronic"
+        ],
+        "instrument": [
+          "Arp Synth",
+          "Arp Synth Bass",
+          "Electronic Percussion",
+          "Orchestral Strings"
+        ],
+        "mood": [
+          "Calm",
+          "Dark",
+          "Driving",
+          "Ominous"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Electronica",
+          "Techno",
+          "Trance"
+        ]
+      },
+      "track_id": "62b3841c592411d330f4fe90"
+    },
+    {
+      "activities": [
+        "Deep Work"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.36
+      ],
+      "complexity_levels": [
+        0.67
+      ],
+      "declared_duration_seconds_values": [
+        1800
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.59
+      ],
+      "observed_titles": [
+        "Cruising Altitude"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Work"
+        ],
+        "genre": [
+          "Electronic"
+        ],
+        "instrument": [
+          "Arp Synth",
+          "Arp Synth Bass"
+        ],
+        "mood": [
+          "Dark",
+          "Driving",
+          "Energizing",
+          "Strong"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Electronica",
+          "Techno"
+        ]
+      },
+      "track_id": "62b387705924111b17f519eb"
+    },
+    {
+      "activities": [
+        "Creative Flow"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.05
+      ],
+      "complexity_levels": [
+        0.72
+      ],
+      "declared_duration_seconds_values": [
+        1800,
+        8443
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.7
+      ],
+      "observed_titles": [
+        "Coherent States"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "extended",
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Creative Flow",
+          "Creativity"
+        ],
+        "genre": [
+          "Electronic"
+        ],
+        "instrument": [
+          "Arp Synth",
+          "Arp Synth Bass",
+          "Electric Bass",
+          "Electric Keys"
+        ],
+        "mood": [
+          "Dreamlike",
+          "Driving",
+          "Energizing",
+          "Floating",
+          "Hopeful"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Electronica",
+          "Techno",
+          "Trance"
+        ]
+      },
+      "track_id": "62b388975924117a35f523aa"
+    },
+    {
+      "activities": [
+        "Deep Work"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.48
+      ],
+      "complexity_levels": [
+        0.48
+      ],
+      "declared_duration_seconds_values": [
+        1800,
+        9383
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.48
+      ],
+      "observed_titles": [
+        "Active Galaxy"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "extended",
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Work"
+        ],
+        "genre": [
+          "Electronic"
+        ],
+        "instrument": [
+          "Arp Synth",
+          "Arp Synth Bass",
+          "Electronic Percussion",
+          "Synth Bass"
+        ],
+        "mood": [
+          "Dark",
+          "Heavy",
+          "Mysterious",
+          "Ominous"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Electronica"
+        ]
+      },
+      "track_id": "62b388e359241139d0f52d01"
+    },
+    {
+      "activities": [
+        "Deep Work"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.28
+      ],
+      "complexity_levels": [
+        0.26
+      ],
+      "declared_duration_seconds_values": [
+        1800
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.68
+      ],
+      "observed_titles": [
+        "Particle and Wave"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Work",
+          "Light Work"
+        ],
+        "genre": [
+          "Drone"
+        ],
+        "instrument": [
+          "Choral Voices",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Epic",
+          "Floating",
+          "Hopeful",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "62b388e6592411170ff52d6c"
+    },
+    {
+      "activities": [
+        "Deep Work"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.52
+      ],
+      "complexity_levels": [
+        0.12
+      ],
+      "declared_duration_seconds_values": [
+        1800,
+        8696,
+        8753,
+        9042
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.03,
+        0.63,
+        0.97
+      ],
+      "observed_titles": [
+        "Idyllic Landscapes"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "extended",
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Work"
+        ],
+        "genre": [
+          "Drone"
+        ],
+        "instrument": [
+          "Processed Strings",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "April 7 2023"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "64302add23c3be830d3fb048"
+    },
+    {
+      "activities": [
+        "Deep Work"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.33
+      ],
+      "complexity_levels": [
+        0.27
+      ],
+      "declared_duration_seconds_values": [
+        1800,
+        8037,
+        8815,
+        10028
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.06,
+        0.65,
+        0.73
+      ],
+      "observed_titles": [
+        "Polaris"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "extended",
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Work"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Processed Strings",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "June 22 2023"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "649460d12b77ac01c2ae2b61"
+    },
+    {
+      "activities": [
+        "Deep Work"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.11
+      ],
+      "complexity_levels": [
+        0.56
+      ],
+      "declared_duration_seconds_values": [
+        5591,
+        5964,
+        6646
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.18,
+        0.53,
+        0.91
+      ],
+      "observed_titles": [
+        "Penultimate (Extended Mix)"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Work"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Processed Strings",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "November 7 2023"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "654aa807698643584eb4150e"
+    },
+    {
+      "activities": [
+        "Deep Work"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.3
+      ],
+      "complexity_levels": [
+        0.22
+      ],
+      "declared_duration_seconds_values": [
+        6621,
+        6812,
+        8212,
+        8294,
+        9156
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.09,
+        0.54,
+        0.98
+      ],
+      "observed_titles": [
+        "Multiverse"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "extended",
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Work"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Ponderous",
+          "Serene"
+        ],
+        "release": [
+          "December 18 2023"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "6580654ec08ad58656f22b65"
+    },
+    {
+      "activities": [
+        "Deep Work"
+      ],
+      "beats_per_minute_values": [
+        90
+      ],
+      "brightness_levels": [
+        0.62
+      ],
+      "complexity_levels": [
+        0.44
+      ],
+      "declared_duration_seconds_values": [
+        1800,
+        8402,
+        8652,
+        8872
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.11,
+        0.65,
+        0.99
+      ],
+      "observed_titles": [
+        "No Evidence"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "extended",
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Work"
+        ],
+        "genre": [
+          "Cinematic"
+        ],
+        "instrument": [
+          "Arp Synth",
+          "Electronic Percussion",
+          "Orchestral Brass",
+          "Orchestral Percussion",
+          "Orchestral Strings",
+          "Synth Bass",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Driving",
+          "Epic",
+          "Ponderous"
+        ],
+        "release": [
+          "February 26 2024"
+        ],
+        "subgenre": [
+          "Classical",
+          "Electronica",
+          "Orchestral"
+        ]
+      },
+      "track_id": "65d920bb636e0500086cb401"
+    },
+    {
+      "activities": [
+        "Light Work"
+      ],
+      "beats_per_minute_values": [
+        84
+      ],
+      "brightness_levels": [
+        0.35
+      ],
+      "complexity_levels": [
+        0.79
+      ],
+      "declared_duration_seconds_values": [
+        1800,
+        9860,
+        9882,
+        9994
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.05,
+        0.45,
+        0.91
+      ],
+      "observed_titles": [
+        "Ultraviolets"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "extended",
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Learning",
+          "Light Work",
+          "Study & Read"
+        ],
+        "genre": [
+          "Lofi"
+        ],
+        "instrument": [
+          "Acoustic Piano",
+          "Arp Synth",
+          "Electric Bass",
+          "Electric Keys",
+          "Electronic Percussion",
+          "Mallets",
+          "Processed Vocals",
+          "Synth Bass",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Serene"
+        ],
+        "release": [
+          "March 25 2024"
+        ],
+        "subgenre": [
+          "Electronica",
+          "Hip-Hop",
+          "Lo-Fi",
+          "R&B"
+        ]
+      },
+      "track_id": "65fdaa26cc7d1e000a587b52"
+    },
+    {
+      "activities": [
+        "Light Work"
+      ],
+      "beats_per_minute_values": [
+        100
+      ],
+      "brightness_levels": [
+        0.74
+      ],
+      "complexity_levels": [
+        0.83
+      ],
+      "declared_duration_seconds_values": [
+        1800,
+        8376,
+        8453,
+        8722
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.07,
+        0.51,
+        0.75
+      ],
+      "observed_titles": [
+        "Photons"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "extended",
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Learning",
+          "Light Work"
+        ],
+        "genre": [
+          "Cinematic"
+        ],
+        "instrument": [
+          "Acoustic Piano",
+          "Arp Synth",
+          "Choral Voices",
+          "Electronic Percussion",
+          "Orchestral Brass",
+          "Orchestral Strings",
+          "Processed Vocals",
+          "Synth Bass",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Dark",
+          "Heavy",
+          "Ominous",
+          "Strong"
+        ],
+        "release": [
+          "June 3 2024"
+        ],
+        "subgenre": [
+          "Electronica",
+          "Orchestral"
+        ]
+      },
+      "track_id": "665a22994dfb90cc19dcda71"
+    },
+    {
+      "activities": [],
+      "beats_per_minute_values": [
+        100
+      ],
+      "brightness_levels": [
+        0.44
+      ],
+      "complexity_levels": [
+        0.61
+      ],
+      "declared_duration_seconds_values": [
+        1800,
+        8438,
+        8533,
+        9170
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.07,
+        0.58,
+        0.92
+      ],
+      "observed_titles": [
+        "Southern Reach"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "extended",
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Creativity"
+        ],
+        "genre": [
+          "Cinematic"
+        ],
+        "instrument": [
+          "Arp Synth",
+          "Arp Synth Bass",
+          "Electric Keys",
+          "Electronic Percussion",
+          "Orchestral Percussion",
+          "Orchestral Strings",
+          "Organic Percussion",
+          "Synth Bass",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Dark",
+          "Epic",
+          "Meditative",
+          "Ponderous"
+        ],
+        "release": [
+          "August 12 2024"
+        ],
+        "subgenre": [
+          "Downtempo",
+          "Electronica",
+          "Orchestral"
+        ]
+      },
+      "track_id": "66b6626e87e215f954f17a94"
+    },
+    {
+      "activities": [],
+      "beats_per_minute_values": [
+        70
+      ],
+      "brightness_levels": [
+        0.57
+      ],
+      "complexity_levels": [
+        0.82
+      ],
+      "declared_duration_seconds_values": [
+        1800
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.16,
+        0.34,
+        0.76
+      ],
+      "observed_titles": [
+        "Veil of Light"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Creativity"
+        ],
+        "genre": [
+          "Electronic"
+        ],
+        "instrument": [
+          "Arp Synth",
+          "Arp Synth Bass",
+          "Electric Keys",
+          "Electronic Percussion",
+          "Organic Percussion",
+          "Processed Strings",
+          "Synth Bass",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Dreamlike",
+          "Epic",
+          "Floating",
+          "Hopeful",
+          "Inspiring",
+          "Optimistic",
+          "Ponderous"
+        ],
+        "release": [
+          "February 10 2025"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Electronica",
+          "Trance"
+        ]
+      },
+      "track_id": "67aa5b6b55e93dd343692237"
+    },
+    {
+      "activities": [
+        "Deep Work"
+      ],
+      "beats_per_minute_values": [
+        82
+      ],
+      "brightness_levels": [
+        0.62
+      ],
+      "complexity_levels": [
+        1
+      ],
+      "declared_duration_seconds_values": [
+        1800
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.07,
+        0.5,
+        0.72
+      ],
+      "observed_titles": [
+        "Shoe Strings"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Work"
+        ],
+        "genre": [
+          "Lofi"
+        ],
+        "instrument": [
+          "Acoustic Drumset",
+          "Acoustic Piano",
+          "Electric Bass",
+          "Electric Keys",
+          "Organic Percussion",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Mysterious",
+          "Optimistic",
+          "Playful"
+        ],
+        "release": [
+          "February 10 2025"
+        ],
+        "subgenre": [
+          "Hip-Hop",
+          "Jazz",
+          "Lo-Fi"
+        ]
+      },
+      "track_id": "67aa5bb955e93dd34369249c"
+    },
+    {
+      "activities": [
+        "Deep Work"
+      ],
+      "beats_per_minute_values": [
+        131
+      ],
+      "brightness_levels": [
+        0.11
+      ],
+      "complexity_levels": [
+        0.17
+      ],
+      "declared_duration_seconds_values": [
+        1800
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.01,
+        0.48,
+        0.77
+      ],
+      "observed_titles": [
+        "Disintegrate"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Work"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Processed Strings",
+          "Processed Vocals",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Dreamlike",
+          "Floating",
+          "Inspiring",
+          "Meditative",
+          "Serene",
+          "Uplifting"
+        ],
+        "release": [
+          "March 10 2025"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "67cf0300593aad5348b95af0"
+    },
+    {
+      "activities": [],
+      "beats_per_minute_values": [
+        105
+      ],
+      "brightness_levels": [
+        0.29
+      ],
+      "complexity_levels": [
+        0.19
+      ],
+      "declared_duration_seconds_values": [
+        1800
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.06,
+        0.6,
+        0.75
+      ],
+      "observed_titles": [
+        "Lunar Rays"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Learning"
+        ],
+        "genre": [
+          "Cinematic"
+        ],
+        "instrument": [
+          "Acoustic Guitar",
+          "Arp Synth",
+          "Electric Keys",
+          "Electronic Percussion",
+          "Processed Strings",
+          "Synth Bass",
+          "Synth Pad",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Dark",
+          "Epic",
+          "Heavy",
+          "Mysterious",
+          "Ominous"
+        ],
+        "release": [
+          "June 2 2025"
+        ],
+        "subgenre": [
+          "Downtempo",
+          "Electronica",
+          "Techno"
+        ]
+      },
+      "track_id": "683dc84a7e70e7db4e0af2bc"
+    },
+    {
+      "activities": [
+        "Deep Work"
+      ],
+      "beats_per_minute_values": [
+        112
+      ],
+      "brightness_levels": [
+        0.36
+      ],
+      "complexity_levels": [
+        0.1
+      ],
+      "declared_duration_seconds_values": [
+        1800
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.05,
+        0.56,
+        0.79
+      ],
+      "observed_titles": [
+        "Coral Colonnade"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Work"
+        ],
+        "genre": [
+          "Cinematic"
+        ],
+        "instrument": [
+          "Acoustic Piano",
+          "Arp Synth",
+          "Electric Guitar",
+          "Electronic Percussion",
+          "Mallets",
+          "Orchestral Brass",
+          "Orchestral Percussion",
+          "Orchestral Strings",
+          "Orchestral Winds"
+        ],
+        "mood": [
+          "Calm",
+          "Dreamlike",
+          "Driving",
+          "Epic",
+          "Inspiring",
+          "Mysterious",
+          "Strong"
+        ],
+        "release": [
+          "July 14 2025"
+        ],
+        "subgenre": [
+          "Orchestral"
+        ]
+      },
+      "track_id": "687550bd3b891fead18ab8b5"
+    },
+    {
+      "activities": [],
+      "beats_per_minute_values": [
+        90
+      ],
+      "brightness_levels": [
+        0.7
+      ],
+      "complexity_levels": [
+        0.32
+      ],
+      "declared_duration_seconds_values": [
+        1800
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.25,
+        0.34,
+        0.99
+      ],
+      "observed_titles": [
+        "Vibe Dosage"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Creativity"
+        ],
+        "genre": [
+          "Lofi"
+        ],
+        "instrument": [
+          "Acoustic Piano",
+          "Electric Keys",
+          "Electronic Percussion",
+          "Organ",
+          "Organic Percussion",
+          "Synth Bass"
+        ],
+        "mood": [
+          "Chill",
+          "Floating",
+          "Hopeful",
+          "Meditative",
+          "Ponderous"
+        ],
+        "release": [
+          "August 11 2025"
+        ],
+        "subgenre": [
+          "Funk",
+          "Hip-Hop",
+          "Jazz",
+          "Lo-Fi"
+        ]
+      },
+      "track_id": "689a23679446c76349a3b6a4"
+    },
+    {
+      "activities": [],
+      "beats_per_minute_values": [
+        107
+      ],
+      "brightness_levels": [
+        0.51
+      ],
+      "complexity_levels": [
+        0.09
+      ],
+      "declared_duration_seconds_values": [
+        1800
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.12,
+        0.49,
+        0.91
+      ],
+      "observed_titles": [
+        "Any Other Origin"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Creativity"
+        ],
+        "genre": [
+          "Cinematic"
+        ],
+        "instrument": [
+          "Acoustic Piano",
+          "Arp Synth",
+          "Orchestral Brass",
+          "Orchestral Percussion",
+          "Orchestral Strings",
+          "Synth Bass"
+        ],
+        "mood": [
+          "Dark",
+          "Driving",
+          "Epic",
+          "Strong"
+        ],
+        "release": [
+          "November 3 2025"
+        ],
+        "subgenre": [
+          "Orchestral"
+        ]
+      },
+      "track_id": "690918b7312eb1fe04659099"
+    },
+    {
+      "activities": [],
+      "beats_per_minute_values": [
+        114
+      ],
+      "brightness_levels": [
+        0.61
+      ],
+      "complexity_levels": [
+        0.13
+      ],
+      "declared_duration_seconds_values": [
+        1800
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.09,
+        0.42,
+        0.92
+      ],
+      "observed_titles": [
+        "Shake The Floor"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Creativity"
+        ],
+        "genre": [
+          "Electronic"
+        ],
+        "instrument": [
+          "Arp Synth",
+          "Electric Keys",
+          "Electronic Percussion",
+          "Organic Percussion",
+          "Synth Bass",
+          "Synth Pad",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Energizing",
+          "Optimistic",
+          "Playful",
+          "Ponderous",
+          "Upbeat",
+          "Uplifting"
+        ],
+        "release": [
+          "March 23 2026"
+        ],
+        "subgenre": [
+          "Electronica"
+        ]
+      },
+      "track_id": "69c2bcda1b6ecfe6c4a72266"
+    },
+    {
+      "activities": [],
+      "beats_per_minute_values": [
+        138
+      ],
+      "brightness_levels": [
+        0.64
+      ],
+      "complexity_levels": [
+        0.27
+      ],
+      "declared_duration_seconds_values": [
+        1800
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.2,
+        0.58,
+        0.71
+      ],
+      "observed_titles": [
+        "Into The Halls Of Dance"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Learning"
+        ],
+        "genre": [
+          "Electronic"
+        ],
+        "instrument": [
+          "Arp Synth",
+          "Electric Keys",
+          "Electronic Percussion",
+          "Orchestral Strings",
+          "Organic Percussion",
+          "Synth Bass",
+          "Synth Pad",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Driving",
+          "Energizing",
+          "Strong",
+          "Upbeat"
+        ],
+        "release": [
+          "May 4 2026"
+        ],
+        "subgenre": [
+          "Dance",
+          "Electronica"
+        ]
+      },
+      "track_id": "69f8b8bb1c706aff1baf0d83"
+    }
+  ],
+  "observation_context": {
+    "context_method": "user_recorded",
+    "seed_track_id": null,
+    "visible_category": "focus",
+    "visible_intent": null
+  },
+  "observation_id": "ave_recommendation_observation_9e3385f1bfeba782",
+  "provider": "brain.fm",
+  "recommendation_capture_schema_version": "1.0.0",
+  "source_capture": {
+    "captured_at": null,
+    "filename": "Quartz Castle Conor HangDrumFocus_NewLeads_1.1 REPLACEREVISE_Nrmlzd2_VBR5.json",
+    "format": "json",
+    "json_document_count": 1,
+    "sha256": "a8ee258decdc1a86ecb7de3e413d12e9cacd915a8229d894cb1e99ffd807f145",
+    "size_bytes": 460613
+  },
+  "summary": {
+    "observed_node_count": 26,
+    "observed_seed_count": 26,
+    "seed_with_multiple_list_variants_count": 0,
+    "seed_with_nonempty_list_count": 0,
+    "seed_with_only_empty_lists_count": 26,
+    "unique_edge_count": 0
+  }
+}

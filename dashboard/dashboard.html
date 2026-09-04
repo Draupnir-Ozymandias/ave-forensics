@@ -174,6 +174,12 @@
       <article class="panel"><h3>Style</h3><div class="hint">Provider variation style</div><div id="provider-style-chart"></div></article>
     </section>
 
+    <div class="section-head"><h2>Provider recommendation graph</h2><span class="section-meta" id="recommendation-quality">Captured similar-track edges · not observed playback order</span></div>
+    <section class="alignment-layout">
+      <article class="panel"><h3>Graph coverage</h3><div class="hint">Sanitized provider-declared relationships from captured responses</div><div class="alignment-summary" id="recommendation-summary"></div></article>
+      <article class="panel"><h3>Most frequently recommended tracks</h3><div class="hint">Incoming unique edges across current capture observations</div><div id="recommendation-top"></div></article>
+    </section>
+
     <div class="section-head"><h2>Speech context</h2><span class="section-meta">Text-free timing and confidence · verbatim transcripts remain private</span></div>
     <section class="charts">
       <article class="panel"><h3>Transcript coverage</h3><div class="hint">Validated transcript sidecars in the filtered corpus</div><div id="transcript-status-chart"></div></article>
@@ -406,6 +412,24 @@
       }).join('')}</tbody></table>`;
     }
 
+    function renderRecommendations() {
+      const summary = DATA.recommendation_summary;
+      if (!summary) {
+        $('recommendation-summary').innerHTML = '<div class="empty">No sanitized recommendation graph.</div>';
+        $('recommendation-top').innerHTML = '<div class="empty">Run recommendation_graph.py to construct this view.</div>';
+        return;
+      }
+      $('recommendation-summary').innerHTML = [
+        [summary.node_count, 'Track nodes'],
+        [summary.edge_count, 'Similar-track edges'],
+        [summary.observation_count, 'Capture observations'],
+        [summary.seed_with_multiple_list_variants_count, 'Seeds with list variants'],
+        [summary.local_provider_track_matched_count, 'Local tracks matched'],
+        [summary.local_provider_track_count, 'Local provider IDs'],
+      ].map(([value, label]) => `<div class="alignment-metric"><strong>${safe(value)}</strong><span>${safe(label)}</span></div>`).join('');
+      $('recommendation-top').innerHTML = `<table><thead><tr><th>Track</th><th>Recommended by</th><th>Recommends</th><th>Local copies</th></tr></thead><tbody>${DATA.top_recommended_tracks.map(item => `<tr><td>${safe(item.title)}</td><td class="number">${item.incoming_recommendation_count}</td><td class="number">${item.outgoing_recommendation_count}</td><td class="number">${item.local_recording_count}</td></tr>`).join('')}</tbody></table>`;
+    }
+
     function renderHypotheses(records) {
       const ranked = ($('hypothesis-mode').value === 'top' ? records : records.flatMap(record => Object.values(record.hypothesis_best_by_band || {}).map(hypothesis => ({...record, hypothesis_band: hypothesis.brainwave_band, hypothesis_ranking_score: hypothesis.ranking_score, hypothesis_difference_hz: hypothesis.difference_hz})))).filter(r => Number.isFinite(r.hypothesis_ranking_score)).sort((a,b) => b.hypothesis_ranking_score - a.hypothesis_ranking_score).slice(0, 8);
       if (!ranked.length) { $('hypothesis-list').innerHTML = '<div class="empty">No hypotheses match these filters.</div>'; return; }
@@ -421,7 +445,7 @@
       const values = [
         ['Corpus path', record.relative_path], ['Duration', duration(record.duration_seconds)], ['Input size', record.input_size_bytes == null ? '—' : `${number(record.input_size_bytes / 1048576, 2)} MiB`],
         ['SHA-256', record.input_sha256], ['Run ID', record.run_id], ['Analysis configuration', record.analysis_configuration_version], ['Evidence objects', record.evidence_count],
-        ['Protocol family', record.protocol_family_label || familyName(record.protocol_family_id)], ['Family ID', record.protocol_family_id], ['Family silhouette', number(record.protocol_family_silhouette, 4)], ['Family signature', record.protocol_family_descriptor], ['Intent alignment status', human(record.intent_alignment_status)], ['Same-intent peer support', percent(record.intent_same_peer_support)], ['Corpus family baseline', percent(record.intent_corpus_baseline)], ['Intent association lift', record.intent_association_lift == null ? '—' : `${number(record.intent_association_lift, 3)}×`], ['Normalized intent alignment', number(record.intent_alignment_score, 4)],
+        ['Protocol family', record.protocol_family_label || familyName(record.protocol_family_id)], ['Family ID', record.protocol_family_id], ['Family silhouette', number(record.protocol_family_silhouette, 4)], ['Family signature', record.protocol_family_descriptor], ['Intent alignment status', human(record.intent_alignment_status)], ['Same-intent peer support', percent(record.intent_same_peer_support)], ['Corpus family baseline', percent(record.intent_corpus_baseline)], ['Intent association lift', record.intent_association_lift == null ? '—' : `${number(record.intent_association_lift, 3)}×`], ['Normalized intent alignment', number(record.intent_alignment_score, 4)], ['Recommendation in-degree', record.recommendation_in_degree], ['Recommendation out-degree', record.recommendation_out_degree], ['Recommendation list variants', record.recommendation_list_variant_count],
         ['Provider title', record.provider_title], ['Provider mental state', human(record.provider_mental_state)], ['Provider activity', human(record.provider_activity)],
         ['Provider style', human(record.provider_style)], ['Provider moods', (record.provider_moods || []).join(', ') || '—'], ['Provider instruments', (record.provider_instruments || []).join(', ') || '—'],
         ['Provider BPM', number(record.provider_beats_per_minute, 1)], ['Provider NEL', number(record.provider_neural_effect_level, 3)], ['Brightness / complexity', `${number(record.provider_brightness_level, 3)} / ${number(record.provider_complexity_level, 3)}`],
@@ -463,7 +487,7 @@
       if (kind === 'json') {
         body = JSON.stringify({dashboard_schema_version: DATA.dashboard_schema_version, filtered_recordings: records}, null, 2); type = 'application/json'; extension = 'json';
       } else {
-        const fields = ['relative_path','category','stated_intent','provider_metadata_status','provider_title','provider_mental_state','provider_activity','provider_style','provider_beats_per_minute','provider_neural_effect_level','transcript_status','transcript_provider','transcript_language_code','transcript_segment_count','transcript_timed_pronunciation_count','transcript_speech_coverage_ratio','transcript_mean_pronunciation_confidence','speech_context_comparison_available','speech_context_buffered_coverage_ratio','speech_active_window_count','speech_sparse_window_count','speech_active_candidate_rate','speech_sparse_candidate_rate','speech_active_median_difference_hz','speech_sparse_median_difference_hz','speech_active_median_phase_locking','speech_sparse_median_phase_locking','speech_active_persistent_difference_hz','speech_sparse_persistent_difference_hz','speech_active_persistent_band','speech_sparse_persistent_band','speech_active_persistent_score','speech_sparse_persistent_score','analysis_configuration_version','protocol_family_id','protocol_family_label','protocol_family_silhouette','intent_alignment_status','intent_same_peer_support','intent_corpus_baseline','intent_association_lift','intent_alignment_score','index_status','provenance_status','duration_seconds','input_sha256','carrier_difference_hz','envelope_modulation_hz','shared_modulation_hz','phase_behavior','hypothesis_band','hypothesis_ranking_score','retained_hypothesis_count'];
+        const fields = ['relative_path','category','stated_intent','provider_metadata_status','provider_track_id','provider_title','provider_mental_state','provider_activity','provider_style','provider_beats_per_minute','provider_neural_effect_level','recommendation_in_degree','recommendation_out_degree','recommendation_list_variant_count','transcript_status','transcript_provider','transcript_language_code','transcript_segment_count','transcript_timed_pronunciation_count','transcript_speech_coverage_ratio','transcript_mean_pronunciation_confidence','speech_context_comparison_available','speech_context_buffered_coverage_ratio','speech_active_window_count','speech_sparse_window_count','speech_active_candidate_rate','speech_sparse_candidate_rate','speech_active_median_difference_hz','speech_sparse_median_difference_hz','speech_active_median_phase_locking','speech_sparse_median_phase_locking','speech_active_persistent_difference_hz','speech_sparse_persistent_difference_hz','speech_active_persistent_band','speech_sparse_persistent_band','speech_active_persistent_score','speech_sparse_persistent_score','analysis_configuration_version','protocol_family_id','protocol_family_label','protocol_family_silhouette','intent_alignment_status','intent_same_peer_support','intent_corpus_baseline','intent_association_lift','intent_alignment_score','index_status','provenance_status','duration_seconds','input_sha256','carrier_difference_hz','envelope_modulation_hz','shared_modulation_hz','phase_behavior','hypothesis_band','hypothesis_ranking_score','retained_hypothesis_count'];
         const cell = v => `"${String(v ?? '').replaceAll('"','""')}"`;
         body = [fields.join(','), ...records.map(r => fields.map(f => cell(r[f])).join(','))].join('\n'); type = 'text/csv'; extension = 'csv';
       }
@@ -502,6 +526,8 @@
     $('index-stamp').innerHTML = `INDEX ${safe(DATA.source_index_schema_version)}<br>SHA-256 ${safe(DATA.source_index_sha256.slice(0,16))}…`;
     $('cluster-quality').textContent = DATA.clustering_method ? `${DATA.clustering_method.selected_family_count} families · silhouette ${number(DATA.clustering_method.overall_silhouette_score, 3)} · exploratory unsupervised result` : 'No current clustering artifact';
     $('alignment-quality').textContent = DATA.alignment_status === 'validated' ? 'Association only · not efficacy, causation, or subjective outcome' : 'No current alignment artifact';
+    $('recommendation-quality').textContent = DATA.recommendation_status === 'validated' ? 'Captured similar-track edges · not observed playback order or causation' : 'No current recommendation graph';
+    renderRecommendations();
     $('footer').textContent = `Dashboard schema ${DATA.dashboard_schema_version} · Source index SHA-256 ${DATA.source_index_sha256} · Generated locally with no network dependencies.`;
     render();
   </script>

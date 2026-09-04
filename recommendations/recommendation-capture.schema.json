@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ave-forensics.local/schemas/recommendation-capture-1.0.0.json",
+  "title": "AVE Provider Recommendation Capture",
+  "type": "object",
+  "required": ["recommendation_capture_schema_version", "observation_id", "generated_at", "provider", "source_capture", "observation_context", "summary", "nodes", "list_observations", "edges", "extraction_provenance"],
+  "properties": {
+    "recommendation_capture_schema_version": {"const": "1.0.0"},
+    "observation_id": {"type": "string", "pattern": "^ave_recommendation_observation_[0-9a-f]{16}$"},
+    "generated_at": {"type": "string"},
+    "provider": {"const": "brain.fm"},
+    "source_capture": {"type": "object"},
+    "observation_context": {"type": "object"},
+    "summary": {"type": "object"},
+    "nodes": {"type": "array"},
+    "list_observations": {"type": "array"},
+    "edges": {"type": "array"},
+    "extraction_provenance": {"type": "object"}
+  },
+  "additionalProperties": false
+}

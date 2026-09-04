@@ -113,6 +113,40 @@ def test_parses_json_responses_embedded_in_har(tmp_path):
     assert documents[0]["result"][0]["track"]["name"] == "Quiet Mind"
 
 
+def test_har_parser_skips_binary_base64_before_json(tmp_path):
+    response = json.dumps({"result": [{"track": track("guided.mp3")}]}).encode()
+    har = {
+        "log": {
+            "entries": [
+                {
+                    "response": {
+                        "content": {
+                            "text": base64.b64encode(b"\xff\xfe binary audio").decode(),
+                            "encoding": "base64",
+                            "mimeType": "application/octet-stream",
+                        }
+                    }
+                },
+                {
+                    "response": {
+                        "content": {
+                            "text": response.decode(),
+                            "mimeType": "application/json",
+                        }
+                    }
+                },
+            ]
+        }
+    }
+    capture = tmp_path / "mixed.har"
+    capture.write_text(json.dumps(har))
+
+    documents, capture_format = parse_capture(capture)
+
+    assert capture_format == "har_json_responses"
+    assert len(documents) == 1
+
+
 def test_conflicting_records_are_rejected(tmp_path):
     recordings = tmp_path / "recordings"
     recordings.mkdir()
