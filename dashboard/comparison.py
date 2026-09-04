@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 
-DASHBOARD_SCHEMA_VERSION = "1.4.0"
+DASHBOARD_SCHEMA_VERSION = "1.5.0"
 TEMPLATE_PATH = Path(__file__).with_name("dashboard.html")
 
 
@@ -148,6 +148,11 @@ def _flatten_record(record: dict[str, Any]) -> dict[str, Any]:
         "protocol_family_label": None,
         "protocol_family_descriptor": None,
         "protocol_family_silhouette": None,
+        "intent_alignment_status": "not_available",
+        "intent_same_peer_support": None,
+        "intent_corpus_baseline": None,
+        "intent_association_lift": None,
+        "intent_alignment_score": None,
     }
 
 
@@ -179,6 +184,7 @@ def _canonical_records(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
 def build_dashboard_data(
     index: dict[str, Any],
     clustering: dict[str, Any] | None = None,
+    alignment: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     if not isinstance(index.get("recordings"), list):
         raise ValueError("corpus index must contain a recordings list")
@@ -189,12 +195,16 @@ def build_dashboard_data(
     records.sort(key=lambda item: item["relative_path"])
     protocol_families = []
     clustering_status = "not_available"
+    clustering_digest = None
     if clustering is not None:
         from clustering.protocol_families import validate_protocol_families
 
         validate_protocol_families(clustering)
         if clustering["source_index_sha256"] == index_digest:
             clustering_status = "validated"
+            clustering_digest = hashlib.sha256(
+                json.dumps(clustering, sort_keys=True, separators=(",", ":")).encode()
+            ).hexdigest()
             family_lookup = {
                 family["family_id"]: family for family in clustering["families"]
             }
@@ -217,6 +227,50 @@ def build_dashboard_data(
             ]
         else:
             clustering_status = "stale_index_mismatch"
+
+    alignment_status = "not_available"
+    intent_profiles = []
+    global_intent_association = None
+    alignment_eligible_count = 0
+    alignment_excluded_count = 0
+    if alignment is not None:
+        from alignment.intent_alignment import validate_intent_alignment
+
+        validate_intent_alignment(alignment)
+        if (
+            clustering_status == "validated"
+            and alignment["source_index_sha256"] == index_digest
+            and alignment["source_clustering_sha256"] == clustering_digest
+        ):
+            alignment_status = "validated"
+            assessment_lookup = {
+                item["input_sha256"]: item
+                for item in alignment["recording_assessments"]
+            }
+            for record in records:
+                assessment = assessment_lookup.get(record["input_sha256"])
+                if assessment:
+                    record["intent_alignment_status"] = assessment[
+                        "assessment_status"
+                    ]
+                    record["intent_same_peer_support"] = assessment[
+                        "same_intent_peer_support"
+                    ]
+                    record["intent_corpus_baseline"] = assessment[
+                        "corpus_peer_baseline"
+                    ]
+                    record["intent_association_lift"] = assessment[
+                        "association_lift"
+                    ]
+                    record["intent_alignment_score"] = assessment[
+                        "normalized_alignment_score"
+                    ]
+            intent_profiles = alignment["intent_profiles"]
+            global_intent_association = alignment["global_association"]
+            alignment_eligible_count = alignment["eligible_recording_count"]
+            alignment_excluded_count = len(alignment["excluded_recordings"])
+        else:
+            alignment_status = "stale_input_mismatch"
     canonical = _canonical_records(records)
     warnings = []
     legacy_count = sum(r["provenance_status"] == "legacy_missing" for r in records)
@@ -263,6 +317,22 @@ def build_dashboard_data(
                 "message": "protocol families were built from a different corpus index and were not displayed",
             }
         )
+    if alignment_status == "stale_input_mismatch":
+        warnings.append(
+            {
+                "kind": "stale_intent_alignment",
+                "count": 1,
+                "message": "intent alignment was built from different corpus or clustering inputs and was not displayed",
+            }
+        )
+    if alignment_status == "validated" and alignment_excluded_count:
+        warnings.append(
+            {
+                "kind": "intent_alignment_exclusions",
+                "count": alignment_excluded_count,
+                "message": "unique inputs were excluded from intent alignment because duplicate copies carry conflicting intent labels",
+            }
+        )
     if clustering_status == "validated":
         silhouette = float(clustering["method"]["overall_silhouette_score"])
         if silhouette < 0.25:
@@ -300,6 +370,11 @@ def build_dashboard_data(
             ),
             "duplicate_group_count": len(index.get("duplicate_input_groups", [])),
             "protocol_family_count": len(protocol_families),
+            "scored_intent_alignment_count": sum(
+                item["intent_alignment_status"] == "scored" for item in canonical
+            ),
+            "eligible_intent_alignment_count": alignment_eligible_count,
+            "excluded_intent_alignment_count": alignment_excluded_count,
             "provider_metadata_count": sum(
                 item["provider_metadata_status"] == "validated" for item in canonical
             ),
@@ -348,6 +423,9 @@ def build_dashboard_data(
         "clustering_status": clustering_status,
         "clustering_method": clustering.get("method") if clustering_status == "validated" else None,
         "protocol_families": protocol_families,
+        "alignment_status": alignment_status,
+        "global_intent_association": global_intent_association,
+        "intent_profiles": intent_profiles,
         "warnings": warnings,
         "recordings": records,
         "comparison_recordings": canonical,

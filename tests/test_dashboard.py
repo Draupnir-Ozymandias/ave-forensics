@@ -68,6 +68,9 @@ def test_dashboard_deduplicates_comparisons_but_preserves_aliases():
         "indexed_evidence_count": 10,
         "duplicate_group_count": 1,
         "protocol_family_count": 0,
+        "scored_intent_alignment_count": 0,
+        "eligible_intent_alignment_count": 0,
+        "excluded_intent_alignment_count": 0,
         "provider_metadata_count": 0,
         "transcript_sidecar_count": 0,
         "speech_context_comparison_count": 0,
@@ -111,6 +114,7 @@ def test_dashboard_html_is_self_contained_and_deterministic(tmp_path):
     assert "Speech context" in first_text
     assert 'id="speech-difference-chart"' in first_text
     assert 'id="speech-band-chart"' in first_text
+    assert 'id="alignment-profiles"' in first_text
     embedded = first_text.split(
         '<script id="dashboard-data" type="application/json">', 1
     )[1].split("</script>", 1)[0]
@@ -139,6 +143,28 @@ def test_dashboard_accepts_clustering_bound_to_the_same_index():
         if record["index_status"] == "indexed"
     )
     assert all(family["defining_signatures"] for family in data["protocol_families"])
+
+
+def test_dashboard_accepts_alignment_bound_to_current_inputs():
+    from alignment.intent_alignment import build_intent_alignment
+    from clustering.protocol_families import build_protocol_families
+    from tests.test_intent_alignment import aligned_index
+
+    index = aligned_index()
+    clustering = build_protocol_families(index)
+    alignment = build_intent_alignment(index, clustering)
+    data = build_dashboard_data(index, clustering, alignment)
+
+    assert data["alignment_status"] == "validated"
+    assert data["overview"]["scored_intent_alignment_count"] == 12
+    assert data["overview"]["eligible_intent_alignment_count"] == 12
+    assert data["overview"]["excluded_intent_alignment_count"] == 0
+    assert data["global_intent_association"]["cramers_v"] == 1.0
+    assert all(
+        record["intent_alignment_score"] == 1.0
+        for record in data["comparison_recordings"]
+        if record["index_status"] == "indexed"
+    )
 
 
 def test_dashboard_exposes_provider_taxonomy_as_context():

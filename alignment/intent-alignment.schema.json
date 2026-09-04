@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ave-forensics.local/schemas/intent-alignment-1.0.0.json",
+  "title": "AVE Claimed-intent Alignment",
+  "type": "object",
+  "required": [
+    "alignment_schema_version",
+    "source_index_sha256",
+    "source_clustering_sha256",
+    "method",
+    "interpretation",
+    "eligible_recording_count",
+    "scored_recording_count",
+    "excluded_recordings",
+    "global_association",
+    "intent_profiles",
+    "recording_assessments"
+  ],
+  "properties": {
+    "alignment_schema_version": {"const": "1.0.0"},
+    "source_index_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "source_clustering_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "method": {"type": "object"},
+    "interpretation": {"type": "object"},
+    "eligible_recording_count": {"type": "integer", "minimum": 1},
+    "scored_recording_count": {"type": "integer", "minimum": 0},
+    "excluded_recordings": {"type": "array"},
+    "global_association": {"type": "object"},
+    "intent_profiles": {"type": "array", "minItems": 1},
+    "recording_assessments": {"type": "array", "minItems": 1}
+  },
+  "additionalProperties": false
+}

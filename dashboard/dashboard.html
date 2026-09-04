@@ -81,6 +81,11 @@
     .empty { color: var(--dim); padding: 24px 0; }
     .hypotheses { display: grid; grid-template-columns: 1fr 1.5fr; gap: 10px; }
     .family-layout { display: grid; grid-template-columns: .8fr 2.2fr; gap: 10px; }
+    .alignment-layout { display: grid; grid-template-columns: .8fr 2.2fr; gap: 10px; }
+    .alignment-summary { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .alignment-metric { border: 1px solid var(--line); padding: 12px; background: #111e18; }
+    .alignment-metric strong { display: block; color: var(--cyan); font-size: 20px; margin-bottom: 4px; }
+    .alignment-metric span { color: var(--dim); font-size: 9px; text-transform: uppercase; letter-spacing: .06em; }
     .family-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 9px; }
     .family-card { border: 1px solid var(--line); padding: 13px; background: #111e18; }
     .family-card h3 { color: var(--green); margin-bottom: 7px; }
@@ -118,7 +123,7 @@
     @media (max-width: 1050px) {
       .kpis { grid-template-columns: repeat(3, 1fr); }
       .controls { grid-template-columns: 2fr 1fr 1fr; }
-      .charts, .taxonomy, .hypotheses, .family-layout { grid-template-columns: 1fr; }
+      .charts, .taxonomy, .hypotheses, .family-layout, .alignment-layout { grid-template-columns: 1fr; }
     }
     @media (max-width: 650px) {
       .shell { width: min(100% - 18px, 1540px); padding-top: 22px; }
@@ -181,6 +186,12 @@
     <section class="family-layout">
       <article class="panel"><h3>Family membership</h3><div class="hint">Evidence-only assignments · duplicate inputs excluded</div><div id="family-chart"></div></article>
       <article class="panel"><h3>Family signatures</h3><div class="hint">Median measurements and dominant observed behavior</div><div class="family-cards" id="family-cards"></div></article>
+    </section>
+
+    <div class="section-head"><h2>Claimed intent versus observed family</h2><span class="section-meta" id="alignment-quality">Association only · not efficacy or causation</span></div>
+    <section class="alignment-layout">
+      <article class="panel"><h3>Corpus association</h3><div class="hint">Context labels were excluded from family discovery</div><div class="alignment-summary" id="alignment-summary"></div></article>
+      <article class="panel"><h3>Intent-family consistency</h3><div class="hint">Dominant family within each claimed-intent cohort · cohorts smaller than three are not scored</div><div id="alignment-profiles"></div></article>
     </section>
 
     <div class="section-head"><h2>Observed signatures</h2><div class="section-tools"><span class="section-meta" id="comparison-count"></span><label for="hypothesis-mode">Hypothesis view</label><select id="hypothesis-mode"><option value="top">Top-ranked</option><option value="all">All retained</option></select></div></div>
@@ -372,6 +383,29 @@
       }).join('');
     }
 
+    function renderAlignment(records) {
+      const association = DATA.global_intent_association;
+      if (!association) {
+        $('alignment-summary').innerHTML = '<div class="empty">No current intent-alignment artifact.</div>';
+        $('alignment-profiles').innerHTML = '<div class="empty">Run intent_alignment.py to build this comparison.</div>';
+        return;
+      }
+      $('alignment-summary').innerHTML = [
+        [number(association.cramers_v, 3), "Cramer's V"],
+        [number(association.normalized_mutual_information, 3), 'Normalized mutual information'],
+        [percent(association.within_intent_family_consistency), 'Within-intent consistency'],
+        [percent(association.corpus_majority_family_baseline), 'Majority-family baseline'],
+      ].map(([value, label]) => `<div class="alignment-metric"><strong>${safe(value)}</strong><span>${safe(label)}</span></div>`).join('');
+      const visibleIntents = new Set(records.map(record => record.stated_intent));
+      const profiles = DATA.intent_profiles.filter(profile => visibleIntents.has(profile.stated_intent));
+      $('alignment-profiles').innerHTML = `<table><thead><tr><th>Claimed intent</th><th>Cohort</th><th>Family mix</th><th>Dominant observed family</th><th>Consistency</th><th>Baseline</th><th>Lift</th></tr></thead><tbody>${profiles.map(profile => {
+        const mix = profile.family_distribution.map(item => `${familyName(item.family_id)} ${item.count}`).join(' · ');
+        return profile.assessment_status === 'scored'
+          ? `<tr><td>${safe(human(profile.stated_intent))}</td><td class="number">${profile.cohort_size}</td><td>${safe(mix)}</td><td>${safe(profile.dominant_family_label)}</td><td class="number">${percent(profile.family_consistency)}</td><td class="number">${percent(profile.corpus_family_baseline)}</td><td class="number">${number(profile.association_lift, 2)}×</td></tr>`
+          : `<tr><td>${safe(human(profile.stated_intent))}</td><td class="number">${profile.cohort_size}</td><td>${safe(mix)}</td><td colspan="4">${badge('insufficient_cohort')}</td></tr>`;
+      }).join('')}</tbody></table>`;
+    }
+
     function renderHypotheses(records) {
       const ranked = ($('hypothesis-mode').value === 'top' ? records : records.flatMap(record => Object.values(record.hypothesis_best_by_band || {}).map(hypothesis => ({...record, hypothesis_band: hypothesis.brainwave_band, hypothesis_ranking_score: hypothesis.ranking_score, hypothesis_difference_hz: hypothesis.difference_hz})))).filter(r => Number.isFinite(r.hypothesis_ranking_score)).sort((a,b) => b.hypothesis_ranking_score - a.hypothesis_ranking_score).slice(0, 8);
       if (!ranked.length) { $('hypothesis-list').innerHTML = '<div class="empty">No hypotheses match these filters.</div>'; return; }
@@ -387,7 +421,7 @@
       const values = [
         ['Corpus path', record.relative_path], ['Duration', duration(record.duration_seconds)], ['Input size', record.input_size_bytes == null ? '—' : `${number(record.input_size_bytes / 1048576, 2)} MiB`],
         ['SHA-256', record.input_sha256], ['Run ID', record.run_id], ['Analysis configuration', record.analysis_configuration_version], ['Evidence objects', record.evidence_count],
-        ['Protocol family', record.protocol_family_label || familyName(record.protocol_family_id)], ['Family ID', record.protocol_family_id], ['Family silhouette', number(record.protocol_family_silhouette, 4)], ['Family signature', record.protocol_family_descriptor],
+        ['Protocol family', record.protocol_family_label || familyName(record.protocol_family_id)], ['Family ID', record.protocol_family_id], ['Family silhouette', number(record.protocol_family_silhouette, 4)], ['Family signature', record.protocol_family_descriptor], ['Intent alignment status', human(record.intent_alignment_status)], ['Same-intent peer support', percent(record.intent_same_peer_support)], ['Corpus family baseline', percent(record.intent_corpus_baseline)], ['Intent association lift', record.intent_association_lift == null ? '—' : `${number(record.intent_association_lift, 3)}×`], ['Normalized intent alignment', number(record.intent_alignment_score, 4)],
         ['Provider title', record.provider_title], ['Provider mental state', human(record.provider_mental_state)], ['Provider activity', human(record.provider_activity)],
         ['Provider style', human(record.provider_style)], ['Provider moods', (record.provider_moods || []).join(', ') || '—'], ['Provider instruments', (record.provider_instruments || []).join(', ') || '—'],
         ['Provider BPM', number(record.provider_beats_per_minute, 1)], ['Provider NEL', number(record.provider_neural_effect_level, 3)], ['Brightness / complexity', `${number(record.provider_brightness_level, 3)} / ${number(record.provider_complexity_level, 3)}`],
@@ -429,7 +463,7 @@
       if (kind === 'json') {
         body = JSON.stringify({dashboard_schema_version: DATA.dashboard_schema_version, filtered_recordings: records}, null, 2); type = 'application/json'; extension = 'json';
       } else {
-        const fields = ['relative_path','category','stated_intent','provider_metadata_status','provider_title','provider_mental_state','provider_activity','provider_style','provider_beats_per_minute','provider_neural_effect_level','transcript_status','transcript_provider','transcript_language_code','transcript_segment_count','transcript_timed_pronunciation_count','transcript_speech_coverage_ratio','transcript_mean_pronunciation_confidence','speech_context_comparison_available','speech_context_buffered_coverage_ratio','speech_active_window_count','speech_sparse_window_count','speech_active_candidate_rate','speech_sparse_candidate_rate','speech_active_median_difference_hz','speech_sparse_median_difference_hz','speech_active_median_phase_locking','speech_sparse_median_phase_locking','speech_active_persistent_difference_hz','speech_sparse_persistent_difference_hz','speech_active_persistent_band','speech_sparse_persistent_band','speech_active_persistent_score','speech_sparse_persistent_score','analysis_configuration_version','protocol_family_id','protocol_family_label','protocol_family_silhouette','index_status','provenance_status','duration_seconds','input_sha256','carrier_difference_hz','envelope_modulation_hz','shared_modulation_hz','phase_behavior','hypothesis_band','hypothesis_ranking_score','retained_hypothesis_count'];
+        const fields = ['relative_path','category','stated_intent','provider_metadata_status','provider_title','provider_mental_state','provider_activity','provider_style','provider_beats_per_minute','provider_neural_effect_level','transcript_status','transcript_provider','transcript_language_code','transcript_segment_count','transcript_timed_pronunciation_count','transcript_speech_coverage_ratio','transcript_mean_pronunciation_confidence','speech_context_comparison_available','speech_context_buffered_coverage_ratio','speech_active_window_count','speech_sparse_window_count','speech_active_candidate_rate','speech_sparse_candidate_rate','speech_active_median_difference_hz','speech_sparse_median_difference_hz','speech_active_median_phase_locking','speech_sparse_median_phase_locking','speech_active_persistent_difference_hz','speech_sparse_persistent_difference_hz','speech_active_persistent_band','speech_sparse_persistent_band','speech_active_persistent_score','speech_sparse_persistent_score','analysis_configuration_version','protocol_family_id','protocol_family_label','protocol_family_silhouette','intent_alignment_status','intent_same_peer_support','intent_corpus_baseline','intent_association_lift','intent_alignment_score','index_status','provenance_status','duration_seconds','input_sha256','carrier_difference_hz','envelope_modulation_hz','shared_modulation_hz','phase_behavior','hypothesis_band','hypothesis_ranking_score','retained_hypothesis_count'];
         const cell = v => `"${String(v ?? '').replaceAll('"','""')}"`;
         body = [fields.join(','), ...records.map(r => fields.map(f => cell(r[f])).join(','))].join('\n'); type = 'text/csv'; extension = 'csv';
       }
@@ -458,6 +492,7 @@
       $('speech-difference-chart').innerHTML = speechDifference(records);
       $('speech-band-chart').innerHTML = speechBandContrast(records);
       renderFamilies(records);
+      renderAlignment(records);
       renderHypotheses(records);
       renderTable(records);
     }
@@ -466,6 +501,7 @@
     $('warnings').innerHTML = DATA.warnings.map(w => `<div class="warning"><strong>${w.count}</strong><span>${safe(w.message)}</span></div>`).join('');
     $('index-stamp').innerHTML = `INDEX ${safe(DATA.source_index_schema_version)}<br>SHA-256 ${safe(DATA.source_index_sha256.slice(0,16))}…`;
     $('cluster-quality').textContent = DATA.clustering_method ? `${DATA.clustering_method.selected_family_count} families · silhouette ${number(DATA.clustering_method.overall_silhouette_score, 3)} · exploratory unsupervised result` : 'No current clustering artifact';
+    $('alignment-quality').textContent = DATA.alignment_status === 'validated' ? 'Association only · not efficacy, causation, or subjective outcome' : 'No current alignment artifact';
     $('footer').textContent = `Dashboard schema ${DATA.dashboard_schema_version} · Source index SHA-256 ${DATA.source_index_sha256} · Generated locally with no network dependencies.`;
     render();
   </script>

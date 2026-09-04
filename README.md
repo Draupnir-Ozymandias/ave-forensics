@@ -122,6 +122,24 @@ guided speech, transcripts, outcome claims, and future generator integration.
 See `docs/PROTOCOL_FAMILY_CHARACTERIZATION.md` for the interpretation and
 reproducibility rules governing family labels, contrasts, and representatives.
 
+## Compare Claimed Intent with Observed Families
+
+After refreshing the corpus index and protocol families, measure whether recordings
+carrying the same library intent tend to occupy the same evidence-derived family:
+
+```bash
+.venv/bin/python intent_alignment.py
+.venv/bin/python dashboard.py
+```
+
+The alignment artifact reports cohort distributions, leave-one-out peer support,
+corpus baselines, association lift, normalized alignment, Cramer's V, and normalized
+mutual information. Cohorts smaller than three are explicitly left unscored. These
+statistics measure label-to-signal association only; they do not measure therapeutic
+efficacy, causal effect, subjective outcome, or clinical validity.
+
+See `docs/INTENT_ALIGNMENT.md` for the complete interpretation policy.
+
 ## Extract Brain.fm Provider Metadata
 
 Sanitize a raw Brain.fm JSON or HAR capture into one validated provider sidecar per
