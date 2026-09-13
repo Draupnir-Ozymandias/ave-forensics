@@ -162,16 +162,19 @@ Sanitize raw JSON, concatenated JSON, or HAR captures into tracked observation
 sidecars, then aggregate them into a directed similar-track graph:
 
 ```bash
-.venv/bin/python recommendation_graph.py extract captured/brainfm/focus/*.json \
-  --visible-category focus --context-method user_recorded
+.venv/bin/python recommendation_graph.py extract path/to/capture.har \
+  --visible-category focus --visible-intent light_work \
+  --context-method user_recorded
 .venv/bin/python recommendation_graph.py build
 .venv/bin/python dashboard.py
 ```
 
 The extractor preserves empty lists, rank observations, repeated occurrences, and
 multiple list variants while omitting URLs, tokens, cookies, authorization data, and
-session data. Context flags describe the capture session; they are not applied as
-intrinsic track labels. See `docs/RECOMMENDATION_CAPTURE.md` for collection guidance.
+session data. For HAR captures, it also associates a top-level similar-track response
+with the seed ID carried in its request path. Context flags describe the capture
+session; they are not applied as intrinsic track labels. See
+`docs/RECOMMENDATION_CAPTURE.md` for collection guidance.
 
 ## Discover Recommendation Communities and Drift
 

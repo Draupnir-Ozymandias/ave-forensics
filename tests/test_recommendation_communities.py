@@ -126,4 +126,5 @@ def test_writes_community_and_drift_outputs(tmp_path):
     drift_path = write_recommendation_drift(drift, tmp_path / "output")
     assert json.loads(community_path.read_text())["summary"]["community_count"] == 1
     assert csv_path.read_text().startswith("track_id,title,community_id")
+    assert "\r\n" not in csv_path.read_text()
     assert json.loads(drift_path.read_text())["summary"]["observation_count"] == 1

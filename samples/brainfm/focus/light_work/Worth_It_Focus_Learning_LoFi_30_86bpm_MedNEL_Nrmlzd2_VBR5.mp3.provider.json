@@ -1,0 +1,114 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 2,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-05-31T19:21:26.736Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 86,
+    "brightness_level": 0.33,
+    "complexity_level": 0.7,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.58
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "Worth_It_Focus_Learning_LoFi_30_86bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Worth It",
+    "track_id": "665a23364dfb90cc19dcdf89",
+    "variation_id": "665a23364dfb90cc19dcdf8d"
+  },
+  "recording": {
+    "filename": "Worth_It_Focus_Learning_LoFi_30_86bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "17fcae437275a5eebcb4836e49daf788f8932aa4165d4c7bacbc31ba3f51d0f1",
+    "size_bytes": 27141628
+  },
+  "source_capture": {
+    "filename": "Worth_It_Focus_Learning_LoFi_30_86bpm_MedNEL_Nrmlzd2_VBR5",
+    "format": "json",
+    "hash_algorithm": "sha256",
+    "json_document_count": 1,
+    "sha256": "0e185b34f23b55372d50853b348203a7174748035fd479ece0a9b1138cc29bd5"
+  },
+  "taxonomy": {
+    "activity": "Light Work",
+    "all_provider_tags": {
+      "activity": [
+        "Learning",
+        "Light Work"
+      ],
+      "genre": [
+        "Lofi"
+      ],
+      "instrument": [
+        "Acoustic Drum set",
+        "Arp Synth",
+        "Electric Keys",
+        "Electronic Percussion",
+        "Organic Percussion",
+        "Processed Vocals",
+        "Synth Bass",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Mysterious",
+        "Ponderous"
+      ],
+      "release": [
+        "June 3 2024"
+      ],
+      "subgenre": [
+        "Downtempo",
+        "Electronica",
+        "Hip-Hop",
+        "Lo-Fi"
+      ]
+    },
+    "genres": [
+      "Lofi"
+    ],
+    "instruments": [
+      "Acoustic Drum set",
+      "Arp Synth",
+      "Electric Keys",
+      "Electronic Percussion",
+      "Organic Percussion",
+      "Processed Vocals",
+      "Synth Bass",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Focus",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Mysterious",
+      "Ponderous"
+    ],
+    "release_tags": [
+      "June 3 2024"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Downtempo",
+      "Electronica",
+      "Hip-Hop",
+      "Lo-Fi"
+    ]
+  }
+}

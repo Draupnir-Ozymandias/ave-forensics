@@ -5,6 +5,18 @@ They may also contain track objects with an empty list, and a single response ma
 contain more than one list variant for the same track. An empty list therefore means
 only that no recommendations were present in that particular object occurrence.
 
+The current Brain.fm API can also return recommendations as a top-level `result`
+list from `/v3/tracks/{track_id}/similar`. The response body does not repeat the seed
+track. For HAR input, the extractor obtains the seed ID from the sanitized request
+path and associates the returned tracks automatically. Request hosts, query strings,
+tokens, and headers are not retained.
+
+When a capture contains one or more explicit similar-track request paths, those
+request-linked responses are the authoritative recommendation observations. Other
+cached catalog responses in the same HAR may enrich the seed metadata, but their
+embedded lists are not assigned to the visible capture context. Embedded
+`similarTracks` fields remain the fallback for captures without explicit requests.
+
 ## Sanitized evidence model
 
 `recommendation_graph.py extract` creates one content-addressed observation sidecar
@@ -39,6 +51,19 @@ Prefer semi-automated collection before automating browser interaction:
 5. Keep the raw capture under an ignored capture directory.
 6. Run the sanitizer immediately and inspect its summary. A zero-edge observation is
    valid and should be retained.
+
+Prefer a HAR when the response is a top-level recommendation list because it carries
+the `/tracks/{track_id}/similar` request path needed to identify the seed. If only the
+standalone JSON response is available, record the seed track ID explicitly:
+
+```bash
+.venv/bin/python recommendation_graph.py extract capture.json \
+  --seed-track-id TRACK_ID --visible-category focus \
+  --visible-intent light_work --context-method user_recorded
+```
+
+The ID after `/tracks/` is the canonical track ID. It is not the variation ID found
+beside an MP3 filename under `variations`.
 
 For a stability panel, collect approximately five seeds per major intent on three
 different occasions. Use metadata-only observation for continuing catalog releases.

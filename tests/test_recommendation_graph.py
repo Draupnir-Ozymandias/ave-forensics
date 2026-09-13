@@ -77,6 +77,80 @@ def test_preserves_empty_recommendation_observation(tmp_path):
     assert document["list_observations"][0]["recommendation_count"] == 0
 
 
+def test_extracts_top_level_similar_response_using_har_request_seed(tmp_path):
+    alpha = track("alpha", "Alpha")
+    beta = track("beta", "Beta")
+    gamma = track("gamma", "Gamma")
+    har = {
+        "log": {
+            "entries": [
+                {
+                    "request": {"url": "https://api.brain.fm/v3/catalog"},
+                    "response": {
+                        "content": {"text": json.dumps({"result": {"track": alpha}})}
+                    },
+                },
+                {
+                    "request": {
+                        "url": "https://api.brain.fm/v3/tracks/alpha/similar?token=secret"
+                    },
+                    "response": {
+                        "content": {
+                            "text": json.dumps(
+                                {
+                                    "result": [
+                                        {"track": beta},
+                                        {"track": gamma},
+                                    ],
+                                    "status": 200,
+                                }
+                            )
+                        }
+                    },
+                },
+            ]
+        }
+    }
+    capture_path = tmp_path / "capture.har"
+    capture_path.write_text(json.dumps(har))
+
+    document = extract_recommendation_capture(capture_path)
+
+    validate_recommendation_capture(document)
+    observation = next(
+        item
+        for item in document["list_observations"]
+        if item["seed_track_id"] == "alpha" and item["recommendation_count"]
+    )
+    assert observation["recommended_track_ids"] == ["beta", "gamma"]
+    assert document["summary"]["observed_seed_count"] == 1
+    assert document["summary"]["unique_edge_count"] == 2
+    assert all(
+        item["seed_track_id"] == "alpha" for item in document["list_observations"]
+    )
+    assert "api.brain.fm" not in json.dumps(document)
+    assert "token=secret" not in json.dumps(document)
+
+
+def test_explicit_seed_associates_single_raw_top_level_response(tmp_path):
+    capture_path = tmp_path / "similar.json"
+    capture_path.write_text(
+        json.dumps({"result": [{"track": track("beta", "Beta")}], "status": 200})
+    )
+
+    document = extract_recommendation_capture(capture_path, seed_track_id="alpha")
+
+    assert document["edges"] == [
+        {
+            "seed_track_id": "alpha",
+            "recommended_track_id": "beta",
+            "observed_ranks": [1],
+            "occurrence_count": 1,
+            "document_indices": [1],
+        }
+    ]
+
+
 def test_aggregates_capture_observations_and_writes_valid_json(tmp_path):
     first_path = tmp_path / "first.json"
     second_path = tmp_path / "second.json"

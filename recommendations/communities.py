@@ -542,7 +542,7 @@ def write_recommendation_communities(
     json_path.write_text(json.dumps(document, indent=2, sort_keys=True) + "\n")
     with csv_path.open("w", newline="") as output_file:
         fields = ["track_id", "title", "community_id", "undirected_degree"]
-        writer = csv.DictWriter(output_file, fieldnames=fields)
+        writer = csv.DictWriter(output_file, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         for item in document["assignments"]:
             writer.writerow({field: item[field] for field in fields})

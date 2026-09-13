@@ -9,13 +9,14 @@ from pathlib import Path
 from typing import Any
 
 from core.hashing import sha256_file
-from provider.brainfm import parse_capture
+from provider.brainfm import parse_capture_responses
 
 
 CAPTURE_SCHEMA_VERSION = "1.0.0"
 GRAPH_SCHEMA_VERSION = "1.0.0"
-EXTRACTOR_VERSION = "ave_brainfm_recommendations_1.1.0"
+EXTRACTOR_VERSION = "ave_brainfm_recommendations_1.2.0"
 OBSERVATION_ID_PATTERN = re.compile(r"^ave_recommendation_observation_[0-9a-f]{16}$")
+SIMILAR_REQUEST_PATTERN = re.compile(r"/v3/tracks/([^/]+)/similar/?$")
 
 
 def _document_sha256(document: dict[str, Any]) -> str:
@@ -138,6 +139,29 @@ def _project_nodes(nodes: dict[str, dict[str, set[Any]]]) -> list[dict[str, Any]
     return projected
 
 
+def _top_level_recommendations(document: Any) -> list[dict[str, Any]] | None:
+    if not isinstance(document, dict) or not isinstance(document.get("result"), list):
+        return None
+    tracks = []
+    for item in document["result"]:
+        if not isinstance(item, dict):
+            continue
+        track = item.get("track") if isinstance(item.get("track"), dict) else item
+        if isinstance(track.get("id"), str):
+            tracks.append(track)
+    return tracks
+
+
+def _merge_track_id_from_documents(
+    nodes: dict[str, dict[str, set[Any]]], documents: list[Any], track_id: str
+) -> None:
+    for document in documents:
+        for candidate in _walk(document):
+            if candidate.get("id") == track_id:
+                _merge_track(nodes, candidate)
+    nodes.setdefault(track_id, defaultdict(set))
+
+
 def _reject_sensitive_output(value: Any, path: str = "root") -> None:
     if isinstance(value, dict):
         for key, nested in value.items():
@@ -165,7 +189,8 @@ def extract_recommendation_capture(
     captured_at: str | None = None,
     context_method: str = "not_recorded",
 ) -> dict[str, Any]:
-    documents, capture_format = parse_capture(capture_path)
+    responses, capture_format = parse_capture_responses(capture_path)
+    documents = [response.document for response in responses]
     nodes: dict[str, dict[str, set[Any]]] = {}
     list_observations: Counter[tuple[str, tuple[str, ...]]] = Counter()
     list_documents: dict[tuple[str, tuple[str, ...]], set[int]] = defaultdict(set)
@@ -174,30 +199,70 @@ def extract_recommendation_capture(
     edge_documents: dict[tuple[str, str], set[int]] = defaultdict(set)
     seed_occurrences: Counter[str] = Counter()
 
-    for document_index, document in enumerate(documents, start=1):
-        for track in _walk(document):
-            similar = track.get("similarTracks")
-            if not isinstance(similar, list):
-                continue
-            source_id = _merge_track(nodes, track)
-            if source_id is None:
-                continue
-            recommended_ids = []
-            for rank, recommended in enumerate(similar, start=1):
-                if not isinstance(recommended, dict):
+    explicit_responses: dict[int, tuple[str, list[dict[str, Any]]]] = {}
+    for document_index, response in enumerate(responses, start=1):
+        source_id = None
+        if response.request_path:
+            match = SIMILAR_REQUEST_PATTERN.search(response.request_path)
+            if match:
+                source_id = match.group(1)
+        elif len(responses) == 1 and seed_track_id:
+            source_id = seed_track_id
+        if source_id is None:
+            continue
+        recommended = _top_level_recommendations(response.document)
+        if recommended is not None:
+            explicit_responses[document_index] = (source_id, recommended)
+
+    # Explicit request-linked responses are authoritative for a HAR observation.
+    # Only fall back to recursively embedded lists when no such response exists;
+    # otherwise cached catalog objects would be mislabeled with the visible context.
+    if not explicit_responses:
+        for document_index, document in enumerate(documents, start=1):
+            for track in _walk(document):
+                similar = track.get("similarTracks")
+                if not isinstance(similar, list):
                     continue
-                target_id = _merge_track(nodes, recommended)
-                if target_id is None:
+                source_id = _merge_track(nodes, track)
+                if source_id is None:
                     continue
-                recommended_ids.append(target_id)
-                edge = (source_id, target_id)
-                edge_occurrences[edge] += 1
-                edge_ranks[edge].add(rank)
-                edge_documents[edge].add(document_index)
-            signature = (source_id, tuple(recommended_ids))
-            list_observations[signature] += 1
-            list_documents[signature].add(document_index)
-            seed_occurrences[source_id] += 1
+                recommended_ids = []
+                for rank, recommended in enumerate(similar, start=1):
+                    if not isinstance(recommended, dict):
+                        continue
+                    target_id = _merge_track(nodes, recommended)
+                    if target_id is None:
+                        continue
+                    recommended_ids.append(target_id)
+                    edge = (source_id, target_id)
+                    edge_occurrences[edge] += 1
+                    edge_ranks[edge].add(rank)
+                    edge_documents[edge].add(document_index)
+                signature = (source_id, tuple(recommended_ids))
+                list_observations[signature] += 1
+                list_documents[signature].add(document_index)
+                seed_occurrences[source_id] += 1
+
+    # The current Brain.fm API returns recommendations as a top-level result list.
+    # In HAR captures, the seed is carried by the request path rather than repeated
+    # in the response body. A single raw JSON response can be associated with an
+    # explicitly recorded seed ID supplied by the collector.
+    for document_index, (source_id, recommended) in sorted(explicit_responses.items()):
+        _merge_track_id_from_documents(nodes, documents, source_id)
+        recommended_ids = []
+        for rank, track in enumerate(recommended, start=1):
+            target_id = _merge_track(nodes, track)
+            if target_id is None:
+                continue
+            recommended_ids.append(target_id)
+            edge = (source_id, target_id)
+            edge_occurrences[edge] += 1
+            edge_ranks[edge].add(rank)
+            edge_documents[edge].add(document_index)
+        signature = (source_id, tuple(recommended_ids))
+        list_observations[signature] += 1
+        list_documents[signature].add(document_index)
+        seed_occurrences[source_id] += 1
 
     capture_hash = sha256_file(capture_path)
     context = {

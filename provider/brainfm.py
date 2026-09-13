@@ -7,6 +7,7 @@ from collections import Counter, defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable
+from urllib.parse import urlsplit
 
 from core.hashing import sha256_file
 from core.media import AUDIO_EXTENSIONS
@@ -31,6 +32,14 @@ class ProviderBatchEntry:
     output_path: Path | None = None
     sidecar: dict[str, Any] | None = None
     message: str | None = None
+
+
+@dataclass(frozen=True)
+class CaptureResponse:
+    """One decoded capture document with a sanitized HAR request path."""
+
+    document: Any
+    request_path: str | None = None
 
 
 def provider_sidecar_path_for(recording_path: Path) -> Path:
@@ -58,7 +67,7 @@ def _parse_concatenated_json(text: str) -> list[Any]:
     return documents
 
 
-def _har_documents(document: dict[str, Any]) -> list[Any] | None:
+def _har_responses(document: dict[str, Any]) -> list[CaptureResponse] | None:
     log = document.get("log")
     if not isinstance(log, dict) or not isinstance(log.get("entries"), list):
         return None
@@ -79,22 +88,38 @@ def _har_documents(document: dict[str, Any]) -> list[Any] | None:
                 # metadata extractor and must not abort the entire capture.
                 continue
         try:
-            extracted.extend(_parse_concatenated_json(text))
+            documents = _parse_concatenated_json(text)
         except ProviderMetadataError:
             continue
+        request_url = (entry.get("request") or {}).get("url")
+        request_path = (
+            urlsplit(request_url).path if isinstance(request_url, str) else None
+        )
+        extracted.extend(
+            CaptureResponse(document=item, request_path=request_path)
+            for item in documents
+        )
     if not extracted:
         raise ProviderMetadataError("HAR contains no JSON response bodies")
     return extracted
 
 
-def parse_capture(capture_path: Path) -> tuple[list[Any], str]:
+def parse_capture_responses(
+    capture_path: Path,
+) -> tuple[list[CaptureResponse], str]:
     text = capture_path.read_text(errors="strict")
     documents = _parse_concatenated_json(text)
     if len(documents) == 1 and isinstance(documents[0], dict):
-        har = _har_documents(documents[0])
+        har = _har_responses(documents[0])
         if har is not None:
             return har, "har_json_responses"
-    return documents, "concatenated_json" if len(documents) > 1 else "json"
+    capture_format = "concatenated_json" if len(documents) > 1 else "json"
+    return [CaptureResponse(document=item) for item in documents], capture_format
+
+
+def parse_capture(capture_path: Path) -> tuple[list[Any], str]:
+    responses, capture_format = parse_capture_responses(capture_path)
+    return [response.document for response in responses], capture_format
 
 
 def _walk(value: Any) -> Iterable[dict[str, Any]]:
