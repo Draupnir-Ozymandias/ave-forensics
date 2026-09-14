@@ -48,6 +48,12 @@ def main() -> None:
         type=Path,
         default=project_root / "recommendations" / "recommendation_drift.json",
     )
+    parser.add_argument(
+        "--context-drift",
+        type=Path,
+        default=project_root / "artifacts" / "context" / "context_drift.json",
+        help="Optional provider context-layer comparison artifact.",
+    )
     arguments = parser.parse_args()
     index = json.loads(arguments.corpus_index.read_text())
     clustering = (
@@ -75,6 +81,11 @@ def main() -> None:
         if arguments.recommendation_drift.exists()
         else None
     )
+    context_drift = (
+        json.loads(arguments.context_drift.read_text())
+        if arguments.context_drift.exists()
+        else None
+    )
     data = build_dashboard_data(
         index,
         clustering,
@@ -82,6 +93,7 @@ def main() -> None:
         recommendation_graph,
         recommendation_communities,
         recommendation_drift,
+        context_drift,
     )
     output_path = write_dashboard(data, arguments.output_dir)
     overview = data["overview"]
@@ -96,6 +108,10 @@ def main() -> None:
         print(
             f"Recommendation communities: "
             f"{data['recommendation_community_summary']['community_count']}"
+        )
+    if data["context_drift_summary"]:
+        print(
+            f"Context comparisons: {data['context_drift_summary']['assessed_recording_count']}"
         )
     print(f"Dashboard:         {output_path}")
 

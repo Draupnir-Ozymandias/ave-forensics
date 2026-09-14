@@ -184,6 +184,12 @@
       <article class="panel"><h3>Context association and drift readiness</h3><div class="hint">Sparse local overlaps are exploratory · repeated non-empty captures required for drift</div><div class="alignment-summary" id="recommendation-association"></div><div class="family-representatives" id="recommendation-drift"></div></article>
     </section>
 
+    <div class="section-head"><h2>Provider context drift</h2><span class="section-meta">Exact label overlap · protocol families remain independent evidence</span></div>
+    <section class="alignment-layout">
+      <article class="panel"><h3>Context-layer coverage</h3><div class="hint">Directory, filename, provider taxonomy, and visible capture context remain separate</div><div class="alignment-summary" id="context-drift-summary"></div></article>
+      <article class="panel"><h3>Captured context transitions</h3><div class="hint">Visible session intent → recommended-track activity · unique relationships, not playback order</div><div id="context-transition-list"></div></article>
+    </section>
+
     <div class="section-head"><h2>Speech context</h2><span class="section-meta">Text-free timing and confidence · verbatim transcripts remain private</span></div>
     <section class="charts">
       <article class="panel"><h3>Transcript coverage</h3><div class="hint">Validated transcript sidecars in the filtered corpus</div><div id="transcript-status-chart"></div></article>
@@ -457,6 +463,26 @@
       $('recommendation-drift').textContent = drift ? `${drift.repeated_seed_count} seeds recur across captures; ${drift.assessed_seed_count} currently have two non-empty observations and can support temporal drift measurement. ${drift.within_capture_variant_seed_count} seeds vary within a single capture.` : 'No current drift artifact.';
     }
 
+    function renderContextDrift() {
+      const summary = DATA.context_drift_summary;
+      if (!summary) {
+        $('context-drift-summary').innerHTML = '<div class="empty">Run context_drift.py to compare context layers.</div>';
+        $('context-transition-list').innerHTML = '';
+        return;
+      }
+      const counts = summary.context_status_counts || {};
+      $('context-drift-summary').innerHTML = [
+        [summary.assessed_recording_count, 'Canonical recordings'],
+        [summary.provider_linked_recording_count, 'Provider-linked'],
+        [summary.recommendation_context_recording_count, 'Visible contexts'],
+        [counts.consistent || 0, 'Consistent'],
+        [counts.mixed || 0, 'Mixed'],
+        [counts.divergent || 0, 'Divergent'],
+      ].map(([value, label]) => `<div class="alignment-metric"><strong>${safe(value)}</strong><span>${safe(label)}</span></div>`).join('');
+      const rows = DATA.context_transitions || [];
+      $('context-transition-list').innerHTML = rows.length ? `<table><thead><tr><th>Visible intent</th><th>Recommended activity</th><th>Relationships</th></tr></thead><tbody>${rows.slice(0,10).map(item => `<tr><td>${safe(human(item.visible_session_intent))}</td><td>${safe(human(item.recommended_track_activity))}</td><td class="number">${item.unique_relationship_count}</td></tr>`).join('')}</tbody></table>` : '<div class="empty">No recommendation contexts are currently linked.</div>';
+    }
+
     function renderHypotheses(records) {
       const ranked = ($('hypothesis-mode').value === 'top' ? records : records.flatMap(record => Object.values(record.hypothesis_best_by_band || {}).map(hypothesis => ({...record, hypothesis_band: hypothesis.brainwave_band, hypothesis_ranking_score: hypothesis.ranking_score, hypothesis_difference_hz: hypothesis.difference_hz})))).filter(r => Number.isFinite(r.hypothesis_ranking_score)).sort((a,b) => b.hypothesis_ranking_score - a.hypothesis_ranking_score).slice(0, 8);
       if (!ranked.length) { $('hypothesis-list').innerHTML = '<div class="empty">No hypotheses match these filters.</div>'; return; }
@@ -472,7 +498,7 @@
       const values = [
         ['Corpus path', record.relative_path], ['Duration', duration(record.duration_seconds)], ['Input size', record.input_size_bytes == null ? '—' : `${number(record.input_size_bytes / 1048576, 2)} MiB`],
         ['SHA-256', record.input_sha256], ['Run ID', record.run_id], ['Analysis configuration', record.analysis_configuration_version], ['Evidence objects', record.evidence_count],
-        ['Protocol family', record.protocol_family_label || familyName(record.protocol_family_id)], ['Family ID', record.protocol_family_id], ['Family silhouette', number(record.protocol_family_silhouette, 4)], ['Family signature', record.protocol_family_descriptor], ['Intent alignment status', human(record.intent_alignment_status)], ['Same-intent peer support', percent(record.intent_same_peer_support)], ['Corpus family baseline', percent(record.intent_corpus_baseline)], ['Intent association lift', record.intent_association_lift == null ? '—' : `${number(record.intent_association_lift, 3)}×`], ['Normalized intent alignment', number(record.intent_alignment_score, 4)], ['Recommendation community', record.recommendation_community_id], ['Recommendation in-degree', record.recommendation_in_degree], ['Recommendation out-degree', record.recommendation_out_degree], ['Recommendation list variants', record.recommendation_list_variant_count],
+        ['Protocol family', record.protocol_family_label || familyName(record.protocol_family_id)], ['Family ID', record.protocol_family_id], ['Family silhouette', number(record.protocol_family_silhouette, 4)], ['Family signature', record.protocol_family_descriptor], ['Intent alignment status', human(record.intent_alignment_status)], ['Same-intent peer support', percent(record.intent_same_peer_support)], ['Corpus family baseline', percent(record.intent_corpus_baseline)], ['Intent association lift', record.intent_association_lift == null ? '—' : `${number(record.intent_association_lift, 3)}×`], ['Normalized intent alignment', number(record.intent_alignment_score, 4)], ['Context-layer status', human(record.context_drift_status)], ['Filename activities', (record.context_filename_activities || []).map(human).join(' · ')], ['Provider web activities', (record.context_provider_web_activities || []).map(human).join(' · ')], ['Provider activity tags', (record.context_provider_activity_tags || []).map(human).join(' · ')], ['Visible session intents', (record.context_visible_session_intents || []).map(human).join(' · ')], ['Context overlaps', record.context_overlap_count], ['Context differences', record.context_difference_count], ['Recommendations matching visible context', percent(record.context_within_visible_recommendation_rate)], ['Recommended activity mix', (record.context_recommended_activity_distribution || []).slice(0,6).map(item => `${human(item.activity)} ${item.target_count}`).join(' · ')], ['Recommendation community', record.recommendation_community_id], ['Recommendation in-degree', record.recommendation_in_degree], ['Recommendation out-degree', record.recommendation_out_degree], ['Recommendation list variants', record.recommendation_list_variant_count],
         ['Provider title', record.provider_title], ['Provider mental state', human(record.provider_mental_state)], ['Provider activity', human(record.provider_activity)],
         ['Provider style', human(record.provider_style)], ['Provider moods', (record.provider_moods || []).join(', ') || '—'], ['Provider instruments', (record.provider_instruments || []).join(', ') || '—'],
         ['Provider BPM', number(record.provider_beats_per_minute, 1)], ['Provider NEL', number(record.provider_neural_effect_level, 3)], ['Brightness / complexity', `${number(record.provider_brightness_level, 3)} / ${number(record.provider_complexity_level, 3)}`],
@@ -555,6 +581,7 @@
     $('alignment-quality').textContent = DATA.alignment_status === 'validated' ? 'Association only · not efficacy, causation, or subjective outcome' : 'No current alignment artifact';
     $('recommendation-quality').textContent = DATA.recommendation_status === 'validated' ? 'Captured similar-track edges · not observed playback order or causation' : 'No current recommendation graph';
     renderRecommendations();
+    renderContextDrift();
     $('footer').textContent = `Dashboard schema ${DATA.dashboard_schema_version} · Source index SHA-256 ${DATA.source_index_sha256} · Generated locally with no network dependencies.`;
     render();
   </script>

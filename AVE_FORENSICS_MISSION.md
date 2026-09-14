@@ -292,6 +292,9 @@ The Lumenate work should remain a distinct forensic workstream while publishing 
 - Reference-library comparison dashboard
 - Protocol-family clustering
 - Claimed-intent versus observed-signature scoring
+- Provider recommendation graph and topology-only community discovery
+- Provider context-drift comparison across directory, filename, taxonomy, and
+  captured recommendation layers
 - Light/audio/haptic synchronization analysis
 - Device-protocol ingestion from the Lumenate Nova workstream
 

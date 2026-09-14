@@ -74,6 +74,7 @@ def test_dashboard_deduplicates_comparisons_but_preserves_aliases():
         "provider_metadata_count": 0,
         "transcript_sidecar_count": 0,
         "speech_context_comparison_count": 0,
+        "context_compared_count": 0,
         "analysis_configuration_versions": {},
     }
     assert len(data["recordings"]) == 3
@@ -118,6 +119,8 @@ def test_dashboard_html_is_self_contained_and_deterministic(tmp_path):
     assert 'id="recommendation-top"' in first_text
     assert 'id="recommendation-community-list"' in first_text
     assert 'id="recommendation-drift"' in first_text
+    assert 'id="context-drift-summary"' in first_text
+    assert 'id="context-transition-list"' in first_text
     embedded = first_text.split(
         '<script id="dashboard-data" type="application/json">', 1
     )[1].split("</script>", 1)[0]

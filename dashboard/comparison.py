@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 
-DASHBOARD_SCHEMA_VERSION = "1.7.0"
+DASHBOARD_SCHEMA_VERSION = "1.8.0"
 TEMPLATE_PATH = Path(__file__).with_name("dashboard.html")
 
 
@@ -158,6 +158,15 @@ def _flatten_record(record: dict[str, Any]) -> dict[str, Any]:
         "recommendation_out_degree": None,
         "recommendation_list_variant_count": None,
         "recommendation_community_id": None,
+        "context_drift_status": "not_available",
+        "context_overlap_count": None,
+        "context_difference_count": None,
+        "context_filename_activities": [],
+        "context_provider_activity_tags": [],
+        "context_provider_web_activities": [],
+        "context_visible_session_intents": [],
+        "context_recommended_activity_distribution": [],
+        "context_within_visible_recommendation_rate": None,
     }
 
 
@@ -193,6 +202,7 @@ def build_dashboard_data(
     recommendation_graph: dict[str, Any] | None = None,
     recommendation_communities: dict[str, Any] | None = None,
     recommendation_drift: dict[str, Any] | None = None,
+    context_drift: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     if not isinstance(index.get("recordings"), list):
         raise ValueError("corpus index must contain a recordings list")
@@ -393,6 +403,65 @@ def build_dashboard_data(
             recommendation_drift_summary = recommendation_drift["summary"]
         else:
             recommendation_drift_status = "stale_input_mismatch"
+
+    context_drift_status = "not_available"
+    context_drift_summary = None
+    context_transitions = []
+    if context_drift is not None:
+        from alignment.context_drift import validate_context_drift
+
+        validate_context_drift(context_drift)
+        graph_digest = (
+            hashlib.sha256(
+                json.dumps(
+                    recommendation_graph, sort_keys=True, separators=(",", ":")
+                ).encode()
+            ).hexdigest()
+            if recommendation_graph is not None
+            else None
+        )
+        if (
+            clustering_status == "validated"
+            and recommendation_status == "validated"
+            and context_drift["source_index_sha256"] == index_digest
+            and context_drift["source_clustering_sha256"] == clustering_digest
+            and context_drift["source_recommendation_graph_sha256"] == graph_digest
+        ):
+            context_drift_status = "validated"
+            assessment_lookup = {
+                item["input_sha256"]: item
+                for item in context_drift["recording_assessments"]
+            }
+            for record in records:
+                assessment = assessment_lookup.get(record["input_sha256"])
+                if assessment:
+                    layers = assessment["context_layers"]
+                    recommendation_context = assessment["recommendation_context"]
+                    record["context_drift_status"] = assessment["context_status"]
+                    record["context_overlap_count"] = assessment["overlap_count"]
+                    record["context_difference_count"] = assessment["difference_count"]
+                    record["context_filename_activities"] = layers[
+                        "filename_activity"
+                    ]
+                    record["context_provider_activity_tags"] = layers[
+                        "provider_activity_tags"
+                    ]
+                    record["context_provider_web_activities"] = layers[
+                        "provider_web_activity"
+                    ]
+                    record["context_visible_session_intents"] = layers[
+                        "visible_session_intent"
+                    ]
+                    record["context_recommended_activity_distribution"] = (
+                        recommendation_context["target_activity_distribution"]
+                    )
+                    record["context_within_visible_recommendation_rate"] = (
+                        recommendation_context["within_visible_context_rate"]
+                    )
+            context_drift_summary = context_drift["summary"]
+            context_transitions = context_drift["context_transitions"][:20]
+        else:
+            context_drift_status = "stale_input_mismatch"
     canonical = _canonical_records(records)
     warnings = []
     legacy_count = sum(r["provenance_status"] == "legacy_missing" for r in records)
@@ -463,6 +532,14 @@ def build_dashboard_data(
                 "message": "recommendation communities were built from different graph or corpus inputs and were not displayed",
             }
         )
+    if context_drift_status == "stale_input_mismatch":
+        warnings.append(
+            {
+                "kind": "stale_context_drift",
+                "count": 1,
+                "message": "provider context comparison was built from different corpus, clustering, or recommendation inputs and was not displayed",
+            }
+        )
     if recommendation_drift_status == "validated" and not recommendation_drift_summary[
         "assessed_seed_count"
     ]:
@@ -524,6 +601,11 @@ def build_dashboard_data(
             "speech_context_comparison_count": sum(
                 item["speech_context_comparison_available"] for item in canonical
             ),
+            "context_compared_count": (
+                context_drift_summary["assessed_recording_count"]
+                if context_drift_summary
+                else 0
+            ),
             "analysis_configuration_versions": configuration_counts,
         },
         "facets": {
@@ -575,6 +657,9 @@ def build_dashboard_data(
         "recommendation_context_association": recommendation_context_association,
         "recommendation_drift_status": recommendation_drift_status,
         "recommendation_drift_summary": recommendation_drift_summary,
+        "context_drift_status": context_drift_status,
+        "context_drift_summary": context_drift_summary,
+        "context_transitions": context_transitions,
         "warnings": warnings,
         "recordings": records,
         "comparison_recordings": canonical,

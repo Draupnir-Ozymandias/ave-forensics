@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ave-forensics.local/schemas/context-drift-1.0.0.json",
+  "title": "AVE Provider Context Drift",
+  "type": "object",
+  "required": [
+    "context_drift_schema_version", "method", "source_index_sha256",
+    "source_clustering_sha256", "source_recommendation_graph_sha256",
+    "summary", "context_transitions", "recording_assessments",
+    "excluded_recordings", "interpretation"
+  ],
+  "properties": {
+    "context_drift_schema_version": {"const": "1.0.0"},
+    "source_index_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "source_clustering_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "source_recommendation_graph_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "method": {"type": "object"},
+    "summary": {"type": "object"},
+    "context_transitions": {"type": "array", "items": {"type": "object"}},
+    "recording_assessments": {"type": "array", "items": {"type": "object"}},
+    "excluded_recordings": {"type": "array", "items": {"type": "object"}},
+    "interpretation": {"type": "object"}
+  },
+  "additionalProperties": false
+}

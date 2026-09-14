@@ -192,6 +192,23 @@ context. Repeated-capture drift is scored only when the same seed has non-empty
 recommendation sets in at least two distinct observations. See
 `docs/RECOMMENDATION_COMMUNITIES.md`.
 
+## Compare Provider Context Layers
+
+After rebuilding the corpus index, protocol families, and recommendation graph,
+compare the independently recorded directory claim, filename activity, provider
+activity and tags, visible capture context, recommended-track activity mix, and
+observed protocol-family assignment:
+
+```bash
+.venv/bin/python context_drift.py
+.venv/bin/python dashboard.py
+```
+
+The analyzer uses exact case-and-separator-normalized label overlap and does not
+silently merge neighboring provider concepts. It excludes byte-identical inputs
+with conflicting directory claims and binds its output to all three source
+artifacts by SHA-256. See `docs/CONTEXT_DRIFT.md`.
+
 ## Extract Brain.fm Provider Metadata
 
 Sanitize a raw Brain.fm JSON or HAR capture into one validated provider sidecar per
@@ -213,6 +230,8 @@ tree recursively:
 The extractor matches exact MP3 variation filenames, deduplicates repeated response
 records, rejects conflicts and ambiguous capture basenames, binds outputs to
 recording and capture SHA-256 digests, and omits all provider URLs and tokens.
+Schema 1.1 preserves mobile and web activities separately while continuing to
+validate legacy 1.0 sidecars.
 Batch matching works across differing capture/corpus category depths and reports
 missing or unmatched packages without blocking valid ones. Existing sidecars are
 never replaced unless `--overwrite` is explicit. Raw captures belong under ignored

@@ -47,6 +47,11 @@ duration, genres, subgenres, moods, instruments, creation time, and release stat
 These fields now live in validated `*.provider.json` sidecars. Provider URLs and
 access tokens are deliberately excluded.
 
+Provider sidecar schema 1.1 keeps `mobileActivity` and `webActivity` as separate
+fields because they can differ. The older `taxonomy.activity` field remains a
+compatibility alias for mobile activity. Legacy 1.0 sidecars remain valid and do
+not receive a reconstructed web label.
+
 ## Guided recordings
 
 Guided recordings may be ingested by the existing batch runner. However, speech is

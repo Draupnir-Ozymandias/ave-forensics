@@ -13,8 +13,9 @@ from core.hashing import sha256_file
 from core.media import AUDIO_EXTENSIONS
 
 
-PROVIDER_SIDECAR_SCHEMA_VERSION = "1.0.0"
-EXTRACTOR_VERSION = "1.0.0"
+PROVIDER_SIDECAR_SCHEMA_VERSION = "1.1.0"
+SUPPORTED_PROVIDER_SIDECAR_SCHEMA_VERSIONS = {"1.0.0", "1.1.0"}
+EXTRACTOR_VERSION = "1.1.0"
 SENSITIVE_KEY_PATTERN = re.compile(
     r"(?:token|authorization|cookie|password|secret|session)", re.IGNORECASE
 )
@@ -173,7 +174,8 @@ def _canonical_track_projection(
     track: dict[str, Any], variation: dict[str, Any]
 ) -> dict[str, Any]:
     tags = _tag_map(track)
-    activity = _display_value(track.get("mobileActivity"))
+    mobile_activity = _display_value(track.get("mobileActivity"))
+    web_activity = _display_value(track.get("webActivity"))
     mental_state = _display_value(track.get("mentalState"))
     if mental_state is None:
         mental_state = _display_value(track.get("dynamicMentalState"))
@@ -187,7 +189,9 @@ def _canonical_track_projection(
         },
         "taxonomy": {
             "mental_state": mental_state,
-            "activity": activity,
+            "activity": mobile_activity,
+            "mobile_activity": mobile_activity,
+            "web_activity": web_activity,
             "style": style,
             "genres": tags.get("genre", []),
             "subgenres": tags.get("subgenre", []),
@@ -253,7 +257,8 @@ def validate_provider_sidecar(sidecar: dict[str, Any]) -> None:
         raise ProviderMetadataError(
             f"missing required fields: {', '.join(sorted(missing))}"
         )
-    if sidecar["provider_metadata_schema_version"] != PROVIDER_SIDECAR_SCHEMA_VERSION:
+    schema_version = sidecar["provider_metadata_schema_version"]
+    if schema_version not in SUPPORTED_PROVIDER_SIDECAR_SCHEMA_VERSIONS:
         raise ProviderMetadataError("unsupported provider_metadata_schema_version")
     if sidecar["provider"] != "brain.fm":
         raise ProviderMetadataError("unsupported provider")
@@ -298,6 +303,15 @@ def validate_provider_sidecar(sidecar: dict[str, Any]) -> None:
         value = taxonomy.get(field)
         if value is not None and not isinstance(value, str):
             raise ProviderMetadataError(f"taxonomy.{field} must be text or null")
+    if schema_version == "1.1.0":
+        for field in ("mobile_activity", "web_activity"):
+            value = taxonomy.get(field)
+            if value is not None and not isinstance(value, str):
+                raise ProviderMetadataError(f"taxonomy.{field} must be text or null")
+        if taxonomy.get("activity") != taxonomy.get("mobile_activity"):
+            raise ProviderMetadataError(
+                "taxonomy.activity must remain the mobile_activity compatibility alias"
+            )
     measurements = sidecar["provider_measurements"]
     beats = measurements.get("beats_per_minute")
     if beats is not None and (not isinstance(beats, (int, float)) or beats <= 0):

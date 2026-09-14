@@ -24,6 +24,7 @@ def track(filename: str, *, title: str = "Quiet Mind") -> dict:
         "hasMultipleNELs": True,
         "mentalState": {"displayValue": "Meditate"},
         "mobileActivity": {"displayValue": "Guided"},
+        "webActivity": {"displayValue": "Guided Meditation"},
         "tags": [
             {"type": "mood", "value": "Calm"},
             {"type": "mood", "value": "Serene"},
@@ -75,6 +76,9 @@ def test_extracts_concatenated_capture_and_omits_urls(tmp_path):
     assert sidecar["match"]["unique_canonical_record_count"] == 1
     assert sidecar["provider_track"]["title"] == "Quiet Mind"
     assert sidecar["taxonomy"]["moods"] == ["Calm", "Serene"]
+    assert sidecar["taxonomy"]["activity"] == "Guided"
+    assert sidecar["taxonomy"]["mobile_activity"] == "Guided"
+    assert sidecar["taxonomy"]["web_activity"] == "Guided Meditation"
     assert sidecar["provider_measurements"]["neural_effect_level"] == 0.86
     serialized = json.dumps(sidecar).lower()
     assert "tokenedurl" not in serialized
@@ -180,6 +184,21 @@ def test_validator_rejects_tokenized_content(tmp_path):
         assert "sensitive field" in str(error)
     else:
         raise AssertionError("sensitive provider content was accepted")
+
+
+def test_validator_keeps_legacy_provider_sidecars_compatible(tmp_path):
+    recordings = tmp_path / "recordings"
+    recordings.mkdir()
+    (recordings / "guided.mp3").write_bytes(b"audio")
+    capture = tmp_path / "capture"
+    capture.write_text(json.dumps({"track": track("guided.mp3")}))
+    _, sidecar = extract_brainfm_sidecars(capture, recordings)[0]
+    sidecar["provider_metadata_schema_version"] = "1.0.0"
+    sidecar["extraction_provenance"]["generator_version"] = "1.0.0"
+    sidecar["taxonomy"].pop("mobile_activity")
+    sidecar["taxonomy"].pop("web_activity")
+
+    validate_provider_sidecar(sidecar)
 
 
 def test_batch_pairs_capture_tree_globally_and_preserves_aliases(tmp_path):

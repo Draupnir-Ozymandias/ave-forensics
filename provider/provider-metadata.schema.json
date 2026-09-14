@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://ave-forensics.local/schemas/provider-metadata-1.0.0.json",
+  "$id": "https://ave-forensics.local/schemas/provider-metadata-1.1.0.json",
   "title": "AVE Provider Metadata Sidecar",
   "type": "object",
   "required": [
@@ -9,7 +9,7 @@
     "provider_measurements", "provider_lifecycle", "extraction_provenance"
   ],
   "properties": {
-    "provider_metadata_schema_version": {"const": "1.0.0"},
+    "provider_metadata_schema_version": {"enum": ["1.0.0", "1.1.0"]},
     "provider": {"const": "brain.fm"},
     "recording": {
       "type": "object",
@@ -61,6 +61,8 @@
       "properties": {
         "mental_state": {"type": ["string", "null"]},
         "activity": {"type": ["string", "null"]},
+        "mobile_activity": {"type": ["string", "null"]},
+        "web_activity": {"type": ["string", "null"]},
         "style": {"type": ["string", "null"]},
         "genres": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
         "subgenres": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
@@ -98,11 +100,27 @@
       "required": ["generator", "generator_version", "sensitive_url_policy"],
       "properties": {
         "generator": {"const": "provider.brainfm"},
-        "generator_version": {"const": "1.0.0"},
+        "generator_version": {"enum": ["1.0.0", "1.1.0"]},
         "sensitive_url_policy": {"const": "omit_all_provider_urls_and_tokens"}
       },
       "additionalProperties": false
     }
   },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "provider_metadata_schema_version": {"const": "1.1.0"}
+        }
+      },
+      "then": {
+        "properties": {
+          "taxonomy": {
+            "required": ["mobile_activity", "web_activity"]
+          }
+        }
+      }
+    }
+  ],
   "additionalProperties": false
 }
