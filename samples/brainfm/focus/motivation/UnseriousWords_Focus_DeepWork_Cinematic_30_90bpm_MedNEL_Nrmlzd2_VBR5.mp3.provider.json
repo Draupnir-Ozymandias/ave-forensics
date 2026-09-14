@@ -1,0 +1,99 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2026-06-29T14:32:41.217Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 90,
+    "brightness_level": 0.42,
+    "complexity_level": 0.07,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.56
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "UnseriousWords_Focus_DeepWork_Cinematic_30_90bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Unserious Words",
+    "track_id": "6a42820978a0a113b2ff3f97",
+    "variation_id": "6a42820978a0a113b2ff3f9b"
+  },
+  "recording": {
+    "filename": "UnseriousWords_Focus_DeepWork_Cinematic_30_90bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "80436dfae7fa9ac6884d41771ff0e2e3a74512a224cbadc207a8383d79b3ff6f",
+    "size_bytes": 28772007
+  },
+  "source_capture": {
+    "filename": "motivation-2.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 118,
+    "sha256": "d56950f4b9a3c20a8f0ca1c012a22f8149fbc84620b3d36e60807ae31d38170e"
+  },
+  "taxonomy": {
+    "activity": "Deep Work",
+    "all_provider_tags": {
+      "activity": [
+        "Deep Work"
+      ],
+      "genre": [
+        "Cinematic"
+      ],
+      "instrument": [
+        "Acoustic Piano",
+        "Arp Synth",
+        "Orchestral Percussion",
+        "Orchestral Strings",
+        "Synth Bass",
+        "Synth Pad"
+      ],
+      "mood": [
+        "Epic",
+        "Inspiring",
+        "Optimistic"
+      ],
+      "release": [
+        "June 29 2026"
+      ],
+      "subgenre": [
+        "Orchestral"
+      ]
+    },
+    "genres": [
+      "Cinematic"
+    ],
+    "instruments": [
+      "Acoustic Piano",
+      "Arp Synth",
+      "Orchestral Percussion",
+      "Orchestral Strings",
+      "Synth Bass",
+      "Synth Pad"
+    ],
+    "mental_state": "Focus",
+    "moods": [
+      "Epic",
+      "Inspiring",
+      "Optimistic"
+    ],
+    "release_tags": [
+      "June 29 2026"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Orchestral"
+    ]
+  }
+}

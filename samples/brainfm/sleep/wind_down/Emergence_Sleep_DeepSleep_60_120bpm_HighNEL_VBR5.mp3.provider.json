@@ -1,0 +1,95 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2025-06-16T18:07:38.432Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.01,
+    "complexity_level": 0.11,
+    "declared_duration_seconds": 3600,
+    "neural_effect_level": 0.71
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "Emergence_Sleep_DeepSleep_60_120bpm_HighNEL_VBR5.mp3",
+    "title": "Emergence",
+    "track_id": "68505d6af6a8ec8278221c95",
+    "variation_id": "68505d6af6a8ec8278221c97"
+  },
+  "recording": {
+    "filename": "Emergence_Sleep_DeepSleep_60_120bpm_HighNEL_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "092f8135e3a93d042800652796f5af0b943a49edb03af2094b230e504c2f8d7c",
+    "size_bytes": 36126149
+  },
+  "source_capture": {
+    "filename": "wind_down_20260914.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 70,
+    "sha256": "05f80680cfc06a003700e73788684342908c84178cb7e68254f8b8d20b2d2dc9"
+  },
+  "taxonomy": {
+    "activity": "Deep Sleep",
+    "all_provider_tags": {
+      "activity": [
+        "Deep Sleep"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Synth Pad",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Serene"
+      ],
+      "release": [
+        "June 16 2025"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Synth Pad",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Sleep",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Serene"
+    ],
+    "release_tags": [
+      "June 16 2025"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ]
+  }
+}

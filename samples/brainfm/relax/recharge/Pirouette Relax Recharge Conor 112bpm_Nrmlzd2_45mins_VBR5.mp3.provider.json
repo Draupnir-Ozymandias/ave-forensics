@@ -1,0 +1,115 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T21:19:31.902Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 112,
+    "brightness_level": 0.83,
+    "complexity_level": 0.26,
+    "declared_duration_seconds": 2700,
+    "neural_effect_level": 0.36
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "Pirouette Relax Recharge Conor 112bpm_Nrmlzd2_45mins_VBR5.mp3",
+    "title": "Pirouette",
+    "track_id": "62b387635924115b00f51761",
+    "variation_id": "62b39591592411e143f573ac"
+  },
+  "recording": {
+    "filename": "Pirouette Relax Recharge Conor 112bpm_Nrmlzd2_45mins_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "cba5d2a0e5e71e12ec50bf3bae23fd4bee73a03d4593b082095820df55763e42",
+    "size_bytes": 35522180
+  },
+  "source_capture": {
+    "filename": "recharge_20260914.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 60,
+    "sha256": "b602ee05c1ee0119cf65cb5aff035270164bf91ae48011cc11e7fbb297b1d0b1"
+  },
+  "taxonomy": {
+    "activity": "Recharge",
+    "all_provider_tags": {
+      "activity": [
+        "Recharge"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Arp Synth",
+        "Electronic Percussion",
+        "Mallets",
+        "Organ",
+        "Organic Percussion",
+        "Processed Vocals"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Driving",
+        "Upbeat"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Ambient",
+        "Dance",
+        "Electronica",
+        "House",
+        "Techno",
+        "Trance"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Arp Synth",
+      "Electronic Percussion",
+      "Mallets",
+      "Organ",
+      "Organic Percussion",
+      "Processed Vocals"
+    ],
+    "mental_state": "Relax",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Driving",
+      "Upbeat"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient",
+      "Dance",
+      "Electronica",
+      "House",
+      "Techno",
+      "Trance"
+    ]
+  }
+}

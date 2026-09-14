@@ -1,0 +1,103 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T20:52:22.850Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.06,
+    "complexity_level": 0.64,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.79
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "Daydream Chris Recharge Session 2_1.14_Nrmlzd2_15mins_VBR5.mp3",
+    "title": "Daydream",
+    "track_id": "62b3810659241195c7f4e008",
+    "variation_id": "62b395665924114f01f57288"
+  },
+  "recording": {
+    "filename": "Daydream Chris Recharge Session 2_1.14_Nrmlzd2_15mins_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "6ddeb3f25040f0fa56cf60574827fc1e8e020810cbeb9d240efb06638e8c4c12",
+    "size_bytes": 10502923
+  },
+  "source_capture": {
+    "filename": "recharge_20260914.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 60,
+    "sha256": "b602ee05c1ee0119cf65cb5aff035270164bf91ae48011cc11e7fbb297b1d0b1"
+  },
+  "taxonomy": {
+    "activity": "Recharge",
+    "all_provider_tags": {
+      "activity": [
+        "Recharge"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Acoustic Piano",
+        "Harp",
+        "Orchestral Strings",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Meditative",
+        "Serene"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Acoustic Piano",
+      "Harp",
+      "Orchestral Strings",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Relax",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Meditative",
+      "Serene"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ]
+  }
+}

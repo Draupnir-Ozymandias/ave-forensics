@@ -1,0 +1,99 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-01-11T18:36:55.748Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.46,
+    "complexity_level": 0.26,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.86
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "Io_Relax_Recharge_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Io",
+    "track_id": "65a035476f05fa0008c15a3e",
+    "variation_id": "65a035476f05fa0008c15a40"
+  },
+  "recording": {
+    "filename": "Io_Relax_Recharge_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "a683ee349fd274fb01611a0033991e47a12d8dcb949e8e497b3b9845d8db608c",
+    "size_bytes": 12991716
+  },
+  "source_capture": {
+    "filename": "recharge_20260914.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 60,
+    "sha256": "b602ee05c1ee0119cf65cb5aff035270164bf91ae48011cc11e7fbb297b1d0b1"
+  },
+  "taxonomy": {
+    "activity": "Recharge",
+    "all_provider_tags": {
+      "activity": [
+        "Recharge"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Processed Strings",
+        "Synth Bass",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Epic",
+        "Floating",
+        "Inspiring"
+      ],
+      "release": [
+        "January 15 2024"
+      ],
+      "subgenre": [
+        "Ambient",
+        "Electronica"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Processed Strings",
+      "Synth Bass",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Relax",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Epic",
+      "Floating",
+      "Inspiring"
+    ],
+    "release_tags": [
+      "January 15 2024"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient",
+      "Electronica"
+    ]
+  }
+}

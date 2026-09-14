@@ -1,0 +1,99 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-10-07T13:33:34.725Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 96,
+    "brightness_level": 0.75,
+    "complexity_level": 0.51,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.46
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "WindWhispers_Focus_Creativity_Cinematic_30_96bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Wind Whispers",
+    "track_id": "6703e32ea1f0c0804124fdd6",
+    "variation_id": "6703e32ea1f0c0804124fdda"
+  },
+  "recording": {
+    "filename": "WindWhispers_Focus_Creativity_Cinematic_30_96bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "b2137b1b1b8aba344970d5037b39e14faf6f5f7f37e3774fb8f1d27e9ceb5c4a",
+    "size_bytes": 30064447
+  },
+  "source_capture": {
+    "filename": "motivation-2.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 118,
+    "sha256": "d56950f4b9a3c20a8f0ca1c012a22f8149fbc84620b3d36e60807ae31d38170e"
+  },
+  "taxonomy": {
+    "activity": null,
+    "all_provider_tags": {
+      "activity": [
+        "Creativity"
+      ],
+      "genre": [
+        "Cinematic"
+      ],
+      "instrument": [
+        "Arp Synth",
+        "Electronic Percussion",
+        "Orchestral Percussion",
+        "Orchestral Strings",
+        "Organic Percussion",
+        "Synth Bass"
+      ],
+      "mood": [
+        "Epic",
+        "Inspiring"
+      ],
+      "release": [
+        "October 7 2024"
+      ],
+      "subgenre": [
+        "Electronica",
+        "Orchestral"
+      ]
+    },
+    "genres": [
+      "Cinematic"
+    ],
+    "instruments": [
+      "Arp Synth",
+      "Electronic Percussion",
+      "Orchestral Percussion",
+      "Orchestral Strings",
+      "Organic Percussion",
+      "Synth Bass"
+    ],
+    "mental_state": "Focus",
+    "moods": [
+      "Epic",
+      "Inspiring"
+    ],
+    "release_tags": [
+      "October 7 2024"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Electronica",
+      "Orchestral"
+    ]
+  }
+}

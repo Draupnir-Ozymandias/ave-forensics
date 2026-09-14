@@ -1,0 +1,119 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 3,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T21:32:40.748Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 116,
+    "brightness_level": 0.42,
+    "complexity_level": 0.25,
+    "declared_duration_seconds": 3600,
+    "neural_effect_level": 0.94
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "Line and Symmetry Relax Chill Conor 116bpm 7.73Hz_1.2_Nrmlzd2_60mins_VBR5.mp3",
+    "title": "Line and Symmetry",
+    "track_id": "62b38a78592411cd6df54506",
+    "variation_id": "62b395385924111500f571a4"
+  },
+  "recording": {
+    "filename": "Line and Symmetry Relax Chill Conor 116bpm 7.73Hz_1.2_Nrmlzd2_60mins_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "d857ffa4887a0175a9ff40520bbc1238e3f120055f88ebb2afeadb2f59136614",
+    "size_bytes": 58389718
+  },
+  "source_capture": {
+    "filename": "chill_20260914.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 88,
+    "sha256": "e61817baf819e994f66542863b4ebe04de666c485963109fe0333c146cb12461"
+  },
+  "taxonomy": {
+    "activity": "Chill",
+    "all_provider_tags": {
+      "activity": [
+        "Chill"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Acoustic Guitar",
+        "Acoustic Piano",
+        "Chimes/Bells",
+        "Electric Guitar",
+        "Electronic Percussion",
+        "Ethnic Strings",
+        "Organic Percussion",
+        "Processed Strings"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Downtempo",
+        "Hopeful",
+        "Optimistic",
+        "Upbeat"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Ambient",
+        "Downtempo",
+        "Electronica",
+        "Hip-Hop",
+        "Lo-Fi"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Acoustic Guitar",
+      "Acoustic Piano",
+      "Chimes/Bells",
+      "Electric Guitar",
+      "Electronic Percussion",
+      "Ethnic Strings",
+      "Organic Percussion",
+      "Processed Strings"
+    ],
+    "mental_state": "Relax",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Downtempo",
+      "Hopeful",
+      "Optimistic",
+      "Upbeat"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient",
+      "Downtempo",
+      "Electronica",
+      "Hip-Hop",
+      "Lo-Fi"
+    ]
+  }
+}

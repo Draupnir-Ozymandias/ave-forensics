@@ -1,0 +1,113 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2023-05-25T14:42:08.668Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 110,
+    "brightness_level": 0.58,
+    "complexity_level": 0.98,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.4
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "IndigoChild_Relax_Chill_Electronic_15_110bpm_Nrmlzd2_VBR5.mp3",
+    "title": "Indigo Child",
+    "track_id": "646f73c0c393a7ef0e73df06",
+    "variation_id": "646f73c0c393a746dd73df08"
+  },
+  "recording": {
+    "filename": "IndigoChild_Relax_Chill_Electronic_15_110bpm_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "a2eba54a63b42cb12ac6410cb78c5c0d962f5f36c4c62d2c8a4902f708216443",
+    "size_bytes": 15623025
+  },
+  "source_capture": {
+    "filename": "chill_20260914.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 88,
+    "sha256": "e61817baf819e994f66542863b4ebe04de666c485963109fe0333c146cb12461"
+  },
+  "taxonomy": {
+    "activity": "Chill",
+    "all_provider_tags": {
+      "activity": [
+        "Chill"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Arp Synth",
+        "Electric Keys",
+        "Electronic Percussion",
+        "Mallets",
+        "Processed Vocals",
+        "Synth Bass"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Driving",
+        "Energizing",
+        "Floating",
+        "Hopeful",
+        "Optimistic",
+        "Upbeat"
+      ],
+      "release": [
+        "May 25 2023"
+      ],
+      "subgenre": [
+        "Ambient",
+        "Electronica",
+        "House"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Arp Synth",
+      "Electric Keys",
+      "Electronic Percussion",
+      "Mallets",
+      "Processed Vocals",
+      "Synth Bass"
+    ],
+    "mental_state": "Relax",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Driving",
+      "Energizing",
+      "Floating",
+      "Hopeful",
+      "Optimistic",
+      "Upbeat"
+    ],
+    "release_tags": [
+      "May 25 2023"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient",
+      "Electronica",
+      "House"
+    ]
+  }
+}

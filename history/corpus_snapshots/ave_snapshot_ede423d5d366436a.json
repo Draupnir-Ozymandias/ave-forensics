@@ -1,0 +1,4615 @@
+{
+  "captured_at": "2026-09-14T22:34:32+00:00",
+  "global_intent_association": {
+    "corpus_majority_family_baseline": 0.745614,
+    "cramers_v": 0.337502,
+    "normalized_excess_consistency": 0.0,
+    "normalized_mutual_information": 0.104848,
+    "within_intent_family_consistency": 0.745614
+  },
+  "intent_profiles": [
+    {
+      "assessment_status": "scored",
+      "association_lift": 1.005882,
+      "cohort_size": 8,
+      "corpus_family_baseline": 0.745614,
+      "dominant_family_id": "ave_family_02",
+      "dominant_family_label": "Persistent shared-carrier modulation",
+      "family_consistency": 0.75,
+      "family_distribution": [
+        {
+          "count": 2,
+          "family_id": "ave_family_01",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.25
+        },
+        {
+          "count": 6,
+          "family_id": "ave_family_02",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.75
+        },
+        {
+          "count": 0,
+          "family_id": "ave_family_03",
+          "family_label": "Persistent detuned-carrier modulation",
+          "proportion": 0.0
+        }
+      ],
+      "normalized_excess_consistency": 0.017241,
+      "stated_intent": "chill"
+    },
+    {
+      "assessment_status": "scored",
+      "association_lift": 0.894118,
+      "cohort_size": 9,
+      "corpus_family_baseline": 0.745614,
+      "dominant_family_id": "ave_family_02",
+      "dominant_family_label": "Persistent shared-carrier modulation",
+      "family_consistency": 0.666667,
+      "family_distribution": [
+        {
+          "count": 3,
+          "family_id": "ave_family_01",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.333333
+        },
+        {
+          "count": 6,
+          "family_id": "ave_family_02",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.666667
+        },
+        {
+          "count": 0,
+          "family_id": "ave_family_03",
+          "family_label": "Persistent detuned-carrier modulation",
+          "proportion": 0.0
+        }
+      ],
+      "normalized_excess_consistency": -0.105882,
+      "stated_intent": "creativity"
+    },
+    {
+      "assessment_status": "scored",
+      "association_lift": 1.097326,
+      "cohort_size": 11,
+      "corpus_family_baseline": 0.745614,
+      "dominant_family_id": "ave_family_02",
+      "dominant_family_label": "Persistent shared-carrier modulation",
+      "family_consistency": 0.818182,
+      "family_distribution": [
+        {
+          "count": 0,
+          "family_id": "ave_family_01",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.0
+        },
+        {
+          "count": 9,
+          "family_id": "ave_family_02",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.818182
+        },
+        {
+          "count": 2,
+          "family_id": "ave_family_03",
+          "family_label": "Persistent detuned-carrier modulation",
+          "proportion": 0.181818
+        }
+      ],
+      "normalized_excess_consistency": 0.285266,
+      "stated_intent": "deep_sleep"
+    },
+    {
+      "assessment_status": "scored",
+      "association_lift": 0.825339,
+      "cohort_size": 13,
+      "corpus_family_baseline": 0.745614,
+      "dominant_family_id": "ave_family_02",
+      "dominant_family_label": "Persistent shared-carrier modulation",
+      "family_consistency": 0.615385,
+      "family_distribution": [
+        {
+          "count": 3,
+          "family_id": "ave_family_01",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.230769
+        },
+        {
+          "count": 8,
+          "family_id": "ave_family_02",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.615385
+        },
+        {
+          "count": 2,
+          "family_id": "ave_family_03",
+          "family_label": "Persistent detuned-carrier modulation",
+          "proportion": 0.153846
+        }
+      ],
+      "normalized_excess_consistency": -0.174661,
+      "stated_intent": "deep_work"
+    },
+    {
+      "assessment_status": "scored",
+      "association_lift": 0.804706,
+      "cohort_size": 5,
+      "corpus_family_baseline": 0.745614,
+      "dominant_family_id": "ave_family_02",
+      "dominant_family_label": "Persistent shared-carrier modulation",
+      "family_consistency": 0.6,
+      "family_distribution": [
+        {
+          "count": 0,
+          "family_id": "ave_family_01",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.0
+        },
+        {
+          "count": 3,
+          "family_id": "ave_family_02",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.6
+        },
+        {
+          "count": 2,
+          "family_id": "ave_family_03",
+          "family_label": "Persistent detuned-carrier modulation",
+          "proportion": 0.4
+        }
+      ],
+      "normalized_excess_consistency": -0.195294,
+      "stated_intent": "destress"
+    },
+    {
+      "assessment_status": "scored",
+      "association_lift": 1.207059,
+      "cohort_size": 10,
+      "corpus_family_baseline": 0.745614,
+      "dominant_family_id": "ave_family_02",
+      "dominant_family_label": "Persistent shared-carrier modulation",
+      "family_consistency": 0.9,
+      "family_distribution": [
+        {
+          "count": 0,
+          "family_id": "ave_family_01",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.0
+        },
+        {
+          "count": 9,
+          "family_id": "ave_family_02",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.9
+        },
+        {
+          "count": 1,
+          "family_id": "ave_family_03",
+          "family_label": "Persistent detuned-carrier modulation",
+          "proportion": 0.1
+        }
+      ],
+      "normalized_excess_consistency": 0.606897,
+      "stated_intent": "guided"
+    },
+    {
+      "assessment_status": "scored",
+      "association_lift": 0.894118,
+      "cohort_size": 6,
+      "corpus_family_baseline": 0.745614,
+      "dominant_family_id": "ave_family_02",
+      "dominant_family_label": "Persistent shared-carrier modulation",
+      "family_consistency": 0.666667,
+      "family_distribution": [
+        {
+          "count": 2,
+          "family_id": "ave_family_01",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.333333
+        },
+        {
+          "count": 4,
+          "family_id": "ave_family_02",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.666667
+        },
+        {
+          "count": 0,
+          "family_id": "ave_family_03",
+          "family_label": "Persistent detuned-carrier modulation",
+          "proportion": 0.0
+        }
+      ],
+      "normalized_excess_consistency": -0.105882,
+      "stated_intent": "learning"
+    },
+    {
+      "assessment_status": "scored",
+      "association_lift": 0.894118,
+      "cohort_size": 6,
+      "corpus_family_baseline": 0.745614,
+      "dominant_family_id": "ave_family_02",
+      "dominant_family_label": "Persistent shared-carrier modulation",
+      "family_consistency": 0.666667,
+      "family_distribution": [
+        {
+          "count": 2,
+          "family_id": "ave_family_01",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.333333
+        },
+        {
+          "count": 4,
+          "family_id": "ave_family_02",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.666667
+        },
+        {
+          "count": 0,
+          "family_id": "ave_family_03",
+          "family_label": "Persistent detuned-carrier modulation",
+          "proportion": 0.0
+        }
+      ],
+      "normalized_excess_consistency": -0.105882,
+      "stated_intent": "light_work"
+    },
+    {
+      "assessment_status": "scored",
+      "association_lift": 0.957983,
+      "cohort_size": 7,
+      "corpus_family_baseline": 0.745614,
+      "dominant_family_id": "ave_family_02",
+      "dominant_family_label": "Persistent shared-carrier modulation",
+      "family_consistency": 0.714286,
+      "family_distribution": [
+        {
+          "count": 1,
+          "family_id": "ave_family_01",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.142857
+        },
+        {
+          "count": 5,
+          "family_id": "ave_family_02",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.714286
+        },
+        {
+          "count": 1,
+          "family_id": "ave_family_03",
+          "family_label": "Persistent detuned-carrier modulation",
+          "proportion": 0.142857
+        }
+      ],
+      "normalized_excess_consistency": -0.042017,
+      "stated_intent": "motivation"
+    },
+    {
+      "assessment_status": "scored",
+      "association_lift": 1.117647,
+      "cohort_size": 6,
+      "corpus_family_baseline": 0.745614,
+      "dominant_family_id": "ave_family_02",
+      "dominant_family_label": "Persistent shared-carrier modulation",
+      "family_consistency": 0.833333,
+      "family_distribution": [
+        {
+          "count": 0,
+          "family_id": "ave_family_01",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.0
+        },
+        {
+          "count": 5,
+          "family_id": "ave_family_02",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.833333
+        },
+        {
+          "count": 1,
+          "family_id": "ave_family_03",
+          "family_label": "Persistent detuned-carrier modulation",
+          "proportion": 0.166667
+        }
+      ],
+      "normalized_excess_consistency": 0.344828,
+      "stated_intent": "power_nap"
+    },
+    {
+      "assessment_status": "scored",
+      "association_lift": 0.894118,
+      "cohort_size": 9,
+      "corpus_family_baseline": 0.745614,
+      "dominant_family_id": "ave_family_02",
+      "dominant_family_label": "Persistent shared-carrier modulation",
+      "family_consistency": 0.666667,
+      "family_distribution": [
+        {
+          "count": 1,
+          "family_id": "ave_family_01",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.111111
+        },
+        {
+          "count": 6,
+          "family_id": "ave_family_02",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.666667
+        },
+        {
+          "count": 2,
+          "family_id": "ave_family_03",
+          "family_label": "Persistent detuned-carrier modulation",
+          "proportion": 0.222222
+        }
+      ],
+      "normalized_excess_consistency": -0.105882,
+      "stated_intent": "recharge"
+    },
+    {
+      "assessment_status": "scored",
+      "association_lift": 1.104498,
+      "cohort_size": 17,
+      "corpus_family_baseline": 0.745614,
+      "dominant_family_id": "ave_family_02",
+      "dominant_family_label": "Persistent shared-carrier modulation",
+      "family_consistency": 0.823529,
+      "family_distribution": [
+        {
+          "count": 0,
+          "family_id": "ave_family_01",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.0
+        },
+        {
+          "count": 14,
+          "family_id": "ave_family_02",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.823529
+        },
+        {
+          "count": 3,
+          "family_id": "ave_family_03",
+          "family_label": "Persistent detuned-carrier modulation",
+          "proportion": 0.176471
+        }
+      ],
+      "normalized_excess_consistency": 0.306288,
+      "stated_intent": "unguided"
+    },
+    {
+      "assessment_status": "scored",
+      "association_lift": 1.14958,
+      "cohort_size": 7,
+      "corpus_family_baseline": 0.745614,
+      "dominant_family_id": "ave_family_02",
+      "dominant_family_label": "Persistent shared-carrier modulation",
+      "family_consistency": 0.857143,
+      "family_distribution": [
+        {
+          "count": 0,
+          "family_id": "ave_family_01",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.0
+        },
+        {
+          "count": 6,
+          "family_id": "ave_family_02",
+          "family_label": "Persistent shared-carrier modulation",
+          "proportion": 0.857143
+        },
+        {
+          "count": 1,
+          "family_id": "ave_family_03",
+          "family_label": "Persistent detuned-carrier modulation",
+          "proportion": 0.142857
+        }
+      ],
+      "normalized_excess_consistency": 0.438424,
+      "stated_intent": "wind_down"
+    }
+  ],
+  "method_version": "ave_longitudinal_corpus_1.0.0",
+  "recordings": [
+    {
+      "aliases": [
+        "brainfm/meditate/unguided/Tranquility Unguided Meditation RS 13 Conor_1.4_Nrmlzd2_60mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/meditate/unguided/Tranquility Unguided Meditation RS 13 Conor_1.4_Nrmlzd2_60mins_VBR5.mp3",
+          "stated_intent": "unguided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_03",
+      "family_label": "Persistent detuned-carrier modulation",
+      "family_silhouette_score": 0.466914,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "02c8b970a3c5fadac0f42702ce8beb0a17c484e0cc7548a879493e89a6816e88",
+      "intent_alignment_score": 0.001263,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "unguided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/deep_work/Suspended_Focus_DeepWork_Atmospheric_30_118BPM_Nrmlzd2_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/deep_work/Suspended_Focus_DeepWork_Atmospheric_30_118BPM_Nrmlzd2_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "deep_work"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.339698,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "0464a5143d2f8d445eed3032214ef70709b30571d3b42e35826c4aa69ac20584",
+      "intent_alignment_score": -0.215278,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_work"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/deep_sleep/Drifting Off Sleep Ambient 2 Conor Loop New 3D_1.9_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "batch_summary",
+          "provider_activity": "Deep Sleep",
+          "provider_mental_state": "Sleep",
+          "provider_style": "normal",
+          "relative_path": "brainfm/sleep/deep_sleep/Drifting Off Sleep Ambient 2 Conor Loop New 3D_1.9_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "deep_sleep"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_03",
+      "family_label": "Persistent detuned-carrier modulation",
+      "family_silhouette_score": 0.322828,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "0513c7273a0bf3ee56768993f262664fd3900304ddbf16405c0b599c2401bffb",
+      "intent_alignment_score": -0.192857,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_sleep"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/creativity/AnyOtherOrigin_Focus_Creativity_Cinematic_30_107bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/creativity/AnyOtherOrigin_Focus_Creativity_Cinematic_30_107bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "creativity"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.239743,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "0653968dddb774721449ba896bc22c0428baccc74a4c07ede22a4e466e66c04b",
+      "intent_alignment_score": -0.159226,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "creativity"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/relax/chill/NoNoise_Relax_Chill_Atmospheric_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "relax"
+      ],
+      "contexts": [
+        {
+          "category": "relax",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": "Chill",
+          "provider_mental_state": "Relax",
+          "provider_style": "normal",
+          "relative_path": "brainfm/relax/chill/NoNoise_Relax_Chill_Atmospheric_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "chill"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.398487,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "06774898a85c1f8d4741ac5593e5922a2ccf5b6af966371a55288d05c843794a",
+      "intent_alignment_score": -0.039116,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "chill"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/light_work/ObsidianMirror_Focus_Learning_Drones_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "batch_summary",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/light_work/ObsidianMirror_Focus_Learning_Drones_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "light_work"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.20512,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "06f730b2e4707846f4ccf4054324b9c7e2ac0bfe47d67bec519395c1babfb215",
+      "intent_alignment_score": -0.192857,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "light_work"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/creativity/Vessel_Focus_Creativity_Electronic_30_128BPM_MidNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/creativity/Vessel_Focus_Creativity_Electronic_30_128BPM_MidNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "creativity"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_01",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.195175,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "07687291765e1d9b0261ade21a3d8d165fcc05e76474ec996ea7f3ca448b31e8",
+      "intent_alignment_score": 0.1525,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "creativity"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/deep_sleep/Hypnos_Sleep_DeepSleep_Atmospheric_60_120bpm_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/sleep/deep_sleep/Hypnos_Sleep_DeepSleep_Atmospheric_60_120bpm_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "deep_sleep"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.106892,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "0819d014dd28f2c03c33a83124f1c6c28124c7ac58237ba0672a101faa59f77e",
+      "intent_alignment_score": 0.22069,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_sleep"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/wind_down/Channeling_Sleep_DeepSleep_60_120bpm_HighNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "batch_summary",
+          "provider_activity": "Deep Sleep",
+          "provider_mental_state": "Sleep",
+          "provider_style": "normal",
+          "relative_path": "brainfm/sleep/wind_down/Channeling_Sleep_DeepSleep_60_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "wind_down"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.435477,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "089346551ce4321a6ceb3deaf83fa5f72ae2ee967c5871754c8e235a5d8513c8",
+      "intent_alignment_score": 0.350575,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "wind_down"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/wind_down/Emergence_Sleep_DeepSleep_60_120bpm_HighNEL_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "batch_summary",
+          "provider_activity": "Deep Sleep",
+          "provider_mental_state": "Sleep",
+          "provider_style": "normal",
+          "relative_path": "brainfm/sleep/wind_down/Emergence_Sleep_DeepSleep_60_120bpm_HighNEL_VBR5.mp3",
+          "stated_intent": "wind_down"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.388392,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "092f8135e3a93d042800652796f5af0b943a49edb03af2094b230e504c2f8d7c",
+      "intent_alignment_score": 0.350575,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "wind_down"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/creativity/NorthernLights_Focus_Creativity_Atmospheric_30_100BPM_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/creativity/NorthernLights_Focus_Creativity_Atmospheric_30_100BPM_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "creativity"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_01",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": -0.015597,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "0eb40fe6c5298e312292f4c4fe7cf5863f292818143bbff580dfce1b3aa5b77b",
+      "intent_alignment_score": 0.1525,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "creativity"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/unguided/Low Tide Unguided Meditation Conor_1.2_Nrmlzd2_30mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/meditate/unguided/Low Tide Unguided Meditation Conor_1.2_Nrmlzd2_30mins_VBR5.mp3",
+          "stated_intent": "unguided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.412526,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "1120571e797f2d878b4b4952045f65319c0153b8bcf94864c4f15d90e0940364",
+      "intent_alignment_score": 0.269397,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "unguided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/guided/TheLighthouse_Meditate_GuidedMeditation_Atmospheric_11.5_120bpm_HighNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "batch_summary",
+          "provider_activity": "Guided",
+          "provider_mental_state": "Meditate",
+          "provider_style": "guided",
+          "relative_path": "brainfm/meditate/guided/TheLighthouse_Meditate_GuidedMeditation_Atmospheric_11.5_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "guided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.322168,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "13d21f376026fc0bed25ab5843c0173cea7f4aca7a206905fa4565b8e495a62f",
+      "intent_alignment_score": 0.56705,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "guided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/light_work/Worth_It_Focus_Learning_LoFi_30_86bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "batch_summary",
+          "provider_activity": "Light Work",
+          "provider_mental_state": "Focus",
+          "provider_style": "normal",
+          "relative_path": "brainfm/focus/light_work/Worth_It_Focus_Learning_LoFi_30_86bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "light_work"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_01",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.250051,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "17fcae437275a5eebcb4836e49daf788f8932aa4165d4c7bacbc31ba3f51d0f1",
+      "intent_alignment_score": 0.096,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "light_work"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/unguided/Jericho_Meditate_UnguidedMeditation_Electronic_15_120bpm_LowNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/meditate/unguided/Jericho_Meditate_UnguidedMeditation_Electronic_15_120bpm_LowNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "unguided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.411012,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "17fd3b76dcb885dd8031825da03177b12afab21c21c4f577add4da39381d9f64",
+      "intent_alignment_score": 0.269397,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "unguided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/relax/destress/Free Floating Chris Chill Destress Session 3 LLeads 100bpm_1.1_1_15mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "relax"
+      ],
+      "contexts": [
+        {
+          "category": "relax",
+          "label_source": "batch_summary",
+          "provider_activity": "Destress",
+          "provider_mental_state": "Relax",
+          "provider_style": "normal",
+          "relative_path": "brainfm/relax/destress/Free Floating Chris Chill Destress Session 3 LLeads 100bpm_1.1_1_15mins_VBR5.mp3",
+          "stated_intent": "destress"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_03",
+      "family_label": "Persistent detuned-carrier modulation",
+      "family_silhouette_score": 0.332041,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "19b27365d4e757ba8723543f59ca48ae9d53c142e78e00c8e5fbc4f916dba9eb",
+      "intent_alignment_score": 0.143939,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "destress"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/creativity/Process_Focus_Creativity_Electronic_30_137BPM_Nrmlzd2_MidNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/creativity/Process_Focus_Creativity_Electronic_30_137BPM_Nrmlzd2_MidNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "creativity"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.198118,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "19b626ad0b6c08411b1b1e8d338b01119b370d4f7aa2d4085078177126ef6935",
+      "intent_alignment_score": -0.159226,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "creativity"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/wind_down/Relax-AiryDrones1-Normlzd_15mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "batch_summary",
+          "provider_activity": "Recharge",
+          "provider_mental_state": "Relax",
+          "provider_style": "normal",
+          "relative_path": "brainfm/sleep/wind_down/Relax-AiryDrones1-Normlzd_15mins_VBR5.mp3",
+          "stated_intent": "wind_down"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.346006,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "1ad3e1ae9d7796e56238d138c1660f835bb9326a1a1f2eb91fd7b7728f5b8dbc",
+      "intent_alignment_score": 0.350575,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "wind_down"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/unguided/Daya Simple Unguided Meditation 12 Chris RST2 1_30mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/meditate/unguided/Daya Simple Unguided Meditation 12 Chris RST2 1_30mins_VBR5.mp3",
+          "stated_intent": "unguided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_03",
+      "family_label": "Persistent detuned-carrier modulation",
+      "family_silhouette_score": 0.318382,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "1c092d64da73f144180c9d12c352e7c04466f030944a0895c66994bf08704382",
+      "intent_alignment_score": 0.001263,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "unguided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/deep_work/Quartz Castle Conor HangDrumFocus_NewLeads_1.1 REPLACEREVISE_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "batch_summary",
+          "provider_activity": "Light Work",
+          "provider_mental_state": "Focus",
+          "provider_style": "normal",
+          "relative_path": "brainfm/focus/deep_work/Quartz Castle Conor HangDrumFocus_NewLeads_1.1 REPLACEREVISE_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "deep_work"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.470049,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "1d8dfcf8a1cf51c687082dda8ba4f49d72caa7a989da9cbce4beba14cea2becf",
+      "intent_alignment_score": -0.215278,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_work"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/power_nap/Gently Floating Unguided Meditation RS 10 Conor_1.5_Nrmlzd2_30mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "batch_summary",
+          "provider_activity": null,
+          "provider_mental_state": "Sleep",
+          "provider_style": "normal",
+          "relative_path": "brainfm/sleep/power_nap/Gently Floating Unguided Meditation RS 10 Conor_1.5_Nrmlzd2_30mins_VBR5.mp3",
+          "stated_intent": "power_nap"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.410596,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "1f6194fd09ddf1b1d15b94a2da2f619a7d1a00ad5c31127cecc58ec5af771c76",
+      "intent_alignment_score": 0.22069,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "power_nap"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/deep_work/Disintegrate_Focus_DeepWork_Atmospheric_30_131BPM_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/deep_work/Disintegrate_Focus_DeepWork_Atmospheric_30_131BPM_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "deep_work"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_01",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": -0.071143,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "29be2a965d222bee3c719b1dec4a11b000b4942020964cac545c693f1d71685b",
+      "intent_alignment_score": 0.058333,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_work"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/deep_sleep/Sleep3-Nrmzld_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/sleep/deep_sleep/Sleep3-Nrmzld_VBR5.mp3",
+          "stated_intent": "deep_sleep"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.443251,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "2b09e6a71abca5a2b52b00b1aff54e1d8ce1d98f9f38cd3e4c437cce5d179319",
+      "intent_alignment_score": 0.22069,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_sleep"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/power_nap/Atma Simple Unguided Meditation 4 Chris RSR1 1_30mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "batch_summary",
+          "provider_activity": null,
+          "provider_mental_state": "Sleep",
+          "provider_style": "normal",
+          "relative_path": "brainfm/sleep/power_nap/Atma Simple Unguided Meditation 4 Chris RSR1 1_30mins_VBR5.mp3",
+          "stated_intent": "power_nap"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.356893,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "2cfcf25ec23dec8ee4bb945a7e1b63d51a27f4656300af0f5a62b3438a8a0784",
+      "intent_alignment_score": 0.22069,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "power_nap"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/unguided/Meditation2_60mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/meditate/unguided/Meditation2_60mins_VBR5.mp3",
+          "stated_intent": "unguided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.463083,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "2ec1a463e68f0a199b3cfdf54b596d0a864baab6aa01d0646d7095695253a106",
+      "intent_alignment_score": 0.269397,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "unguided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/motivation/Swirling_Focus_Learning_Electronic_30_111BPM_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "batch_summary",
+          "provider_activity": null,
+          "provider_mental_state": "Focus",
+          "provider_style": "normal",
+          "relative_path": "brainfm/focus/motivation/Swirling_Focus_Learning_Electronic_30_111BPM_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "motivation"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_01",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.241393,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "2f66da986bf03e185f08aef0ba208d500901a33c804dd0e3efeae7ceabf91ce7",
+      "intent_alignment_score": -1.0,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "motivation"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/wind_down/AbundantRegions_Relax_Recharge_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "batch_summary",
+          "provider_activity": "Chill",
+          "provider_mental_state": "Relax",
+          "provider_style": "normal",
+          "relative_path": "brainfm/sleep/wind_down/AbundantRegions_Relax_Recharge_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "wind_down"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.121419,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "39373427c761e37c682d959c4891b72c0c30c750566837ab299a64c590882e19",
+      "intent_alignment_score": 0.350575,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "wind_down"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/relax/destress/OutintheOpen_Relax_Recharge_Atmospheric_15_120bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "relax"
+      ],
+      "contexts": [
+        {
+          "category": "relax",
+          "label_source": "batch_summary",
+          "provider_activity": "Destress",
+          "provider_mental_state": "Relax",
+          "provider_style": "normal",
+          "relative_path": "brainfm/relax/destress/OutintheOpen_Relax_Recharge_Atmospheric_15_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "destress"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.439407,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "3be15a73df12424a2b4abf970ec8f3914870bb5fe03cf307ee910f6d134dfe90",
+      "intent_alignment_score": -0.327381,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "destress"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/learning/IntoTheHallsOfDance_Focus_Learning_Electronic_30_138BPM_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/learning/IntoTheHallsOfDance_Focus_Learning_Electronic_30_138BPM_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "learning"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.287409,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "3ceac2d0ea3f7f679a4bd4110878b83c93e38373be2aadae0e51482cac661eb6",
+      "intent_alignment_score": -0.192857,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "learning"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/learning/Ultraviolets_Focus_Learning_LoFi_30_86bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/learning/Ultraviolets_Focus_Learning_LoFi_30_86bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "learning"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.386156,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "3f4c5ed17eee4e3d310f3d1092bafb817a0fdaee8a921df4d6ed3a274ab76b63",
+      "intent_alignment_score": -0.192857,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "learning"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/relax/destress/PatientMatrix_Relax_Recharge_Electronic_15_120bpm_LowNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "relax"
+      ],
+      "contexts": [
+        {
+          "category": "relax",
+          "label_source": "batch_summary",
+          "provider_activity": "Destress",
+          "provider_mental_state": "Relax",
+          "provider_style": "normal",
+          "relative_path": "brainfm/relax/destress/PatientMatrix_Relax_Recharge_Electronic_15_120bpm_LowNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "destress"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.29689,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "472db2e5294439a0fcffe34d7e52754f2306e52341792435f4dbf5bdae733acf",
+      "intent_alignment_score": -0.327381,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "destress"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/guided/Guided Meditation Denise 4 Conor 15min_1.6_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": "Guided",
+          "provider_mental_state": "Meditate",
+          "provider_style": "guided",
+          "relative_path": "brainfm/meditate/guided/Guided Meditation Denise 4 Conor 15min_1.6_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "guided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.38728,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "476285f96eeb9cfd2d408445d54577075d1a6efa740bb134cf7b4d827066731c",
+      "intent_alignment_score": 0.56705,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "guided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/deep_sleep/Hibernation_Sleep_DeepSleep_Atmospheric_60_120bpm_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/sleep/deep_sleep/Hibernation_Sleep_DeepSleep_Atmospheric_60_120bpm_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "deep_sleep"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.426249,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "47fefbe9ddacdf3fd2f7e7f20a082e5ba46d10a98425456898de6cedd0fd259a",
+      "intent_alignment_score": 0.22069,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_sleep"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/deep_work/Bardo_Focus_Creativity_Atmospheric_30_72BPM_Nrmlzd2_MidNEL_Nrmlzd2_VBR5.mp3",
+        "brainfm/focus/light_work/Bardo_Focus_Creativity_Atmospheric_30_72BPM_Nrmlzd2_MidNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "batch_summary",
+          "provider_activity": "Light Work",
+          "provider_mental_state": "Focus",
+          "provider_style": "normal",
+          "relative_path": "brainfm/focus/deep_work/Bardo_Focus_Creativity_Atmospheric_30_72BPM_Nrmlzd2_MidNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "deep_work"
+        },
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": "Light Work",
+          "provider_mental_state": "Focus",
+          "provider_style": "normal",
+          "relative_path": "brainfm/focus/light_work/Bardo_Focus_Creativity_Atmospheric_30_72BPM_Nrmlzd2_MidNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "light_work"
+        }
+      ],
+      "cross_context_reuse": true,
+      "family_id": "ave_family_01",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.171047,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "4e32072816c098ae0544ecfc82ed1e87e3cc835f7bc44ae91d74e47c98aec775",
+      "intent_alignment_score": null,
+      "intent_alignment_status": "not_available",
+      "stated_intents": [
+        "deep_work",
+        "light_work"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/guided/ZenGarden_Relax_GuidedMeditation_120bpm_15_HighNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": "Guided",
+          "provider_mental_state": "Meditate",
+          "provider_style": "guided",
+          "relative_path": "brainfm/meditate/guided/ZenGarden_Relax_GuidedMeditation_120bpm_15_HighNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "guided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.435703,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "4f3a84a12df282ad5a54d4f58dfc9367e4a5c7cf4fc3db58f1da946cd0a31770",
+      "intent_alignment_score": 0.56705,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "guided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/light_work/FocusHouse2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "batch_summary",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/light_work/FocusHouse2_VBR5.mp3",
+          "stated_intent": "light_work"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.244917,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "50d39263b3fac66dbd1f2b00325ab0d85d924ecff3e4e4d48203641a4a3f2175",
+      "intent_alignment_score": -0.192857,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "light_work"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/creativity/StarHopping_Focus_Creativity_Lofi_30_90BPM_MediumNELNrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/creativity/StarHopping_Focus_Creativity_Lofi_30_90BPM_MediumNELNrmlzd2_VBR5.mp3",
+          "stated_intent": "creativity"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.235489,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "51e91e678c429b29498e532a476a62861a1e6225bb0af4664404a927ed949687",
+      "intent_alignment_score": -0.159226,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "creativity"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/power_nap/Astral Bodies Simple Unguided Meditation 10 Chris RSF2 1_30mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "batch_summary",
+          "provider_activity": null,
+          "provider_mental_state": "Sleep",
+          "provider_style": "normal",
+          "relative_path": "brainfm/sleep/power_nap/Astral Bodies Simple Unguided Meditation 10 Chris RSF2 1_30mins_VBR5.mp3",
+          "stated_intent": "power_nap"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.377984,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "533be8272c626948a3f9320ca558740b94ab58ff61fdf93fcfbda0be0eda8009",
+      "intent_alignment_score": 0.22069,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "power_nap"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/guided/InnerSilence_Meditate_GuidedMeditation_Atmospheric_15_120bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": "Guided",
+          "provider_mental_state": "Meditate",
+          "provider_style": "guided",
+          "relative_path": "brainfm/meditate/guided/InnerSilence_Meditate_GuidedMeditation_Atmospheric_15_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "guided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.457287,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "556d97e4bbb977ff65f288ae60dcc6578c59f5ce0db004a21d92db7d29a163ed",
+      "intent_alignment_score": 0.56705,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "guided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/creativity/OnlyScribbles_Focus_Creativity_LoFi_30_80bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/creativity/OnlyScribbles_Focus_Creativity_LoFi_30_80bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "creativity"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.135963,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "5740fd5c26a95e4f8f5a323bbd92017c568465e56313660812852a2e0133aec6",
+      "intent_alignment_score": -0.159226,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "creativity"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/guided/DiaphragmaticBreathing_GuidedMeditation_120bpm_15_HighNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": "Guided",
+          "provider_mental_state": "Meditate",
+          "provider_style": "guided",
+          "relative_path": "brainfm/meditate/guided/DiaphragmaticBreathing_GuidedMeditation_120bpm_15_HighNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "guided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.354229,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "57b10f68ba0f79f9b1af4e4cbd910f22fff3a8b950585171512cc83786a75485",
+      "intent_alignment_score": 0.56705,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "guided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/deep_work/Undercurrents_Focus_DeepWork_Atmospheric_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/deep_work/Undercurrents_Focus_DeepWork_Atmospheric_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "deep_work"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_03",
+      "family_label": "Persistent detuned-carrier modulation",
+      "family_silhouette_score": 0.401082,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "58fb8b583467182c75596da575c9502a993dfe23d125d9e016cf433935485685",
+      "intent_alignment_score": -0.327381,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_work"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/power_nap/Prana Simple Unguided Meditation 14 Chris RST4 1_30mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "batch_summary",
+          "provider_activity": null,
+          "provider_mental_state": "Sleep",
+          "provider_style": "normal",
+          "relative_path": "brainfm/sleep/power_nap/Prana Simple Unguided Meditation 14 Chris RST4 1_30mins_VBR5.mp3",
+          "stated_intent": "power_nap"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.35784,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "59777d08908048e31f5e5f08fc6529a13092c48746e56c1d6ca0c2619fb264d1",
+      "intent_alignment_score": 0.22069,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "power_nap"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/unguided/Avalon_Meditate_UnguidedMeditation_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/meditate/unguided/Avalon_Meditate_UnguidedMeditation_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "unguided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.304737,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "5ebf95a90fe9f7310ecb09879a6c85de47b3bdad3700f9efc27ba26b6a6c7aae",
+      "intent_alignment_score": 0.269397,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "unguided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/deep_work/Multiverse_Focus_DeepWork_Atmospheric_30_120bpm_MedNEL_Nrmlzd2_expanded_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/deep_work/Multiverse_Focus_DeepWork_Atmospheric_30_120bpm_MedNEL_Nrmlzd2_expanded_VBR5.mp3",
+          "stated_intent": "deep_work"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": null,
+      "family_label": null,
+      "family_silhouette_score": null,
+      "index_statuses": [
+        "deferred"
+      ],
+      "input_sha256": "5f2141aa591f1dbebac2908e437a9517ace137d5459d5c459293bf42355f2fb1",
+      "intent_alignment_score": null,
+      "intent_alignment_status": "not_available",
+      "stated_intents": [
+        "deep_work"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/motivation/Apex Amplitude Chris Electronic Session12_1.6_Nrmlzd2 1_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": "Deep Work",
+          "provider_mental_state": "Focus",
+          "provider_style": "normal",
+          "relative_path": "brainfm/focus/motivation/Apex Amplitude Chris Electronic Session12_1.6_Nrmlzd2 1_VBR5.mp3",
+          "stated_intent": "motivation"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.234967,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "609add9dc0e91b49c67f6950b10357e264b93350f6539f36d9ce1eca3b05597a",
+      "intent_alignment_score": -0.103175,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "motivation"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/deep_work/PureSky_Focus_DeepWork_Electronic_30_95BPM_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/deep_work/PureSky_Focus_DeepWork_Electronic_30_95BPM_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "deep_work"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.329619,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "612008e0d1b3ef72c90afb6db9977807ef110dc48bf6779149326d28b161c930",
+      "intent_alignment_score": -0.215278,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_work"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/learning/Focus2Session1_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/learning/Focus2Session1_VBR5.mp3",
+          "stated_intent": "learning"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.098047,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "63ecba63d41147ff34cf5b701320a8f25c7c3e42ad24dd66198ac1f063a94bd3",
+      "intent_alignment_score": -0.192857,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "learning"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/relax/recharge/SpeedofLight_Relax_Recharge_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "relax"
+      ],
+      "contexts": [
+        {
+          "category": "relax",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/relax/recharge/SpeedofLight_Relax_Recharge_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "recharge"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.396625,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "64915f78223cf42bf1c0ef18b8f12cdb2d405e989ea74df2adbb86d168c02a2c",
+      "intent_alignment_score": -0.159226,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "recharge"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/motivation/Atmospheric_2_1.4_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": "Deep Work",
+          "provider_mental_state": "Focus",
+          "provider_style": "normal",
+          "relative_path": "brainfm/focus/motivation/Atmospheric_2_1.4_VBR5.mp3",
+          "stated_intent": "motivation"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.37545,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "64a3d908580593929c0688242d91e5109913ca2119aabf5dd34864682852d3e7",
+      "intent_alignment_score": -0.103175,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "motivation"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/unguided/InteriorSilence_Meditate_UnguidedMeditation_Electronic_15_120bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/meditate/unguided/InteriorSilence_Meditate_UnguidedMeditation_Electronic_15_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "unguided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": -0.09692,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "67cc33076cdd81b3855c387cdabedd249b15ae7f242eec51e3a3c8a0b3e61213",
+      "intent_alignment_score": 0.269397,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "unguided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/guided/Loving-Kindness Guided Meditation Catherine_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": "Guided",
+          "provider_mental_state": "Meditate",
+          "provider_style": "guided",
+          "relative_path": "brainfm/meditate/guided/Loving-Kindness Guided Meditation Catherine_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "guided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.441802,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "68f436fdf584802f93ab0413881d041ee7f0d3fbc2470d6d6a5e6c0953ce6abd",
+      "intent_alignment_score": 0.56705,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "guided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/relax/chill/NoblePursuit_Relax_Chill_Atmospheric_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "relax"
+      ],
+      "contexts": [
+        {
+          "category": "relax",
+          "label_source": "batch_summary",
+          "provider_activity": "Chill",
+          "provider_mental_state": "Relax",
+          "provider_style": "normal",
+          "relative_path": "brainfm/relax/chill/NoblePursuit_Relax_Chill_Atmospheric_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "chill"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.110499,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "6bb686e0af27004253a95d1b0270d26a62d6f4facdb34c08860e0b3d891bb4cc",
+      "intent_alignment_score": -0.039116,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "chill"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/relax/recharge/Daydream Chris Recharge Session 2_1.14_Nrmlzd2_15mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "relax"
+      ],
+      "contexts": [
+        {
+          "category": "relax",
+          "label_source": "batch_summary",
+          "provider_activity": "Recharge",
+          "provider_mental_state": "Relax",
+          "provider_style": "normal",
+          "relative_path": "brainfm/relax/recharge/Daydream Chris Recharge Session 2_1.14_Nrmlzd2_15mins_VBR5.mp3",
+          "stated_intent": "recharge"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.346632,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "6ddeb3f25040f0fa56cf60574827fc1e8e020810cbeb9d240efb06638e8c4c12",
+      "intent_alignment_score": -0.159226,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "recharge"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/motivation/LunarRays_Focus_Learning_Cinematic_30_105BPM_MediumNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "batch_summary",
+          "provider_activity": null,
+          "provider_mental_state": "Focus",
+          "provider_style": "normal",
+          "relative_path": "brainfm/focus/motivation/LunarRays_Focus_Learning_Cinematic_30_105BPM_MediumNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "motivation"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.351937,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "6e428252ac0404b49b857b3b0232aa4432dd7f53048a7bc42db2a9813e560e8d",
+      "intent_alignment_score": -0.103175,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "motivation"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/relax/destress/NapTemplate3.1-Nrmzld_45mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "relax"
+      ],
+      "contexts": [
+        {
+          "category": "relax",
+          "label_source": "batch_summary",
+          "provider_activity": "Destress",
+          "provider_mental_state": "Relax",
+          "provider_style": "normal",
+          "relative_path": "brainfm/relax/destress/NapTemplate3.1-Nrmzld_45mins_VBR5.mp3",
+          "stated_intent": "destress"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.440731,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "6ea2e7c1107450897a9f9494293fac12fbd45eb6306c561ab1b189377eed1f81",
+      "intent_alignment_score": -0.327381,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "destress"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/unguided/Altered_State_Unguided_Meditation_Session_4_1.2_Nrmlzd2 1_15mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/meditate/unguided/Altered_State_Unguided_Meditation_Session_4_1.2_Nrmlzd2 1_15mins_VBR5.mp3",
+          "stated_intent": "unguided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.434609,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "717bb27727c405b1393399d2c4d9edc26bd6e3f36ee4e0eae243ceeeced7abe5",
+      "intent_alignment_score": 0.269397,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "unguided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/deep_work/FOCUS-VideoGame-THEME-1....7_AFTERFEEDBACK_Nrmlzd_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "batch_summary",
+          "provider_activity": "Deep Work",
+          "provider_mental_state": "Focus",
+          "provider_style": "normal",
+          "relative_path": "brainfm/focus/deep_work/FOCUS-VideoGame-THEME-1....7_AFTERFEEDBACK_Nrmlzd_VBR5.mp3",
+          "stated_intent": "deep_work"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_01",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.255802,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "77d1455e89db2159d7217d4ee96a76b2a28897b8fbb5135216cf62a00f8525ad",
+      "intent_alignment_score": 0.058333,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_work"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/relax/recharge/Star Formation Relax Recharge Conor 112bpm_1.5_Nrmlzd2_30mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "relax"
+      ],
+      "contexts": [
+        {
+          "category": "relax",
+          "label_source": "batch_summary",
+          "provider_activity": "Recharge",
+          "provider_mental_state": "Relax",
+          "provider_style": "normal",
+          "relative_path": "brainfm/relax/recharge/Star Formation Relax Recharge Conor 112bpm_1.5_Nrmlzd2_30mins_VBR5.mp3",
+          "stated_intent": "recharge"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.456604,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "79e163e394d2703d74ff5508d0ce9f52b892ce3140806a570b3e4d9c31d45e61",
+      "intent_alignment_score": -0.159226,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "recharge"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/relax/chill/Behold_Relax_Recharge_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "relax"
+      ],
+      "contexts": [
+        {
+          "category": "relax",
+          "label_source": "batch_summary",
+          "provider_activity": "Chill",
+          "provider_mental_state": "Relax",
+          "provider_style": "normal",
+          "relative_path": "brainfm/relax/chill/Behold_Relax_Recharge_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "chill"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": -0.094102,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "7bbd3ac2e02dfa5455819a86b16f0047a38b1f3fc58573f572fc443ccd0b73e1",
+      "intent_alignment_score": -0.039116,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "chill"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/wind_down/LotusBlossom_Relax_Recharge_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "batch_summary",
+          "provider_activity": "Recharge",
+          "provider_mental_state": "Relax",
+          "provider_style": "normal",
+          "relative_path": "brainfm/sleep/wind_down/LotusBlossom_Relax_Recharge_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "wind_down"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_03",
+      "family_label": "Persistent detuned-carrier modulation",
+      "family_silhouette_score": 0.441599,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "7fd72867ea3531594af0f8cf52c57ace0578acdf87bbf8e8f7e4c727ab821a86",
+      "intent_alignment_score": -1.0,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "wind_down"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/motivation/UnseriousWords_Focus_DeepWork_Cinematic_30_90bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "batch_summary",
+          "provider_activity": "Deep Work",
+          "provider_mental_state": "Focus",
+          "provider_style": "normal",
+          "relative_path": "brainfm/focus/motivation/UnseriousWords_Focus_DeepWork_Cinematic_30_90bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "motivation"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_03",
+      "family_label": "Persistent detuned-carrier modulation",
+      "family_silhouette_score": 0.293622,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "80436dfae7fa9ac6884d41771ff0e2e3a74512a224cbadc207a8383d79b3ff6f",
+      "intent_alignment_score": -1.0,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "motivation"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/relax/recharge/Space Travel Chris Recharge Session 3_1.5_Nrmlzd2_60mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "relax"
+      ],
+      "contexts": [
+        {
+          "category": "relax",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/relax/recharge/Space Travel Chris Recharge Session 3_1.5_Nrmlzd2_60mins_VBR5.mp3",
+          "stated_intent": "recharge"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_03",
+      "family_label": "Persistent detuned-carrier modulation",
+      "family_silhouette_score": 0.454496,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "81d5d623d1b9a9f48699eb56d998b7e6cf23a5f3df9e95a6980b518fd6b2c9f0",
+      "intent_alignment_score": 0.001263,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "recharge"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/wind_down/Apogee_Sleep_DeepSleep_Atmospheric_60_120bpm_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "batch_summary",
+          "provider_activity": "Deep Sleep",
+          "provider_mental_state": "Sleep",
+          "provider_style": "normal",
+          "relative_path": "brainfm/sleep/wind_down/Apogee_Sleep_DeepSleep_Atmospheric_60_120bpm_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "wind_down"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.435473,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "84cc951647be86c14c4f2de49d7fb4922610768ddaea47580c4ca1051988cf8e",
+      "intent_alignment_score": 0.350575,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "wind_down"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/power_nap/SilentEmbrace_Sleep_Powernap_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/sleep/power_nap/SilentEmbrace_Sleep_Powernap_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "power_nap"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": -0.097037,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "8514d990f6f394da0872190e7d9fca0c2e6837a1d68f2185b3fe682442fe3ea5",
+      "intent_alignment_score": 0.22069,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "power_nap"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/motivation/SmokeMachine_Focus_DeepWork_Electronic_30_130BPM_MidNELNrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "batch_summary",
+          "provider_activity": "Deep Work",
+          "provider_mental_state": "Focus",
+          "provider_style": "normal",
+          "relative_path": "brainfm/focus/motivation/SmokeMachine_Focus_DeepWork_Electronic_30_130BPM_MidNELNrmlzd2_VBR5.mp3",
+          "stated_intent": "motivation"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": -0.049049,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "8849ceda19484fa63dcc4962cd4af682ebe3da48c5df857a4aef2c3203860cb4",
+      "intent_alignment_score": -0.103175,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "motivation"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/deep_sleep/BetweenDimensions_Sleep_DeepSleep_60_120bpm_HighNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/sleep/deep_sleep/BetweenDimensions_Sleep_DeepSleep_60_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "deep_sleep"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": -0.163383,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "8934e6ceb2b85d578a1fd00cf2fd100d138d3628faae77dddbf6350cb7091fe0",
+      "intent_alignment_score": 0.22069,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_sleep"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/unguided/CauseandEffect_Meditate_UnguidedMeditation_Electronic_15_120bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "batch_summary",
+          "provider_activity": "Unguided",
+          "provider_mental_state": "Meditate",
+          "provider_style": "normal",
+          "relative_path": "brainfm/meditate/unguided/CauseandEffect_Meditate_UnguidedMeditation_Electronic_15_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "unguided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.161022,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "89e30c2988bc4878bcaa57c7fd3f6725a138874aa2480b999a8bd2344283a987",
+      "intent_alignment_score": 0.269397,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "unguided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/creativity/VerveandVigor_Focus_Creativity_Electronic_30_116BPM_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/creativity/VerveandVigor_Focus_Creativity_Electronic_30_116BPM_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "creativity"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_01",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.310571,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "8c3fbd2b62cdba8861ccf8e44ec91ca03fa91352ceb04a4922536f82c7125ebd",
+      "intent_alignment_score": 0.1525,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "creativity"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/deep_sleep/Phantasmagoria Unguided Meditation RS 4 Conor_1.5_Nrmlzd2_30mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "batch_summary",
+          "provider_activity": null,
+          "provider_mental_state": "Sleep",
+          "provider_style": "normal",
+          "relative_path": "brainfm/sleep/deep_sleep/Phantasmagoria Unguided Meditation RS 4 Conor_1.5_Nrmlzd2_30mins_VBR5.mp3",
+          "stated_intent": "deep_sleep"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_03",
+      "family_label": "Persistent detuned-carrier modulation",
+      "family_silhouette_score": 0.420837,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "8c601f32ff1aa65242c09ece34b17b4acddef142279d4787ed23a17f7162e8d5",
+      "intent_alignment_score": -0.192857,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_sleep"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/deep_sleep/Sleep5.0_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/sleep/deep_sleep/Sleep5.0_VBR5.mp3",
+          "stated_intent": "deep_sleep"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.435591,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "8da832201c05c8cfbadf03469d06908cec35b28ca45b84cd4e7ccc3ff4deb4c0",
+      "intent_alignment_score": 0.22069,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_sleep"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/unguided/First Contact Unguided Meditation Conor_1.8_Nrmlzd2_15mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "batch_summary",
+          "provider_activity": "Unguided",
+          "provider_mental_state": "Meditate",
+          "provider_style": "normal",
+          "relative_path": "brainfm/meditate/unguided/First Contact Unguided Meditation Conor_1.8_Nrmlzd2_15mins_VBR5.mp3",
+          "stated_intent": "unguided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.29689,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "909521e3b250cd4fd6b43cef3217f10c857a677f25086dae5d86b1934decc14d",
+      "intent_alignment_score": 0.269397,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "unguided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/deep_sleep/LucidDreams_Sleep_DeepSleep_Atmospheric_60_120bpm_Nrmlzd2_VBR5.mp3",
+        "brainfm/sleep/wind_down/LucidDreams_Sleep_DeepSleep_Atmospheric_60_120bpm_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": "Deep Sleep",
+          "provider_mental_state": "Sleep",
+          "provider_style": "normal",
+          "relative_path": "brainfm/sleep/deep_sleep/LucidDreams_Sleep_DeepSleep_Atmospheric_60_120bpm_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "deep_sleep"
+        },
+        {
+          "category": "sleep",
+          "label_source": "batch_summary",
+          "provider_activity": "Deep Sleep",
+          "provider_mental_state": "Sleep",
+          "provider_style": "normal",
+          "relative_path": "brainfm/sleep/wind_down/LucidDreams_Sleep_DeepSleep_Atmospheric_60_120bpm_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "wind_down"
+        }
+      ],
+      "cross_context_reuse": true,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.414293,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "92868f1409ea9f30cac58b955f86fffa534ae105ed2aee0c5953ecb7d7579409",
+      "intent_alignment_score": null,
+      "intent_alignment_status": "not_available",
+      "stated_intents": [
+        "deep_sleep",
+        "wind_down"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/deep_sleep/AstralClouds_Sleep_DeepSleep_Atmospheric_60_120bpm_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "batch_summary",
+          "provider_activity": "Deep Sleep",
+          "provider_mental_state": "Sleep",
+          "provider_style": "normal",
+          "relative_path": "brainfm/sleep/deep_sleep/AstralClouds_Sleep_DeepSleep_Atmospheric_60_120bpm_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "deep_sleep"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.261813,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "931e6a3ff595a92550af53cd8aaa68564d633ff318ec7aaf6de5d82195228864",
+      "intent_alignment_score": 0.22069,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_sleep"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/deep_work/Cognition_Focus_DeepWork_Electronic_30_118BPM_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/deep_work/Cognition_Focus_DeepWork_Electronic_30_118BPM_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "deep_work"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_01",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": -0.027751,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "93df3a505f090281f4e6cff08d5ca05a139445649cb844fe385a3328fa780d10",
+      "intent_alignment_score": 0.058333,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_work"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/unguided/Theosis_Meditate_UnguidedMeditation_Atmospheric_15_120bpm_LowNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/meditate/unguided/Theosis_Meditate_UnguidedMeditation_Atmospheric_15_120bpm_LowNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "unguided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.163426,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "95145fc49dcd4f111ebe54cfe1982b61bd6a79373dfcf180c295706fd8df42c6",
+      "intent_alignment_score": 0.269397,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "unguided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/deep_work/Catskills_Focus_Learning_Acoustic_30_105bpm_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "batch_summary",
+          "provider_activity": "Study & Read",
+          "provider_mental_state": "Focus",
+          "provider_style": "normal",
+          "relative_path": "brainfm/focus/deep_work/Catskills_Focus_Learning_Acoustic_30_105bpm_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "deep_work"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.154268,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "981765797d57bcc2aff57485e7c9cd0b9008e1cd635597985684a81c3513bded",
+      "intent_alignment_score": -0.215278,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_work"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/unguided/Celestial Wanderings Unguided Meditation Conor_1.9_Nrmlzd2_60mins_VBR5.mp3",
+        "brainfm/meditate/unguided/Celestial_Wanderings_Unguided_Meditation_60mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": "Unguided",
+          "provider_mental_state": "Meditate",
+          "provider_style": "normal",
+          "relative_path": "brainfm/meditate/unguided/Celestial Wanderings Unguided Meditation Conor_1.9_Nrmlzd2_60mins_VBR5.mp3",
+          "stated_intent": "unguided"
+        },
+        {
+          "category": "meditate",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/meditate/unguided/Celestial_Wanderings_Unguided_Meditation_60mins_VBR5.mp3",
+          "stated_intent": "unguided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.3866,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "99ea678cc85d322512bedaf48b5ec73b93e3eb7efb7171247cd189b5068ba1c1",
+      "intent_alignment_score": 0.269397,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "unguided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/light_work/MinorMoods_Focus_Learning_Electronic_30_114BPM_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "batch_summary",
+          "provider_activity": "Light Work",
+          "provider_mental_state": "Focus",
+          "provider_style": "normal",
+          "relative_path": "brainfm/focus/light_work/MinorMoods_Focus_Learning_Electronic_30_114BPM_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "light_work"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_01",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.328085,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "a11d19a7a7116ce91d09696bbc1e65490f8e0bbf6f4d5e2f39c190b100395dfe",
+      "intent_alignment_score": 0.096,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "light_work"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/wind_down/ChorusSpace_Sleep_PowerNap_Atmospheric_60_120bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "batch_summary",
+          "provider_activity": "Deep Sleep",
+          "provider_mental_state": "Sleep",
+          "provider_style": "normal",
+          "relative_path": "brainfm/sleep/wind_down/ChorusSpace_Sleep_PowerNap_Atmospheric_60_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "wind_down"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.369489,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "a183b4833fea43ce7891a8537e321291f0014283c081834a8fcfd94372276efb",
+      "intent_alignment_score": 0.350575,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "wind_down"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/relax/chill/IndigoChild_Relax_Chill_Electronic_15_110bpm_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "relax"
+      ],
+      "contexts": [
+        {
+          "category": "relax",
+          "label_source": "batch_summary",
+          "provider_activity": "Chill",
+          "provider_mental_state": "Relax",
+          "provider_style": "normal",
+          "relative_path": "brainfm/relax/chill/IndigoChild_Relax_Chill_Electronic_15_110bpm_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "chill"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.03761,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "a2eba54a63b42cb12ac6410cb78c5c0d962f5f36c4c62d2c8a4902f708216443",
+      "intent_alignment_score": -0.039116,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "chill"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/guided/GratitudeReflection_Relax_GuidedMeditation_120bpm_15_HighNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "batch_summary",
+          "provider_activity": "Guided",
+          "provider_mental_state": "Meditate",
+          "provider_style": "guided",
+          "relative_path": "brainfm/meditate/guided/GratitudeReflection_Relax_GuidedMeditation_120bpm_15_HighNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "guided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_03",
+      "family_label": "Persistent detuned-carrier modulation",
+      "family_silhouette_score": 0.414596,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "a31e09bb04a637ca91eb667c9d02c8077d870019e832568d4989dba48cb742d9",
+      "intent_alignment_score": -1.0,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "guided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/learning/Focus2Session4.6_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/learning/Focus2Session4.6_VBR5.mp3",
+          "stated_intent": "learning"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_01",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.256829,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "a51c4568980eff94e44b216658d4373342c816f1cb549e0edabce0175af6dc70",
+      "intent_alignment_score": 0.096,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "learning"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/relax/recharge/Io_Relax_Recharge_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "relax"
+      ],
+      "contexts": [
+        {
+          "category": "relax",
+          "label_source": "batch_summary",
+          "provider_activity": "Recharge",
+          "provider_mental_state": "Relax",
+          "provider_style": "normal",
+          "relative_path": "brainfm/relax/recharge/Io_Relax_Recharge_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "recharge"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_03",
+      "family_label": "Persistent detuned-carrier modulation",
+      "family_silhouette_score": 0.222791,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "a683ee349fd274fb01611a0033991e47a12d8dcb949e8e497b3b9845d8db608c",
+      "intent_alignment_score": 0.001263,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "recharge"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/deep_work/Contentment_Focus_DeepWork_Atmospheric_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/deep_work/Contentment_Focus_DeepWork_Atmospheric_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "deep_work"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.308308,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "a91b3e9012d356ba1541475ccfe012811f67b7e498232ac90851897275949376",
+      "intent_alignment_score": -0.215278,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_work"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/relax/chill/Theorem_Relax_Chill_Electronic_15_115bpm_LowNELNrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "relax"
+      ],
+      "contexts": [
+        {
+          "category": "relax",
+          "label_source": "batch_summary",
+          "provider_activity": "Chill",
+          "provider_mental_state": "Relax",
+          "provider_style": "normal",
+          "relative_path": "brainfm/relax/chill/Theorem_Relax_Chill_Electronic_15_115bpm_LowNELNrmlzd2_VBR5.mp3",
+          "stated_intent": "chill"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_01",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.247199,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "aa531c1c7c16e040343d6613aa5675b252b4f3c792fd194c1344c35562e4aee6",
+      "intent_alignment_score": 0.031429,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "chill"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/motivation/WindWhispers_Focus_Creativity_Cinematic_30_96bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "batch_summary",
+          "provider_activity": null,
+          "provider_mental_state": "Focus",
+          "provider_style": "normal",
+          "relative_path": "brainfm/focus/motivation/WindWhispers_Focus_Creativity_Cinematic_30_96bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "motivation"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.391578,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "b2137b1b1b8aba344970d5037b39e14faf6f5f7f37e3774fb8f1d27e9ceb5c4a",
+      "intent_alignment_score": -0.103175,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "motivation"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/relax/destress/Starry Fields Chris Destress Session 1 100bpm_1.1_1_15mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "relax"
+      ],
+      "contexts": [
+        {
+          "category": "relax",
+          "label_source": "batch_summary",
+          "provider_activity": "Destress",
+          "provider_mental_state": "Relax",
+          "provider_style": "normal",
+          "relative_path": "brainfm/relax/destress/Starry Fields Chris Destress Session 1 100bpm_1.1_1_15mins_VBR5.mp3",
+          "stated_intent": "destress"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_03",
+      "family_label": "Persistent detuned-carrier modulation",
+      "family_silhouette_score": 0.390067,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "b36bcc4a126179a8801b66f70dbf285db148f337387212bc977cd18e091268b0",
+      "intent_alignment_score": 0.143939,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "destress"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/guided/HealingTemple_Meditate_GuidedMeditation_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": "Guided",
+          "provider_mental_state": "Meditate",
+          "provider_style": "guided",
+          "relative_path": "brainfm/meditate/guided/HealingTemple_Meditate_GuidedMeditation_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "guided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.44356,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "b590f2395386b6f19043f5f8a2973c655fd41f92e0db3a36aff2dfba6cf132e3",
+      "intent_alignment_score": 0.56705,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "guided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/unguided/Tranquility Unguided Meditation RS 13 Conor_1.4_Nrmlzd2_45mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/meditate/unguided/Tranquility Unguided Meditation RS 13 Conor_1.4_Nrmlzd2_45mins_VBR5.mp3",
+          "stated_intent": "unguided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_03",
+      "family_label": "Persistent detuned-carrier modulation",
+      "family_silhouette_score": 0.426037,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "b9deb3df9d4f958ff11c50c1134c7162e66111f481d633d1f9ac99f2698338b8",
+      "intent_alignment_score": 0.001263,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "unguided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/light_work/DRONE - DoubleVocal_Template3_1.94_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "batch_summary",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/light_work/DRONE - DoubleVocal_Template3_1.94_VBR5.mp3",
+          "stated_intent": "light_work"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.419218,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "ba23db0f675f95611a6de5614397b5d500fecbcc795ced00c4bcafae2359fe37",
+      "intent_alignment_score": -0.192857,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "light_work"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/guided/MindfulListening_Relax_GuidedMeditation_120bpm_15_LowNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "batch_summary",
+          "provider_activity": "Guided",
+          "provider_mental_state": "Meditate",
+          "provider_style": "guided",
+          "relative_path": "brainfm/meditate/guided/MindfulListening_Relax_GuidedMeditation_120bpm_15_LowNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "guided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.433779,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "c101473dcbe3bd152d300d492cbf1cceff6c2bc7f9ac0e9e263eec0757dea511",
+      "intent_alignment_score": 0.56705,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "guided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/deep_sleep/Sanctuary_Sleep_DeepSleep_Atmospheric_60_120bpm_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/sleep/deep_sleep/Sanctuary_Sleep_DeepSleep_Atmospheric_60_120bpm_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "deep_sleep"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.446243,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "c207613f083631c89f12789898c24ef6847c8ca1763fb8c5caa1a2e4637e77a2",
+      "intent_alignment_score": 0.22069,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_sleep"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/creativity/Regulus_Focus_Creativity_Drones_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/creativity/Regulus_Focus_Creativity_Drones_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "creativity"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.305067,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "c8f3f5e4bdfc4e951bcb6596e8a38275a2b8e04c43e556de4fa9216beb8501d3",
+      "intent_alignment_score": -0.159226,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "creativity"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/relax/recharge/Pirouette Relax Recharge Conor 112bpm_Nrmlzd2_45mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "relax"
+      ],
+      "contexts": [
+        {
+          "category": "relax",
+          "label_source": "batch_summary",
+          "provider_activity": "Recharge",
+          "provider_mental_state": "Relax",
+          "provider_style": "normal",
+          "relative_path": "brainfm/relax/recharge/Pirouette Relax Recharge Conor 112bpm_Nrmlzd2_45mins_VBR5.mp3",
+          "stated_intent": "recharge"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_01",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.268616,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "cba5d2a0e5e71e12ec50bf3bae23fd4bee73a03d4593b082095820df55763e42",
+      "intent_alignment_score": -1.0,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "recharge"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/unguided/Outlets_Meditate_UnguidedMeditation_Electronic_15_120bpm_LowNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "batch_summary",
+          "provider_activity": "Unguided",
+          "provider_mental_state": "Meditate",
+          "provider_style": "normal",
+          "relative_path": "brainfm/meditate/unguided/Outlets_Meditate_UnguidedMeditation_Electronic_15_120bpm_LowNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "unguided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.202812,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "cf6052f417b22ec21a714fba436ef02a861a4c08be885e687a1e9c5cfe1af373",
+      "intent_alignment_score": 0.269397,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "unguided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/deep_work/High Tide Atmospheric Focus 11 Conor_1.2_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "batch_summary",
+          "provider_activity": "Study & Read",
+          "provider_mental_state": "Focus",
+          "provider_style": "normal",
+          "relative_path": "brainfm/focus/deep_work/High Tide Atmospheric Focus 11 Conor_1.2_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "deep_work"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.334417,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "d3c1f9b9299c4ba2bf02d67ad9c939fb6d9580f464135b9c2f8bb6cf6922d425",
+      "intent_alignment_score": -0.215278,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_work"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/unguided/Ascension_Meditate_Unguided_Atmospheric_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/meditate/unguided/Ascension_Meditate_Unguided_Atmospheric_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "unguided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.085316,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "d42615dbbb1ffe0786c9661ef3a5058b588b60847117e8e4a8e0c4119bf8693d",
+      "intent_alignment_score": 0.269397,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "unguided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/relax/chill/Line and Symmetry Relax Chill Conor 116bpm 7.73Hz_1.2_Nrmlzd2_60mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "relax"
+      ],
+      "contexts": [
+        {
+          "category": "relax",
+          "label_source": "batch_summary",
+          "provider_activity": "Chill",
+          "provider_mental_state": "Relax",
+          "provider_style": "normal",
+          "relative_path": "brainfm/relax/chill/Line and Symmetry Relax Chill Conor 116bpm 7.73Hz_1.2_Nrmlzd2_60mins_VBR5.mp3",
+          "stated_intent": "chill"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_01",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.313668,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "d857ffa4887a0175a9ff40520bbc1238e3f120055f88ebb2afeadb2f59136614",
+      "intent_alignment_score": 0.031429,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "chill"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/light_work/Photons_Focus_Learning_Cinematic_30_100bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "batch_summary",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/light_work/Photons_Focus_Learning_Cinematic_30_100bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "light_work"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.333391,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "da0f41c5973867c57b7b6a5b3aa386544a69c431da3f0182ab5462d75e201728",
+      "intent_alignment_score": -0.192857,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "light_work"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/deep_work/CometTail_Focus_DeepWork_Atmospheric_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/deep_work/CometTail_Focus_DeepWork_Atmospheric_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "deep_work"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.19981,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "df07fa9ff0e6dd3031497c8c73f10f725bd80179e1d9e022982536d97803d49f",
+      "intent_alignment_score": -0.215278,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_work"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/unguided/AuraCleansing_120bpm_15m.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/meditate/unguided/AuraCleansing_120bpm_15m.mp3",
+          "stated_intent": "unguided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.350056,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "e374fd7502db23306f04c7dc0447a1a26031309726b127602147e75320cf0b36",
+      "intent_alignment_score": 0.269397,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "unguided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/deep_sleep/Circadian Rhythm Sleep Ambient 1 Conor Loop_1.6_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "batch_summary",
+          "provider_activity": "Deep Sleep",
+          "provider_mental_state": "Sleep",
+          "provider_style": "normal",
+          "relative_path": "brainfm/sleep/deep_sleep/Circadian Rhythm Sleep Ambient 1 Conor Loop_1.6_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "deep_sleep"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.343854,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "e764a4e801e085f8dfcd080f3a844e7dc0ce23c9211916c0b4fbfad9b0b7d03a",
+      "intent_alignment_score": 0.22069,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_sleep"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/deep_work/Beyond_Stars_Focus_DeepWork_Cinematic_30_110bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/deep_work/Beyond_Stars_Focus_DeepWork_Cinematic_30_110bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "deep_work"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.370539,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "e8a9540d28a77df230cdc6eac58636aef6d53d90016fab1c1b5ed654a44396be",
+      "intent_alignment_score": -0.215278,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_work"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/deep_sleep/SleepTemplate4ac_1_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/sleep/deep_sleep/SleepTemplate4ac_1_VBR5.mp3",
+          "stated_intent": "deep_sleep"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.227211,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "ee57426ef17251fb713f1f8451e2f770af2203d120d18f8e3fa4a476a726fde8",
+      "intent_alignment_score": 0.22069,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_sleep"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/relax/chill/GoldenBirds_Relax_Chill_Atmospheric_15_120bpm_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "relax"
+      ],
+      "contexts": [
+        {
+          "category": "relax",
+          "label_source": "batch_summary",
+          "provider_activity": "Chill",
+          "provider_mental_state": "Relax",
+          "provider_style": "normal",
+          "relative_path": "brainfm/relax/chill/GoldenBirds_Relax_Chill_Atmospheric_15_120bpm_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "chill"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.379468,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "f0e09611b144dae37d244a3eeb22fa2648eea687a691a76e0ce9ba9001a6d838",
+      "intent_alignment_score": -0.039116,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "chill"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/learning/Lights in the Darkness Cinematic Focus Study Conor 90bpm_1.2_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/learning/Lights in the Darkness Cinematic Focus Study Conor 90bpm_1.2_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "learning"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.433927,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "f47160d783874b423d56a80136e2b02adf6edfd83f37cb7ee7becb87df2ea884",
+      "intent_alignment_score": -0.192857,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "learning"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/deep_work/All Encompassing_Focus_DeepWork_Atmospheric_30_116BPM_Nrmlzd2_MidNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/deep_work/All Encompassing_Focus_DeepWork_Atmospheric_30_116BPM_Nrmlzd2_MidNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "deep_work"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_03",
+      "family_label": "Persistent detuned-carrier modulation",
+      "family_silhouette_score": 0.411396,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "f5ed3750d34b5cfb6d7881defa23de387e2d25cc57cfe12cce563620785de104",
+      "intent_alignment_score": -0.327381,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "deep_work"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/guided/Guided Meditation Catherine 5 Conor 15min_1.6_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "batch_summary",
+          "provider_activity": "Guided",
+          "provider_mental_state": "Meditate",
+          "provider_style": "guided",
+          "relative_path": "brainfm/meditate/guided/Guided Meditation Catherine 5 Conor 15min_1.6_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "guided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.454345,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "f799496ffc435614fa8247d6365748bc3764bff04f090f3a20509b131e478fb0",
+      "intent_alignment_score": 0.56705,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "guided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/power_nap/NapTemplate1.-Nrmzld_30mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "contexts": [
+        {
+          "category": "sleep",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/sleep/power_nap/NapTemplate1.-Nrmzld_30mins_VBR5.mp3",
+          "stated_intent": "power_nap"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_03",
+      "family_label": "Persistent detuned-carrier modulation",
+      "family_silhouette_score": 0.249637,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "f987cc1eb721c4d1e910a14b2f7fbb5d267a6c8471cb53e622aeb562f4ca9dee",
+      "intent_alignment_score": -1.0,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "power_nap"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/creativity/TheEarthUnderWater_Focus_Creativity_Atmospheric_30_112BPM_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/creativity/TheEarthUnderWater_Focus_Creativity_Atmospheric_30_112BPM_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "creativity"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.397721,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "fa49b8f96f1fa847cae0c4ec637e2498b5ed30c73527c8fe85637d8e1e2d6366",
+      "intent_alignment_score": -0.159226,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "creativity"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/relax/chill/RustedShut_Relax_Chill_Electronic_15_120bpm_LowNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "relax"
+      ],
+      "contexts": [
+        {
+          "category": "relax",
+          "label_source": "batch_summary",
+          "provider_activity": "Chill",
+          "provider_mental_state": "Relax",
+          "provider_style": "normal",
+          "relative_path": "brainfm/relax/chill/RustedShut_Relax_Chill_Electronic_15_120bpm_LowNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "chill"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.368606,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "fc26581fdc3ced3c6442a7480b77b08edb6590ccd9bfe5c29d59039625ea3eae",
+      "intent_alignment_score": -0.039116,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "chill"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/unguided/Moonset Unguided Meditation Conor_1.2_Nrmlzd2_30mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "contexts": [
+        {
+          "category": "meditate",
+          "label_source": "batch_summary",
+          "provider_activity": "Unguided",
+          "provider_mental_state": "Meditate",
+          "provider_style": "normal",
+          "relative_path": "brainfm/meditate/unguided/Moonset Unguided Meditation Conor_1.2_Nrmlzd2_30mins_VBR5.mp3",
+          "stated_intent": "unguided"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.465612,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "fd5282e44cc5fa5a9d449e9173ae69d7b333edbfc3ce0303b1541a87d048a69d",
+      "intent_alignment_score": 0.269397,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "unguided"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/relax/recharge/Relax-WarmDrones1.4-FixedStupidBug-Nrmlzd_15mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "relax"
+      ],
+      "contexts": [
+        {
+          "category": "relax",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": "Recharge",
+          "provider_mental_state": "Relax",
+          "provider_style": "normal",
+          "relative_path": "brainfm/relax/recharge/Relax-WarmDrones1.4-FixedStupidBug-Nrmlzd_15mins_VBR5.mp3",
+          "stated_intent": "recharge"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.303289,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "fdef148c5289980e893ebbf7306fd412bef82c51ce02f4ca95027a52b3252d65",
+      "intent_alignment_score": -0.159226,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "recharge"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/focus/learning/Fine Job_Focus_Learning_Electronic_30_126bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "contexts": [
+        {
+          "category": "focus",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": null,
+          "provider_mental_state": null,
+          "provider_style": null,
+          "relative_path": "brainfm/focus/learning/Fine Job_Focus_Learning_Electronic_30_126bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "learning"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_01",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.270721,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "ff083b2d900f8ff7f3f3c606dc5e90ab0588b468ab43b1476c177bbe7d5a5b53",
+      "intent_alignment_score": 0.096,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "learning"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/relax/recharge/Black and White Chris Recharge Session 4_1.9_Nrmlzd2_30mins_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "relax"
+      ],
+      "contexts": [
+        {
+          "category": "relax",
+          "label_source": "batch_summary",
+          "provider_activity": "Recharge",
+          "provider_mental_state": "Relax",
+          "provider_style": "normal",
+          "relative_path": "brainfm/relax/recharge/Black and White Chris Recharge Session 4_1.9_Nrmlzd2_30mins_VBR5.mp3",
+          "stated_intent": "recharge"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": 0.311369,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "fff74b19c3e22f2bf2cc1622e632b5b873d7a695a7aef85f8bd7b4052420bcbc",
+      "intent_alignment_score": -0.159226,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "recharge"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/relax/recharge/ChamberofStillness_Relax_Recharge_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "analysis_configuration_versions": [
+        "1.2.0"
+      ],
+      "categories": [
+        "relax"
+      ],
+      "contexts": [
+        {
+          "category": "relax",
+          "label_source": "corpus_directory_structure",
+          "provider_activity": "Recharge",
+          "provider_mental_state": "Relax",
+          "provider_style": "normal",
+          "relative_path": "brainfm/relax/recharge/ChamberofStillness_Relax_Recharge_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+          "stated_intent": "recharge"
+        }
+      ],
+      "cross_context_reuse": false,
+      "family_id": "ave_family_02",
+      "family_label": "Persistent shared-carrier modulation",
+      "family_silhouette_score": -0.162087,
+      "index_statuses": [
+        "indexed"
+      ],
+      "input_sha256": "fffecedaa2e959105d0d3bb90d59ff2f7a6974a6dbaf3d680f5c92e674694341",
+      "intent_alignment_score": -0.159226,
+      "intent_alignment_status": "scored",
+      "stated_intents": [
+        "recharge"
+      ]
+    }
+  ],
+  "records_without_digest": [],
+  "reuse_groups": [
+    {
+      "aliases": [
+        "brainfm/focus/deep_work/Bardo_Focus_Creativity_Atmospheric_30_72BPM_Nrmlzd2_MidNEL_Nrmlzd2_VBR5.mp3",
+        "brainfm/focus/light_work/Bardo_Focus_Creativity_Atmospheric_30_72BPM_Nrmlzd2_MidNEL_Nrmlzd2_VBR5.mp3"
+      ],
+      "categories": [
+        "focus"
+      ],
+      "input_sha256": "4e32072816c098ae0544ecfc82ed1e87e3cc835f7bc44ae91d74e47c98aec775",
+      "reuse_classification": "cross_context_reuse",
+      "stated_intents": [
+        "deep_work",
+        "light_work"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/sleep/deep_sleep/LucidDreams_Sleep_DeepSleep_Atmospheric_60_120bpm_Nrmlzd2_VBR5.mp3",
+        "brainfm/sleep/wind_down/LucidDreams_Sleep_DeepSleep_Atmospheric_60_120bpm_Nrmlzd2_VBR5.mp3"
+      ],
+      "categories": [
+        "sleep"
+      ],
+      "input_sha256": "92868f1409ea9f30cac58b955f86fffa534ae105ed2aee0c5953ecb7d7579409",
+      "reuse_classification": "cross_context_reuse",
+      "stated_intents": [
+        "deep_sleep",
+        "wind_down"
+      ]
+    },
+    {
+      "aliases": [
+        "brainfm/meditate/unguided/Celestial Wanderings Unguided Meditation Conor_1.9_Nrmlzd2_60mins_VBR5.mp3",
+        "brainfm/meditate/unguided/Celestial_Wanderings_Unguided_Meditation_60mins_VBR5.mp3"
+      ],
+      "categories": [
+        "meditate"
+      ],
+      "input_sha256": "99ea678cc85d322512bedaf48b5ec73b93e3eb7efb7171247cd189b5068ba1c1",
+      "reuse_classification": "consistent_duplicate",
+      "stated_intents": [
+        "unguided"
+      ]
+    }
+  ],
+  "snapshot_id": "ave_snapshot_ede423d5d366436a",
+  "snapshot_schema_version": "1.0.0",
+  "source_documents": {
+    "alignment_schema_version": "1.0.0",
+    "alignment_sha256": "b79bdcedf181f7139c6883762a96c451d00a06975486206dd386fb211e99f56a",
+    "clustering_schema_version": "1.1.0",
+    "clustering_sha256": "551a039514b50c1bd933ec1d1e0129e4bfe187a9942b6e8392dc6f3619308c7a",
+    "corpus_index_sha256": "0e0d55e46ebfee9b9fd65ca0cd76c44cc6d08c7f1fb75e6584beb68fa8fa2367",
+    "index_schema_version": "1.4.0"
+  },
+  "summary": {
+    "alignment_eligible_count": 114,
+    "alignment_scored_count": 114,
+    "analysis_configuration_version_counts": {
+      "1.2.0": 119
+    },
+    "clustered_input_count": 116,
+    "cross_context_reuse_count": 2,
+    "family_counts_by_label": {
+      "Persistent detuned-carrier modulation": 15,
+      "Persistent shared-carrier modulation": 101
+    },
+    "recording_alias_count": 120,
+    "unique_input_count": 117
+  }
+}

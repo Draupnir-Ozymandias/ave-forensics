@@ -1,0 +1,92 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 3,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-07-02T13:17:10.911Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.4,
+    "complexity_level": 0.36,
+    "declared_duration_seconds": 3600,
+    "neural_effect_level": 0.51
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "ChorusSpace_Sleep_PowerNap_Atmospheric_60_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Chorus Space",
+    "track_id": "6683fdd6d98e4183c363ea77",
+    "variation_id": "6683fdd6d98e4183c363ea7b"
+  },
+  "recording": {
+    "filename": "ChorusSpace_Sleep_PowerNap_Atmospheric_60_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "a183b4833fea43ce7891a8537e321291f0014283c081834a8fcfd94372276efb",
+    "size_bytes": 46067573
+  },
+  "source_capture": {
+    "filename": "wind_down_20260914.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 70,
+    "sha256": "05f80680cfc06a003700e73788684342908c84178cb7e68254f8b8d20b2d2dc9"
+  },
+  "taxonomy": {
+    "activity": "Deep Sleep",
+    "all_provider_tags": {
+      "activity": [
+        "Deep Sleep",
+        "Power Nap"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Floating",
+        "Serene"
+      ],
+      "release": [
+        "July 1 2024"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Textural Soundscape"
+    ],
+    "mental_state": "Sleep",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Floating",
+      "Serene"
+    ],
+    "release_tags": [
+      "July 1 2024"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ]
+  }
+}

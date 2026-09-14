@@ -1,0 +1,101 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-01-26T18:34:38.205Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.57,
+    "complexity_level": 0.34,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.91
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "ChamberofStillness_Relax_Recharge_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Chamber of Stillness",
+    "track_id": "65b3fb3ecdef020008e0c1e6",
+    "variation_id": "65b3fb3ecdef020008e0c1e8"
+  },
+  "recording": {
+    "filename": "ChamberofStillness_Relax_Recharge_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "fffecedaa2e959105d0d3bb90d59ff2f7a6974a6dbaf3d680f5c92e674694341",
+    "size_bytes": 14676595
+  },
+  "source_capture": {
+    "filename": "recharge_20260914.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 60,
+    "sha256": "b602ee05c1ee0119cf65cb5aff035270164bf91ae48011cc11e7fbb297b1d0b1"
+  },
+  "taxonomy": {
+    "activity": "Recharge",
+    "all_provider_tags": {
+      "activity": [
+        "Recharge"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Arp Synth",
+        "Processed Strings",
+        "Processed Vocals",
+        "Synth Bass",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Hopeful",
+        "Serene"
+      ],
+      "release": [
+        "January 29 2024"
+      ],
+      "subgenre": [
+        "Ambient",
+        "Electronica"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Arp Synth",
+      "Processed Strings",
+      "Processed Vocals",
+      "Synth Bass",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Relax",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Hopeful",
+      "Serene"
+    ],
+    "release_tags": [
+      "January 29 2024"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient",
+      "Electronica"
+    ]
+  }
+}

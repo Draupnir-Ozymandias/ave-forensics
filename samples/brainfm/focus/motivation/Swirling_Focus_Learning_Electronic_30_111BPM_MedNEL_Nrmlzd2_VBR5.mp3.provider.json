@@ -1,0 +1,115 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2026-02-23T19:32:58.436Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 111,
+    "brightness_level": 0.49,
+    "complexity_level": 0.15,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.34
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "Swirling_Focus_Learning_Electronic_30_111BPM_MedNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Swirling",
+    "track_id": "699cab6a9033fe9e7ccf9646",
+    "variation_id": "699cab6a9033fe9e7ccf964a"
+  },
+  "recording": {
+    "filename": "Swirling_Focus_Learning_Electronic_30_111BPM_MedNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "2f66da986bf03e185f08aef0ba208d500901a33c804dd0e3efeae7ceabf91ce7",
+    "size_bytes": 28641221
+  },
+  "source_capture": {
+    "filename": "motivation-2.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 118,
+    "sha256": "d56950f4b9a3c20a8f0ca1c012a22f8149fbc84620b3d36e60807ae31d38170e"
+  },
+  "taxonomy": {
+    "activity": null,
+    "all_provider_tags": {
+      "activity": [
+        "Learning"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Arp Synth",
+        "Arp Synth Bass",
+        "Electric Bass",
+        "Electric Guitar",
+        "Electric Keys",
+        "Electronic Percussion",
+        "Organic Percussion",
+        "Processed Strings",
+        "Processed Vocals",
+        "Synth Bass"
+      ],
+      "mood": [
+        "Energizing",
+        "Epic",
+        "Mysterious",
+        "Ponderous",
+        "Upbeat",
+        "Uplifting"
+      ],
+      "release": [
+        "February 23 2026"
+      ],
+      "subgenre": [
+        "Dance",
+        "Electronica"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Arp Synth",
+      "Arp Synth Bass",
+      "Electric Bass",
+      "Electric Guitar",
+      "Electric Keys",
+      "Electronic Percussion",
+      "Organic Percussion",
+      "Processed Strings",
+      "Processed Vocals",
+      "Synth Bass"
+    ],
+    "mental_state": "Focus",
+    "moods": [
+      "Energizing",
+      "Epic",
+      "Mysterious",
+      "Ponderous",
+      "Upbeat",
+      "Uplifting"
+    ],
+    "release_tags": [
+      "February 23 2026"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Dance",
+      "Electronica"
+    ]
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.0.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 3,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2025-06-02T15:50:34.283Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 105,
+    "brightness_level": 0.29,
+    "complexity_level": 0.19,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.6
+  },
+  "provider_metadata_schema_version": "1.0.0",
+  "provider_track": {
+    "filename": "LunarRays_Focus_Learning_Cinematic_30_105BPM_MediumNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Lunar Rays",
+    "track_id": "683dc84a7e70e7db4e0af2bc",
+    "variation_id": "683dc84a7e70e7db4e0af2c2"
+  },
+  "recording": {
+    "filename": "LunarRays_Focus_Learning_Cinematic_30_105BPM_MediumNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "6e428252ac0404b49b857b3b0232aa4432dd7f53048a7bc42db2a9813e560e8d",
+    "size_bytes": 25906744
+  },
+  "source_capture": {
+    "filename": "motivation-2.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 118,
+    "sha256": "d56950f4b9a3c20a8f0ca1c012a22f8149fbc84620b3d36e60807ae31d38170e"
+  },
+  "taxonomy": {
+    "activity": null,
+    "all_provider_tags": {
+      "activity": [
+        "Learning"
+      ],
+      "genre": [
+        "Cinematic"
+      ],
+      "instrument": [
+        "Acoustic Guitar",
+        "Arp Synth",
+        "Electric Keys",
+        "Electronic Percussion",
+        "Processed Strings",
+        "Synth Bass",
+        "Synth Pad",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Dark",
+        "Epic",
+        "Heavy",
+        "Mysterious",
+        "Ominous"
+      ],
+      "release": [
+        "June 2 2025"
+      ],
+      "subgenre": [
+        "Downtempo",
+        "Electronica",
+        "Techno"
+      ]
+    },
+    "genres": [
+      "Cinematic"
+    ],
+    "instruments": [
+      "Acoustic Guitar",
+      "Arp Synth",
+      "Electric Keys",
+      "Electronic Percussion",
+      "Processed Strings",
+      "Synth Bass",
+      "Synth Pad",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Focus",
+    "moods": [
+      "Dark",
+      "Epic",
+      "Heavy",
+      "Mysterious",
+      "Ominous"
+    ],
+    "release_tags": [
+      "June 2 2025"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Downtempo",
+      "Electronica",
+      "Techno"
+    ]
+  }
+}

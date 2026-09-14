@@ -354,11 +354,11 @@
       "seed_track_id": "62b3808b59241119aef4cf8f"
     },
     {
-      "assessment_status": "not_repeated",
+      "assessment_status": "insufficient_nonempty_repeats",
       "mean_jaccard_similarity": null,
       "minimum_jaccard_similarity": null,
-      "nonempty_observation_count": 0,
-      "observation_count": 1,
+      "nonempty_observation_count": 1,
+      "observation_count": 2,
       "pairwise_comparisons": [],
       "seed_track_id": "62b3808b592411791bf4cfae"
     },
@@ -523,6 +523,15 @@
       "observation_count": 6,
       "pairwise_comparisons": [],
       "seed_track_id": "62b3810459241114d2f4df42"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3810659241195c7f4e008"
     },
     {
       "assessment_status": "insufficient_nonempty_repeats",
@@ -960,10 +969,28 @@
       "assessment_status": "not_repeated",
       "mean_jaccard_similarity": null,
       "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b387635924115b00f51761"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
       "nonempty_observation_count": 0,
       "observation_count": 1,
       "pairwise_comparisons": [],
       "seed_track_id": "62b38763592411b34ff5173e"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b3876d592411869af51932"
     },
     {
       "assessment_status": "insufficient_nonempty_repeats",
@@ -1401,6 +1428,15 @@
       "assessment_status": "not_repeated",
       "mean_jaccard_similarity": null,
       "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38a27592411041bf54072"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
       "nonempty_observation_count": 0,
       "observation_count": 1,
       "pairwise_comparisons": [],
@@ -1450,6 +1486,15 @@
       "observation_count": 1,
       "pairwise_comparisons": [],
       "seed_track_id": "62b38a77592411bf86f544cc"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62b38a78592411cd6df54506"
     },
     {
       "assessment_status": "not_repeated",
@@ -1680,6 +1725,15 @@
       "assessment_status": "not_repeated",
       "mean_jaccard_similarity": null,
       "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "62e417da8aeb5330d2ab33e5"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
       "nonempty_observation_count": 0,
       "observation_count": 1,
       "pairwise_comparisons": [],
@@ -1819,6 +1873,15 @@
       "observation_count": 1,
       "pairwise_comparisons": [],
       "seed_track_id": "634d5fff8930ed509d84ecb1"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "63629512a9fdb36a3b3d2818"
     },
     {
       "assessment_status": "insufficient_nonempty_repeats",
@@ -2062,6 +2125,15 @@
       "observation_count": 1,
       "pairwise_comparisons": [],
       "seed_track_id": "644ad6db3ecf73778200f885"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "646f73c0c393a7ef0e73df06"
     },
     {
       "assessment_status": "insufficient_nonempty_repeats",
@@ -2328,8 +2400,8 @@
       "assessment_status": "insufficient_nonempty_repeats",
       "mean_jaccard_similarity": null,
       "minimum_jaccard_similarity": null,
-      "nonempty_observation_count": 0,
-      "observation_count": 3,
+      "nonempty_observation_count": 1,
+      "observation_count": 4,
       "pairwise_comparisons": [],
       "seed_track_id": "65a035476f05fa0008c15a3e"
     },
@@ -2424,11 +2496,11 @@
       "seed_track_id": "65d92034636e0500086cb2b6"
     },
     {
-      "assessment_status": "not_repeated",
+      "assessment_status": "insufficient_nonempty_repeats",
       "mean_jaccard_similarity": null,
       "minimum_jaccard_similarity": null,
-      "nonempty_observation_count": 0,
-      "observation_count": 1,
+      "nonempty_observation_count": 1,
+      "observation_count": 2,
       "pairwise_comparisons": [],
       "seed_track_id": "65d9207f636e0500086cb35b"
     },
@@ -3102,6 +3174,15 @@
       "assessment_status": "not_repeated",
       "mean_jaccard_similarity": null,
       "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6683fdd6d98e4183c363ea77"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
       "nonempty_observation_count": 0,
       "observation_count": 1,
       "pairwise_comparisons": [],
@@ -3115,6 +3196,15 @@
       "observation_count": 1,
       "pairwise_comparisons": [],
       "seed_track_id": "6683fdf0d98e4183c363eb41"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6683fe78d98e4183c363eea4"
     },
     {
       "assessment_status": "insufficient_nonempty_repeats",
@@ -3475,6 +3565,15 @@
       "observation_count": 1,
       "pairwise_comparisons": [],
       "seed_track_id": "6703e2f2a1f0c0804124fc9a"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6703e32ea1f0c0804124fdd6"
     },
     {
       "assessment_status": "not_repeated",
@@ -4011,8 +4110,8 @@
       "assessment_status": "insufficient_nonempty_repeats",
       "mean_jaccard_similarity": null,
       "minimum_jaccard_similarity": null,
-      "nonempty_observation_count": 0,
-      "observation_count": 5,
+      "nonempty_observation_count": 1,
+      "observation_count": 6,
       "pairwise_comparisons": [],
       "seed_track_id": "683dc84a7e70e7db4e0af2bc"
     },
@@ -4042,6 +4141,15 @@
       "observation_count": 1,
       "pairwise_comparisons": [],
       "seed_track_id": "68505b81f6a8ec8278221529"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "68505d6af6a8ec8278221c95"
     },
     {
       "assessment_status": "not_repeated",
@@ -4629,11 +4737,11 @@
       "seed_track_id": "694059e076a1c1f80ff93a7f"
     },
     {
-      "assessment_status": "not_repeated",
+      "assessment_status": "insufficient_nonempty_repeats",
       "mean_jaccard_similarity": null,
       "minimum_jaccard_similarity": null,
-      "nonempty_observation_count": 0,
-      "observation_count": 1,
+      "nonempty_observation_count": 1,
+      "observation_count": 2,
       "pairwise_comparisons": [],
       "seed_track_id": "694059fd913e2d2bff955a86"
     },
@@ -4789,6 +4897,15 @@
       "observation_count": 1,
       "pairwise_comparisons": [],
       "seed_track_id": "698a15bf8a4a8f35be583ad1"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "699cab6a9033fe9e7ccf9646"
     },
     {
       "assessment_status": "not_repeated",
@@ -5077,6 +5194,15 @@
       "observation_count": 1,
       "pairwise_comparisons": [],
       "seed_track_id": "6a4281c578a0a113b2ff3d43"
+    },
+    {
+      "assessment_status": "not_repeated",
+      "mean_jaccard_similarity": null,
+      "minimum_jaccard_similarity": null,
+      "nonempty_observation_count": 1,
+      "observation_count": 1,
+      "pairwise_comparisons": [],
+      "seed_track_id": "6a42820978a0a113b2ff3f97"
     },
     {
       "assessment_status": "not_repeated",
@@ -5543,16 +5669,20 @@
     "ave_recommendation_observation_11598ceb66b10602",
     "ave_recommendation_observation_19f7bf2bbfae910f",
     "ave_recommendation_observation_4f35bad833ceb1b7",
+    "ave_recommendation_observation_6904cdd888d97c15",
     "ave_recommendation_observation_712f13c6c5e34253",
     "ave_recommendation_observation_8b6f5bc4df41d232",
+    "ave_recommendation_observation_90eff50632c5a6cb",
     "ave_recommendation_observation_9e3385f1bfeba782",
-    "ave_recommendation_observation_bc45a480046b818e"
+    "ave_recommendation_observation_bc45a480046b818e",
+    "ave_recommendation_observation_e3e10545f94fefbf",
+    "ave_recommendation_observation_e4b76bd098b7f773"
   ],
   "summary": {
     "assessed_seed_count": 0,
-    "observation_count": 8,
-    "observed_seed_count": 614,
-    "repeated_seed_count": 117,
+    "observation_count": 12,
+    "observed_seed_count": 628,
+    "repeated_seed_count": 120,
     "within_capture_variant_seed_count": 31
   },
   "within_capture_variants": [
