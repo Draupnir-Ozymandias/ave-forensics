@@ -1,0 +1,40 @@
+{
+  "curation": {
+    "category_override": null,
+    "claimed_intent_override": null,
+    "notes": "",
+    "review_status": "unreviewed",
+    "source_override": null
+  },
+  "duplicates": {
+    "is_duplicate": false,
+    "matching_relative_paths": []
+  },
+  "identity": {
+    "hash_algorithm": "sha256",
+    "sha256": "3be15a73df12424a2b4abf970ec8f3914870bb5fe03cf307ee910f6d134dfe90"
+  },
+  "inferred_labels": {
+    "basis": "corpus_directory_structure",
+    "category": "relax",
+    "claimed_intent": "destress",
+    "source": "brainfm"
+  },
+  "manifest_schema_version": "1.0.0",
+  "media": {
+    "channels": 2,
+    "codec_subtype": "MPEG_LAYER_III",
+    "container_extension": ".mp3",
+    "duration_seconds": 900.0,
+    "frame_count": 43200000,
+    "sample_rate": 48000,
+    "size_bytes": 14349336
+  },
+  "provenance": {
+    "generator": "corpus.manifests",
+    "generator_version": "1.0.0",
+    "source": "local_corpus_file"
+  },
+  "recording_id": "ave_recording_3be15a73df12424a",
+  "relative_path": "brainfm/relax/destress/OutintheOpen_Relax_Recharge_Atmospheric_15_120bpm_MedNEL_Nrmlzd2_VBR5.mp3"
+}

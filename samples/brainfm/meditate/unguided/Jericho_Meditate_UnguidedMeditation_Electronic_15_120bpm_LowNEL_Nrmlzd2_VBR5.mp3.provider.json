@@ -1,0 +1,109 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 2,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-03-22T15:54:49.154Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.42,
+    "complexity_level": 0.71,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.14
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Jericho_Meditate_UnguidedMeditation_Electronic_15_120bpm_LowNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Jericho",
+    "track_id": "65fda9c9cc7d1e000a58777c",
+    "variation_id": "65fda9c9cc7d1e000a58777f"
+  },
+  "recording": {
+    "filename": "Jericho_Meditate_UnguidedMeditation_Electronic_15_120bpm_LowNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "17fd3b76dcb885dd8031825da03177b12afab21c21c4f577add4da39381d9f64",
+    "size_bytes": 12043849
+  },
+  "source_capture": {
+    "filename": "meditate_unguided_20260915.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 58,
+    "sha256": "6870cf90cc1ccc7d02ece9a2960531e7a2ce54130c890b6b310175e1caa434ab"
+  },
+  "taxonomy": {
+    "activity": "Unguided",
+    "all_provider_tags": {
+      "activity": [
+        "Unguided"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Arp Synth",
+        "Electric Keys",
+        "Electronic Percussion",
+        "Processed Strings",
+        "Synth Bass",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Downtempo",
+        "Dreamlike",
+        "Meditative",
+        "Mysterious"
+      ],
+      "release": [
+        "March 25 2024"
+      ],
+      "subgenre": [
+        "Ambient",
+        "Downtempo"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Arp Synth",
+      "Electric Keys",
+      "Electronic Percussion",
+      "Processed Strings",
+      "Synth Bass",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Meditate",
+    "mobile_activity": "Unguided",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Downtempo",
+      "Dreamlike",
+      "Meditative",
+      "Mysterious"
+    ],
+    "release_tags": [
+      "March 25 2024"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient",
+      "Downtempo"
+    ],
+    "web_activity": null
+  }
+}

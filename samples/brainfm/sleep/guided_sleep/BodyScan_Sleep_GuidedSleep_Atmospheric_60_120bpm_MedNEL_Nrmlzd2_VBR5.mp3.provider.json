@@ -1,0 +1,95 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 2,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-05-28T19:16:02.691Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.2,
+    "complexity_level": 0.74,
+    "declared_duration_seconds": 3600,
+    "neural_effect_level": 0.65
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "BodyScan_Sleep_GuidedSleep_Atmospheric_60_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Body Scan",
+    "track_id": "66562d72ff1110852ad24bfd",
+    "variation_id": "66562d72ff1110852ad24c01"
+  },
+  "recording": {
+    "filename": "BodyScan_Sleep_GuidedSleep_Atmospheric_60_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "76f4d0377580c64547af592c86b29a3f77c591602ac5dab0c09bcd55da10de86",
+    "size_bytes": 41362912
+  },
+  "source_capture": {
+    "filename": "sleep_guided_sleep_20260915.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 164,
+    "sha256": "a5ae5e4bcc76b1eaddd2bb093f07a772e938678158ebdea5daaca676d30b669d"
+  },
+  "taxonomy": {
+    "activity": "Guided Sleep",
+    "all_provider_tags": {
+      "activity": [
+        "Guided Sleep"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Synth Pad",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Serene"
+      ],
+      "release": [
+        "Guided Release May 2024"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Synth Pad",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Sleep",
+    "mobile_activity": "Guided Sleep",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Serene"
+    ],
+    "release_tags": [
+      "Guided Release May 2024"
+    ],
+    "style": "guided",
+    "subgenres": [
+      "Ambient"
+    ],
+    "web_activity": null
+  }
+}

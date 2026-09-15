@@ -1,0 +1,104 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T21:24:43.971Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.48,
+    "complexity_level": 0.48,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.48
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "ChrisElectronic3 Session4V2_1.1 PinnaV2_Nrmlzd_VBR5.mp3",
+    "title": "Absolute Potential",
+    "track_id": "62b3889b5924119fd6f52441",
+    "variation_id": "62b3889b592411215ff52443"
+  },
+  "recording": {
+    "filename": "ChrisElectronic3 Session4V2_1.1 PinnaV2_Nrmlzd_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "99e973a2479e661af8028fc2a88f0536efb2c884b1fc09b996b52f4ed5698539",
+    "size_bytes": 19383472
+  },
+  "source_capture": {
+    "filename": "focus_learning_20260915.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 93,
+    "sha256": "2547f936816cde2fb6fee28d75f30795008657ccf753b4e221b93fc49f3f62ce"
+  },
+  "taxonomy": {
+    "activity": "Light Work",
+    "all_provider_tags": {
+      "activity": [
+        "Learning",
+        "Light Work"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Arp Synth",
+        "Arp Synth Bass",
+        "Electronic Percussion"
+      ],
+      "mood": [
+        "Chill",
+        "Dark",
+        "Driving",
+        "Energizing"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Electronica",
+        "Techno",
+        "Trance"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Arp Synth",
+      "Arp Synth Bass",
+      "Electronic Percussion"
+    ],
+    "mental_state": "Focus",
+    "mobile_activity": "Light Work",
+    "moods": [
+      "Chill",
+      "Dark",
+      "Driving",
+      "Energizing"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Electronica",
+      "Techno",
+      "Trance"
+    ],
+    "web_activity": "Learning"
+  }
+}

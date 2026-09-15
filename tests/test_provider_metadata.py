@@ -169,6 +169,22 @@ def test_conflicting_records_are_rejected(tmp_path):
         raise AssertionError("conflicting provider records were accepted")
 
 
+def test_partial_session_capture_writes_only_exact_matches(tmp_path):
+    recordings = tmp_path / "recordings"
+    recordings.mkdir()
+    (recordings / "matched.mp3").write_bytes(b"matched audio")
+    (recordings / "older.mp3").write_bytes(b"older audio")
+    capture = tmp_path / "session.har"
+    capture.write_text(json.dumps({"track": track("matched.mp3")}))
+
+    sidecars = extract_brainfm_sidecars(
+        capture, recordings, allow_partial=True
+    )
+
+    assert len(sidecars) == 1
+    assert sidecars[0][0].name == "matched.mp3.provider.json"
+
+
 def test_validator_rejects_tokenized_content(tmp_path):
     recordings = tmp_path / "recordings"
     recordings.mkdir()

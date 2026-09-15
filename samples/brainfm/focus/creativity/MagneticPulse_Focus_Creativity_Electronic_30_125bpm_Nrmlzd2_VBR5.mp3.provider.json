@@ -1,0 +1,106 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 2,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2023-09-21T20:10:04.520Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 125,
+    "brightness_level": 0.57,
+    "complexity_level": 0.61,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.62
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "MagneticPulse_Focus_Creativity_Electronic_30_125bpm_Nrmlzd2_VBR5.mp3",
+    "title": "Magnetic Pulse",
+    "track_id": "650ca31cd380a68545079818",
+    "variation_id": "650ca31cd380a6c36707981a"
+  },
+  "recording": {
+    "filename": "MagneticPulse_Focus_Creativity_Electronic_30_125bpm_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "58fe208661a26a601010fd00fdf79d52b4dfe63fa6b75471c46679c7cfa2b0f6",
+    "size_bytes": 26088280
+  },
+  "source_capture": {
+    "filename": "focus_creativity_20260915.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 55,
+    "sha256": "6fbfed0f27d38beb228c00ed932c03712878fdfd17b7987cd16cda3bf57e0543"
+  },
+  "taxonomy": {
+    "activity": "Creative Flow",
+    "all_provider_tags": {
+      "activity": [
+        "Creative Flow",
+        "Creativity"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Arp Synth",
+        "Electric Keys",
+        "Electronic Percussion",
+        "Organic Percussion",
+        "Processed Vocals",
+        "Synth Bass"
+      ],
+      "mood": [
+        "Brooding",
+        "Chill",
+        "Driving",
+        "Energizing"
+      ],
+      "release": [
+        "September 25 2023"
+      ],
+      "subgenre": [
+        "Dance",
+        "Electronica"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Arp Synth",
+      "Electric Keys",
+      "Electronic Percussion",
+      "Organic Percussion",
+      "Processed Vocals",
+      "Synth Bass"
+    ],
+    "mental_state": "Focus",
+    "mobile_activity": "Creative Flow",
+    "moods": [
+      "Brooding",
+      "Chill",
+      "Driving",
+      "Energizing"
+    ],
+    "release_tags": [
+      "September 25 2023"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Dance",
+      "Electronica"
+    ],
+    "web_activity": "Creativity"
+  }
+}

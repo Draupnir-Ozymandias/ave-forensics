@@ -53,6 +53,15 @@ directory containing its recordings:
   --recordings-dir samples/brainfm/meditate/guided
 ```
 
+If the directory also contains older recordings that were not revisited during the
+session, add `--allow-partial`. Only exact variation-filename matches are written;
+unmatched local audio remains untouched and is reported as absent from that capture:
+
+```bash
+.venv/bin/python provider_metadata.py captured/brainfm/focus/learning/session.har \
+  --recordings-dir samples/brainfm/focus/learning --allow-partial
+```
+
 Use `--dry-run` first when checking a new capture. The extractor:
 
 - reads JSON responses embedded in HAR files or concatenated raw JSON;

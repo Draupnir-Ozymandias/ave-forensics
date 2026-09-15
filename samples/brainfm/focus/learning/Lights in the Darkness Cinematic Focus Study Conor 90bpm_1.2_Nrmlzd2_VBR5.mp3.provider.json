@@ -1,0 +1,112 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 2,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T20:52:25.853Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 90,
+    "brightness_level": 0.06,
+    "complexity_level": 0.17,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.47
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Lights in the Darkness Cinematic Focus Study Conor 90bpm_1.2_Nrmlzd2_VBR5.mp3",
+    "title": "Lights in the Darkness",
+    "track_id": "62b381095924113195f4e10a",
+    "variation_id": "62b381095924119772f4e10c"
+  },
+  "recording": {
+    "filename": "Lights in the Darkness Cinematic Focus Study Conor 90bpm_1.2_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "f47160d783874b423d56a80136e2b02adf6edfd83f37cb7ee7becb87df2ea884",
+    "size_bytes": 25285798
+  },
+  "source_capture": {
+    "filename": "focus_learning_20260915.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 93,
+    "sha256": "2547f936816cde2fb6fee28d75f30795008657ccf753b4e221b93fc49f3f62ce"
+  },
+  "taxonomy": {
+    "activity": "Study & Read",
+    "all_provider_tags": {
+      "activity": [
+        "Learning",
+        "Study & Read"
+      ],
+      "genre": [
+        "Cinematic"
+      ],
+      "instrument": [
+        "Acoustic Piano",
+        "Chimes/Bells",
+        "Mallets",
+        "Orchestral Brass",
+        "Orchestral Strings",
+        "Processed Strings"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Serene"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Ambient",
+        "Classical",
+        "Orchestral"
+      ]
+    },
+    "genres": [
+      "Cinematic"
+    ],
+    "instruments": [
+      "Acoustic Piano",
+      "Chimes/Bells",
+      "Mallets",
+      "Orchestral Brass",
+      "Orchestral Strings",
+      "Processed Strings"
+    ],
+    "mental_state": "Focus",
+    "mobile_activity": "Study & Read",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Serene"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient",
+      "Classical",
+      "Orchestral"
+    ],
+    "web_activity": "Learning"
+  }
+}

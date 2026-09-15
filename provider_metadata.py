@@ -2,6 +2,7 @@ import argparse
 from collections import Counter
 from pathlib import Path
 
+from core.media import AUDIO_EXTENSIONS
 from provider.brainfm import (
     ProviderMetadataError,
     extract_brainfm_capture_tree,
@@ -93,6 +94,14 @@ def main() -> None:
         help="Validate and report matches without writing sidecars.",
     )
     parser.add_argument(
+        "--allow-partial",
+        action="store_true",
+        help=(
+            "Single-capture mode only: write exact matches even when other audio "
+            "files in the recording directory are absent from the capture."
+        ),
+    )
+    parser.add_argument(
         "--overwrite",
         action="store_true",
         help="Batch mode only: replace stale or invalid existing sidecars.",
@@ -101,6 +110,8 @@ def main() -> None:
     if arguments.batch:
         if arguments.capture is not None:
             parser.error("capture cannot be combined with --batch")
+        if arguments.allow_partial:
+            parser.error("--allow-partial is available only in single-capture mode")
         _run_batch(arguments, project_root)
         return
     if arguments.capture is None:
@@ -113,9 +124,19 @@ def main() -> None:
         arguments.recordings_dir
         or project_root / "samples" / "brainfm" / "meditate" / "guided"
     )
-    sidecars = extract_brainfm_sidecars(arguments.capture, recordings_directory)
+    sidecars = extract_brainfm_sidecars(
+        arguments.capture,
+        recordings_directory,
+        allow_partial=arguments.allow_partial,
+    )
     paths = [] if arguments.dry_run else write_provider_sidecars(sidecars)
     print(f"Provider records matched: {len(sidecars)}")
+    if arguments.allow_partial:
+        audio_count = sum(
+            path.is_file() and path.suffix.lower() in AUDIO_EXTENSIONS
+            for path in recordings_directory.iterdir()
+        )
+        print(f"Recordings not present in capture: {audio_count - len(sidecars)}")
     for output_path, sidecar in sidecars:
         action = "validated" if arguments.dry_run else "written"
         _print_sidecar(output_path, sidecar, action)

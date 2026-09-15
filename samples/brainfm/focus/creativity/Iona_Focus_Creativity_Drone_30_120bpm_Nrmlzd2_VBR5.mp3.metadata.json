@@ -1,0 +1,40 @@
+{
+  "curation": {
+    "category_override": null,
+    "claimed_intent_override": null,
+    "notes": "",
+    "review_status": "unreviewed",
+    "source_override": null
+  },
+  "duplicates": {
+    "is_duplicate": false,
+    "matching_relative_paths": []
+  },
+  "identity": {
+    "hash_algorithm": "sha256",
+    "sha256": "7d7780a7dd751b1090187b47b9912357469aa8b777581a917803411814af6a3c"
+  },
+  "inferred_labels": {
+    "basis": "corpus_directory_structure",
+    "category": "focus",
+    "claimed_intent": "creativity",
+    "source": "brainfm"
+  },
+  "manifest_schema_version": "1.0.0",
+  "media": {
+    "channels": 2,
+    "codec_subtype": "MPEG_LAYER_III",
+    "container_extension": ".mp3",
+    "duration_seconds": 1800.0,
+    "frame_count": 79380000,
+    "sample_rate": 44100,
+    "size_bytes": 26122065
+  },
+  "provenance": {
+    "generator": "corpus.manifests",
+    "generator_version": "1.0.0",
+    "source": "local_corpus_file"
+  },
+  "recording_id": "ave_recording_7d7780a7dd751b10",
+  "relative_path": "brainfm/focus/creativity/Iona_Focus_Creativity_Drone_30_120bpm_Nrmlzd2_VBR5.mp3"
+}

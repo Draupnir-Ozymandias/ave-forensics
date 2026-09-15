@@ -1,0 +1,40 @@
+{
+  "curation": {
+    "category_override": null,
+    "claimed_intent_override": null,
+    "notes": "",
+    "review_status": "unreviewed",
+    "source_override": null
+  },
+  "duplicates": {
+    "is_duplicate": false,
+    "matching_relative_paths": []
+  },
+  "identity": {
+    "hash_algorithm": "sha256",
+    "sha256": "fc26581fdc3ced3c6442a7480b77b08edb6590ccd9bfe5c29d59039625ea3eae"
+  },
+  "inferred_labels": {
+    "basis": "corpus_directory_structure",
+    "category": "relax",
+    "claimed_intent": "chill",
+    "source": "brainfm"
+  },
+  "manifest_schema_version": "1.0.0",
+  "media": {
+    "channels": 2,
+    "codec_subtype": "MPEG_LAYER_III",
+    "container_extension": ".mp3",
+    "duration_seconds": 900.0,
+    "frame_count": 43200000,
+    "sample_rate": 48000,
+    "size_bytes": 14592912
+  },
+  "provenance": {
+    "generator": "corpus.manifests",
+    "generator_version": "1.0.0",
+    "source": "local_corpus_file"
+  },
+  "recording_id": "ave_recording_fc26581fdc3ced3c",
+  "relative_path": "brainfm/relax/chill/RustedShut_Relax_Chill_Electronic_15_120bpm_LowNEL_Nrmlzd2_VBR5.mp3"
+}

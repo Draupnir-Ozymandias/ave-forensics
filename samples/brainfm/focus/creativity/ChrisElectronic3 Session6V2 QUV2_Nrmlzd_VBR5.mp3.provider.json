@@ -1,0 +1,102 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T20:49:36.319Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.08,
+    "complexity_level": 0.45,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.64
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "ChrisElectronic3 Session6V2 QUV2_Nrmlzd_VBR5.mp3",
+    "title": "Power Source",
+    "track_id": "62b38060592411865cf4bfa4",
+    "variation_id": "62b38060592411dfe3f4bfa6"
+  },
+  "recording": {
+    "filename": "ChrisElectronic3 Session6V2 QUV2_Nrmlzd_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "48408b2a0f42a2bfaacf59390a829af3d2842bb907187c513c780a7581f510b1",
+    "size_bytes": 19572394
+  },
+  "source_capture": {
+    "filename": "focus_creativity_20260915.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 55,
+    "sha256": "6fbfed0f27d38beb228c00ed932c03712878fdfd17b7987cd16cda3bf57e0543"
+  },
+  "taxonomy": {
+    "activity": "Creative Flow",
+    "all_provider_tags": {
+      "activity": [
+        "Creative Flow",
+        "Creativity"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Arp Synth",
+        "Arp Synth Bass"
+      ],
+      "mood": [
+        "Chill",
+        "Dark",
+        "Driving",
+        "Energizing"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Electronica",
+        "Techno",
+        "Trance"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Arp Synth",
+      "Arp Synth Bass"
+    ],
+    "mental_state": "Focus",
+    "mobile_activity": "Creative Flow",
+    "moods": [
+      "Chill",
+      "Dark",
+      "Driving",
+      "Energizing"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Electronica",
+      "Techno",
+      "Trance"
+    ],
+    "web_activity": "Creativity"
+  }
+}

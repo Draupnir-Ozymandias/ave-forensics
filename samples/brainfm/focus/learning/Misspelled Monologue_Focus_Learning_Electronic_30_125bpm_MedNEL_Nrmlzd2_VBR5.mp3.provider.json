@@ -1,0 +1,105 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 2,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2025-08-25T17:56:50.824Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 125,
+    "brightness_level": 0.67,
+    "complexity_level": 0.49,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.36
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Misspelled Monologue_Focus_Learning_Electronic_30_125bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Misspelled Monologue",
+    "track_id": "68aca3e2605d1de9ea68b8ce",
+    "variation_id": "68aca3e2605d1de9ea68b8d2"
+  },
+  "recording": {
+    "filename": "Misspelled Monologue_Focus_Learning_Electronic_30_125bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "06568cbc3f8cc82961dec4a86c20b25ced180e766ced723c359b14af25a5032e",
+    "size_bytes": 28837010
+  },
+  "source_capture": {
+    "filename": "focus_learning_20260915.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 93,
+    "sha256": "2547f936816cde2fb6fee28d75f30795008657ccf753b4e221b93fc49f3f62ce"
+  },
+  "taxonomy": {
+    "activity": null,
+    "all_provider_tags": {
+      "activity": [
+        "Learning"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Arp Synth",
+        "Electric Bass",
+        "Electric Guitar",
+        "Electronic Percussion",
+        "Synth Bass",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Energizing",
+        "Playful",
+        "Upbeat"
+      ],
+      "release": [
+        "August 25 2025"
+      ],
+      "subgenre": [
+        "Disco",
+        "Electronica",
+        "House"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Arp Synth",
+      "Electric Bass",
+      "Electric Guitar",
+      "Electronic Percussion",
+      "Synth Bass",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Focus",
+    "mobile_activity": null,
+    "moods": [
+      "Energizing",
+      "Playful",
+      "Upbeat"
+    ],
+    "release_tags": [
+      "August 25 2025"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Disco",
+      "Electronica",
+      "House"
+    ],
+    "web_activity": "Learning"
+  }
+}

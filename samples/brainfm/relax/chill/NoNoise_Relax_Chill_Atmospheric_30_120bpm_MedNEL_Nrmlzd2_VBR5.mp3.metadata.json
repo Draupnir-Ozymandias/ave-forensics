@@ -7,10 +7,8 @@
     "source_override": null
   },
   "duplicates": {
-    "is_duplicate": true,
-    "matching_relative_paths": [
-      "brainfm/relax/chill/NoNoise_Relax_Chill_Atmospheric_30_120bpm_MedNEL_Nrmlzd2_VBR5 (1).mp3"
-    ]
+    "is_duplicate": false,
+    "matching_relative_paths": []
   },
   "identity": {
     "hash_algorithm": "sha256",

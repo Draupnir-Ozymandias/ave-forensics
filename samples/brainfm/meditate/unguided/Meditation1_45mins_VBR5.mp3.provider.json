@@ -1,0 +1,94 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 2,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T20:51:58.047Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.59,
+    "complexity_level": 0.11,
+    "declared_duration_seconds": 2700,
+    "neural_effect_level": 0.23
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Meditation1_45mins_VBR5.mp3",
+    "title": "Inner Mind",
+    "track_id": "62b380ee5924114d5af4d83f",
+    "variation_id": "62b396eb592411cc59f57e67"
+  },
+  "recording": {
+    "filename": "Meditation1_45mins_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "b7d1e6bbda7e71206d2b45da2b53fa75380b44c81b16f6f2df4b6046b2d786c9",
+    "size_bytes": 41549241
+  },
+  "source_capture": {
+    "filename": "meditate_unguided_20260915.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 58,
+    "sha256": "6870cf90cc1ccc7d02ece9a2960531e7a2ce54130c890b6b310175e1caa434ab"
+  },
+  "taxonomy": {
+    "activity": "Unguided",
+    "all_provider_tags": {
+      "activity": [
+        "Meditate",
+        "Unguided"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Chill",
+        "Floating"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Ambient",
+        "Electronica"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Textural Soundscape"
+    ],
+    "mental_state": "Meditate",
+    "mobile_activity": "Unguided",
+    "moods": [
+      "Chill",
+      "Floating"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient",
+      "Electronica"
+    ],
+    "web_activity": "Meditate"
+  }
+}

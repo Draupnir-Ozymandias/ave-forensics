@@ -1,0 +1,109 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 2,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2026-05-04T15:18:19.820Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 138,
+    "brightness_level": 0.64,
+    "complexity_level": 0.27,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.58
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "IntoTheHallsOfDance_Focus_Learning_Electronic_30_138BPM_MedNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Into The Halls Of Dance",
+    "track_id": "69f8b8bb1c706aff1baf0d83",
+    "variation_id": "69f8b8bb1c706aff1baf0d8b"
+  },
+  "recording": {
+    "filename": "IntoTheHallsOfDance_Focus_Learning_Electronic_30_138BPM_MedNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "3ceac2d0ea3f7f679a4bd4110878b83c93e38373be2aadae0e51482cac661eb6",
+    "size_bytes": 28998086
+  },
+  "source_capture": {
+    "filename": "focus_learning_20260915.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 93,
+    "sha256": "2547f936816cde2fb6fee28d75f30795008657ccf753b4e221b93fc49f3f62ce"
+  },
+  "taxonomy": {
+    "activity": null,
+    "all_provider_tags": {
+      "activity": [
+        "Learning"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Arp Synth",
+        "Electric Keys",
+        "Electronic Percussion",
+        "Orchestral Strings",
+        "Organic Percussion",
+        "Synth Bass",
+        "Synth Pad",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Driving",
+        "Energizing",
+        "Strong",
+        "Upbeat"
+      ],
+      "release": [
+        "May 4 2026"
+      ],
+      "subgenre": [
+        "Dance",
+        "Electronica"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Arp Synth",
+      "Electric Keys",
+      "Electronic Percussion",
+      "Orchestral Strings",
+      "Organic Percussion",
+      "Synth Bass",
+      "Synth Pad",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Focus",
+    "mobile_activity": null,
+    "moods": [
+      "Driving",
+      "Energizing",
+      "Strong",
+      "Upbeat"
+    ],
+    "release_tags": [
+      "May 4 2026"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Dance",
+      "Electronica"
+    ],
+    "web_activity": "Learning"
+  }
+}

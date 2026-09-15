@@ -1,0 +1,40 @@
+{
+  "curation": {
+    "category_override": null,
+    "claimed_intent_override": null,
+    "notes": "",
+    "review_status": "unreviewed",
+    "source_override": null
+  },
+  "duplicates": {
+    "is_duplicate": false,
+    "matching_relative_paths": []
+  },
+  "identity": {
+    "hash_algorithm": "sha256",
+    "sha256": "fd5282e44cc5fa5a9d449e9173ae69d7b333edbfc3ce0303b1541a87d048a69d"
+  },
+  "inferred_labels": {
+    "basis": "corpus_directory_structure",
+    "category": "meditate",
+    "claimed_intent": "unguided",
+    "source": "brainfm"
+  },
+  "manifest_schema_version": "1.0.0",
+  "media": {
+    "channels": 2,
+    "codec_subtype": "MPEG_LAYER_III",
+    "container_extension": ".mp3",
+    "duration_seconds": 1800.0,
+    "frame_count": 79380000,
+    "sample_rate": 44100,
+    "size_bytes": 21142398
+  },
+  "provenance": {
+    "generator": "corpus.manifests",
+    "generator_version": "1.0.0",
+    "source": "local_corpus_file"
+  },
+  "recording_id": "ave_recording_fd5282e44cc5fa5a",
+  "relative_path": "brainfm/meditate/unguided/Moonset Unguided Meditation Conor_1.2_Nrmlzd2_30mins_VBR5.mp3"
+}

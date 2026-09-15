@@ -1,0 +1,40 @@
+{
+  "curation": {
+    "category_override": null,
+    "claimed_intent_override": null,
+    "notes": "",
+    "review_status": "unreviewed",
+    "source_override": null
+  },
+  "duplicates": {
+    "is_duplicate": false,
+    "matching_relative_paths": []
+  },
+  "identity": {
+    "hash_algorithm": "sha256",
+    "sha256": "aa531c1c7c16e040343d6613aa5675b252b4f3c792fd194c1344c35562e4aee6"
+  },
+  "inferred_labels": {
+    "basis": "corpus_directory_structure",
+    "category": "relax",
+    "claimed_intent": "chill",
+    "source": "brainfm"
+  },
+  "manifest_schema_version": "1.0.0",
+  "media": {
+    "channels": 2,
+    "codec_subtype": "MPEG_LAYER_III",
+    "container_extension": ".mp3",
+    "duration_seconds": 900.000896,
+    "frame_count": 43200043,
+    "sample_rate": 48000,
+    "size_bytes": 15076224
+  },
+  "provenance": {
+    "generator": "corpus.manifests",
+    "generator_version": "1.0.0",
+    "source": "local_corpus_file"
+  },
+  "recording_id": "ave_recording_aa531c1c7c16e040",
+  "relative_path": "brainfm/relax/chill/Theorem_Relax_Chill_Electronic_15_115bpm_LowNELNrmlzd2_VBR5.mp3"
+}

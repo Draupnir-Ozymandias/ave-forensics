@@ -7,8 +7,10 @@
     "source_override": null
   },
   "duplicates": {
-    "is_duplicate": false,
-    "matching_relative_paths": []
+    "is_duplicate": true,
+    "matching_relative_paths": [
+      "brainfm/focus/deep_work/Bardo_Focus_Creativity_Atmospheric_30_72BPM_Nrmlzd2_MidNEL_Nrmlzd2_VBR5.mp3"
+    ]
   },
   "identity": {
     "hash_algorithm": "sha256",

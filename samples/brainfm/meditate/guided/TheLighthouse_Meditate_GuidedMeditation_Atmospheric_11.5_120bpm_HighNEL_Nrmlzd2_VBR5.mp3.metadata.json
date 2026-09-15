@@ -1,0 +1,40 @@
+{
+  "curation": {
+    "category_override": null,
+    "claimed_intent_override": null,
+    "notes": "",
+    "review_status": "unreviewed",
+    "source_override": null
+  },
+  "duplicates": {
+    "is_duplicate": false,
+    "matching_relative_paths": []
+  },
+  "identity": {
+    "hash_algorithm": "sha256",
+    "sha256": "13d21f376026fc0bed25ab5843c0173cea7f4aca7a206905fa4565b8e495a62f"
+  },
+  "inferred_labels": {
+    "basis": "corpus_directory_structure",
+    "category": "meditate",
+    "claimed_intent": "guided",
+    "source": "brainfm"
+  },
+  "manifest_schema_version": "1.0.0",
+  "media": {
+    "channels": 2,
+    "codec_subtype": "MPEG_LAYER_III",
+    "container_extension": ".mp3",
+    "duration_seconds": 690.0,
+    "frame_count": 30429000,
+    "sample_rate": 44100,
+    "size_bytes": 9856324
+  },
+  "provenance": {
+    "generator": "corpus.manifests",
+    "generator_version": "1.0.0",
+    "source": "local_corpus_file"
+  },
+  "recording_id": "ave_recording_13d21f376026fc0b",
+  "relative_path": "brainfm/meditate/guided/TheLighthouse_Meditate_GuidedMeditation_Atmospheric_11.5_120bpm_HighNEL_Nrmlzd2_VBR5.mp3"
+}

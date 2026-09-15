@@ -335,6 +335,8 @@ def validate_provider_sidecar(sidecar: dict[str, Any]) -> None:
 def extract_brainfm_sidecars(
     capture_path: Path,
     recordings_directory: Path,
+    *,
+    allow_partial: bool = False,
 ) -> list[tuple[Path, dict[str, Any]]]:
     recordings = sorted(
         path
@@ -343,12 +345,16 @@ def extract_brainfm_sidecars(
     )
     if not recordings:
         raise ProviderMetadataError("recordings directory contains no supported audio")
-    return _extract_brainfm_sidecars_for_recordings(capture_path, recordings)
+    return _extract_brainfm_sidecars_for_recordings(
+        capture_path, recordings, allow_partial=allow_partial
+    )
 
 
 def _extract_brainfm_sidecars_for_recordings(
     capture_path: Path,
     recordings: list[Path],
+    *,
+    allow_partial: bool = False,
 ) -> list[tuple[Path, dict[str, Any]]]:
     documents, capture_format = parse_capture(capture_path)
     filenames = {path.name for path in recordings}
@@ -366,6 +372,8 @@ def _extract_brainfm_sidecars_for_recordings(
     for recording in recordings:
         matches = candidates.get(recording.name, [])
         if not matches:
+            if allow_partial:
+                continue
             raise ProviderMetadataError(
                 f"no provider record matched recording: {recording.name}"
             )
@@ -405,6 +413,8 @@ def _extract_brainfm_sidecars_for_recordings(
         }
         validate_provider_sidecar(sidecar)
         results.append((provider_sidecar_path_for(recording), sidecar))
+    if not results:
+        raise ProviderMetadataError("capture matched no recordings in the directory")
     return results
 
 

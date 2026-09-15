@@ -1,0 +1,40 @@
+{
+  "curation": {
+    "category_override": null,
+    "claimed_intent_override": null,
+    "notes": "",
+    "review_status": "unreviewed",
+    "source_override": null
+  },
+  "duplicates": {
+    "is_duplicate": false,
+    "matching_relative_paths": []
+  },
+  "identity": {
+    "hash_algorithm": "sha256",
+    "sha256": "59777d08908048e31f5e5f08fc6529a13092c48746e56c1d6ca0c2619fb264d1"
+  },
+  "inferred_labels": {
+    "basis": "corpus_directory_structure",
+    "category": "sleep",
+    "claimed_intent": "power_nap",
+    "source": "brainfm"
+  },
+  "manifest_schema_version": "1.0.0",
+  "media": {
+    "channels": 2,
+    "codec_subtype": "MPEG_LAYER_III",
+    "container_extension": ".mp3",
+    "duration_seconds": 1800.0,
+    "frame_count": 79380000,
+    "sample_rate": 44100,
+    "size_bytes": 19926925
+  },
+  "provenance": {
+    "generator": "corpus.manifests",
+    "generator_version": "1.0.0",
+    "source": "local_corpus_file"
+  },
+  "recording_id": "ave_recording_59777d08908048e3",
+  "relative_path": "brainfm/sleep/power_nap/Prana Simple Unguided Meditation 14 Chris RST4 1_30mins_VBR5.mp3"
+}

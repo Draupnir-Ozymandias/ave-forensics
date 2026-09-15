@@ -7,8 +7,10 @@
     "source_override": null
   },
   "duplicates": {
-    "is_duplicate": false,
-    "matching_relative_paths": []
+    "is_duplicate": true,
+    "matching_relative_paths": [
+      "brainfm/sleep/wind_down/LucidDreams_Sleep_DeepSleep_Atmospheric_60_120bpm_Nrmlzd2_VBR5.mp3"
+    ]
   },
   "identity": {
     "hash_algorithm": "sha256",

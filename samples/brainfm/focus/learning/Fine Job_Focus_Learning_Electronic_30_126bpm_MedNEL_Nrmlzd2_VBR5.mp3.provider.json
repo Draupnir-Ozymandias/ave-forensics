@@ -1,0 +1,99 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2026-03-24T16:27:19.965Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 126,
+    "brightness_level": 0.57,
+    "complexity_level": 0.43,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.34
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Fine Job_Focus_Learning_Electronic_30_126bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Fine Job",
+    "track_id": "69c2bb671b6ecfe6c4a715d3",
+    "variation_id": "69c2bb681b6ecfe6c4a715d7"
+  },
+  "recording": {
+    "filename": "Fine Job_Focus_Learning_Electronic_30_126bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "ff083b2d900f8ff7f3f3c606dc5e90ab0588b468ab43b1476c177bbe7d5a5b53",
+    "size_bytes": 32044575
+  },
+  "source_capture": {
+    "filename": "focus_learning_20260915.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 93,
+    "sha256": "2547f936816cde2fb6fee28d75f30795008657ccf753b4e221b93fc49f3f62ce"
+  },
+  "taxonomy": {
+    "activity": null,
+    "all_provider_tags": {
+      "activity": [
+        "Learning"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Arp Synth",
+        "Electronic Percussion",
+        "Synth Bass",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Dark",
+        "Mysterious"
+      ],
+      "release": [
+        "March 23 2026"
+      ],
+      "subgenre": [
+        "Electronica",
+        "House",
+        "Techno"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Arp Synth",
+      "Electronic Percussion",
+      "Synth Bass",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Focus",
+    "mobile_activity": null,
+    "moods": [
+      "Dark",
+      "Mysterious"
+    ],
+    "release_tags": [
+      "March 23 2026"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Electronica",
+      "House",
+      "Techno"
+    ],
+    "web_activity": "Learning"
+  }
+}

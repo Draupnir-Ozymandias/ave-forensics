@@ -1,0 +1,102 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 2,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T21:39:30.312Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.51,
+    "complexity_level": 0.44,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.88
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Focus2Session1_VBR5.mp3",
+    "title": "Amped Up",
+    "track_id": "62b38c12592411b2d7f55428",
+    "variation_id": "62b38c125924114827f5542a"
+  },
+  "recording": {
+    "filename": "Focus2Session1_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "63ecba63d41147ff34cf5b701320a8f25c7c3e42ad24dd66198ac1f063a94bd3",
+    "size_bytes": 22219632
+  },
+  "source_capture": {
+    "filename": "focus_learning_20260915.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 93,
+    "sha256": "2547f936816cde2fb6fee28d75f30795008657ccf753b4e221b93fc49f3f62ce"
+  },
+  "taxonomy": {
+    "activity": "Light Work",
+    "all_provider_tags": {
+      "activity": [
+        "Creativity",
+        "Light Work"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Acoustic Piano",
+        "Ethnic Strings",
+        "Synth Bass"
+      ],
+      "mood": [
+        "Inspiring",
+        "Mysterious",
+        "Ponderous"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Acoustic",
+        "Ambient",
+        "Post-Rock"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Acoustic Piano",
+      "Ethnic Strings",
+      "Synth Bass"
+    ],
+    "mental_state": "Focus",
+    "mobile_activity": "Light Work",
+    "moods": [
+      "Inspiring",
+      "Mysterious",
+      "Ponderous"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Acoustic",
+      "Ambient",
+      "Post-Rock"
+    ],
+    "web_activity": "Creativity"
+  }
+}

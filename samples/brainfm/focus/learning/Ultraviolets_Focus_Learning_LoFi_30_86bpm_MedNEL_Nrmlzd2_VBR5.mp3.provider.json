@@ -1,0 +1,119 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 2,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-03-22T15:56:22.270Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 84,
+    "brightness_level": 0.35,
+    "complexity_level": 0.79,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.45
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Ultraviolets_Focus_Learning_LoFi_30_86bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Ultraviolets",
+    "track_id": "65fdaa26cc7d1e000a587b52",
+    "variation_id": "65fdaa26cc7d1e000a587b56"
+  },
+  "recording": {
+    "filename": "Ultraviolets_Focus_Learning_LoFi_30_86bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "3f4c5ed17eee4e3d310f3d1092bafb817a0fdaee8a921df4d6ed3a274ab76b63",
+    "size_bytes": 26587752
+  },
+  "source_capture": {
+    "filename": "focus_learning_20260915.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 93,
+    "sha256": "2547f936816cde2fb6fee28d75f30795008657ccf753b4e221b93fc49f3f62ce"
+  },
+  "taxonomy": {
+    "activity": "Light Work",
+    "all_provider_tags": {
+      "activity": [
+        "Learning",
+        "Light Work",
+        "Study & Read"
+      ],
+      "genre": [
+        "Lofi"
+      ],
+      "instrument": [
+        "Acoustic Piano",
+        "Arp Synth",
+        "Electric Bass",
+        "Electric Keys",
+        "Electronic Percussion",
+        "Mallets",
+        "Processed Vocals",
+        "Synth Bass",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Serene"
+      ],
+      "release": [
+        "March 25 2024"
+      ],
+      "subgenre": [
+        "Electronica",
+        "Hip-Hop",
+        "Lo-Fi",
+        "R&B"
+      ]
+    },
+    "genres": [
+      "Lofi"
+    ],
+    "instruments": [
+      "Acoustic Piano",
+      "Arp Synth",
+      "Electric Bass",
+      "Electric Keys",
+      "Electronic Percussion",
+      "Mallets",
+      "Processed Vocals",
+      "Synth Bass",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Focus",
+    "mobile_activity": "Light Work",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Serene"
+    ],
+    "release_tags": [
+      "March 25 2024"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Electronica",
+      "Hip-Hop",
+      "Lo-Fi",
+      "R&B"
+    ],
+    "web_activity": "Learning"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2023-04-07T14:46:16.412Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.66,
+    "complexity_level": 0.52,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.39
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Regulus_Focus_Creativity_Drones_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Regulus",
+    "track_id": "64302cb85ee24c793da06bb1",
+    "variation_id": "64302cb85ee24ccc76a06bb6"
+  },
+  "recording": {
+    "filename": "Regulus_Focus_Creativity_Drones_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "c8f3f5e4bdfc4e951bcb6596e8a38275a2b8e04c43e556de4fa9216beb8501d3",
+    "size_bytes": 29705965
+  },
+  "source_capture": {
+    "filename": "focus_creativity_20260915.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 55,
+    "sha256": "6fbfed0f27d38beb228c00ed932c03712878fdfd17b7987cd16cda3bf57e0543"
+  },
+  "taxonomy": {
+    "activity": "Creative Flow",
+    "all_provider_tags": {
+      "activity": [
+        "Creative Flow",
+        "Creativity"
+      ],
+      "genre": [
+        "Drone"
+      ],
+      "instrument": [
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Serene"
+      ],
+      "release": [
+        "April 7 2023"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Drone"
+    ],
+    "instruments": [
+      "Textural Soundscape"
+    ],
+    "mental_state": "Focus",
+    "mobile_activity": "Creative Flow",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Serene"
+    ],
+    "release_tags": [
+      "April 7 2023"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ],
+    "web_activity": "Creativity"
+  }
+}

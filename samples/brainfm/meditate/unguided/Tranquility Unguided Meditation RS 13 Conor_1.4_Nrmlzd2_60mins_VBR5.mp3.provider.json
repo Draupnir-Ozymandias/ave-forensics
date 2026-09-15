@@ -1,0 +1,100 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T20:52:27.012Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.01,
+    "complexity_level": 0.37,
+    "declared_duration_seconds": 3600,
+    "neural_effect_level": 0.41
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Tranquility Unguided Meditation RS 13 Conor_1.4_Nrmlzd2_60mins_VBR5.mp3",
+    "title": "Tranquility",
+    "track_id": "62b3810b59241190e2f4e150",
+    "variation_id": "62b396f05924117a49f57ea3"
+  },
+  "recording": {
+    "filename": "Tranquility Unguided Meditation RS 13 Conor_1.4_Nrmlzd2_60mins_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "02c8b970a3c5fadac0f42702ce8beb0a17c484e0cc7548a879493e89a6816e88",
+    "size_bytes": 39774816
+  },
+  "source_capture": {
+    "filename": "meditate_unguided_20260915.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 58,
+    "sha256": "6870cf90cc1ccc7d02ece9a2960531e7a2ce54130c890b6b310175e1caa434ab"
+  },
+  "taxonomy": {
+    "activity": "Unguided",
+    "all_provider_tags": {
+      "activity": [
+        "Meditate",
+        "Unguided"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Meditative",
+        "Serene"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Textural Soundscape"
+    ],
+    "mental_state": "Meditate",
+    "mobile_activity": "Unguided",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Meditative",
+      "Serene"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ],
+    "web_activity": "Meditate"
+  }
+}

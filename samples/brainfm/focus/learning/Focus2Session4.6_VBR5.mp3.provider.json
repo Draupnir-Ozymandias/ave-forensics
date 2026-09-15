@@ -1,0 +1,98 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T21:25:38.840Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.1,
+    "complexity_level": 0.48,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.67
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Focus2Session4.6_VBR5.mp3",
+    "title": "Spiral Galaxy",
+    "track_id": "62b388d259241142daf52a42",
+    "variation_id": "62b388d2592411fdc2f52a44"
+  },
+  "recording": {
+    "filename": "Focus2Session4.6_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "a51c4568980eff94e44b216658d4373342c816f1cb549e0edabce0175af6dc70",
+    "size_bytes": 20115216
+  },
+  "source_capture": {
+    "filename": "focus_learning_20260915.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 93,
+    "sha256": "2547f936816cde2fb6fee28d75f30795008657ccf753b4e221b93fc49f3f62ce"
+  },
+  "taxonomy": {
+    "activity": "Light Work",
+    "all_provider_tags": {
+      "activity": [
+        "Learning",
+        "Light Work"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Arp Synth",
+        "Electric Bass",
+        "Electric Guitar"
+      ],
+      "mood": [
+        "Hopeful",
+        "Uplifting"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Ambient",
+        "Post-Rock"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Arp Synth",
+      "Electric Bass",
+      "Electric Guitar"
+    ],
+    "mental_state": "Focus",
+    "mobile_activity": "Light Work",
+    "moods": [
+      "Hopeful",
+      "Uplifting"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient",
+      "Post-Rock"
+    ],
+    "web_activity": "Learning"
+  }
+}
