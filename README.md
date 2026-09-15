@@ -40,6 +40,12 @@ Useful controls:
 Deferred and excluded recordings remain visible in `batch_summary.json`. Use `0` for
 either time limit to disable it deliberately.
 
+Each canonical analysis also writes `ave_pulse_analysis.json`. The broadband pulse
+analyzer measures repetition rate, onset regularity, duty cycle, hard-versus-smooth
+amplitude shape, stereo synchronization or alternation, and time-resolved pattern
+changes without requiring a persistent carrier pair. Its isochronic labels describe
+signal structure only; see `docs/PULSE_AND_ISOCHRONIC_ANALYSIS.md`.
+
 Run the test suite with:
 
 ```bash
@@ -58,7 +64,7 @@ The command writes `artifacts/corpus/corpus_index.json` for complete structured
 analysis and `artifacts/corpus/corpus_index.csv` for comparison, filtering, and
 dashboard work. Each row preserves batch status, source metadata, duration,
 SHA-256 input identity, evidence counts, dominant signal relationships, phase
-behavior, and the top protocol hypothesis. Deferred and invalid recordings remain
+behavior, broadband pulse structure, and the top protocol hypothesis. Deferred and invalid recordings remain
 visible rather than disappearing from the corpus.
 
 Use `--no-hash` only for a provisional index when input hashing is unnecessary.
@@ -279,7 +285,7 @@ Build the Corpus Evidence Index, then generate the local dashboard:
 
 Open `artifacts/dashboard/index.html` in a browser. The self-contained dashboard
 requires no server or network connection. It provides corpus filters, carrier and
-modulation distributions, phase and hypothesis comparisons, recording drill-down,
+modulation distributions, phase, pulse-structure, and hypothesis comparisons, recording drill-down,
 protocol-family profiles, contextual provider-taxonomy filters and summaries, and
 text-free transcript coverage, timing, confidence, and active-versus-sparse signal
 comparisons. Provider context and transcript contents remain separate from measured

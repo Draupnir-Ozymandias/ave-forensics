@@ -295,6 +295,7 @@ The Lumenate work should remain a distinct forensic workstream while publishing 
 - Provider recommendation graph and topology-only community discovery
 - Provider context-drift comparison across directory, filename, taxonomy, and
   captured recommendation layers
+- Broadband pulse and isochronic-pattern analysis
 - Light/audio/haptic synchronization analysis
 - Device-protocol ingestion from the Lumenate Nova workstream
 

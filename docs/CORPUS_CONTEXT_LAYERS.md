@@ -7,6 +7,7 @@ acoustic finding before comparison is performed.
 ## Four evidence layers
 
 1. **Observed signal evidence** — carrier, envelope, modulation-spectrum, phase,
+   broadband pulse timing,
    and protocol-hypothesis measurements produced by AVE. Protocol-family
    clustering uses only this layer.
 2. **Provider taxonomy** — provider-supplied mental state, activity, moods,

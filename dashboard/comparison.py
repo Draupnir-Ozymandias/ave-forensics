@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 
-DASHBOARD_SCHEMA_VERSION = "1.8.0"
+DASHBOARD_SCHEMA_VERSION = "1.9.0"
 TEMPLATE_PATH = Path(__file__).with_name("dashboard.html")
 
 
@@ -17,6 +17,7 @@ def _flatten_record(record: dict[str, Any]) -> dict[str, Any]:
     envelope = summary.get("dominant_envelope") or {}
     modulation = summary.get("modulation_reconstruction") or {}
     phase = summary.get("phase_relationship") or {}
+    pulse = summary.get("pulse_pattern") or {}
     speech_context = summary.get("speech_context_comparison") or {}
     hypothesis = summary.get("top_hypothesis") or {}
     hypothesis_bands = summary.get("hypothesis_band_summary") or {}
@@ -137,6 +138,15 @@ def _flatten_record(record: dict[str, Any]) -> dict[str, Any]:
         "phase_behavior": phase.get("behavior"),
         "phase_window_coverage": phase.get("window_coverage"),
         "phase_median_difference_hz": phase.get("median_difference_hz"),
+        "pulse_classification": pulse.get("classification"),
+        "pulse_rate_hz": pulse.get("pulse_rate_hz"),
+        "pulse_duty_cycle": pulse.get("duty_cycle"),
+        "pulse_onset_regularity": pulse.get("onset_regularity"),
+        "pulse_state_separation": pulse.get("state_separation"),
+        "pulse_stereo_relationship": pulse.get("stereo_relationship"),
+        "pulse_stereo_offset_fraction": pulse.get("stereo_offset_fraction"),
+        "pulse_timeline_transition_count": pulse.get("timeline_transition_count"),
+        "pulse_confidence": pulse.get("confidence"),
         "hypothesis_intent": hypothesis.get("intent"),
         "hypothesis_band": hypothesis.get("brainwave_band"),
         "hypothesis_difference_hz": hypothesis.get("difference_hz"),
@@ -600,6 +610,9 @@ def build_dashboard_data(
             ),
             "speech_context_comparison_count": sum(
                 item["speech_context_comparison_available"] for item in canonical
+            ),
+            "pulse_analysis_count": sum(
+                item["pulse_classification"] is not None for item in canonical
             ),
             "context_compared_count": (
                 context_drift_summary["assessed_recording_count"]

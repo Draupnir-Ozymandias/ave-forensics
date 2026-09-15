@@ -148,6 +148,78 @@ def modulation_spectrum_to_evidence(
     )
 
 
+def pulse_analysis_to_evidence(
+    result: dict[str, Any],
+    provenance: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    channel_items = list(result["channels"].items())
+    resolved = [
+        (name, values)
+        for name, values in channel_items
+        if values.get("pulse_rate_hz") is not None
+    ]
+    primary_name, primary = max(
+        resolved or channel_items,
+        key=lambda item: item[1]["confidence"],
+    )
+    measurements = [
+        measurement("classification", result["classification"], "classification"),
+        measurement(
+            "stereo_relationship",
+            result["stereo_relationship"]["classification"],
+            "classification",
+        ),
+        measurement("primary_channel", primary_name, "channel"),
+        measurement("timeline_window_count", result["timeline_summary"]["window_count"], "count"),
+        measurement("timeline_transition_count", result["timeline_summary"]["transition_count"], "count"),
+    ]
+    for name, value, unit in (
+        ("primary_pulse_rate", primary.get("pulse_rate_hz"), "Hz"),
+        ("primary_duty_cycle", primary.get("duty_cycle"), "ratio"),
+        ("primary_onset_regularity", primary.get("onset_regularity"), "ratio"),
+        ("primary_state_separation", primary.get("state_separation"), "ratio"),
+        (
+            "stereo_median_offset_fraction",
+            result["stereo_relationship"].get("median_offset_fraction"),
+            "cycle_fraction",
+        ),
+    ):
+        if value is not None:
+            measurements.append(measurement(name, value, unit))
+
+    detected = result["classification"] not in {
+        "no_periodic_pulse",
+        "insufficient_data",
+        "irregular_transients",
+    }
+    return create_evidence_object(
+        evidence_level="detection" if detected else "measurement",
+        evidence_type="broadband_pulse_pattern",
+        source_module="analysis.pulse",
+        summary=result["classification"].replace("_", " "),
+        channels=list(result["channels"]),
+        time_range_seconds={"start": 0.0, "end": result["duration_seconds"]},
+        measurements=measurements,
+        context={
+            "channel_classifications": {
+                name: values["classification"] for name, values in channel_items
+            },
+            "timeline_classification_counts": result["timeline_summary"][
+                "classification_counts"
+            ],
+        },
+        confidence={
+            "score": result["confidence"],
+            "method": "mean_channel_pattern_confidence",
+        },
+        provenance=provenance,
+        limitations=[
+            "Isochronic-candidate terminology describes amplitude timing only.",
+            "Signal structure does not establish intent, efficacy, or physiological response.",
+        ],
+    )
+
+
 def protocol_hypothesis_to_evidence(
     hypothesis: dict[str, Any],
     provenance: dict[str, Any] | None = None,

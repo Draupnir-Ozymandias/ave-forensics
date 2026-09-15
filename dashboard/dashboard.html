@@ -215,6 +215,7 @@
       <article class="panel"><h3>Inter-channel carrier difference</h3><div class="hint">Strongest persistent pair · Hz distribution</div><div id="carrier-chart"></div></article>
       <article class="panel"><h3>Modulation spectrum</h3><div class="hint">Dominant envelope versus shared reconstructed modulation · Hz</div><div id="modulation-chart"></div></article>
       <article class="panel"><h3>Phase relationship</h3><div class="hint">Dominant time-resolved phase behavior</div><div id="phase-chart"></div></article>
+      <article class="panel"><h3>Pulse structure</h3><div class="hint">Broadband amplitude timing · isochronic candidates are structural labels only</div><div id="pulse-chart"></div></article>
       <article class="panel"><h3>Hypothesis bands</h3><div class="hint" id="band-hint">Top-ranked protocol hypothesis per recording</div><div id="band-chart"></div></article>
     </section>
 
@@ -275,7 +276,7 @@
       const query = $('search').value.trim().toLowerCase();
       const durationBand = seconds => seconds == null ? 'unknown' : seconds < 1200 ? 'short' : seconds <= 2400 ? 'medium' : seconds <= 3600 ? 'long' : 'extended';
       return records.filter(r => {
-        const haystack = [r.relative_path, ...(r.all_aliases || []), r.hypothesis_intent, ...Object.keys(r.hypothesis_band_counts || {}), r.input_sha256, r.phase_behavior, r.modulation_classification, r.provider_title, r.provider_mental_state, r.provider_activity, r.provider_style, r.transcript_provider, r.transcript_language_code, ...(r.provider_moods || []), ...(r.provider_instruments || [])].join(' ').toLowerCase();
+        const haystack = [r.relative_path, ...(r.all_aliases || []), r.hypothesis_intent, ...Object.keys(r.hypothesis_band_counts || {}), r.input_sha256, r.phase_behavior, r.modulation_classification, r.pulse_classification, r.pulse_stereo_relationship, r.provider_title, r.provider_mental_state, r.provider_activity, r.provider_style, r.transcript_provider, r.transcript_language_code, ...(r.provider_moods || []), ...(r.provider_instruments || [])].join(' ').toLowerCase();
         return (!query || haystack.includes(query)) &&
           (!$('source').value || r.source === $('source').value) &&
           (!$('category').value || r.category === $('category').value) &&
@@ -513,6 +514,8 @@
         ['Carrier pair', record.carrier_pair_type], ['Left / right', `${number(record.carrier_left_hz)} / ${number(record.carrier_right_hz)} Hz`], ['Carrier difference', `${number(record.carrier_difference_hz)} Hz`],
         ['Envelope modulation', `${number(record.envelope_modulation_hz)} Hz`], ['Shared modulation', `${number(record.shared_modulation_hz)} Hz`], ['Shared coverage', percent(record.shared_window_coverage)],
         ['Phase behavior', human(record.phase_behavior)], ['Phase coverage', percent(record.phase_window_coverage)], ['Phase-derived difference', `${number(record.phase_median_difference_hz)} Hz`],
+        ['Pulse structure', human(record.pulse_classification)], ['Pulse rate', `${number(record.pulse_rate_hz)} Hz`], ['Pulse duty cycle', percent(record.pulse_duty_cycle)],
+        ['Pulse regularity', percent(record.pulse_onset_regularity)], ['Pulse stereo timing', human(record.pulse_stereo_relationship)], ['Pulse confidence', percent(record.pulse_confidence)], ['Pulse timeline transitions', record.pulse_timeline_transition_count],
         ['Top hypothesis', record.hypothesis_intent], ['Brainwave band', human(record.hypothesis_band)], ['Ranking score', number(record.hypothesis_ranking_score, 4)],
         ['Retained hypotheses', record.retained_hypothesis_count], ['Retained band counts', Object.entries(record.hypothesis_band_counts || {}).map(([band,count]) => `${human(band)}: ${count}`).join(', ') || '—'], ['Gamma best score', number((record.hypothesis_best_by_band.gamma || {}).ranking_score, 4)],
       ];
@@ -540,7 +543,7 @@
       if (kind === 'json') {
         body = JSON.stringify({dashboard_schema_version: DATA.dashboard_schema_version, filtered_recordings: records}, null, 2); type = 'application/json'; extension = 'json';
       } else {
-        const fields = ['relative_path','category','stated_intent','provider_metadata_status','provider_track_id','provider_title','provider_mental_state','provider_activity','provider_style','provider_beats_per_minute','provider_neural_effect_level','recommendation_community_id','recommendation_in_degree','recommendation_out_degree','recommendation_list_variant_count','transcript_status','transcript_provider','transcript_language_code','transcript_segment_count','transcript_timed_pronunciation_count','transcript_speech_coverage_ratio','transcript_mean_pronunciation_confidence','speech_context_comparison_available','speech_context_buffered_coverage_ratio','speech_active_window_count','speech_sparse_window_count','speech_active_candidate_rate','speech_sparse_candidate_rate','speech_active_median_difference_hz','speech_sparse_median_difference_hz','speech_active_median_phase_locking','speech_sparse_median_phase_locking','speech_active_persistent_difference_hz','speech_sparse_persistent_difference_hz','speech_active_persistent_band','speech_sparse_persistent_band','speech_active_persistent_score','speech_sparse_persistent_score','analysis_configuration_version','protocol_family_id','protocol_family_label','protocol_family_silhouette','intent_alignment_status','intent_same_peer_support','intent_corpus_baseline','intent_association_lift','intent_alignment_score','index_status','provenance_status','duration_seconds','input_sha256','carrier_difference_hz','envelope_modulation_hz','shared_modulation_hz','phase_behavior','hypothesis_band','hypothesis_ranking_score','retained_hypothesis_count'];
+        const fields = ['relative_path','category','stated_intent','provider_metadata_status','provider_track_id','provider_title','provider_mental_state','provider_activity','provider_style','provider_beats_per_minute','provider_neural_effect_level','recommendation_community_id','recommendation_in_degree','recommendation_out_degree','recommendation_list_variant_count','transcript_status','transcript_provider','transcript_language_code','transcript_segment_count','transcript_timed_pronunciation_count','transcript_speech_coverage_ratio','transcript_mean_pronunciation_confidence','speech_context_comparison_available','speech_context_buffered_coverage_ratio','speech_active_window_count','speech_sparse_window_count','speech_active_candidate_rate','speech_sparse_candidate_rate','speech_active_median_difference_hz','speech_sparse_median_difference_hz','speech_active_median_phase_locking','speech_sparse_median_phase_locking','speech_active_persistent_difference_hz','speech_sparse_persistent_difference_hz','speech_active_persistent_band','speech_sparse_persistent_band','speech_active_persistent_score','speech_sparse_persistent_score','analysis_configuration_version','protocol_family_id','protocol_family_label','protocol_family_silhouette','intent_alignment_status','intent_same_peer_support','intent_corpus_baseline','intent_association_lift','intent_alignment_score','index_status','provenance_status','duration_seconds','input_sha256','carrier_difference_hz','envelope_modulation_hz','shared_modulation_hz','phase_behavior','pulse_classification','pulse_rate_hz','pulse_duty_cycle','pulse_onset_regularity','pulse_stereo_relationship','pulse_confidence','hypothesis_band','hypothesis_ranking_score','retained_hypothesis_count'];
         const cell = v => `"${String(v ?? '').replaceAll('"','""')}"`;
         body = [fields.join(','), ...records.map(r => fields.map(f => cell(r[f])).join(','))].join('\n'); type = 'text/csv'; extension = 'csv';
       }
@@ -557,6 +560,7 @@
       $('carrier-chart').innerHTML = histogram(records, 'carrier_difference_hz');
       $('modulation-chart').innerHTML = modulation(records);
       $('phase-chart').innerHTML = bars(countBy(records.filter(r => r.phase_behavior), 'phase_behavior'));
+      $('pulse-chart').innerHTML = bars(countBy(records.filter(r => r.pulse_classification), 'pulse_classification'));
       const allHypotheses = $('hypothesis-mode').value === 'all';
       $('band-chart').innerHTML = bars(allHypotheses ? retainedBandCounts(records) : countBy(records.filter(r => r.hypothesis_band), 'hypothesis_band'));
       $('band-hint').textContent = allHypotheses ? 'Every retained candidate · one recording may contribute multiple candidates' : 'Top-ranked protocol hypothesis per recording';

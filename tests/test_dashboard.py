@@ -24,6 +24,16 @@ def record(path, digest, *, status="indexed", provenance="validated", score=0.5)
                 "behavior": "stable_offset",
                 "window_coverage": 0.8,
             },
+            "pulse_pattern": {
+                "classification": "synchronized_isochronic_pulse_candidate",
+                "pulse_rate_hz": 8.0,
+                "duty_cycle": 0.25,
+                "onset_regularity": 0.98,
+                "state_separation": 0.92,
+                "stereo_relationship": "synchronized",
+                "timeline_transition_count": 0,
+                "confidence": 0.9,
+            },
             "top_hypothesis": {
                 "intent": "alpha candidate",
                 "brainwave_band": "alpha",
@@ -74,6 +84,7 @@ def test_dashboard_deduplicates_comparisons_but_preserves_aliases():
         "provider_metadata_count": 0,
         "transcript_sidecar_count": 0,
         "speech_context_comparison_count": 0,
+        "pulse_analysis_count": 1,
         "context_compared_count": 0,
         "analysis_configuration_versions": {},
     }
@@ -115,6 +126,7 @@ def test_dashboard_html_is_self_contained_and_deterministic(tmp_path):
     assert "Speech context" in first_text
     assert 'id="speech-difference-chart"' in first_text
     assert 'id="speech-band-chart"' in first_text
+    assert 'id="pulse-chart"' in first_text
     assert 'id="alignment-profiles"' in first_text
     assert 'id="recommendation-top"' in first_text
     assert 'id="recommendation-community-list"' in first_text

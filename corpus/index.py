@@ -10,7 +10,7 @@ from evidence.schema import SCHEMA_VERSION, validate_evidence_object
 from core.hashing import sha256_file
 
 
-INDEX_SCHEMA_VERSION = "1.4.0"
+INDEX_SCHEMA_VERSION = "1.5.0"
 
 
 def _measurement_map(evidence: dict[str, Any]) -> dict[str, Any]:
@@ -102,6 +102,32 @@ def _phase_relationship(evidence: list[dict[str, Any]]) -> dict[str, Any] | None
         "behavior": values["dominant_phase_behavior"],
         "window_coverage": values["behavior_window_coverage"],
         "median_difference_hz": values["median_phase_derived_difference"],
+        "confidence": _confidence_score(item),
+    }
+
+
+def _pulse_pattern(evidence: list[dict[str, Any]]) -> dict[str, Any] | None:
+    item = next(
+        (
+            candidate
+            for candidate in evidence
+            if candidate["evidence_type"] == "broadband_pulse_pattern"
+        ),
+        None,
+    )
+    if item is None:
+        return None
+    values = _measurement_map(item)
+    return {
+        "classification": values["classification"],
+        "primary_channel": values["primary_channel"],
+        "pulse_rate_hz": values.get("primary_pulse_rate"),
+        "duty_cycle": values.get("primary_duty_cycle"),
+        "onset_regularity": values.get("primary_onset_regularity"),
+        "state_separation": values.get("primary_state_separation"),
+        "stereo_relationship": values["stereo_relationship"],
+        "stereo_offset_fraction": values.get("stereo_median_offset_fraction"),
+        "timeline_transition_count": values["timeline_transition_count"],
         "confidence": _confidence_score(item),
     }
 
@@ -250,6 +276,7 @@ def summarize_evidence_document(document: dict[str, Any]) -> dict[str, Any]:
         "dominant_envelope": _dominant_envelope(evidence),
         "modulation_reconstruction": _modulation_reconstruction(evidence),
         "phase_relationship": _phase_relationship(evidence),
+        "pulse_pattern": _pulse_pattern(evidence),
         "speech_context_comparison": _speech_context_comparison(evidence),
         "top_hypothesis": hypotheses[0] if hypotheses else None,
         "hypothesis_band_summary": _hypothesis_band_summary(hypotheses),
@@ -572,6 +599,12 @@ CSV_FIELDS = [
     "primary_shared_modulation_hz",
     "phase_behavior",
     "phase_window_coverage",
+    "pulse_classification",
+    "pulse_rate_hz",
+    "pulse_duty_cycle",
+    "pulse_onset_regularity",
+    "pulse_stereo_relationship",
+    "pulse_confidence",
     "top_hypothesis_intent",
     "top_hypothesis_difference_hz",
     "top_hypothesis_ranking_score",
@@ -589,6 +622,7 @@ def _csv_row(record: dict[str, Any]) -> dict[str, Any]:
     envelope = summary.get("dominant_envelope") or {}
     modulation = summary.get("modulation_reconstruction") or {}
     phase = summary.get("phase_relationship") or {}
+    pulse = summary.get("pulse_pattern") or {}
     hypothesis = summary.get("top_hypothesis") or {}
     provider_metadata = record.get("provider_metadata") or {}
     provider_track = provider_metadata.get("provider_track") or {}
@@ -699,6 +733,12 @@ def _csv_row(record: dict[str, Any]) -> dict[str, Any]:
         ),
         "phase_behavior": phase.get("behavior"),
         "phase_window_coverage": phase.get("window_coverage"),
+        "pulse_classification": pulse.get("classification"),
+        "pulse_rate_hz": pulse.get("pulse_rate_hz"),
+        "pulse_duty_cycle": pulse.get("duty_cycle"),
+        "pulse_onset_regularity": pulse.get("onset_regularity"),
+        "pulse_stereo_relationship": pulse.get("stereo_relationship"),
+        "pulse_confidence": pulse.get("confidence"),
         "top_hypothesis_intent": hypothesis.get("intent"),
         "top_hypothesis_difference_hz": hypothesis.get("difference_hz"),
         "top_hypothesis_ranking_score": hypothesis.get("ranking_score"),

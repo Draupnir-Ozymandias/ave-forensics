@@ -39,11 +39,14 @@ from analysis.phase import analyze_phase_over_time
 from reports.phase_console import print_phase_timeline
 from analysis.modulation_spectrum import analyze_modulation_spectrum
 from reports.modulation_console import print_modulation_spectrum_summary
+from analysis.pulse import analyze_pulse_patterns
+from reports.pulse_console import print_pulse_summary
 from evidence.adapters import (
     carrier_pair_to_evidence,
     envelope_analysis_to_evidence,
     modulation_spectrum_to_evidence,
     phase_timeline_to_evidence,
+    pulse_analysis_to_evidence,
     protocol_hypothesis_to_evidence,
     speech_context_to_evidence,
 )
@@ -185,6 +188,17 @@ def main(audio_path: str = DEFAULT_AUDIO_PATH, output_dir: str = "."):
         carrier_pair_to_evidence(pair, evidence_provenance)
         for pair in selected_carrier_pairs
     ]
+
+    pulse_config = analysis_config["pulse"]
+    pulse_result = analyze_pulse_patterns(y, sr, **pulse_config)
+    print_pulse_summary(pulse_result)
+    evidence_objects.append(
+        pulse_analysis_to_evidence(pulse_result, evidence_provenance)
+    )
+    with open(output_path("ave_pulse_analysis.json"), "w") as output_file:
+        json.dump(pulse_result, output_file, indent=2, sort_keys=True)
+        output_file.write("\n")
+    print("Pulse analysis written to ave_pulse_analysis.json")
 
     left_envelope_timeline = None
     right_envelope_timeline = None

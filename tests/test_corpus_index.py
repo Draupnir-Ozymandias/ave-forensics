@@ -74,6 +74,39 @@ def speech_context_evidence() -> dict:
     )
 
 
+def pulse_evidence() -> dict:
+    return create_evidence_object(
+        evidence_level="detection",
+        evidence_type="broadband_pulse_pattern",
+        source_module="analysis.pulse",
+        summary="synchronized isochronic pulse candidate",
+        measurements=[
+            measurement("classification", "synchronized_isochronic_pulse_candidate", "classification"),
+            measurement("stereo_relationship", "synchronized", "classification"),
+            measurement("primary_channel", "left", "channel"),
+            measurement("timeline_window_count", 10, "count"),
+            measurement("timeline_transition_count", 1, "count"),
+            measurement("primary_pulse_rate", 8.0, "Hz"),
+            measurement("primary_duty_cycle", 0.25, "ratio"),
+            measurement("primary_onset_regularity", 0.98, "ratio"),
+            measurement("primary_state_separation", 0.94, "ratio"),
+        ],
+        confidence={"score": 0.91, "method": "mean_channel_pattern_confidence"},
+    )
+
+
+def test_summarizes_broadband_pulse_pattern():
+    summary = summarize_evidence_document(
+        evidence_document([hypothesis_evidence(), pulse_evidence()])
+    )
+
+    pulse = summary["pulse_pattern"]
+    assert pulse["classification"] == "synchronized_isochronic_pulse_candidate"
+    assert pulse["pulse_rate_hz"] == 8.0
+    assert pulse["stereo_relationship"] == "synchronized"
+    assert pulse["confidence"] == 0.91
+
+
 def test_summarizes_speech_context_comparison():
     summary = summarize_evidence_document(
         evidence_document([hypothesis_evidence(), speech_context_evidence()])
