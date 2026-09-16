@@ -3,6 +3,9 @@
 AVE analyzes audio-visual entrainment recordings and exports measurement reports,
 timelines, reconstructed protocol hypotheses, and canonical evidence objects.
 
+The shared boundary and acceptance criteria for the independent Lumenate Nova
+workstream are defined in `docs/LUMENATE_NOVA_INTEGRATION_ALIGNMENT.md`.
+
 ## Analyze one recording
 
 ```bash

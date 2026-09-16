@@ -259,6 +259,8 @@ Relevant findings will be incorporated into AVE as a multimodal evidence source,
 - firmware or hardware constraints.
 
 The Lumenate work should remain a distinct forensic workstream while publishing validated evidence and protocol models into the AVE architecture.
+The current cross-project contract, sequencing plan, and synchronization acceptance
+gate are documented in `docs/LUMENATE_NOVA_INTEGRATION_ALIGNMENT.md`.
 
 ---
 
