@@ -45,7 +45,7 @@ The Lumenate project currently provides:
 - an APK 7.0.0 / versionCode 380 reconnaissance baseline;
 - identified Java/JNI strobe-engine and Nova BLE investigation targets;
 - milestone gates N0 through N6;
-- `lumenate-protocol-export` schema version `0.1.0`;
+- `lumenate-protocol-export` candidate schema version `0.2.0`;
 - a pinned AVE evidence schema version `1.0.0`; and
 - a sanitized synthetic contract fixture.
 
@@ -77,7 +77,9 @@ Lumenate owns and versions this schema. AVE vendors or references a released sch
 version for consumer validation and must reject unsupported major versions. A
 released schema must never be changed silently.
 
-The existing `0.1.0` contract already establishes the essential structure:
+The candidate `0.2.0` contract establishes the essential structure and resolves
+the clock, audio-identity, transition, execution-layer, and evidence-linkage
+questions below:
 
 - device and app version identity;
 - session identity and duration;
@@ -231,6 +233,16 @@ AVE synchronization implementation should begin when all of the following are tr
 One anchor permits offset comparison. Two or more well-separated anchors are needed
 to estimate drift. Physical optical validation is not required for the first importer,
 but commanded and emitted light must remain separately labeled until N5 closes.
+
+## Candidate 0.2.0 consumer implementation
+
+AVE vendors the exact candidate producer schema and AVE evidence schema under
+`device_protocol/contracts/`. The importer in `device_protocol/lumenate.py` accepts
+only protocol `0.2.0` with AVE evidence `1.0.0`, performs JSON Schema and cross-field
+validation, and normalizes light-segment times to seconds without changing their
+execution-layer or evidentiary meaning. Sanitized empirical fixtures live under
+`device_protocol/fixtures/` and are exercised by consumer-side acceptance and
+malformed-input tests.
 
 ## Definition of shared success
 

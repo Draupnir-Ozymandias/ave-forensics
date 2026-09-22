@@ -1,0 +1,2994 @@
+{
+  "schema_version": "0.2.0",
+  "ave_evidence_schema_version": "1.0.0",
+  "export_id": "ln_b49b877ea929667d",
+  "created_at": "2026-09-19T18:40:29Z",
+  "device": {
+    "product": "Lumenate Nova",
+    "app_package": "com.lumenate.lumenateaa",
+    "app_version": "7.2.1",
+    "app_version_code": 400,
+    "firmware_version": null
+  },
+  "session": {
+    "session_id": "vitality-5min-high-intensity",
+    "title": "Vitality",
+    "duration_ms": 300000,
+    "light_timeline_origin": {
+      "clock_id": "session-program-ms",
+      "time_ms": 0,
+      "definition": "Zero of the bundled 300-second strobe declaration.",
+      "evidence_ids": [
+        "ave_83759cb2d0776a88"
+      ]
+    },
+    "audio_timeline_origin": {
+      "clock_id": "audio-media-position-ms",
+      "time_ms": 0,
+      "definition": "ExoPlayer media position zero for the verified Vitality asset.",
+      "evidence_ids": [
+        "ave_d2750e72d53836a8",
+        "ave_e93d512211639e46"
+      ]
+    }
+  },
+  "audio_asset": {
+    "identity_status": "verified",
+    "source_id": "vitality-5min-audio",
+    "role": "session_audio",
+    "sha256": "b24513faf9f3e920d9addf725563bd236fa3b33f6c1fa91949bcf6011eda7c41",
+    "duration_ms": 299690.667,
+    "sample_rate_hz": 48000,
+    "limitations": [
+      "Container duration is 309.333 ms shorter than the declared light program.",
+      "The audio stream begins 44 ms into the container timeline."
+    ]
+  },
+  "clocks": [
+    {
+      "clock_id": "session-program-ms",
+      "kind": "monotonic",
+      "monotonic": true,
+      "unit": "ms",
+      "origin": "Start of the parsed strobe declaration.",
+      "resolution_ms": 1,
+      "evidence_ids": [
+        "ave_83759cb2d0776a88"
+      ]
+    },
+    {
+      "clock_id": "audio-media-position-ms",
+      "kind": "media_position",
+      "monotonic": true,
+      "unit": "ms",
+      "origin": "ExoPlayer media position zero.",
+      "resolution_ms": 1,
+      "evidence_ids": [
+        "ave_d2750e72d53836a8",
+        "ave_e93d512211639e46"
+      ]
+    },
+    {
+      "clock_id": "ble-run2-capture-ms",
+      "kind": "ble_capture",
+      "monotonic": true,
+      "unit": "ms",
+      "origin": "Run 2 active-state write at HCI epoch 1789660168.039099.",
+      "resolution_ms": 0.001,
+      "evidence_ids": [
+        "ave_b602920cf5622739"
+      ]
+    },
+    {
+      "clock_id": "ble-full-run-capture-ms",
+      "kind": "ble_capture",
+      "monotonic": true,
+      "unit": "ms",
+      "origin": "Full-run active-state write at HCI epoch 1789832752.288698.",
+      "resolution_ms": 0.001,
+      "evidence_ids": [
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "clock_id": "optical-video-ms",
+      "kind": "optical_measurement",
+      "monotonic": true,
+      "unit": "ms",
+      "origin": "Start of the S21 120 fps Vitality replication video.",
+      "resolution_ms": 8.333333,
+      "evidence_ids": [
+        "ave_0ec37c9346327df3"
+      ]
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "vitality-segment-001",
+      "start_ms": 0,
+      "end_ms": 1500,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": null,
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-002",
+      "start_ms": 1500,
+      "end_ms": 5000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": 7.5,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 7.5->7.5 Hz and duty 0.01->0.2."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-003",
+      "start_ms": 5000,
+      "end_ms": 15000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": null,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 7.5->13.5 Hz and duty 0.2->0.15."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-004",
+      "start_ms": 15000,
+      "end_ms": 26000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": null,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 13.5->7.5 Hz and duty 0.15->0.2."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-005",
+      "start_ms": 26000,
+      "end_ms": 35000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": 7.5,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 7.5->7.5 Hz and duty 0.2->0.15."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-006",
+      "start_ms": 35000,
+      "end_ms": 37000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": null,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 7.5->10.5 Hz and duty 0.15->0.2."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-007",
+      "start_ms": 37000,
+      "end_ms": 56000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": 10.5,
+        "duty_cycle": 0.2,
+        "on_ms": 19.047619047619047,
+        "off_ms": 76.19047619047619,
+        "shape": "square",
+        "shape_detail": null
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-008",
+      "start_ms": 56000,
+      "end_ms": 58000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": 10.5,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 10.5->10.5 Hz and duty 0.2->0.25."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-009",
+      "start_ms": 58000,
+      "end_ms": 78000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": 10.5,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 10.5->10.5 Hz and duty 0.25->0.3."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-010",
+      "start_ms": 78000,
+      "end_ms": 87000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": null,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 10.5->13.5 Hz and duty 0.3->0.4."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-011",
+      "start_ms": 87000,
+      "end_ms": 92000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": null,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 13.5->7.5 Hz and duty 0.4->0.1."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-012",
+      "start_ms": 92000,
+      "end_ms": 101000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": 7.5,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 7.5->7.5 Hz and duty 0.1->0.3."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-013",
+      "start_ms": 101000,
+      "end_ms": 111000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": null,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 7.5->13.5 Hz and duty 0.3->0.15."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-014",
+      "start_ms": 111000,
+      "end_ms": 121000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": null,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 13.5->7.5 Hz and duty 0.15->0.3."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-015",
+      "start_ms": 121000,
+      "end_ms": 131000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": null,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 7.5->13.5 Hz and duty 0.3->0.2."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-016",
+      "start_ms": 131000,
+      "end_ms": 141000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": null,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 13.5->7.5 Hz and duty 0.2->0.4."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-017",
+      "start_ms": 141000,
+      "end_ms": 151000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": null,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 7.5->13.5 Hz and duty 0.4->0.3."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-018",
+      "start_ms": 151000,
+      "end_ms": 160300,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": null,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 13.5->10.5 Hz and duty 0.3->0.4."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-019",
+      "start_ms": 160300,
+      "end_ms": 161000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": 10.5,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 10.5->10.5 Hz and duty 0.4->0.5."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-020",
+      "start_ms": 161000,
+      "end_ms": 167000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": 10.5,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 10.5->10.5 Hz and duty 0.5->0.2."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-021",
+      "start_ms": 167000,
+      "end_ms": 171000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": 10.5,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 10.5->10.5 Hz and duty 0.2->0.4."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-022",
+      "start_ms": 171000,
+      "end_ms": 177000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": 10.5,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 10.5->10.5 Hz and duty 0.4->0.01."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-023",
+      "start_ms": 177000,
+      "end_ms": 205000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": 10.5,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 10.5->10.5 Hz and duty 0.01->0.45."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-024",
+      "start_ms": 205000,
+      "end_ms": 210000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": null,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 10.5->13.5 Hz and duty 0.45->0.2."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-025",
+      "start_ms": 210000,
+      "end_ms": 214000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": null,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 13.5->7 Hz and duty 0.2->0.3."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-026",
+      "start_ms": 214000,
+      "end_ms": 217000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": null,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 7->13.5 Hz and duty 0.3->0.4."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-027",
+      "start_ms": 217000,
+      "end_ms": 220000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": null,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 13.5->7 Hz and duty 0.4->0.5."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-028",
+      "start_ms": 220000,
+      "end_ms": 222000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": null,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 7->13.5 Hz and duty 0.5->0.55."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-029",
+      "start_ms": 222000,
+      "end_ms": 224000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": 13.5,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 13.5->13.5 Hz and duty 0.55->0.65."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-030",
+      "start_ms": 224000,
+      "end_ms": 230000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": null,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 13.5->10.5 Hz and duty 0.65->0.15."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-031",
+      "start_ms": 230000,
+      "end_ms": 253000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": 10.5,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 10.5->10.5 Hz and duty 0.15->0.05."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-032",
+      "start_ms": 253000,
+      "end_ms": 279000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": null,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 10.5->13.5 Hz and duty 0.05->0.3."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-033",
+      "start_ms": 279000,
+      "end_ms": 298000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": null,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "interpolated",
+        "shape_detail": "Linear parameter interpolation; frequency 13.5->10.5 Hz and duty 0.3->0.01."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "segment_id": "vitality-segment-034",
+      "start_ms": 298000,
+      "end_ms": 300000,
+      "execution_layer": "session_declaration",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": null,
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "transition_id": "vitality-boundary-001",
+      "type": "step",
+      "start_ms": 1500,
+      "end_ms": 1500,
+      "from_segment_id": "vitality-segment-001",
+      "to_segment_id": "vitality-segment-002",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-002",
+      "type": "step",
+      "start_ms": 5000,
+      "end_ms": 5000,
+      "from_segment_id": "vitality-segment-002",
+      "to_segment_id": "vitality-segment-003",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-003",
+      "type": "step",
+      "start_ms": 15000,
+      "end_ms": 15000,
+      "from_segment_id": "vitality-segment-003",
+      "to_segment_id": "vitality-segment-004",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-004",
+      "type": "step",
+      "start_ms": 26000,
+      "end_ms": 26000,
+      "from_segment_id": "vitality-segment-004",
+      "to_segment_id": "vitality-segment-005",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-005",
+      "type": "step",
+      "start_ms": 35000,
+      "end_ms": 35000,
+      "from_segment_id": "vitality-segment-005",
+      "to_segment_id": "vitality-segment-006",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-006",
+      "type": "step",
+      "start_ms": 37000,
+      "end_ms": 37000,
+      "from_segment_id": "vitality-segment-006",
+      "to_segment_id": "vitality-segment-007",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-007",
+      "type": "step",
+      "start_ms": 56000,
+      "end_ms": 56000,
+      "from_segment_id": "vitality-segment-007",
+      "to_segment_id": "vitality-segment-008",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-008",
+      "type": "step",
+      "start_ms": 58000,
+      "end_ms": 58000,
+      "from_segment_id": "vitality-segment-008",
+      "to_segment_id": "vitality-segment-009",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-009",
+      "type": "step",
+      "start_ms": 78000,
+      "end_ms": 78000,
+      "from_segment_id": "vitality-segment-009",
+      "to_segment_id": "vitality-segment-010",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-010",
+      "type": "step",
+      "start_ms": 87000,
+      "end_ms": 87000,
+      "from_segment_id": "vitality-segment-010",
+      "to_segment_id": "vitality-segment-011",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-011",
+      "type": "step",
+      "start_ms": 92000,
+      "end_ms": 92000,
+      "from_segment_id": "vitality-segment-011",
+      "to_segment_id": "vitality-segment-012",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-012",
+      "type": "step",
+      "start_ms": 101000,
+      "end_ms": 101000,
+      "from_segment_id": "vitality-segment-012",
+      "to_segment_id": "vitality-segment-013",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-013",
+      "type": "step",
+      "start_ms": 111000,
+      "end_ms": 111000,
+      "from_segment_id": "vitality-segment-013",
+      "to_segment_id": "vitality-segment-014",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-014",
+      "type": "step",
+      "start_ms": 121000,
+      "end_ms": 121000,
+      "from_segment_id": "vitality-segment-014",
+      "to_segment_id": "vitality-segment-015",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-015",
+      "type": "step",
+      "start_ms": 131000,
+      "end_ms": 131000,
+      "from_segment_id": "vitality-segment-015",
+      "to_segment_id": "vitality-segment-016",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-016",
+      "type": "step",
+      "start_ms": 141000,
+      "end_ms": 141000,
+      "from_segment_id": "vitality-segment-016",
+      "to_segment_id": "vitality-segment-017",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-017",
+      "type": "step",
+      "start_ms": 151000,
+      "end_ms": 151000,
+      "from_segment_id": "vitality-segment-017",
+      "to_segment_id": "vitality-segment-018",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-018",
+      "type": "step",
+      "start_ms": 160300,
+      "end_ms": 160300,
+      "from_segment_id": "vitality-segment-018",
+      "to_segment_id": "vitality-segment-019",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-019",
+      "type": "step",
+      "start_ms": 161000,
+      "end_ms": 161000,
+      "from_segment_id": "vitality-segment-019",
+      "to_segment_id": "vitality-segment-020",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-020",
+      "type": "step",
+      "start_ms": 167000,
+      "end_ms": 167000,
+      "from_segment_id": "vitality-segment-020",
+      "to_segment_id": "vitality-segment-021",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-021",
+      "type": "step",
+      "start_ms": 171000,
+      "end_ms": 171000,
+      "from_segment_id": "vitality-segment-021",
+      "to_segment_id": "vitality-segment-022",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-022",
+      "type": "step",
+      "start_ms": 177000,
+      "end_ms": 177000,
+      "from_segment_id": "vitality-segment-022",
+      "to_segment_id": "vitality-segment-023",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-023",
+      "type": "step",
+      "start_ms": 205000,
+      "end_ms": 205000,
+      "from_segment_id": "vitality-segment-023",
+      "to_segment_id": "vitality-segment-024",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-024",
+      "type": "step",
+      "start_ms": 210000,
+      "end_ms": 210000,
+      "from_segment_id": "vitality-segment-024",
+      "to_segment_id": "vitality-segment-025",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-025",
+      "type": "step",
+      "start_ms": 214000,
+      "end_ms": 214000,
+      "from_segment_id": "vitality-segment-025",
+      "to_segment_id": "vitality-segment-026",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-026",
+      "type": "step",
+      "start_ms": 217000,
+      "end_ms": 217000,
+      "from_segment_id": "vitality-segment-026",
+      "to_segment_id": "vitality-segment-027",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-027",
+      "type": "step",
+      "start_ms": 220000,
+      "end_ms": 220000,
+      "from_segment_id": "vitality-segment-027",
+      "to_segment_id": "vitality-segment-028",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-028",
+      "type": "step",
+      "start_ms": 222000,
+      "end_ms": 222000,
+      "from_segment_id": "vitality-segment-028",
+      "to_segment_id": "vitality-segment-029",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-029",
+      "type": "step",
+      "start_ms": 224000,
+      "end_ms": 224000,
+      "from_segment_id": "vitality-segment-029",
+      "to_segment_id": "vitality-segment-030",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-030",
+      "type": "step",
+      "start_ms": 230000,
+      "end_ms": 230000,
+      "from_segment_id": "vitality-segment-030",
+      "to_segment_id": "vitality-segment-031",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-031",
+      "type": "step",
+      "start_ms": 253000,
+      "end_ms": 253000,
+      "from_segment_id": "vitality-segment-031",
+      "to_segment_id": "vitality-segment-032",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-032",
+      "type": "step",
+      "start_ms": 279000,
+      "end_ms": 279000,
+      "from_segment_id": "vitality-segment-032",
+      "to_segment_id": "vitality-segment-033",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-boundary-033",
+      "type": "step",
+      "start_ms": 298000,
+      "end_ms": 298000,
+      "from_segment_id": "vitality-segment-033",
+      "to_segment_id": "vitality-segment-034",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "changed_fields": [
+          "pulse.frequency_hz",
+          "pulse.duty_cycle"
+        ]
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-002",
+      "type": "interpolation",
+      "start_ms": 1500,
+      "end_ms": 5000,
+      "from_segment_id": "vitality-segment-002",
+      "to_segment_id": "vitality-segment-002",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "duty_cycle": {
+          "start": 0.01,
+          "end": 0.2,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-003",
+      "type": "interpolation",
+      "start_ms": 5000,
+      "end_ms": 15000,
+      "from_segment_id": "vitality-segment-003",
+      "to_segment_id": "vitality-segment-003",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "frequency_hz": {
+          "start": 7.5,
+          "end": 13.5,
+          "mode": "linear"
+        },
+        "duty_cycle": {
+          "start": 0.2,
+          "end": 0.15,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-004",
+      "type": "interpolation",
+      "start_ms": 15000,
+      "end_ms": 26000,
+      "from_segment_id": "vitality-segment-004",
+      "to_segment_id": "vitality-segment-004",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "frequency_hz": {
+          "start": 13.5,
+          "end": 7.5,
+          "mode": "linear"
+        },
+        "duty_cycle": {
+          "start": 0.15,
+          "end": 0.2,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-005",
+      "type": "interpolation",
+      "start_ms": 26000,
+      "end_ms": 35000,
+      "from_segment_id": "vitality-segment-005",
+      "to_segment_id": "vitality-segment-005",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "duty_cycle": {
+          "start": 0.2,
+          "end": 0.15,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-006",
+      "type": "interpolation",
+      "start_ms": 35000,
+      "end_ms": 37000,
+      "from_segment_id": "vitality-segment-006",
+      "to_segment_id": "vitality-segment-006",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "frequency_hz": {
+          "start": 7.5,
+          "end": 10.5,
+          "mode": "linear"
+        },
+        "duty_cycle": {
+          "start": 0.15,
+          "end": 0.2,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-008",
+      "type": "interpolation",
+      "start_ms": 56000,
+      "end_ms": 58000,
+      "from_segment_id": "vitality-segment-008",
+      "to_segment_id": "vitality-segment-008",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "duty_cycle": {
+          "start": 0.2,
+          "end": 0.25,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-009",
+      "type": "interpolation",
+      "start_ms": 58000,
+      "end_ms": 78000,
+      "from_segment_id": "vitality-segment-009",
+      "to_segment_id": "vitality-segment-009",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "duty_cycle": {
+          "start": 0.25,
+          "end": 0.3,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-010",
+      "type": "interpolation",
+      "start_ms": 78000,
+      "end_ms": 87000,
+      "from_segment_id": "vitality-segment-010",
+      "to_segment_id": "vitality-segment-010",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "frequency_hz": {
+          "start": 10.5,
+          "end": 13.5,
+          "mode": "linear"
+        },
+        "duty_cycle": {
+          "start": 0.3,
+          "end": 0.4,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-011",
+      "type": "interpolation",
+      "start_ms": 87000,
+      "end_ms": 92000,
+      "from_segment_id": "vitality-segment-011",
+      "to_segment_id": "vitality-segment-011",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "frequency_hz": {
+          "start": 13.5,
+          "end": 7.5,
+          "mode": "linear"
+        },
+        "duty_cycle": {
+          "start": 0.4,
+          "end": 0.1,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-012",
+      "type": "interpolation",
+      "start_ms": 92000,
+      "end_ms": 101000,
+      "from_segment_id": "vitality-segment-012",
+      "to_segment_id": "vitality-segment-012",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "duty_cycle": {
+          "start": 0.1,
+          "end": 0.3,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-013",
+      "type": "interpolation",
+      "start_ms": 101000,
+      "end_ms": 111000,
+      "from_segment_id": "vitality-segment-013",
+      "to_segment_id": "vitality-segment-013",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "frequency_hz": {
+          "start": 7.5,
+          "end": 13.5,
+          "mode": "linear"
+        },
+        "duty_cycle": {
+          "start": 0.3,
+          "end": 0.15,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-014",
+      "type": "interpolation",
+      "start_ms": 111000,
+      "end_ms": 121000,
+      "from_segment_id": "vitality-segment-014",
+      "to_segment_id": "vitality-segment-014",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "frequency_hz": {
+          "start": 13.5,
+          "end": 7.5,
+          "mode": "linear"
+        },
+        "duty_cycle": {
+          "start": 0.15,
+          "end": 0.3,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-015",
+      "type": "interpolation",
+      "start_ms": 121000,
+      "end_ms": 131000,
+      "from_segment_id": "vitality-segment-015",
+      "to_segment_id": "vitality-segment-015",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "frequency_hz": {
+          "start": 7.5,
+          "end": 13.5,
+          "mode": "linear"
+        },
+        "duty_cycle": {
+          "start": 0.3,
+          "end": 0.2,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-016",
+      "type": "interpolation",
+      "start_ms": 131000,
+      "end_ms": 141000,
+      "from_segment_id": "vitality-segment-016",
+      "to_segment_id": "vitality-segment-016",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "frequency_hz": {
+          "start": 13.5,
+          "end": 7.5,
+          "mode": "linear"
+        },
+        "duty_cycle": {
+          "start": 0.2,
+          "end": 0.4,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-017",
+      "type": "interpolation",
+      "start_ms": 141000,
+      "end_ms": 151000,
+      "from_segment_id": "vitality-segment-017",
+      "to_segment_id": "vitality-segment-017",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "frequency_hz": {
+          "start": 7.5,
+          "end": 13.5,
+          "mode": "linear"
+        },
+        "duty_cycle": {
+          "start": 0.4,
+          "end": 0.3,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-018",
+      "type": "interpolation",
+      "start_ms": 151000,
+      "end_ms": 160300,
+      "from_segment_id": "vitality-segment-018",
+      "to_segment_id": "vitality-segment-018",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "frequency_hz": {
+          "start": 13.5,
+          "end": 10.5,
+          "mode": "linear"
+        },
+        "duty_cycle": {
+          "start": 0.3,
+          "end": 0.4,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-019",
+      "type": "interpolation",
+      "start_ms": 160300,
+      "end_ms": 161000,
+      "from_segment_id": "vitality-segment-019",
+      "to_segment_id": "vitality-segment-019",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "duty_cycle": {
+          "start": 0.4,
+          "end": 0.5,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-020",
+      "type": "interpolation",
+      "start_ms": 161000,
+      "end_ms": 167000,
+      "from_segment_id": "vitality-segment-020",
+      "to_segment_id": "vitality-segment-020",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "duty_cycle": {
+          "start": 0.5,
+          "end": 0.2,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-021",
+      "type": "interpolation",
+      "start_ms": 167000,
+      "end_ms": 171000,
+      "from_segment_id": "vitality-segment-021",
+      "to_segment_id": "vitality-segment-021",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "duty_cycle": {
+          "start": 0.2,
+          "end": 0.4,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-022",
+      "type": "interpolation",
+      "start_ms": 171000,
+      "end_ms": 177000,
+      "from_segment_id": "vitality-segment-022",
+      "to_segment_id": "vitality-segment-022",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "duty_cycle": {
+          "start": 0.4,
+          "end": 0.01,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-023",
+      "type": "interpolation",
+      "start_ms": 177000,
+      "end_ms": 205000,
+      "from_segment_id": "vitality-segment-023",
+      "to_segment_id": "vitality-segment-023",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "duty_cycle": {
+          "start": 0.01,
+          "end": 0.45,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-024",
+      "type": "interpolation",
+      "start_ms": 205000,
+      "end_ms": 210000,
+      "from_segment_id": "vitality-segment-024",
+      "to_segment_id": "vitality-segment-024",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "frequency_hz": {
+          "start": 10.5,
+          "end": 13.5,
+          "mode": "linear"
+        },
+        "duty_cycle": {
+          "start": 0.45,
+          "end": 0.2,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-025",
+      "type": "interpolation",
+      "start_ms": 210000,
+      "end_ms": 214000,
+      "from_segment_id": "vitality-segment-025",
+      "to_segment_id": "vitality-segment-025",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "frequency_hz": {
+          "start": 13.5,
+          "end": 7.0,
+          "mode": "linear"
+        },
+        "duty_cycle": {
+          "start": 0.2,
+          "end": 0.3,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-026",
+      "type": "interpolation",
+      "start_ms": 214000,
+      "end_ms": 217000,
+      "from_segment_id": "vitality-segment-026",
+      "to_segment_id": "vitality-segment-026",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "frequency_hz": {
+          "start": 7.0,
+          "end": 13.5,
+          "mode": "linear"
+        },
+        "duty_cycle": {
+          "start": 0.3,
+          "end": 0.4,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-027",
+      "type": "interpolation",
+      "start_ms": 217000,
+      "end_ms": 220000,
+      "from_segment_id": "vitality-segment-027",
+      "to_segment_id": "vitality-segment-027",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "frequency_hz": {
+          "start": 13.5,
+          "end": 7.0,
+          "mode": "linear"
+        },
+        "duty_cycle": {
+          "start": 0.4,
+          "end": 0.5,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-028",
+      "type": "interpolation",
+      "start_ms": 220000,
+      "end_ms": 222000,
+      "from_segment_id": "vitality-segment-028",
+      "to_segment_id": "vitality-segment-028",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "frequency_hz": {
+          "start": 7.0,
+          "end": 13.5,
+          "mode": "linear"
+        },
+        "duty_cycle": {
+          "start": 0.5,
+          "end": 0.55,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-029",
+      "type": "interpolation",
+      "start_ms": 222000,
+      "end_ms": 224000,
+      "from_segment_id": "vitality-segment-029",
+      "to_segment_id": "vitality-segment-029",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "duty_cycle": {
+          "start": 0.55,
+          "end": 0.65,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-030",
+      "type": "interpolation",
+      "start_ms": 224000,
+      "end_ms": 230000,
+      "from_segment_id": "vitality-segment-030",
+      "to_segment_id": "vitality-segment-030",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "frequency_hz": {
+          "start": 13.5,
+          "end": 10.5,
+          "mode": "linear"
+        },
+        "duty_cycle": {
+          "start": 0.65,
+          "end": 0.15,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-031",
+      "type": "interpolation",
+      "start_ms": 230000,
+      "end_ms": 253000,
+      "from_segment_id": "vitality-segment-031",
+      "to_segment_id": "vitality-segment-031",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "duty_cycle": {
+          "start": 0.15,
+          "end": 0.05,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-032",
+      "type": "interpolation",
+      "start_ms": 253000,
+      "end_ms": 279000,
+      "from_segment_id": "vitality-segment-032",
+      "to_segment_id": "vitality-segment-032",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "frequency_hz": {
+          "start": 10.5,
+          "end": 13.5,
+          "mode": "linear"
+        },
+        "duty_cycle": {
+          "start": 0.05,
+          "end": 0.3,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "transition_id": "vitality-interpolation-033",
+      "type": "interpolation",
+      "start_ms": 279000,
+      "end_ms": 298000,
+      "from_segment_id": "vitality-segment-033",
+      "to_segment_id": "vitality-segment-033",
+      "execution_layer": "session_declaration",
+      "parameters": {
+        "frequency_hz": {
+          "start": 13.5,
+          "end": 10.5,
+          "mode": "linear"
+        },
+        "duty_cycle": {
+          "start": 0.3,
+          "end": 0.01,
+          "mode": "linear"
+        }
+      },
+      "evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    }
+  ],
+  "commands": [
+    {
+      "command_id": "run2-active-state",
+      "clock_id": "ble-run2-capture-ms",
+      "time_ms": 0,
+      "direction": "app_to_device",
+      "execution_layer": "ble_transport",
+      "service_uuid": null,
+      "characteristic_uuid": "att-handle-0x0039",
+      "payload_hex": "0a",
+      "interpretation": "Observed active-state write.",
+      "evidence_ids": [
+        "ave_b602920cf5622739"
+      ]
+    },
+    {
+      "command_id": "run2-strobe-000",
+      "clock_id": "ble-run2-capture-ms",
+      "time_ms": 1449.59,
+      "direction": "app_to_device",
+      "execution_layer": "ble_transport",
+      "service_uuid": null,
+      "characteristic_uuid": "att-handle-0x0034",
+      "payload_hex": "d50802003505000000000000",
+      "interpretation": "Observed little-endian timing write: period=133333 us, on-time=1333 us, constant-on=0 ppm.",
+      "evidence_ids": [
+        "ave_b602920cf5622739"
+      ]
+    },
+    {
+      "command_id": "run2-strobe-001",
+      "clock_id": "ble-run2-capture-ms",
+      "time_ms": 1580.76,
+      "direction": "app_to_device",
+      "execution_layer": "ble_transport",
+      "service_uuid": null,
+      "characteristic_uuid": "att-handle-0x0034",
+      "payload_hex": "d5080200fa08000000000000",
+      "interpretation": "Observed little-endian timing write: period=133333 us, on-time=2298 us, constant-on=0 ppm.",
+      "evidence_ids": [
+        "ave_b602920cf5622739"
+      ]
+    },
+    {
+      "command_id": "run2-strobe-002",
+      "clock_id": "ble-run2-capture-ms",
+      "time_ms": 1713.959,
+      "direction": "app_to_device",
+      "execution_layer": "ble_transport",
+      "service_uuid": null,
+      "characteristic_uuid": "att-handle-0x0034",
+      "payload_hex": "d5080200bf0c000000000000",
+      "interpretation": "Observed little-endian timing write: period=133333 us, on-time=3263 us, constant-on=0 ppm.",
+      "evidence_ids": [
+        "ave_b602920cf5622739"
+      ]
+    },
+    {
+      "command_id": "run2-strobe-003",
+      "clock_id": "ble-run2-capture-ms",
+      "time_ms": 1846.848,
+      "direction": "app_to_device",
+      "execution_layer": "ble_transport",
+      "service_uuid": null,
+      "characteristic_uuid": "att-handle-0x0034",
+      "payload_hex": "d50802008510000000000000",
+      "interpretation": "Observed little-endian timing write: period=133333 us, on-time=4229 us, constant-on=0 ppm.",
+      "evidence_ids": [
+        "ave_b602920cf5622739"
+      ]
+    },
+    {
+      "command_id": "run2-strobe-004",
+      "clock_id": "ble-run2-capture-ms",
+      "time_ms": 1980.573,
+      "direction": "app_to_device",
+      "execution_layer": "ble_transport",
+      "service_uuid": null,
+      "characteristic_uuid": "att-handle-0x0034",
+      "payload_hex": "d50802004a14000000000000",
+      "interpretation": "Observed little-endian timing write: period=133333 us, on-time=5194 us, constant-on=0 ppm.",
+      "evidence_ids": [
+        "ave_b602920cf5622739"
+      ]
+    },
+    {
+      "command_id": "run2-strobe-005",
+      "clock_id": "ble-run2-capture-ms",
+      "time_ms": 2113.669,
+      "direction": "app_to_device",
+      "execution_layer": "ble_transport",
+      "service_uuid": null,
+      "characteristic_uuid": "att-handle-0x0034",
+      "payload_hex": "d50802000f18000000000000",
+      "interpretation": "Observed little-endian timing write: period=133333 us, on-time=6159 us, constant-on=0 ppm.",
+      "evidence_ids": [
+        "ave_b602920cf5622739"
+      ]
+    },
+    {
+      "command_id": "run2-strobe-006",
+      "clock_id": "ble-run2-capture-ms",
+      "time_ms": 2247.408,
+      "direction": "app_to_device",
+      "execution_layer": "ble_transport",
+      "service_uuid": null,
+      "characteristic_uuid": "att-handle-0x0034",
+      "payload_hex": "d5080200d41b000000000000",
+      "interpretation": "Observed little-endian timing write: period=133333 us, on-time=7124 us, constant-on=0 ppm.",
+      "evidence_ids": [
+        "ave_b602920cf5622739"
+      ]
+    },
+    {
+      "command_id": "run2-strobe-007",
+      "clock_id": "ble-run2-capture-ms",
+      "time_ms": 2380.669,
+      "direction": "app_to_device",
+      "execution_layer": "ble_transport",
+      "service_uuid": null,
+      "characteristic_uuid": "att-handle-0x0034",
+      "payload_hex": "d5080200991f000000000000",
+      "interpretation": "Observed little-endian timing write: period=133333 us, on-time=8089 us, constant-on=0 ppm.",
+      "evidence_ids": [
+        "ave_b602920cf5622739"
+      ]
+    },
+    {
+      "command_id": "run2-strobe-008",
+      "clock_id": "ble-run2-capture-ms",
+      "time_ms": 2513.272,
+      "direction": "app_to_device",
+      "execution_layer": "ble_transport",
+      "service_uuid": null,
+      "characteristic_uuid": "att-handle-0x0034",
+      "payload_hex": "d50802005e23000000000000",
+      "interpretation": "Observed little-endian timing write: period=133333 us, on-time=9054 us, constant-on=0 ppm.",
+      "evidence_ids": [
+        "ave_b602920cf5622739"
+      ]
+    },
+    {
+      "command_id": "run2-strobe-009",
+      "clock_id": "ble-run2-capture-ms",
+      "time_ms": 2647.143,
+      "direction": "app_to_device",
+      "execution_layer": "ble_transport",
+      "service_uuid": null,
+      "characteristic_uuid": "att-handle-0x0034",
+      "payload_hex": "d50802002327000000000000",
+      "interpretation": "Observed little-endian timing write: period=133333 us, on-time=10019 us, constant-on=0 ppm.",
+      "evidence_ids": [
+        "ave_b602920cf5622739"
+      ]
+    },
+    {
+      "command_id": "run2-strobe-010",
+      "clock_id": "ble-run2-capture-ms",
+      "time_ms": 2781.065,
+      "direction": "app_to_device",
+      "execution_layer": "ble_transport",
+      "service_uuid": null,
+      "characteristic_uuid": "att-handle-0x0034",
+      "payload_hex": "d5080200e82a000000000000",
+      "interpretation": "Observed little-endian timing write: period=133333 us, on-time=10984 us, constant-on=0 ppm.",
+      "evidence_ids": [
+        "ave_b602920cf5622739"
+      ]
+    },
+    {
+      "command_id": "run2-strobe-011",
+      "clock_id": "ble-run2-capture-ms",
+      "time_ms": 2914.939,
+      "direction": "app_to_device",
+      "execution_layer": "ble_transport",
+      "service_uuid": null,
+      "characteristic_uuid": "att-handle-0x0034",
+      "payload_hex": "d5080200ad2e000000000000",
+      "interpretation": "Observed little-endian timing write: period=133333 us, on-time=11949 us, constant-on=0 ppm.",
+      "evidence_ids": [
+        "ave_b602920cf5622739"
+      ]
+    },
+    {
+      "command_id": "run2-inactive-state",
+      "clock_id": "ble-run2-capture-ms",
+      "time_ms": 68403.949,
+      "direction": "app_to_device",
+      "execution_layer": "ble_transport",
+      "service_uuid": null,
+      "characteristic_uuid": "att-handle-0x0039",
+      "payload_hex": "00",
+      "interpretation": "Observed operator-triggered inactive-state write.",
+      "evidence_ids": [
+        "ave_b602920cf5622739"
+      ]
+    }
+  ],
+  "sync_anchors": [
+    {
+      "anchor_id": "program-to-media-origin",
+      "from_clock_id": "session-program-ms",
+      "from_time_ms": 0,
+      "to_clock_id": "audio-media-position-ms",
+      "to_time_ms": 0,
+      "uncertainty_ms": 1,
+      "method": "The service passes integer ExoPlayer media position directly to native StrobeManager.syncMe; this anchor excludes BLE and optical latency.",
+      "evidence_ids": [
+        "ave_e93d512211639e46"
+      ]
+    },
+    {
+      "anchor_id": "full-run-first-light-write-to-media",
+      "from_clock_id": "ble-full-run-capture-ms",
+      "from_time_ms": 1460.828,
+      "to_clock_id": "audio-media-position-ms",
+      "to_time_ms": 1322,
+      "uncertainty_ms": 20,
+      "method": "First nonzero BLE timing write paired to the adjacent Android MediaSession position log (approximately 5 ms wall-clock separation).",
+      "evidence_ids": [
+        "ave_e93d512211639e46",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    },
+    {
+      "anchor_id": "full-run-final-light-zero-to-media",
+      "from_clock_id": "ble-full-run-capture-ms",
+      "from_time_ms": 297964.395,
+      "to_clock_id": "audio-media-position-ms",
+      "to_time_ms": 297830,
+      "uncertainty_ms": 20,
+      "method": "Final zero timing write paired to the adjacent Android MediaSession position log (approximately 1 ms wall-clock separation).",
+      "evidence_ids": [
+        "ave_e93d512211639e46",
+        "ave_c7cf4b7e3b1e7b45"
+      ]
+    }
+  ],
+  "provenance": {
+    "source_hashes": [
+      {
+        "source_id": "vitality-5min-audio",
+        "sha256": "b24513faf9f3e920d9addf725563bd236fa3b33f6c1fa91949bcf6011eda7c41"
+      },
+      {
+        "source_id": "base-apk-v7.2.1",
+        "sha256": "40a2cf2bff296006f2bdb0fbde1136f9e67608cbcce0dc54c8f34ba535fd8b7d"
+      },
+      {
+        "source_id": "session-model-smali-v7.2.1",
+        "sha256": "43a20771a98c9a14dace448779b252f4507325e2724f651d0e2a598662f5f85b"
+      },
+      {
+        "source_id": "session-service-position-callback-v7.2.1",
+        "sha256": "346943aaf06a58d3142cdeb497593d21bbf8060c3b3cbbc7e48514e2f9ad25a0"
+      },
+      {
+        "source_id": "session-service-start-v7.2.1",
+        "sha256": "8b08bf129b17d461de13d6e73d1305baab4886181851333640769c1e1a69965a"
+      },
+      {
+        "source_id": "strobe-manager-smali-v7.2.1",
+        "sha256": "473dfa8f4a84884101ba3c59f632ad7548521e2c0ff5d75b7553fabe5dd1e1e3"
+      },
+      {
+        "source_id": "vitality-btsnoop",
+        "sha256": "a3a2073a2dbd1fe4d3bec2993f62b97d14e8f196f9089732bef915a59bbfbfbc"
+      },
+      {
+        "source_id": "vitality-logcat",
+        "sha256": "52f29edebe701e0bfa18269bf834c880ed247841a637ca1ce733775fef5495f3"
+      },
+      {
+        "source_id": "vitality-repeatability-tsv",
+        "sha256": "7061c4bec4dc383e8ff9f5cfd308b17a0f476a64e29e222d6fb9d116284457ad"
+      },
+      {
+        "source_id": "vitality-full-run-btsnoop",
+        "sha256": "0792646c160d944e295479f62905923746453c49174e89de8e873891dd585913"
+      },
+      {
+        "source_id": "vitality-full-run-app-writes",
+        "sha256": "7ce640a4ad51b162af4b8c5881b3851983cf390ee92e3ea0f04fbe9d97ba8288"
+      },
+      {
+        "source_id": "vitality-full-run-dumpstate",
+        "sha256": "d0a0f27f46f128d22218925e953748e442206eaaf377767be80d5876c4c55f83"
+      },
+      {
+        "source_id": "ave-pulse-analysis",
+        "sha256": "65d8b0036b8856291b4f6c2e102a20dcc463772ee988f2d7e531b569aab1da31"
+      },
+      {
+        "source_id": "vitality-s21-120fps-1-500",
+        "sha256": "d332a84e2e363d56d0ddd2a248a4393169c3431ca60ee7c45b5aaf68c3a881fd"
+      }
+    ],
+    "acquisition_notes": [
+      "Two unfiltered Android Bluetooth HCI snoop runs were captured without physical brightness-button input.",
+      "A third uninterrupted five-minute run completed naturally and covered all 32 declared active segments.",
+      "The runtime package and decompiled declaration are both Lumenate 7.2.1 (400).",
+      "The 7.2.1 Vitality declaration and StrobeManager are byte-for-byte identical to their acquired 7.0.0 counterparts.",
+      "A complementary full-session S21 recording physically measured the four emitter cores at approximately 120 fps.",
+      "Signed media URLs, Bluetooth addresses, phone identifiers, and audio bytes are intentionally excluded."
+    ]
+  },
+  "confidence": {
+    "level": "L4",
+    "score": 0.98,
+    "method": "The full runtime-version declaration is confirmed across all 32 active segments in a natural five-minute BLE capture and a separate full-session S21 recording physically confirms frequency and four-emitter synchrony at 8.33 ms resolution."
+  },
+  "limitations": [
+    "No photodiode measurement was made; S21 video physically verifies frequency and frame-scale synchrony but cannot resolve subframe phase or provide calibrated duty cycle or intensity.",
+    "Brightness-button level, LED intensity calibration, color, and firmware version are unknown.",
+    "Runtime audio/light anchors carry 20 ms uncertainty and exclude unknown firmware-to-photon latency.",
+    "AVE classified the soundtrack as irregular transients; this does not establish intent, efficacy, or physiological response."
+  ],
+  "ave_evidence": [
+    {
+      "schema_version": "1.0.0",
+      "evidence_id": "ave_83759cb2d0776a88",
+      "evidence_level": "reconstruction",
+      "evidence_type": "deterministic_strobe_program",
+      "source_module": "lumenate_nova.vitality_export",
+      "summary": "A contiguous 300-second Vitality declaration reconstructs 34 light segments.",
+      "scope": {
+        "channels": [
+          "light"
+        ],
+        "time_range_seconds": {
+          "start": 0,
+          "end": 300
+        }
+      },
+      "measurements": [
+        {
+          "name": "segment_count",
+          "value": 34,
+          "unit": "count"
+        },
+        {
+          "name": "declared_duration",
+          "value": 300,
+          "unit": "seconds"
+        },
+        {
+          "name": "minimum_frequency",
+          "value": 7.0,
+          "unit": "Hz"
+        },
+        {
+          "name": "maximum_frequency",
+          "value": 13.5,
+          "unit": "Hz"
+        }
+      ],
+      "context": {
+        "decompiled_app_version": "7.2.1",
+        "program_language": "s(start,end,frequency,duty)"
+      },
+      "confidence": {
+        "score": 0.99,
+        "method": "Exact parse of the acquired runtime-version declaration with full-duration BLE agreement."
+      },
+      "provenance": {
+        "source_id": "session-model-smali-v7.2.1"
+      },
+      "supporting_evidence_ids": [],
+      "limitations": [
+        "Transport confirmation is not physical optical confirmation."
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "evidence_id": "ave_c7cf4b7e3b1e7b45",
+      "evidence_level": "measurement",
+      "evidence_type": "full_duration_ble_strobe_confirmation",
+      "source_module": "lumenate_nova.vitality_export",
+      "summary": "A natural five-minute run emitted timing writes across every declared active segment.",
+      "scope": {
+        "channels": [
+          "light-control"
+        ],
+        "time_range_seconds": {
+          "start": 0,
+          "end": 299.492362
+        }
+      },
+      "measurements": [
+        {
+          "name": "nonzero_timing_write_count",
+          "value": 2962,
+          "unit": "count"
+        },
+        {
+          "name": "observed_active_segment_count",
+          "value": 32,
+          "unit": "count"
+        },
+        {
+          "name": "declared_active_segment_count",
+          "value": 32,
+          "unit": "count"
+        },
+        {
+          "name": "mean_absolute_frequency_error",
+          "value": 0.0009025113,
+          "unit": "Hz"
+        },
+        {
+          "name": "maximum_absolute_frequency_error",
+          "value": 0.0212385384,
+          "unit": "Hz"
+        },
+        {
+          "name": "mean_absolute_duty_error",
+          "value": 4.90948e-05,
+          "unit": "ratio"
+        },
+        {
+          "name": "maximum_absolute_duty_error",
+          "value": 0.0005526836,
+          "unit": "ratio"
+        }
+      ],
+      "context": {
+        "runtime_app_version": "7.2.1",
+        "alignment": "first nonzero write maps to program time 1.500 s"
+      },
+      "confidence": {
+        "score": 0.995,
+        "method": "Decode all 12-byte timing writes and compare them with the declared segment interpolation."
+      },
+      "provenance": {
+        "source_id": "vitality-full-run-app-writes",
+        "hci_source_id": "vitality-full-run-btsnoop"
+      },
+      "supporting_evidence_ids": [],
+      "limitations": [
+        "BLE arrival timestamps are not optical-emission timestamps."
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "evidence_id": "ave_b602920cf5622739",
+      "evidence_level": "measurement",
+      "evidence_type": "ble_strobe_timing_repeatability",
+      "source_module": "lumenate_nova.vitality_export",
+      "summary": "Two controlled starts reproduced the Vitality timing stream through the shorter run.",
+      "scope": {
+        "channels": [
+          "light-control"
+        ],
+        "time_range_seconds": {
+          "start": 1.44959,
+          "end": 68.403949
+        }
+      },
+      "measurements": [
+        {
+          "name": "paired_packet_count",
+          "value": 447,
+          "unit": "count"
+        },
+        {
+          "name": "byte_exact_pair_count",
+          "value": 394,
+          "unit": "count"
+        },
+        {
+          "name": "maximum_field_difference",
+          "value": 1,
+          "unit": "microseconds"
+        },
+        {
+          "name": "mean_timing_displacement",
+          "value": 0.924,
+          "unit": "ms"
+        },
+        {
+          "name": "maximum_timing_displacement",
+          "value": 4.732,
+          "unit": "ms"
+        }
+      ],
+      "context": {
+        "runtime_app_version": "7.2.1",
+        "button_notifications_observed": 0
+      },
+      "confidence": {
+        "score": 0.99,
+        "method": "Index-paired packet comparison across two independently started runs."
+      },
+      "provenance": {
+        "source_id": "vitality-repeatability-tsv",
+        "hci_source_id": "vitality-btsnoop"
+      },
+      "supporting_evidence_ids": [],
+      "limitations": [
+        "BLE arrival timestamps are not optical-emission timestamps."
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "evidence_id": "ave_e93d512211639e46",
+      "evidence_level": "association",
+      "evidence_type": "media_position_to_strobe_clock_alignment",
+      "source_module": "lumenate_nova.vitality_export",
+      "summary": "Static syncMe control flow and runtime media-position observations associate the audio and light clocks.",
+      "scope": {
+        "channels": [
+          "audio",
+          "light-control"
+        ],
+        "time_range_seconds": {
+          "start": 0,
+          "end": 299.35
+        }
+      },
+      "measurements": [
+        {
+          "name": "first_full_run_ble_media_offset",
+          "value": 138.828,
+          "unit": "ms"
+        },
+        {
+          "name": "late_full_run_ble_media_offset",
+          "value": 134.395,
+          "unit": "ms"
+        },
+        {
+          "name": "full_run_offset_change",
+          "value": -4.433,
+          "unit": "ms"
+        },
+        {
+          "name": "anchor_uncertainty",
+          "value": 20,
+          "unit": "ms"
+        }
+      ],
+      "context": {
+        "sync_function": "StrobeManager.syncMe(mediaPositionMs)",
+        "runtime_run": "2026-09-19-full"
+      },
+      "confidence": {
+        "score": 0.95,
+        "method": "Control-flow association plus start and end Android media-position/HCI wall-clock pairs."
+      },
+      "provenance": {
+        "source_ids": [
+          "session-service-position-callback-v7.2.1",
+          "vitality-full-run-dumpstate",
+          "vitality-full-run-btsnoop"
+        ]
+      },
+      "supporting_evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45",
+        "ave_b602920cf5622739"
+      ],
+      "limitations": [
+        "MediaSession state is logged asynchronously and may be stale at emission time.",
+        "The 20 ms runtime uncertainty does not include unknown firmware-to-photon latency."
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "evidence_id": "ave_d2750e72d53836a8",
+      "evidence_level": "measurement",
+      "evidence_type": "verified_session_audio_asset",
+      "source_module": "lumenate_nova.vitality_export",
+      "summary": "The cached Vitality 5-minute M4A was acquired, decoded, and cryptographically identified.",
+      "scope": {
+        "channels": [
+          "left",
+          "right"
+        ],
+        "time_range_seconds": {
+          "start": 0,
+          "end": 299.690667
+        }
+      },
+      "measurements": [
+        {
+          "name": "container_duration",
+          "value": 299.690667,
+          "unit": "seconds"
+        },
+        {
+          "name": "sample_rate",
+          "value": 48000,
+          "unit": "Hz"
+        },
+        {
+          "name": "channel_count",
+          "value": 2,
+          "unit": "count"
+        },
+        {
+          "name": "stream_start",
+          "value": 0.044,
+          "unit": "seconds"
+        }
+      ],
+      "context": {
+        "codec": "AAC-LC",
+        "container": "M4A"
+      },
+      "confidence": {
+        "score": 1.0,
+        "method": "SHA-256 identity, ffprobe metadata, and full FFmpeg decode validation."
+      },
+      "provenance": {
+        "source_id": "vitality-5min-audio",
+        "input_sha256": "b24513faf9f3e920d9addf725563bd236fa3b33f6c1fa91949bcf6011eda7c41"
+      },
+      "supporting_evidence_ids": [],
+      "limitations": [
+        "The copyrighted audio bytes remain local-only and are not embedded in this export."
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "evidence_id": "ave_0ec37c9346327df3",
+      "evidence_level": "measurement",
+      "evidence_type": "four_emitter_optical_synchrony",
+      "source_module": "lumenate_nova.vitality_export",
+      "summary": "A full-session 120 fps S21 recording physically measured synchronized output across all four Nova emitters.",
+      "scope": {
+        "channels": [
+          "light-emitter-1",
+          "light-emitter-2",
+          "light-emitter-3",
+          "light-emitter-4"
+        ],
+        "time_range_seconds": {
+          "start": 0,
+          "end": 306.244822
+        }
+      },
+      "measurements": [
+        {
+          "name": "video_frame_rate",
+          "value": 120,
+          "unit": "frames/second"
+        },
+        {
+          "name": "frame_count",
+          "value": 36732,
+          "unit": "count"
+        },
+        {
+          "name": "emitter_1_rising_edges",
+          "value": 3123,
+          "unit": "count"
+        },
+        {
+          "name": "emitter_2_rising_edges",
+          "value": 3123,
+          "unit": "count"
+        },
+        {
+          "name": "emitter_3_rising_edges",
+          "value": 3122,
+          "unit": "count"
+        },
+        {
+          "name": "emitter_4_rising_edges",
+          "value": 3123,
+          "unit": "count"
+        },
+        {
+          "name": "same_frame_four_emitter_rising_edges",
+          "value": 3091,
+          "unit": "count"
+        },
+        {
+          "name": "binary_disagreement_frames",
+          "value": 52,
+          "unit": "count"
+        },
+        {
+          "name": "binary_disagreement_fraction",
+          "value": 0.00142,
+          "unit": "ratio"
+        },
+        {
+          "name": "constant_segment_frequency",
+          "value": 10.4644,
+          "unit": "Hz"
+        }
+      ],
+      "context": {
+        "camera": "Samsung Galaxy S21 Ultra 5G",
+        "resolution": "1920x1080",
+        "operator_reported_iso": 50,
+        "operator_reported_shutter_seconds": 0.002,
+        "classification": "50x50 core-region mean luma > 30"
+      },
+      "confidence": {
+        "score": 0.98,
+        "method": "Threshold-robust per-frame luma analysis of four spatially separate emitter cores."
+      },
+      "provenance": {
+        "source_id": "vitality-s21-120fps-1-500",
+        "input_sha256": "d332a84e2e363d56d0ddd2a248a4393169c3431ca60ee7c45b5aaf68c3a881fd"
+      },
+      "supporting_evidence_ids": [
+        "ave_83759cb2d0776a88",
+        "ave_c7cf4b7e3b1e7b45"
+      ],
+      "limitations": [
+        "The 8.33 ms video frame interval cannot exclude subframe phase offsets.",
+        "A 1/500-second exposure can miss narrow pulses between frames.",
+        "The recording is not a calibrated intensity or duty-cycle measurement.",
+        "The exposure settings are operator-recalled rather than independently embedded in the file."
+      ]
+    },
+    {
+      "confidence": {
+        "method": "mean_channel_pattern_confidence",
+        "score": 1.0
+      },
+      "context": {
+        "channel_classifications": {
+          "left": "irregular_transients",
+          "right": "irregular_transients"
+        },
+        "timeline_classification_counts": {
+          "irregular_transients": 28
+        }
+      },
+      "evidence_id": "ave_cff3179ab694b1b9",
+      "evidence_level": "measurement",
+      "evidence_type": "broadband_pulse_pattern",
+      "limitations": [
+        "Isochronic-candidate terminology describes amplitude timing only.",
+        "Signal structure does not establish intent, efficacy, or physiological response."
+      ],
+      "measurements": [
+        {
+          "name": "classification",
+          "unit": "classification",
+          "value": "irregular_transients"
+        },
+        {
+          "name": "stereo_relationship",
+          "unit": "classification",
+          "value": "different_rates"
+        },
+        {
+          "name": "primary_channel",
+          "unit": "channel",
+          "value": "left"
+        },
+        {
+          "name": "timeline_window_count",
+          "unit": "count",
+          "value": 28
+        },
+        {
+          "name": "timeline_transition_count",
+          "unit": "count",
+          "value": 0
+        },
+        {
+          "name": "primary_pulse_rate",
+          "unit": "Hz",
+          "value": 8.540421
+        },
+        {
+          "name": "primary_duty_cycle",
+          "unit": "ratio",
+          "value": 0.345726
+        },
+        {
+          "name": "primary_onset_regularity",
+          "unit": "ratio",
+          "value": 0.0
+        },
+        {
+          "name": "primary_state_separation",
+          "unit": "ratio",
+          "value": 0.397487
+        }
+      ],
+      "provenance": {
+        "analysis_configuration_version": "1.3.0",
+        "input_sha256": "b24513faf9f3e920d9addf725563bd236fa3b33f6c1fa91949bcf6011eda7c41",
+        "recording_id": null,
+        "run_id": "ave_run_c4124c13d4f5a35e"
+      },
+      "schema_version": "1.0.0",
+      "scope": {
+        "channels": [
+          "left",
+          "right"
+        ],
+        "time_range_seconds": {
+          "end": 299.646667,
+          "start": 0.0
+        }
+      },
+      "source_module": "analysis.pulse",
+      "summary": "irregular transients",
+      "supporting_evidence_ids": []
+    }
+  ]
+}

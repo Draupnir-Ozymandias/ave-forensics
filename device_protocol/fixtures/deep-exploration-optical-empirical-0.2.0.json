@@ -1,0 +1,285 @@
+{
+  "schema_version": "0.2.0",
+  "ave_evidence_schema_version": "1.0.0",
+  "export_id": "ln_af463bad9a893a23",
+  "created_at": "2026-09-22T21:19:53Z",
+  "device": {
+    "product": "Lumenate Nova",
+    "app_package": "com.lumenate.lumenateaa",
+    "app_version": "7.2.1",
+    "app_version_code": 400,
+    "firmware_version": null
+  },
+  "session": {
+    "session_id": "deep-exploration-5min-capture",
+    "title": "Deep Exploration",
+    "duration_ms": 347705,
+    "light_timeline_origin": {
+      "clock_id": "optical-video-ms",
+      "time_ms": 0,
+      "definition": "Start of the physical measurement recording; not necessarily session-program zero.",
+      "evidence_ids": [
+        "ave_02cf954dc2395f0e"
+      ]
+    },
+    "audio_timeline_origin": null
+  },
+  "audio_asset": {
+    "identity_status": "unavailable",
+    "source_id": null,
+    "role": null,
+    "sha256": null,
+    "duration_ms": null,
+    "sample_rate_hz": null,
+    "limitations": [
+      "No verified audio asset is included in this partial physical-capture export."
+    ]
+  },
+  "clocks": [
+    {
+      "clock_id": "optical-video-ms",
+      "kind": "optical_measurement",
+      "monotonic": true,
+      "unit": "ms",
+      "origin": "Start of the S21 recording.",
+      "resolution_ms": 8.333333,
+      "evidence_ids": [
+        "ave_02cf954dc2395f0e"
+      ]
+    },
+    {
+      "clock_id": "ble-capture-ms",
+      "kind": "ble_capture",
+      "monotonic": true,
+      "unit": "ms",
+      "origin": "Observed active-state write in the Android Bluetooth HCI capture.",
+      "resolution_ms": 0.001,
+      "evidence_ids": [
+        "ave_0b824fbe08d57035"
+      ]
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "deep-exploration-measured-light-window",
+      "start_ms": 39485,
+      "end_ms": 314895,
+      "execution_layer": "physical_measurement",
+      "intensity": null,
+      "color_rgb": null,
+      "pulse": {
+        "frequency_hz": null,
+        "duty_cycle": null,
+        "on_ms": null,
+        "off_ms": null,
+        "shape": "unknown",
+        "shape_detail": "Variable flashing was detected; this summary segment does not assert a constant waveform."
+      },
+      "overlap_with_segment_ids": [],
+      "command_ids": [],
+      "evidence_ids": [
+        "ave_02cf954dc2395f0e",
+        "ave_0b824fbe08d57035"
+      ]
+    }
+  ],
+  "transitions": [],
+  "commands": [],
+  "sync_anchors": [],
+  "provenance": {
+    "source_hashes": [
+      {
+        "source_id": "deep-exploration-s21-video",
+        "sha256": "0b526b3bc7f97b804080906461f629257b885f77d8f967c4ca2f0facb0c074a4"
+      },
+      {
+        "source_id": "deep-exploration-btsnoop",
+        "sha256": "ab9d8842bb9c0f03e464d6fe77b3c87718778cb23cd1666d103ee8dbb68476f7"
+      },
+      {
+        "source_id": "deep-exploration-bugreport",
+        "sha256": "d5727be869bee77f5cdccb9d095b99ad53c9ec7d7bd18d6c6c854a6d069b345b"
+      }
+    ],
+    "acquisition_notes": [
+      "The operator reported indirect daylight and no visually apparent asynchronous flashing.",
+      "The app identified the session as Deep Exploration.",
+      "Raw video, Bluetooth logs, bugreports, identifiers, and copyrighted audio remain local-only."
+    ]
+  },
+  "confidence": {
+    "level": "L4",
+    "score": 0.98,
+    "method": "Direct four-region optical measurement, with simultaneous BLE confirmation where available."
+  },
+  "limitations": [
+    "This is a partial empirical capture export, not a complete program reconstruction.",
+    "No verified audio identity or cross-modal synchronization anchor is available.",
+    "The camera cannot exclude phase differences shorter than one approximately 8.33 ms frame.",
+    "No calibrated optical intensity or physical duty-cycle measurement was made."
+  ],
+  "ave_evidence": [
+    {
+      "schema_version": "1.0.0",
+      "evidence_id": "ave_02cf954dc2395f0e",
+      "evidence_level": "measurement",
+      "evidence_type": "four_emitter_optical_synchrony",
+      "source_module": "lumenate_nova.optical_capture_export",
+      "summary": "A 120 fps S21 recording measured synchronized output across all four Nova emitters during the captured Deep Exploration interval.",
+      "scope": {
+        "channels": [
+          "light-emitter-1",
+          "light-emitter-2",
+          "light-emitter-3",
+          "light-emitter-4"
+        ],
+        "time_range_seconds": {
+          "start": 0,
+          "end": 347.704711
+        }
+      },
+      "measurements": [
+        {
+          "name": "video_frame_rate",
+          "value": 120,
+          "unit": "frames/second"
+        },
+        {
+          "name": "frame_count",
+          "value": 41723,
+          "unit": "count"
+        },
+        {
+          "name": "emitter_1_rising_edges",
+          "value": 2879,
+          "unit": "count"
+        },
+        {
+          "name": "emitter_2_rising_edges",
+          "value": 2879,
+          "unit": "count"
+        },
+        {
+          "name": "emitter_3_rising_edges",
+          "value": 2879,
+          "unit": "count"
+        },
+        {
+          "name": "emitter_4_rising_edges",
+          "value": 2878,
+          "unit": "count"
+        },
+        {
+          "name": "same_frame_four_emitter_rising_edges",
+          "value": 2855,
+          "unit": "count"
+        },
+        {
+          "name": "binary_disagreement_frames",
+          "value": 55,
+          "unit": "count"
+        },
+        {
+          "name": "binary_disagreement_fraction",
+          "value": 0.0013182,
+          "unit": "ratio"
+        },
+        {
+          "name": "minimum_pairwise_luma_correlation",
+          "value": 0.998859,
+          "unit": "correlation"
+        },
+        {
+          "name": "maximum_pairwise_luma_correlation",
+          "value": 0.999981,
+          "unit": "correlation"
+        }
+      ],
+      "context": {
+        "camera": "Samsung Galaxy S21 Ultra 5G",
+        "resolution": "1920x1080",
+        "classification": "50x50 core-region mean luma threshold sweep",
+        "first_on_video_ms": 39485,
+        "last_on_video_ms": 314895
+      },
+      "confidence": {
+        "score": 0.98,
+        "method": "Threshold-robust per-frame luma analysis of four spatially separate emitter cores."
+      },
+      "provenance": {
+        "source_id": "deep-exploration-s21-video",
+        "input_sha256": "0b526b3bc7f97b804080906461f629257b885f77d8f967c4ca2f0facb0c074a4"
+      },
+      "supporting_evidence_ids": [
+        "ave_0b824fbe08d57035"
+      ],
+      "limitations": [
+        "The approximately 8.33 ms frame interval cannot exclude subframe phase offsets.",
+        "Camera exposures can miss narrow pulses between frames.",
+        "The recording is not a calibrated intensity or duty-cycle measurement.",
+        "The export describes only the recorded window, not unrecorded portions of the session."
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "evidence_id": "ave_0b824fbe08d57035",
+      "evidence_level": "measurement",
+      "evidence_type": "compact_ble_timing_stream",
+      "source_module": "lumenate_nova.optical_capture_export",
+      "summary": "The captured Deep Exploration interval used only compact matched-timing BLE writes.",
+      "scope": {
+        "channels": [
+          "light-control"
+        ],
+        "time_range_seconds": {
+          "start": 0,
+          "end": 337.126652
+        }
+      },
+      "measurements": [
+        {
+          "name": "timing_write_count",
+          "value": 2916,
+          "unit": "count"
+        },
+        {
+          "name": "nonzero_timing_write_count",
+          "value": 2915,
+          "unit": "count"
+        },
+        {
+          "name": "compact_12_byte_write_count",
+          "value": 2916,
+          "unit": "count"
+        },
+        {
+          "name": "extended_40_byte_write_count",
+          "value": 0,
+          "unit": "count"
+        },
+        {
+          "name": "first_timing_write_delay",
+          "value": 37.6086,
+          "unit": "seconds"
+        }
+      ],
+      "context": {
+        "runtime_app_version": "7.2.1",
+        "timing_handle": "0x0034"
+      },
+      "confidence": {
+        "score": 0.98,
+        "method": "Threshold-robust per-frame luma analysis of four spatially separate emitter cores."
+      },
+      "provenance": {
+        "source_id": "deep-exploration-btsnoop",
+        "input_sha256": "ab9d8842bb9c0f03e464d6fe77b3c87718778cb23cd1666d103ee8dbb68476f7"
+      },
+      "supporting_evidence_ids": [],
+      "limitations": [
+        "BLE arrival timestamps are not optical-emission timestamps.",
+        "The capture does not establish behavior outside its recorded interval."
+      ]
+    }
+  ]
+}
