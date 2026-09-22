@@ -1,4 +1,5 @@
 from copy import deepcopy
+import hashlib
 import json
 from pathlib import Path
 
@@ -8,11 +9,19 @@ from device_protocol.lumenate import LumenateContractError, import_lumenate_expo
 
 
 FIXTURES = Path(__file__).resolve().parents[1] / "device_protocol" / "fixtures"
+CONTRACTS = Path(__file__).resolve().parents[1] / "device_protocol" / "contracts"
 VITALITY = FIXTURES / "vitality-5min-empirical-0.2.0.json"
+PROTOCOL_0_2_0_SCHEMA_SHA256 = "e6b6bf3fdf9d29a7a63d1f5f059584277d1296224aff227724e9620438ed265a"
 
 
 def _vitality_document():
     return json.loads(VITALITY.read_text(encoding="utf-8"))
+
+
+def test_vendored_released_schema_is_frozen():
+    schema = CONTRACTS / "lumenate-protocol-export-0.2.0.schema.json"
+    assert hashlib.sha256(schema.read_bytes()).hexdigest() == PROTOCOL_0_2_0_SCHEMA_SHA256
+    assert json.loads(schema.read_text(encoding="utf-8"))["properties"]["schema_version"]["const"] == "0.2.0"
 
 
 def test_imports_complete_vitality_golden_fixture():

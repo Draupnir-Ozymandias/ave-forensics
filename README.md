@@ -5,6 +5,8 @@ timelines, reconstructed protocol hypotheses, and canonical evidence objects.
 
 The shared boundary and acceptance criteria for the independent Lumenate Nova
 workstream are defined in `docs/LUMENATE_NOVA_INTEGRATION_ALIGNMENT.md`.
+AVE's strict device-protocol consumer supports the released Lumenate protocol
+contract `0.2.0` with AVE evidence schema `1.0.0`.
 
 ## Analyze one recording
 

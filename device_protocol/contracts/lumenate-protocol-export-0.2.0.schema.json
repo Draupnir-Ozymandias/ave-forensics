@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/lumenate-nova/contracts/lumenate-protocol-export-0.2.0.schema.json",
   "title": "Lumenate Nova Protocol Export",
-  "description": "Candidate 0.2.0 producer contract for evidence-backed light timelines and AVE synchronization.",
+  "description": "Released 0.2.0 producer contract for evidence-backed light timelines and AVE synchronization.",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema_version", "ave_evidence_schema_version", "export_id", "created_at", "device", "session", "audio_asset", "clocks", "segments", "transitions", "commands", "sync_anchors", "provenance", "confidence", "limitations", "ave_evidence"],

@@ -45,12 +45,13 @@ The Lumenate project currently provides:
 - an APK 7.0.0 / versionCode 380 reconnaissance baseline;
 - identified Java/JNI strobe-engine and Nova BLE investigation targets;
 - milestone gates N0 through N6;
-- `lumenate-protocol-export` candidate schema version `0.2.0`;
+- released `lumenate-protocol-export` schema version `0.2.0`;
 - a pinned AVE evidence schema version `1.0.0`; and
 - a sanitized synthetic contract fixture.
 
-N1 and N2 must establish the control path and BLE semantics before N3 can publish
-an empirical, complete-session protocol timeline.
+N1 and N2 now establish the bounded control path and BLE semantics used by the
+published empirical Vitality timeline. Open native and firmware questions remain
+separate from the released interchange contract.
 
 ## Repository ownership boundary
 
@@ -71,15 +72,16 @@ contract fixtures.
 
 The authoritative producer contract remains:
 
-`lumenate_nova_forensics/contracts/lumenate-protocol-export.schema.json`
+`lumenate_nova_forensics/contracts/lumenate-protocol-export-0.2.0.schema.json`
 
-Lumenate owns and versions this schema. AVE vendors or references a released schema
-version for consumer validation and must reject unsupported major versions. A
-released schema must never be changed silently.
+Lumenate owns and versions this schema. The unversioned schema follows the current
+release; the versioned file is immutable. AVE vendors the released schema for
+consumer validation and rejects unsupported versions. A released schema must
+never be changed silently.
 
-The candidate `0.2.0` contract establishes the essential structure and resolves
+The released `0.2.0` contract establishes the essential structure and resolves
 the clock, audio-identity, transition, execution-layer, and evidence-linkage
-questions below:
+questions identified during alignment:
 
 - device and app version identity;
 - session identity and duration;
@@ -96,9 +98,10 @@ device identifiers, and reusable tokens must not cross this boundary.
 
 ## Questions to resolve before the first empirical handoff
 
-The first real export must make the following relationships unambiguous. If schema
-`0.1.0` cannot express them without overloading fields, Lumenate should publish a
-deliberately versioned successor rather than embedding conventions in prose.
+Every empirical export must make the following relationships unambiguous. Contract
+`0.2.0` represents them explicitly; any future requirement that changes validation
+or semantics must use a deliberately versioned successor rather than a prose-only
+convention.
 
 1. **Audio identity** — identify the exact associated audio asset with SHA-256,
    duration, sample rate when known, and a non-sensitive role or source identifier.
@@ -234,15 +237,20 @@ One anchor permits offset comparison. Two or more well-separated anchors are nee
 to estimate drift. Physical optical validation is not required for the first importer,
 but commanded and emitted light must remain separately labeled until N5 closes.
 
-## Candidate 0.2.0 consumer implementation
+## Released 0.2.0 consumer implementation
 
-AVE vendors the exact candidate producer schema and AVE evidence schema under
-`device_protocol/contracts/`. The importer in `device_protocol/lumenate.py` accepts
-only protocol `0.2.0` with AVE evidence `1.0.0`, performs JSON Schema and cross-field
-validation, and normalizes light-segment times to seconds without changing their
-execution-layer or evidentiary meaning. Sanitized empirical fixtures live under
-`device_protocol/fixtures/` and are exercised by consumer-side acceptance and
-malformed-input tests.
+AVE vendors the exact released producer schema and AVE evidence schema under
+`device_protocol/contracts/`. The importer in `device_protocol/lumenate.py`
+accepts only protocol `0.2.0` with AVE evidence `1.0.0`, performs JSON Schema and
+cross-field validation, and normalizes light-segment times to seconds without
+changing their execution-layer or evidentiary meaning. Sanitized empirical
+fixtures live under `device_protocol/fixtures/` and are exercised by
+consumer-side acceptance and malformed-input tests.
+
+The released fixture set contains Vitality, Deep Exploration, Spirit, and
+offline Explore exports. The AVE copies are byte-for-byte identical to the
+producer artifacts, and both repositories validate them in their automated
+test suites.
 
 ## Definition of shared success
 
