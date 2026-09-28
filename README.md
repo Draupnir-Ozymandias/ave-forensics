@@ -8,6 +8,10 @@ workstream are defined in `docs/LUMENATE_NOVA_INTEGRATION_ALIGNMENT.md`.
 AVE's strict device-protocol consumer supports the released Lumenate protocol
 contract `0.2.0` with AVE evidence schema `1.0.0`.
 
+The pinned Generator baseline, reproduction command, expected measurements,
+claim-level verification coverage, and remaining continuous-ramp work are defined in
+`docs/AVE_GENERATOR_VERIFICATION_HANDOFF.md`.
+
 ## Analyze one recording
 
 ```bash
