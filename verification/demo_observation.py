@@ -18,6 +18,7 @@ from analysis.envelope import analyze_carrier_envelope
 from analysis.modulation_ramp import analyze_modulation_ramp
 from analysis.pulse import analyze_pulse_patterns
 from analysis.spectrum import analyze_spectrum
+from analysis.video_regions import analyze_video_regions
 from core.audio_loader import load_audio
 from core.hashing import sha256_file
 from evidence.adapters import modulation_ramp_to_evidence, pulse_analysis_to_evidence
@@ -38,11 +39,12 @@ def _scope(
     channels: list[str],
     duration_seconds: float | None,
     modality: str = "audio",
+    regions: list[str] | None = None,
 ) -> dict[str, Any]:
     return {
         "modality": modality,
         "channels": channels,
-        "regions": [],
+        "regions": regions or [],
         "time_range_seconds": (
             {"start": 0.0, "end": duration_seconds}
             if duration_seconds is not None
@@ -98,6 +100,8 @@ def _validate_request(request: dict[str, Any]) -> None:
         raise DemoObservationError("detector input contains expected values")
     if detector_input.get("expected_tolerances_present") is not False:
         raise DemoObservationError("detector input contains expected tolerances")
+    if detector_input.get("target_schedules_present") not in (None, False):
+        raise DemoObservationError("detector input contains target schedules")
     if request.get("generator_declared_values_in_detector_input") is not False:
         raise DemoObservationError("generator declarations are present in detector input")
     if request["comparison_after_observation"].get(
@@ -124,6 +128,213 @@ def _dominant_channel_carrier(
     return float(frequency), float(magnitude)
 
 
+def _observe_video(
+    *,
+    request: dict[str, Any],
+    request_path: Path,
+    input_path: Path,
+    actual_hash: str,
+    requested_metrics: set[str],
+    provenance: dict[str, Any],
+    evidence_provenance: dict[str, Any],
+    detector_configuration: dict[str, Any],
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    result = analyze_video_regions(
+        input_path,
+        analysis_size=detector_configuration["video_regions"]["analysis_size"],
+    )
+    duration_seconds = result["duration_seconds"]
+    video_scope = _scope(
+        channels=[], duration_seconds=duration_seconds, modality="video"
+    )
+    region_ids = [item["region_id"] for item in result["regions"]]
+    region_scope = _scope(
+        channels=[],
+        duration_seconds=duration_seconds,
+        modality="video",
+        regions=region_ids,
+    )
+    light_scope = _scope(
+        channels=[],
+        duration_seconds=duration_seconds,
+        modality="light",
+        regions=region_ids,
+    )
+    stream_evidence = create_evidence_object(
+        evidence_level="measurement",
+        evidence_type="video_stream_identity",
+        source_module="analysis.video_regions",
+        summary="Blind rendered-video stream identity and timing observation",
+        channels=[],
+        time_range_seconds={"start": 0.0, "end": duration_seconds},
+        measurements=[
+            measurement("input_sha256", actual_hash, "sha256"),
+            measurement("duration_seconds", duration_seconds, "seconds"),
+            measurement("frame_count", result["frame_count"], "count"),
+            measurement("refresh_rate_hz", result["refresh_rate_hz"], "Hz"),
+            measurement("width", result["stream"]["width"], "pixels"),
+            measurement("height", result["stream"]["height"], "pixels"),
+        ],
+        context={"stream": result["stream"]},
+        confidence={"score": 1.0, "method": "decoded_stream_measurement"},
+        provenance=evidence_provenance,
+        limitations=[
+            "Encoded frame cadence is not a measurement of physical display refresh.",
+            "Video timing does not establish efficacy or exposure safety.",
+        ],
+    )
+    region_evidence = create_evidence_object(
+        evidence_level="reconstruction",
+        evidence_type="visual_region_schedule",
+        source_module="analysis.video_regions",
+        summary=result["classification"].replace("_", " "),
+        channels=[],
+        time_range_seconds={"start": 0.0, "end": duration_seconds},
+        measurements=[
+            measurement("region_count", result["region_count"], "count"),
+            measurement(
+                "independent_region_schedules",
+                result["independent_region_schedules"],
+                "boolean",
+            ),
+            measurement(
+                "explicit_off_intervals",
+                {
+                    item["region_id"]: item["explicit_off_intervals"]
+                    for item in result["regions"]
+                },
+                "seconds",
+            ),
+        ],
+        context={
+            "regions": result["regions"],
+            "analysis_resolution": result["analysis_resolution"],
+            "on_threshold": result["on_threshold"],
+            "minimum_region_pixels": result["minimum_region_pixels"],
+            "spatial_coverage_fraction": result["spatial_coverage_fraction"],
+        },
+        confidence={
+            "score": result["confidence"],
+            "method": "connected_pixel_timing_signatures",
+        },
+        provenance=evidence_provenance,
+        limitations=result["limitations"],
+    )
+    evidence = [stream_evidence, region_evidence]
+    metrics = [
+        _metric(
+            "media_identity",
+            "duration_seconds",
+            "s",
+            {"kind": "scalar", "value": duration_seconds},
+            video_scope,
+            coverage=1.0,
+            confidence=1.0,
+            evidence_ids=[stream_evidence["evidence_id"]],
+        ),
+        _metric(
+            "media_identity",
+            "frame_count",
+            "frames",
+            {"kind": "scalar", "value": result["frame_count"]},
+            region_scope,
+            coverage=1.0,
+            confidence=1.0,
+            evidence_ids=[stream_evidence["evidence_id"]],
+        ),
+        _metric(
+            "media_identity",
+            "refresh_rate_hz",
+            "Hz",
+            {"kind": "scalar", "value": result["refresh_rate_hz"]},
+            region_scope,
+            coverage=1.0,
+            confidence=1.0,
+            evidence_ids=[stream_evidence["evidence_id"]],
+            limitations=["Encoded cadence is not physical display refresh."],
+        ),
+        _metric(
+            "resolved_light_plan",
+            "duration_seconds",
+            "s",
+            {"kind": "scalar", "value": duration_seconds},
+            light_scope,
+            coverage=result["spatial_coverage_fraction"],
+            confidence=result["confidence"],
+            evidence_ids=[stream_evidence["evidence_id"], region_evidence["evidence_id"]],
+            limitations=result["limitations"],
+        ),
+        _metric(
+            "resolved_light_plan",
+            "region_count",
+            "count",
+            {"kind": "scalar", "value": result["region_count"]},
+            light_scope,
+            coverage=result["spatial_coverage_fraction"],
+            confidence=result["confidence"],
+            evidence_ids=[region_evidence["evidence_id"]],
+            limitations=result["limitations"],
+        ),
+        _metric(
+            "resolved_light_plan",
+            "independent_region_schedules",
+            "boolean",
+            {"kind": "boolean", "value": result["independent_region_schedules"]},
+            light_scope,
+            coverage=result["spatial_coverage_fraction"],
+            confidence=result["confidence"],
+            evidence_ids=[region_evidence["evidence_id"]],
+            limitations=result["limitations"],
+        ),
+        _metric(
+            "resolved_light_plan",
+            "explicit_off_intervals",
+            "boolean",
+            {
+                "kind": "boolean",
+                "value": bool(result["regions"])
+                and all(item["explicit_off_intervals"] for item in result["regions"]),
+            },
+            light_scope,
+            coverage=result["spatial_coverage_fraction"],
+            confidence=result["confidence"],
+            evidence_ids=[region_evidence["evidence_id"]],
+            limitations=result["limitations"],
+        ),
+    ]
+    observed_metric_names = {item["metric"] for item in metrics}
+    not_evaluated = []
+    for metric_name in sorted(requested_metrics - observed_metric_names):
+        reason = (
+            "Generator recipe identity is not observable from rendered video pixels."
+            if metric_name == "source_recipe_sha256"
+            else "No compatible independent visual observation was produced."
+        )
+        not_evaluated.append({"metric": metric_name, "reason": reason})
+    observation = {
+        "observation_schema_version": OBSERVATION_SCHEMA_VERSION,
+        "demo_id": request["demo_id"],
+        "demo_version": request["demo_version"],
+        "declaration_id": request["declaration_id"],
+        "verification_request_sha256": sha256_file(request_path),
+        "expected_declaration_sha256": request["comparison_after_observation"][
+            "declaration_sha256"
+        ],
+        "artifact": {"path": str(input_path), "sha256": actual_hash},
+        "ordering_attestation": {
+            "declaration_loaded_during_detection": False,
+            "targets_loaded_during_detection": False,
+            "tolerances_loaded_during_detection": False,
+        },
+        "run_provenance": provenance,
+        "metrics": metrics,
+        "not_evaluated": not_evaluated,
+        "evidence_ids": [item["evidence_id"] for item in evidence],
+        "limitations": result["limitations"],
+    }
+    return observation, evidence
+
+
 def observe_demo_request(
     request_path: Path,
     *,
@@ -141,7 +352,7 @@ def observe_demo_request(
 
     requested_metrics = set(request["requested_observation_metrics"])
     detector_configuration = {
-        "configuration_schema_version": "demo-observation-0.2.0",
+        "configuration_schema_version": "demo-observation-0.3.0",
         "request_version": request["request_version"],
         "requested_metrics": sorted(requested_metrics),
         "carrier_detection": {
@@ -164,6 +375,13 @@ def observe_demo_request(
             "hop_seconds": 0.5,
             "carrier_bandwidth_hz": 100.0,
         },
+        "video_regions": {
+            "analysis_size": 64,
+            "absolute_on_threshold": 0.02,
+            "relative_on_threshold": 0.05,
+            "minimum_region_fraction": 0.02,
+            "method": "connected_pixel_timing_signatures",
+        },
     }
     provenance = build_run_provenance(
         input_path=input_path,
@@ -178,6 +396,21 @@ def observe_demo_request(
             "configuration_schema_version"
         ],
     }
+
+    media_type = request["detector_input"].get("media_type", "")
+    if media_type.startswith("video/"):
+        return _observe_video(
+            request=request,
+            request_path=request_path,
+            input_path=input_path,
+            actual_hash=actual_hash,
+            requested_metrics=requested_metrics,
+            provenance=provenance,
+            evidence_provenance=evidence_provenance,
+            detector_configuration=detector_configuration,
+        )
+    if media_type and not media_type.startswith("audio/"):
+        raise DemoObservationError(f"unsupported detector input media type: {media_type}")
 
     audio, sample_rate = load_audio(str(input_path))
     array = np.asarray(audio, dtype=float)

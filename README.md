@@ -18,6 +18,10 @@ loaded; field results preserve `agree`, `disagree`, `unsupported`,
 `not_evaluated`, and `invalid_declaration` separately. See
 `docs/DEMO_AGREEMENT.md`.
 
+Target-free rendered-video requests are analyzed from decoded pixel timing
+signatures, with region schedules and explicit off intervals kept separate from
+Generator plans. See `docs/VIDEO_REGION_ANALYSIS.md`.
+
 ## Analyze one recording
 
 ```bash

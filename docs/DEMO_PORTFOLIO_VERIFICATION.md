@@ -23,17 +23,17 @@ loaded during detection. Comparison preserves `agree`, `disagree`,
 | `ave-demo-001-binaural-construction` | `verified` | 6 | 0 | 0 | 0 | 0 |
 | `ave-demo-002-smooth-am-ramp` | `verified` | 7 | 0 | 0 | 0 | 0 |
 | `ave-demo-003-gated-pulse-contrast` | `verified` | 8 | 0 | 0 | 0 | 0 |
-| `ave-demo-004-four-region-light` | `exploratory` | 0 | 0 | 1 | 6 | 0 |
+| `ave-demo-004-four-region-light` | `partially_verified` | 6 | 0 | 0 | 1 | 0 |
 | `ave-demo-005-staged-av-comparison` | `partially_verified` | 2 | 0 | 4 | 7 | 0 |
 
 All five declarations validate against the Platform schema. The schema SHA-256
 is `aca39c90191762cde5048dfefc6f732d9e0c43e2da668194f2cc6cb04175ab45`.
 
-The canonical observations and reports were regenerated from clean Forensics
-commit `19acbfb4f9cf8d146aa5a22cefed36fbc294eae4`. They are stored under
-`artifacts/demo-portfolio/<demo-id>/observation/` and
-`artifacts/demo-portfolio/<demo-id>/agreement-report.json`. Each report records
-the source revision and tree hash, detector configuration, input artifact hash,
+The original canonical observations and reports were regenerated from clean
+Forensics commit `19acbfb4f9cf8d146aa5a22cefed36fbc294eae4`. Demo 004's rendered-video
+result was added in response to `AVE-REQ-007` and awaits a post-commit clean
+provenance rerun before replacing its canonical report. Every report records the
+source revision and tree hash, detector configuration, input artifact hash,
 observation hash, declaration hash, schema hash, evidence IDs, and ordering
 attestation.
 
@@ -47,17 +47,18 @@ attestation.
 - Demo 003 independently resolves pulse rate, duty cycle, explicit off-state,
   hard-gated pulse shape, and stereo identity. This classification is not
   treated as smooth amplitude modulation.
+- Demo 004 independently resolves four connected visual regions, distinct
+  region schedules, explicit off intervals, encoded frame count and cadence,
+  and rendered duration from the target-free MP4. Recipe identity remains
+  intentionally unevaluated because it is not observable from pixels.
 
 ## Known gaps
 
-- Demo 004 requires an independent rendered-video/light detector. The supplied
-  target-free request currently identifies only silent audio, so Forensics does
-  not infer region schedules from Generator plans or declarations.
 - Demo 005 requires stage-aware temporal segmentation and AV clock comparison.
   Whole-file audio measurements cannot satisfy stage-scoped declarations.
-- AVE Platform has not yet published a machine-readable agreement-report
-  schema. The current report format follows the agreement document and preserves
-  the required states and evidence-label rules.
+- AVE Platform has published agreement-report schema `0.1.0`; pinning it in the
+  Forensics test suite is tracked separately as `AVE-REQ-008`. The Demo 004
+  visual report already validates against that schema.
 
 ## Reproduction
 
