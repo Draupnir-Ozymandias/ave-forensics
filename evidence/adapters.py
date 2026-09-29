@@ -148,6 +148,67 @@ def modulation_spectrum_to_evidence(
     )
 
 
+def modulation_ramp_to_evidence(
+    result: dict[str, Any],
+    provenance: dict[str, Any] | None = None,
+    *,
+    channel: str = "unspecified",
+) -> dict[str, Any]:
+    """Adapt a blind modulation-ramp observation to canonical evidence."""
+    measurements = [
+        measurement("classification", result["classification"], "classification"),
+        measurement("temporal_coverage", result["coverage"], "ratio"),
+        measurement("contiguous_coverage", result["contiguous_coverage"], "ratio"),
+        measurement("supported_window_count", result["supported_window_count"], "count"),
+        measurement("total_window_count", result["window_count"], "count"),
+        measurement("carrier_band_center", result["carrier_band"]["center_hz"], "Hz"),
+    ]
+    fit = result.get("fit")
+    if fit is not None:
+        measurements.extend(
+            [
+                measurement("ramp_direction", fit["direction"], "classification"),
+                measurement("fitted_start_rate", fit["fitted_start_rate_hz"], "Hz"),
+                measurement("fitted_end_rate", fit["fitted_end_rate_hz"], "Hz"),
+                measurement(
+                    "fitted_scope_start_rate",
+                    fit["fitted_scope_start_rate_hz"],
+                    "Hz",
+                ),
+                measurement(
+                    "fitted_scope_end_rate",
+                    fit["fitted_scope_end_rate_hz"],
+                    "Hz",
+                ),
+                measurement("ramp_slope", fit["slope_hz_per_second"], "Hz/s"),
+                measurement("fit_residual_rmse", fit["residual_rmse_hz"], "Hz"),
+            ]
+        )
+
+    return create_evidence_object(
+        evidence_level="reconstruction" if fit is not None else "measurement",
+        evidence_type="continuous_modulation_ramp",
+        source_module="analysis.modulation_ramp",
+        summary=result["classification"].replace("_", " "),
+        channels=[channel],
+        time_range_seconds=result["source_time_range_seconds"],
+        measurements=measurements,
+        context={
+            "carrier_band": result["carrier_band"],
+            "configuration": result["configuration"],
+            "unsupported_intervals": result["unsupported_intervals"],
+            "fit_diagnostics": result["fit_diagnostics"],
+            "fit_rejection_reason": result["fit_rejection_reason"],
+        },
+        confidence={
+            "score": result["confidence"],
+            "method": "coverage_weighted_spectral_ridge_fit",
+        },
+        provenance=provenance,
+        limitations=result["limitations"],
+    )
+
+
 def pulse_analysis_to_evidence(
     result: dict[str, Any],
     provenance: dict[str, Any] | None = None,

@@ -12,6 +12,12 @@ The pinned Generator baseline, reproduction command, expected measurements,
 claim-level verification coverage, and remaining continuous-ramp work are defined in
 `docs/AVE_GENERATOR_VERIFICATION_HANDOFF.md`.
 
+Stable-ID demo packages use a strict observe-then-compare workflow. Blind
+observations are persisted before Platform declaration targets or tolerances are
+loaded; field results preserve `agree`, `disagree`, `unsupported`,
+`not_evaluated`, and `invalid_declaration` separately. See
+`docs/DEMO_AGREEMENT.md`.
+
 ## Analyze one recording
 
 ```bash
@@ -54,6 +60,26 @@ analyzer measures repetition rate, onset regularity, duty cycle, hard-versus-smo
 amplitude shape, stereo synchronization or alternation, and time-resolved pattern
 changes without requiring a persistent carrier pair. Its isochronic labels describe
 signal structure only; see `docs/PULSE_AND_ISOCHRONIC_ANALYSIS.md`.
+
+For short smooth-AM demonstrations and isolated calibration stems, run the blind
+continuous-ridge tracker separately:
+
+```bash
+.venv/bin/python modulation_ramp.py rendered.wav \
+  --carrier-hz 528 \
+  --carrier-bandwidth-hz 64 \
+  --min-rate-hz 4 \
+  --max-rate-hz 20 \
+  --envelope-sample-rate 200 \
+  --channel left \
+  --start-seconds 0 \
+  --end-seconds 12 \
+  --output-dir artifacts/demo-verification
+```
+
+It preserves unsupported windows and emits detailed analysis plus canonical
+`continuous_modulation_ramp` evidence. Generator declarations are not detector
+inputs. See `docs/MODULATION_RAMP_ANALYSIS.md`.
 
 Run the test suite with:
 

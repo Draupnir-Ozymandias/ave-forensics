@@ -27,6 +27,7 @@ SOURCE_DIRECTORIES = (
     "evidence",
     "provenance",
     "reports",
+    "verification",
 )
 SOURCE_FILES = ("requirements.txt",)
 DEPENDENCIES = ("numpy", "scipy", "librosa", "soundfile", "matplotlib")

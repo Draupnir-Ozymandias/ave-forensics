@@ -173,27 +173,70 @@ declared tolerances are the comparison anchors.
 
 ## Open verification gap
 
-The pinned Forensics configuration does not independently reconstruct the later
-continuous isochronic and harmonic modulation ramps. Its whole-file modulation
-reconstruction reports no significant modulation tracks for this chirped stimulus,
-even though Generator black-box probes measure the programmed 60 and 120 Hz values.
+### 2026-09-29 bounded smooth-AM update
+
+The new blind continuous-ridge analyzer independently reconstructed the
+legacy-named `isochronic` stage as **smooth sinusoidal amplitude modulation** in
+the exact pinned 180-second WAV (`10763b4a...566c7c`). For the left channel over
+the bounded 22–38 second region, using a 428–628 Hz carrier band and a 35–85 Hz
+search range, it reported:
+
+- classification: `continuous_modulation_ramp`;
+- temporal coverage: `1.0` (30 of 30 windows);
+- fitted rate: `45.497347` to `74.496893` Hz at the first and last supported
+  window centers;
+- slope: `1.999969` Hz/s; and
+- residual RMSE: `0.009553` Hz.
+
+A separate bounded broadband pulse analysis classified both channels and all
+28 time windows as `smooth_amplitude_modulation`, with no classification
+transitions. Its overall confidence was only `0.277063`, so it is corroborating
+shape evidence with an explicit confidence limitation, not a high-confidence
+standalone conclusion.
+
+The same blind method reconstructed the later stage over 45–175 seconds using
+a 148–908 Hz carrier band and an 80–360 Hz search range:
+
+- classification: `continuous_modulation_ramp`;
+- temporal coverage: `1.0` (257 of 257 windows);
+- fitted rate: `91.999203` to `347.997313` Hz at the first and last supported
+  window centers;
+- slope: `1.999985` Hz/s; and
+- residual RMSE: `0.002761` Hz.
+
+These are bounded working-tree results, not yet a promoted portfolio agreement
+report. They support continuous modulation inside the analyzed intervals only. They
+do not yet verify the transition regions, right-channel replication, a
+Generator demo package, efficacy, or exposure safety. The later-stage result
+uses a wide carrier band and therefore retains an explicit overlapping-component
+confound limitation. The reproducible command and evidence format are
+documented in `docs/MODULATION_RAMP_ANALYSIS.md`.
+
+The older canonical whole-file Forensics configuration does not reconstruct
+these chirped stages and still reports no significant modulation tracks. The
+new standalone analyzer closes a bounded portion of that gap without rewriting
+the historical run.
 
 Therefore:
 
 - persistent carrier structure is independently verified;
 - the early binaural-difference ramp is independently verified;
+- the bounded 22–38 second smooth-AM region is independently reconstructed;
+- the bounded 45–175 second later-stage ramp is independently reconstructed,
+  with the stated wide-band confound limitation;
 - Generator-side signal probes verify selected later modulation values; and
-- continuous 40–80 Hz isochronic and 84–360 Hz harmonic-stage ramp reconstruction
-  remains open Forensics work.
+- transition-region coverage, right-channel replication, independent controls
+  for wide-band component confounding, and formal field-level comparison remain
+  open.
 
 The absence of a Forensics reconstruction must not be rewritten as absence of the
 programmed signal, and Generator measurements must not be mislabeled as independent
 Forensics confirmation.
 
-## Next Forensics milestone
+## Remaining Forensics milestone work
 
-Implement continuous modulation-ramp analysis against the generated 180-second
-positive control.
+Complete continuous modulation-ramp validation and agreement reporting against
+the generated 180-second positive control and short demo artifacts.
 
 The work should:
 

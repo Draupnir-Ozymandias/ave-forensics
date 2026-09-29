@@ -1,7 +1,7 @@
 """Versioned parameters for the canonical AVE analysis pipeline."""
 
 ANALYSIS_CONFIGURATION = {
-    "configuration_schema_version": "1.3.0",
+    "configuration_schema_version": "1.4.0",
     "global_spectrum": {
         "top_n": 10,
         "min_frequency_hz": 1.0,
@@ -70,5 +70,19 @@ ANALYSIS_CONFIGURATION = {
         "minimum_relative_dynamic_range": 0.12,
         "window_seconds": 20.0,
         "hop_seconds": 10.0,
+    },
+    "modulation_ramp": {
+        "envelope_sample_rate": 1000,
+        "min_rate_hz": 1.0,
+        "max_rate_hz": 360.0,
+        "window_seconds": 2.0,
+        "hop_seconds": 0.5,
+        "minimum_spectral_snr_db": 8.0,
+        "minimum_peak_concentration": 0.12,
+        "minimum_relative_variation": 0.01,
+        "minimum_coverage": 0.5,
+        "minimum_contiguous_coverage": 0.5,
+        "minimum_fit_r_squared": 0.85,
+        "minimum_ramp_slope_hz_per_second": 0.05,
     },
 }
