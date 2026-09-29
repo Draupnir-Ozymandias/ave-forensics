@@ -30,12 +30,12 @@ All five declarations validate against the Platform schema. The schema SHA-256
 is `aca39c90191762cde5048dfefc6f732d9e0c43e2da668194f2cc6cb04175ab45`.
 
 The original canonical observations and reports were regenerated from clean
-Forensics commit `19acbfb4f9cf8d146aa5a22cefed36fbc294eae4`. Demo 004's rendered-video
-result was added in response to `AVE-REQ-007` and awaits a post-commit clean
-provenance rerun before replacing its canonical report. Every report records the
-source revision and tree hash, detector configuration, input artifact hash,
-observation hash, declaration hash, schema hash, evidence IDs, and ordering
-attestation.
+Forensics commit `19acbfb4f9cf8d146aa5a22cefed36fbc294eae4`. Demo 004's canonical
+rendered-video observation and report were regenerated from clean commit
+`ad1ddc537c6114dd332793ddd3272f477a6a9545` in response to `AVE-REQ-007`.
+Every report records the source revision and tree hash, detector configuration,
+input artifact hash, observation hash, declaration hash, schema hash, evidence
+IDs, and ordering attestation.
 
 ## Supported observations
 
