@@ -16,7 +16,7 @@ ordering attestation records that declarations, targets, and tolerances were not
 loaded during detection. Comparison preserves `agree`, `disagree`,
 `unsupported`, `not_evaluated`, and `invalid_declaration` as distinct states.
 
-## Diagnostic portfolio result
+## Portfolio result
 
 | Demo | Evidence label | Agree | Disagree | Unsupported | Not evaluated | Invalid declaration |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
@@ -29,10 +29,13 @@ loaded during detection. Comparison preserves `agree`, `disagree`,
 All five declarations validate against the Platform schema. The schema SHA-256
 is `aca39c90191762cde5048dfefc6f732d9e0c43e2da668194f2cc6cb04175ab45`.
 
-These results are diagnostic because the current Forensics checkout contains
-uncommitted implementation changes. Release promotion requires committing the
-implementation and repeating observation and comparison from that clean source
-state.
+The canonical observations and reports were regenerated from clean Forensics
+commit `19acbfb4f9cf8d146aa5a22cefed36fbc294eae4`. They are stored under
+`artifacts/demo-portfolio/<demo-id>/observation/` and
+`artifacts/demo-portfolio/<demo-id>/agreement-report.json`. Each report records
+the source revision and tree hash, detector configuration, input artifact hash,
+observation hash, declaration hash, schema hash, evidence IDs, and ordering
+attestation.
 
 ## Supported observations
 
