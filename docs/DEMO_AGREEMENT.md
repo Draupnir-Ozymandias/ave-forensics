@@ -19,6 +19,21 @@ declaration, target, or tolerance was loaded during detection.
 
 ## Phase 2: comparison
 
+If one declaration spans separately authorized detector artifacts, combine the
+already persisted observations before comparison:
+
+```bash
+.venv/bin/python demo_verification.py bundle \
+  artifacts/demo-portfolio/<demo-id>/observation-a/demo-observation.json \
+  artifacts/demo-portfolio/<demo-id>/observation-b/demo-observation.json \
+  --output artifacts/demo-portfolio/<demo-id>/observation-bundle.json
+```
+
+Bundling does not rerun detection or load declaration values. It verifies the
+current SHA-256 of every primary and supporting artifact, retains each component
+observation and evidence identifier, and removes a `not_evaluated` metric only
+when another persisted observation supplies that metric.
+
 Only after Phase 1 has persisted output:
 
 ```bash

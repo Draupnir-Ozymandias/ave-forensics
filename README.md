@@ -26,6 +26,12 @@ Short synthetic comparison demos can also be segmented from blind audio feature
 changes so that construction, rate, and duty claims are evaluated only inside
 independently reconstructed stages. See `docs/STAGE_SEGMENTATION.md`.
 
+Target-free multimodal detector videos can be checked for encoded audio/video
+clock alignment by comparing decoded per-frame audio energy with independently
+located pixel activity traces. Separate blind observations can then be bundled
+without losing their artifact hashes or provenance. See
+`docs/MULTIMODAL_CLOCK_ANALYSIS.md`.
+
 ## Analyze one recording
 
 ```bash

@@ -9,6 +9,7 @@ from pathlib import Path
 from reports.evidence_export import export_evidence_json
 from verification.demo_observation import observe_demo_request
 from verification.demo_agreement import compare_demo
+from verification.observation_bundle import bundle_observations
 
 
 def observe(arguments: argparse.Namespace) -> None:
@@ -55,6 +56,22 @@ def compare(arguments: argparse.Namespace) -> None:
     )
 
 
+def bundle(arguments: argparse.Namespace) -> None:
+    project_root = Path(__file__).resolve().parent
+    observation = bundle_observations(
+        [Path(arguments.primary), *(Path(item) for item in arguments.additional)],
+        project_root=project_root,
+    )
+    output_path = Path(arguments.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(json.dumps(observation, indent=2, sort_keys=True) + "\n")
+    print(
+        f"Bundled {len(observation['component_observations'])} persisted observations: "
+        f"{len(observation['metrics'])} metrics, "
+        f"{len(observation['not_evaluated'])} not evaluated"
+    )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -68,6 +85,11 @@ def main() -> None:
     compare_parser.add_argument("--schema", required=True)
     compare_parser.add_argument("--output", required=True)
     compare_parser.set_defaults(handler=compare)
+    bundle_parser = subparsers.add_parser("bundle")
+    bundle_parser.add_argument("primary")
+    bundle_parser.add_argument("additional", nargs="+")
+    bundle_parser.add_argument("--output", required=True)
+    bundle_parser.set_defaults(handler=bundle)
     arguments = parser.parse_args()
     arguments.handler(arguments)
 

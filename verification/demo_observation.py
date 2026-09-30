@@ -16,6 +16,7 @@ import numpy as np
 from analysis.config import ANALYSIS_CONFIGURATION
 from analysis.envelope import analyze_carrier_envelope
 from analysis.modulation_ramp import analyze_modulation_ramp
+from analysis.multimodal_clock import analyze_multimodal_clock
 from analysis.pulse import analyze_pulse_patterns
 from analysis.spectrum import analyze_spectrum
 from analysis.stage_segmentation import analyze_audio_stages
@@ -28,7 +29,7 @@ from provenance.run import build_run_provenance
 
 
 OBSERVATION_SCHEMA_VERSION = "0.1.0"
-SUPPORTED_REQUEST_VERSION = "1.1.0"
+SUPPORTED_REQUEST_VERSIONS = {"1.1.0", "1.2.0"}
 
 
 class DemoObservationError(ValueError):
@@ -94,7 +95,7 @@ def _validate_request(request: dict[str, Any]) -> None:
         raise DemoObservationError(
             f"verification request missing: {', '.join(sorted(missing))}"
         )
-    if request["request_version"] != SUPPORTED_REQUEST_VERSION:
+    if request["request_version"] not in SUPPORTED_REQUEST_VERSIONS:
         raise DemoObservationError("unsupported verification request version")
     detector_input = request["detector_input"]
     if detector_input.get("expected_values_present") is not False:
@@ -103,6 +104,10 @@ def _validate_request(request: dict[str, Any]) -> None:
         raise DemoObservationError("detector input contains expected tolerances")
     if detector_input.get("target_schedules_present") not in (None, False):
         raise DemoObservationError("detector input contains target schedules")
+    if detector_input.get("stage_boundaries_present") not in (None, False):
+        raise DemoObservationError("detector input contains stage boundaries")
+    if detector_input.get("construction_labels_present") not in (None, False):
+        raise DemoObservationError("detector input contains construction labels")
     if request.get("generator_declared_values_in_detector_input") is not False:
         raise DemoObservationError("generator declarations are present in detector input")
     if request["comparison_after_observation"].get(
@@ -336,6 +341,125 @@ def _observe_video(
     return observation, evidence
 
 
+def _observe_multimodal(
+    *,
+    request: dict[str, Any],
+    request_path: Path,
+    input_path: Path,
+    actual_hash: str,
+    requested_metrics: set[str],
+    provenance: dict[str, Any],
+    evidence_provenance: dict[str, Any],
+    detector_configuration: dict[str, Any],
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    options = detector_configuration["multimodal_clock"]
+    result = analyze_multimodal_clock(
+        input_path,
+        analysis_width=options["analysis_width"],
+        analysis_height=options["analysis_height"],
+        max_lag_frames=options["max_lag_frames"],
+        minimum_correlation=options["minimum_correlation"],
+        maximum_aligned_lag_frames=options["maximum_aligned_lag_frames"],
+    )
+    duration_seconds = result["streams"]["container"]["duration_seconds"]
+    scope = _scope(
+        channels=["left", "right"],
+        duration_seconds=duration_seconds,
+        modality="multimodal",
+    )
+    evidence_object = create_evidence_object(
+        evidence_level="association",
+        evidence_type="multimodal_timeline",
+        source_module="analysis.multimodal_clock",
+        summary=(
+            "encoded audio/video clocks aligned"
+            if result["clock_alignment"]
+            else "encoded audio/video clock offset detected"
+        ),
+        channels=["left", "right"],
+        time_range_seconds={"start": 0.0, "end": duration_seconds},
+        measurements=[
+            measurement("clock_alignment", result["clock_alignment"], "boolean"),
+            measurement(
+                "maximum_absolute_lag_seconds",
+                result["maximum_absolute_lag_seconds"],
+                "seconds",
+            ),
+            measurement(
+                "minimum_component_correlation",
+                result["minimum_component_correlation"],
+                "ratio",
+            ),
+            measurement(
+                "stream_start_difference_seconds",
+                result["stream_start_difference_seconds"],
+                "seconds",
+            ),
+            measurement(
+                "stream_duration_difference_seconds",
+                result["stream_duration_difference_seconds"],
+                "seconds",
+            ),
+        ],
+        context={
+            "component_correlations": result["component_correlations"],
+            "video_component_count": result["video_component_count"],
+            "analyzed_frame_count": result["analyzed_frame_count"],
+            "streams": result["streams"],
+            "configuration": result["configuration"],
+        },
+        confidence={
+            "score": result["minimum_component_correlation"],
+            "method": "encoded_energy_activity_cross_correlation",
+        },
+        provenance=evidence_provenance,
+        limitations=result["limitations"],
+    )
+    metrics = [
+        _metric(
+            "multimodal_timeline",
+            "clock_alignment",
+            "boolean",
+            {"kind": "boolean", "value": result["clock_alignment"]},
+            scope,
+            coverage=1.0,
+            confidence=result["minimum_component_correlation"],
+            evidence_ids=[evidence_object["evidence_id"]],
+            limitations=result["limitations"],
+        )
+    ]
+    observed_names = {item["metric"] for item in metrics}
+    not_evaluated = [
+        {
+            "metric": name,
+            "reason": "No compatible independent multimodal observation was produced.",
+        }
+        for name in sorted(requested_metrics - observed_names)
+    ]
+    observation = {
+        "observation_schema_version": OBSERVATION_SCHEMA_VERSION,
+        "demo_id": request["demo_id"],
+        "demo_version": request["demo_version"],
+        "declaration_id": request["declaration_id"],
+        "verification_request_sha256": sha256_file(request_path),
+        "expected_declaration_sha256": request["comparison_after_observation"][
+            "declaration_sha256"
+        ],
+        "artifact": {"path": str(input_path), "sha256": actual_hash},
+        "ordering_attestation": {
+            "declaration_loaded_during_detection": False,
+            "targets_loaded_during_detection": False,
+            "tolerances_loaded_during_detection": False,
+        },
+        "run_provenance": provenance,
+        "metrics": metrics,
+        "not_evaluated": not_evaluated,
+        "evidence_ids": [evidence_object["evidence_id"]],
+        "limitations": result["limitations"],
+    }
+    return observation, [evidence_object]
+
+
 def observe_demo_request(
     request_path: Path,
     *,
@@ -353,7 +477,7 @@ def observe_demo_request(
 
     requested_metrics = set(request["requested_observation_metrics"])
     detector_configuration = {
-        "configuration_schema_version": "demo-observation-0.4.0",
+        "configuration_schema_version": "demo-observation-0.5.0",
         "request_version": request["request_version"],
         "requested_metrics": sorted(requested_metrics),
         "carrier_detection": {
@@ -389,6 +513,14 @@ def observe_demo_request(
             "minimum_stage_seconds": 2.0,
             "method": "adjacent_window_feature_change",
         },
+        "multimodal_clock": {
+            "analysis_width": 160,
+            "analysis_height": 90,
+            "max_lag_frames": 30,
+            "minimum_correlation": 0.95,
+            "maximum_aligned_lag_frames": 1,
+            "method": "encoded_energy_activity_cross_correlation",
+        },
     }
     provenance = build_run_provenance(
         input_path=input_path,
@@ -405,6 +537,17 @@ def observe_demo_request(
     }
 
     media_type = request["detector_input"].get("media_type", "")
+    if request.get("request_type") == "independent_blind_multimodal_analysis":
+        return _observe_multimodal(
+            request=request,
+            request_path=request_path,
+            input_path=input_path,
+            actual_hash=actual_hash,
+            requested_metrics=requested_metrics,
+            provenance=provenance,
+            evidence_provenance=evidence_provenance,
+            detector_configuration=detector_configuration,
+        )
     if media_type.startswith("video/"):
         return _observe_video(
             request=request,

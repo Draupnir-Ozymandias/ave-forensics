@@ -363,6 +363,15 @@ def compare_demo(
         raise ValueError("agreement report contains an unknown result state")
 
     provenance = observation["run_provenance"]
+    limitations = [
+        "Agreement applies only to the declared engineering fields and supplied artifact.",
+        "No evidence label in this report establishes therapeutic or clinical efficacy.",
+    ]
+    if observation.get("supporting_artifacts"):
+        limitations.append(
+            "The observation bundles independently generated evidence from multiple "
+            "artifacts; each artifact and component observation retains its own hash."
+        )
     return {
         "agreement_report_version": AGREEMENT_REPORT_VERSION,
         "declaration_contract": "ave-demo-declaration@0.1.0",
@@ -384,8 +393,5 @@ def compare_demo(
         "declaration_validation_errors": global_errors,
         "claim_results": results,
         "evidence_label": _demo_label(results),
-        "limitations": [
-            "Agreement applies only to compared engineering fields.",
-            "No evidence label establishes neurological entrainment, efficacy, therapeutic benefit, or exposure safety.",
-        ],
+        "limitations": limitations,
     }

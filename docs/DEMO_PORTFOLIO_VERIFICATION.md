@@ -1,6 +1,6 @@
 # Demo Portfolio Verification Status
 
-Date: 2026-09-29
+Date: 2026-09-30
 
 AVE Forensics implements the two-phase verification boundary defined by the AVE
 Platform demo agreement:
@@ -24,7 +24,7 @@ loaded during detection. Comparison preserves `agree`, `disagree`,
 | `ave-demo-002-smooth-am-ramp` | `verified` | 7 | 0 | 0 | 0 | 0 |
 | `ave-demo-003-gated-pulse-contrast` | `verified` | 8 | 0 | 0 | 0 | 0 |
 | `ave-demo-004-four-region-light` | `partially_verified` | 6 | 0 | 0 | 1 | 0 |
-| `ave-demo-005-staged-av-comparison` | `partially_verified` | 10 | 0 | 2 | 1 | 0 |
+| `ave-demo-005-staged-av-comparison` | `partially_verified` | 11 | 0 | 2 | 0 | 0 |
 
 All five declarations validate against the Platform schema. The schema SHA-256
 is `aca39c90191762cde5048dfefc6f732d9e0c43e2da668194f2cc6cb04175ab45`.
@@ -33,8 +33,8 @@ The original canonical observations and reports were regenerated from clean
 Forensics commit `19acbfb4f9cf8d146aa5a22cefed36fbc294eae4`. Demo 004's canonical
 rendered-video observation and report were regenerated from clean commit
 `ad1ddc537c6114dd332793ddd3272f477a6a9545` in response to `AVE-REQ-007`.
-Demo 005's stage-aware result is a working-tree result under `AVE-REQ-006` and
-awaits a clean post-commit canonical rerun.
+Demo 005's stage-aware and multimodal-clock result is a working-tree result
+under `AVE-REQ-006` and awaits a clean post-commit canonical rerun.
 Every report records the source revision and tree hash, detector configuration,
 input artifact hash, observation hash, declaration hash, schema hash, evidence
 IDs, and ordering attestation.
@@ -58,14 +58,14 @@ IDs, and ordering attestation.
   hard gating, and resolves stage-scoped rates and duty cycle. The smooth-AM
   classification and rate remain `unsupported` for formal agreement because
   detector confidence `0.749983` is narrowly below the declared `0.75` support
-  threshold. Its audio-to-video clock claim remains unevaluated because the
-  authorized input contains audio only.
+  threshold. A separately authorized target-free mux yields zero-frame lag and
+  minimum component correlation `0.999728`, so the encoded audio-to-video clock
+  claim agrees. The two observations are combined only after both are persisted.
 
 ## Known gaps
 
-- Demo 005 requires a target-free multimodal detector input before AV clock
-  alignment can be evaluated. Whole-file or audio-only measurements cannot
-  satisfy that multimodal declaration.
+- Demo 005's encoded clock result does not measure physical display latency,
+  output-device latency, luminance, or acoustic playback timing.
 - AVE Platform has published agreement-report schema `0.1.0`; pinning it in the
   Forensics test suite is tracked separately as `AVE-REQ-008`. The Demo 004
   visual report already validates against that schema.
