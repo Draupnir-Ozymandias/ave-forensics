@@ -191,3 +191,59 @@ def test_blind_request_rejects_expected_values():
         assert "expected values" in str(error)
     else:
         raise AssertionError("expected target-bearing detector input to be rejected")
+
+
+def test_repeated_scalar_metric_selects_nearest_persisted_observation(tmp_path):
+    declaration_path = tmp_path / "declaration.json"
+    observation_path = tmp_path / "observation.json"
+    schema_path = tmp_path / "schema.json"
+    first = claim(
+        "first",
+        "transition",
+        {"kind": "scalar", "value": 5.0},
+        {"comparison": "absolute", "max_absolute_error": 0.01},
+    )
+    second = claim(
+        "second",
+        "transition",
+        {"kind": "scalar", "value": 10.0},
+        {"comparison": "absolute", "max_absolute_error": 0.01},
+    )
+    declaration = {
+        "demo_id": "ave-demo-999-test",
+        "demo_version": "1.0.0",
+        "declaration_id": "ave-demo-999-test@1.0.0",
+        "claims": [first, second],
+    }
+    write_json(declaration_path, declaration)
+    observation = {
+        "demo_id": declaration["demo_id"],
+        "demo_version": declaration["demo_version"],
+        "declaration_id": declaration["declaration_id"],
+        "expected_declaration_sha256": hashlib.sha256(
+            declaration_path.read_bytes()
+        ).hexdigest(),
+        "artifact": {"sha256": "a" * 64},
+        "ordering_attestation": {},
+        "metrics": [
+            observation_metric("transition", {"kind": "scalar", "value": 5.0}),
+            observation_metric("transition", {"kind": "scalar", "value": 10.0}),
+        ],
+        "not_evaluated": [],
+        "run_provenance": {
+            "toolkit": {"version": "test", "source_tree_sha256": "b" * 64},
+            "git": {},
+            "run_id": "ave_run_0123456789abcdef",
+            "analysis_configuration": {},
+        },
+    }
+    write_json(observation_path, observation)
+    write_json(schema_path, {"type": "object"})
+
+    report = compare_demo(declaration_path, observation_path, schema_path)
+
+    assert [item["state"] for item in report["claim_results"]] == ["agree", "agree"]
+    assert [item["observed"]["value"] for item in report["claim_results"]] == [
+        5.0,
+        10.0,
+    ]

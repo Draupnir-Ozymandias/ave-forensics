@@ -18,6 +18,7 @@ from analysis.envelope import analyze_carrier_envelope
 from analysis.modulation_ramp import analyze_modulation_ramp
 from analysis.pulse import analyze_pulse_patterns
 from analysis.spectrum import analyze_spectrum
+from analysis.stage_segmentation import analyze_audio_stages
 from analysis.video_regions import analyze_video_regions
 from core.audio_loader import load_audio
 from core.hashing import sha256_file
@@ -352,7 +353,7 @@ def observe_demo_request(
 
     requested_metrics = set(request["requested_observation_metrics"])
     detector_configuration = {
-        "configuration_schema_version": "demo-observation-0.3.0",
+        "configuration_schema_version": "demo-observation-0.4.0",
         "request_version": request["request_version"],
         "requested_metrics": sorted(requested_metrics),
         "carrier_detection": {
@@ -381,6 +382,12 @@ def observe_demo_request(
             "relative_on_threshold": 0.05,
             "minimum_region_fraction": 0.02,
             "method": "connected_pixel_timing_signatures",
+        },
+        "stage_segmentation": {
+            "feature_window_seconds": 0.5,
+            "minimum_change_score": 0.8,
+            "minimum_stage_seconds": 2.0,
+            "method": "adjacent_window_feature_change",
         },
     }
     provenance = build_run_provenance(
@@ -777,6 +784,171 @@ def observe_demo_request(
             )
         )
 
+    stage_requested = bool(
+        requested_metrics
+        & {
+            "construction_class",
+            "stage_count",
+            "transition_time_seconds",
+        }
+    )
+    if stage_requested:
+        stage_options = detector_configuration["stage_segmentation"]
+        stage_result = analyze_audio_stages(
+            array,
+            sample_rate,
+            feature_window_seconds=stage_options["feature_window_seconds"],
+            minimum_change_score=stage_options["minimum_change_score"],
+            minimum_stage_seconds=stage_options["minimum_stage_seconds"],
+        )
+        stage_evidence = create_evidence_object(
+            evidence_level="reconstruction",
+            evidence_type="audio_stage_segmentation",
+            source_module="analysis.stage_segmentation",
+            summary=stage_result["classification"].replace("_", " "),
+            channels=channels,
+            time_range_seconds={"start": 0.0, "end": duration_seconds},
+            measurements=[
+                measurement("stage_count", stage_result["stage_count"], "count"),
+                measurement(
+                    "transition_times_seconds",
+                    stage_result["transition_times_seconds"],
+                    "seconds",
+                ),
+                measurement(
+                    "construction_classes",
+                    [item["construction_class"] for item in stage_result["stages"]],
+                    "classification",
+                ),
+            ],
+            context={
+                "stages": stage_result["stages"],
+                "transition_change_scores": stage_result["transition_change_scores"],
+                "configuration": stage_result["configuration"],
+                "feature_windows": stage_result["feature_windows"],
+            },
+            confidence={
+                "score": stage_result["confidence"],
+                "method": "adjacent_window_feature_change",
+            },
+            provenance=evidence_provenance,
+            limitations=stage_result["limitations"],
+        )
+        evidence.append(stage_evidence)
+        metrics.append(
+            _metric(
+                "stage_timeline",
+                "stage_count",
+                "count",
+                {"kind": "scalar", "value": stage_result["stage_count"]},
+                audio_scope,
+                coverage=1.0,
+                confidence=stage_result["confidence"],
+                evidence_ids=[stage_evidence["evidence_id"]],
+                limitations=stage_result["limitations"],
+            )
+        )
+        for index, stage in enumerate(stage_result["stages"]):
+            stage_scope = _scope(
+                channels=channels,
+                duration_seconds=None,
+            )
+            stage_scope["time_range_seconds"] = {
+                "start": stage["start_seconds"],
+                "end": stage["end_seconds"],
+            }
+            metrics.append(
+                _metric(
+                    "stage_classification",
+                    "construction_class",
+                    "category",
+                    {"kind": "category", "value": stage["construction_class"]},
+                    stage_scope,
+                    coverage=1.0,
+                    confidence=stage["confidence"],
+                    evidence_ids=[stage_evidence["evidence_id"]],
+                    limitations=stage_result["limitations"],
+                )
+            )
+            if index < len(stage_result["transition_times_seconds"]):
+                metrics.append(
+                    _metric(
+                        "stage_timeline",
+                        "transition_time_seconds",
+                        "s",
+                        {
+                            "kind": "scalar",
+                            "value": stage_result["transition_times_seconds"][index],
+                        },
+                        audio_scope,
+                        coverage=1.0,
+                        confidence=stage_result["confidence"],
+                        evidence_ids=[stage_evidence["evidence_id"]],
+                        limitations=stage_result["limitations"],
+                    )
+                )
+            if stage["interchannel_frequency_difference_hz"] is not None:
+                metrics.append(
+                    _metric(
+                        "binaural_candidate",
+                        "interchannel_frequency_difference_hz",
+                        "Hz",
+                        {
+                            "kind": "scalar",
+                            "value": stage["interchannel_frequency_difference_hz"],
+                        },
+                        stage_scope,
+                        coverage=1.0,
+                        confidence=min(
+                            item["strength"] for item in stage["carriers"].values()
+                        ),
+                        evidence_ids=[stage_evidence["evidence_id"]],
+                    )
+                )
+            if (
+                stage["construction_class"] == "smooth_amplitude_modulation"
+                and stage["pulse_rate_hz"] is not None
+            ):
+                metrics.append(
+                    _metric(
+                        "carrier_envelope",
+                        "modulation_rate_hz",
+                        "Hz",
+                        {"kind": "scalar", "value": stage["pulse_rate_hz"]},
+                        stage_scope,
+                        coverage=1.0,
+                        confidence=stage["pulse_confidence"],
+                        evidence_ids=[stage_evidence["evidence_id"]],
+                    )
+                )
+            if stage["construction_class"] == "hard_gated_pulse":
+                if stage["pulse_rate_hz"] is not None:
+                    metrics.append(
+                        _metric(
+                            "broadband_pulse_pattern",
+                            "pulse_rate_hz",
+                            "Hz",
+                            {"kind": "scalar", "value": stage["pulse_rate_hz"]},
+                            stage_scope,
+                            coverage=1.0,
+                            confidence=stage["pulse_confidence"],
+                            evidence_ids=[stage_evidence["evidence_id"]],
+                        )
+                    )
+                if stage["duty_cycle_fraction"] is not None:
+                    metrics.append(
+                        _metric(
+                            "broadband_pulse_pattern",
+                            "duty_cycle_fraction",
+                            "fraction",
+                            {"kind": "scalar", "value": stage["duty_cycle_fraction"]},
+                            stage_scope,
+                            coverage=1.0,
+                            confidence=stage["pulse_confidence"],
+                            evidence_ids=[stage_evidence["evidence_id"]],
+                        )
+                    )
+
     observed_metric_names = {item["metric"] for item in metrics}
     not_evaluated = []
     for metric_name in sorted(requested_metrics - observed_metric_names):
@@ -789,13 +961,8 @@ def observe_demo_request(
             "source_recipe_sha256",
         }:
             reason = "No independent light/video detector is implemented for the supplied audio-only detector input."
-        elif metric_name in {
-            "clock_alignment",
-            "construction_class",
-            "stage_count",
-            "transition_time_seconds",
-        }:
-            reason = "Stage-aware demo reconstruction has not been implemented."
+        elif metric_name == "clock_alignment":
+            reason = "Audio-only detector input cannot establish audio-to-video clock alignment."
         else:
             reason = "No compatible independent observation was produced."
         not_evaluated.append({"metric": metric_name, "reason": reason})

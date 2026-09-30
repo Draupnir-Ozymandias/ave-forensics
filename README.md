@@ -22,6 +22,10 @@ Target-free rendered-video requests are analyzed from decoded pixel timing
 signatures, with region schedules and explicit off intervals kept separate from
 Generator plans. See `docs/VIDEO_REGION_ANALYSIS.md`.
 
+Short synthetic comparison demos can also be segmented from blind audio feature
+changes so that construction, rate, and duty claims are evaluated only inside
+independently reconstructed stages. See `docs/STAGE_SEGMENTATION.md`.
+
 ## Analyze one recording
 
 ```bash

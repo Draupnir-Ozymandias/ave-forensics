@@ -56,6 +56,19 @@ def _combine_observations(
         if set(item["scope"]["channels"]) == claim_channels
     ]
     if exact:
+        target = claim.get("target", {})
+        if target.get("kind") == "scalar" and len(exact) > 1:
+            scalar_candidates = [
+                item
+                for item in exact
+                if item.get("observed", {}).get("kind") == "scalar"
+            ]
+            if scalar_candidates:
+                target_value = float(target["value"])
+                return min(
+                    scalar_candidates,
+                    key=lambda item: abs(float(item["observed"]["value"]) - target_value),
+                )
         return exact[0]
     if not claim_channels or not candidates:
         return None
