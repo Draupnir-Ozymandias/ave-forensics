@@ -33,8 +33,9 @@ The original canonical observations and reports were regenerated from clean
 Forensics commit `19acbfb4f9cf8d146aa5a22cefed36fbc294eae4`. Demo 004's canonical
 rendered-video observation and report were regenerated from clean commit
 `ad1ddc537c6114dd332793ddd3272f477a6a9545` in response to `AVE-REQ-007`.
-Demo 005's stage-aware and multimodal-clock result is a working-tree result
-under `AVE-REQ-006` and awaits a clean post-commit canonical rerun.
+Demo 005's canonical stage-aware and multimodal-clock observations and bundled
+report were regenerated from clean Forensics commit
+`58330cd998cdb4a3dbe35c7edb10d51c8e338969`, closing `AVE-REQ-006`.
 Every report records the source revision and tree hash, detector configuration,
 input artifact hash, observation hash, declaration hash, schema hash, evidence
 IDs, and ordering attestation.
