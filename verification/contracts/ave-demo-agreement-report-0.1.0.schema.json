@@ -1,0 +1,232 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ave-platform/contracts/ave-demo-agreement-report-0.1.0.schema.json",
+  "title": "AVE Demo Agreement Report",
+  "description": "Field-level comparison of a persisted independent observation against an AVE demo declaration.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "agreement_report_version",
+    "demo_id",
+    "demo_version",
+    "declaration_contract",
+    "declaration_id",
+    "declaration_sha256",
+    "declaration_schema_sha256",
+    "declaration_validation_errors",
+    "artifact_sha256",
+    "observation_sha256",
+    "ordering_attestation",
+    "forensics",
+    "claim_results",
+    "evidence_label",
+    "limitations"
+  ],
+  "properties": {
+    "agreement_report_version": {"const": "0.1.0"},
+    "demo_id": {"$ref": "#/$defs/demo_id"},
+    "demo_version": {"$ref": "#/$defs/semver"},
+    "declaration_contract": {"const": "ave-demo-declaration@0.1.0"},
+    "declaration_id": {
+      "type": "string",
+      "pattern": "^ave-demo-[0-9]{3}-[a-z0-9]+(?:-[a-z0-9]+)*@(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "declaration_sha256": {"$ref": "#/$defs/sha256"},
+    "declaration_schema_sha256": {"$ref": "#/$defs/sha256"},
+    "declaration_validation_errors": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "artifact_sha256": {"$ref": "#/$defs/sha256"},
+    "observation_sha256": {"$ref": "#/$defs/sha256"},
+    "ordering_attestation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "declaration_loaded_during_detection",
+        "targets_loaded_during_detection",
+        "tolerances_loaded_during_detection"
+      ],
+      "properties": {
+        "declaration_loaded_during_detection": {"const": false},
+        "targets_loaded_during_detection": {"const": false},
+        "tolerances_loaded_during_detection": {"const": false}
+      }
+    },
+    "forensics": {"$ref": "#/$defs/forensics"},
+    "claim_results": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/claim_result"}
+    },
+    "evidence_label": {
+      "enum": ["verified", "partially_verified", "exploratory"]
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string", "minLength": 1}
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "demo_id": {
+      "type": "string",
+      "pattern": "^ave-demo-[0-9]{3}-[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "evidence_id": {"type": "string", "pattern": "^ave_[0-9a-f]{16}$"},
+    "point": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["time_seconds", "value"],
+      "properties": {
+        "time_seconds": {"type": "number", "minimum": 0},
+        "value": {"type": "number"}
+      }
+    },
+    "observed": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "value"],
+          "properties": {
+            "kind": {"const": "scalar"},
+            "value": {"type": "number"}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "minimum", "maximum"],
+          "properties": {
+            "kind": {"const": "interval"},
+            "minimum": {"type": "number"},
+            "maximum": {"type": "number"}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "start", "end"],
+          "properties": {
+            "kind": {"const": "linear_curve"},
+            "start": {"$ref": "#/$defs/point"},
+            "end": {"$ref": "#/$defs/point"},
+            "point_observations": {
+              "type": "array",
+              "items": {"$ref": "#/$defs/point"}
+            },
+            "residual_rmse": {"type": "number", "minimum": 0}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "value"],
+          "properties": {
+            "kind": {"const": "category"},
+            "value": {"type": "string", "minLength": 1}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "value"],
+          "properties": {
+            "kind": {"const": "boolean"},
+            "value": {"type": "boolean"}
+          }
+        }
+      ]
+    },
+    "errors": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "absolute_error": {"type": "number", "minimum": 0},
+        "relative_error_fraction": {"type": "number", "minimum": 0},
+        "exact_match": {"type": "boolean"},
+        "lower_boundary_error": {"type": "number", "minimum": 0},
+        "upper_boundary_error": {"type": "number", "minimum": 0},
+        "max_point_error": {"type": "number", "minimum": 0},
+        "rmse": {"type": "number", "minimum": 0},
+        "time_error_seconds": {"type": "number", "minimum": 0}
+      }
+    },
+    "claim_result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_id",
+        "required",
+        "state",
+        "observed",
+        "errors",
+        "coverage_fraction",
+        "confidence",
+        "evidence_ids",
+        "reason",
+        "limitations"
+      ],
+      "properties": {
+        "claim_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$"
+        },
+        "required": {"type": "boolean"},
+        "state": {
+          "enum": ["agree", "disagree", "unsupported", "not_evaluated", "invalid_declaration"]
+        },
+        "observed": {"$ref": "#/$defs/observed"},
+        "errors": {"$ref": "#/$defs/errors"},
+        "coverage_fraction": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "confidence": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "evidence_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/evidence_id"}
+        },
+        "reason": {"type": "string", "minLength": 1},
+        "limitations": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "forensics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "run_id", "source_tree_sha256", "git", "analysis_configuration"],
+      "properties": {
+        "version": {"type": "string", "minLength": 1},
+        "run_id": {"type": "string", "pattern": "^ave_run_[0-9a-f]{16}$"},
+        "source_tree_sha256": {"$ref": "#/$defs/sha256"},
+        "git": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["commit", "branch", "dirty"],
+          "properties": {
+            "commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+            "branch": {"type": "string", "minLength": 1},
+            "dirty": {"type": "boolean"}
+          }
+        },
+        "analysis_configuration": {"type": "object"}
+      }
+    }
+  }
+}

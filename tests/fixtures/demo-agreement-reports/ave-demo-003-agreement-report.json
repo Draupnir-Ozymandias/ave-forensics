@@ -1,0 +1,235 @@
+{
+  "agreement_report_version": "0.1.0",
+  "artifact_sha256": "1c709614de6433b50fa5032df3baa89d3574d33750115934ca662e893f5901b0",
+  "claim_results": [
+    {
+      "claim_id": "audio.duration",
+      "confidence": 1.0,
+      "coverage_fraction": 1.0,
+      "errors": {
+        "absolute_error": 0.0
+      },
+      "evidence_ids": [
+        "ave_e1f15fbf17da226a"
+      ],
+      "limitations": [],
+      "observed": {
+        "kind": "scalar",
+        "value": 12.0
+      },
+      "reason": "Numeric tolerance passed.",
+      "required": true,
+      "state": "agree"
+    },
+    {
+      "claim_id": "audio.sample_peak",
+      "confidence": 1.0,
+      "coverage_fraction": 1.0,
+      "errors": {
+        "absolute_error": 1.2207031e-05
+      },
+      "evidence_ids": [
+        "ave_e1f15fbf17da226a"
+      ],
+      "limitations": [
+        "Digital peak is not calibrated SPL."
+      ],
+      "observed": {
+        "kind": "scalar",
+        "value": 0.79998779296875
+      },
+      "reason": "Numeric tolerance passed.",
+      "required": true,
+      "state": "agree"
+    },
+    {
+      "claim_id": "audio.carrier.frequency",
+      "confidence": 1.0,
+      "coverage_fraction": 1.0,
+      "errors": {
+        "absolute_error": 0.0
+      },
+      "evidence_ids": [
+        "ave_65b7d29466f503a5",
+        "ave_aa6c58664cba3cde"
+      ],
+      "limitations": [],
+      "observed": {
+        "kind": "scalar",
+        "value": 440.0
+      },
+      "reason": "Numeric tolerance passed.",
+      "required": true,
+      "state": "agree"
+    },
+    {
+      "claim_id": "audio.pulse.rate",
+      "confidence": 0.980296,
+      "coverage_fraction": 1.0,
+      "errors": {
+        "absolute_error": 0.000782
+      },
+      "evidence_ids": [
+        "ave_82337e39af6245cd"
+      ],
+      "limitations": [],
+      "observed": {
+        "kind": "scalar",
+        "value": 11.999218
+      },
+      "reason": "Numeric tolerance passed.",
+      "required": true,
+      "state": "agree"
+    },
+    {
+      "claim_id": "audio.pulse.duty_cycle",
+      "confidence": 0.980296,
+      "coverage_fraction": 1.0,
+      "errors": {
+        "absolute_error": 0.000852
+      },
+      "evidence_ids": [
+        "ave_82337e39af6245cd"
+      ],
+      "limitations": [],
+      "observed": {
+        "kind": "scalar",
+        "value": 0.250852
+      },
+      "reason": "Numeric tolerance passed.",
+      "required": true,
+      "state": "agree"
+    },
+    {
+      "claim_id": "audio.pulse.shape",
+      "confidence": 0.980296,
+      "coverage_fraction": 1.0,
+      "errors": {
+        "exact_match": true
+      },
+      "evidence_ids": [
+        "ave_82337e39af6245cd"
+      ],
+      "limitations": [],
+      "observed": {
+        "kind": "category",
+        "value": "hard_gated_pulse"
+      },
+      "reason": "Exact comparison passed.",
+      "required": true,
+      "state": "agree"
+    },
+    {
+      "claim_id": "audio.pulse.explicit_off_state",
+      "confidence": 0.980296,
+      "coverage_fraction": 1.0,
+      "errors": {
+        "exact_match": true
+      },
+      "evidence_ids": [
+        "ave_82337e39af6245cd"
+      ],
+      "limitations": [],
+      "observed": {
+        "kind": "boolean",
+        "value": true
+      },
+      "reason": "Exact comparison passed.",
+      "required": true,
+      "state": "agree"
+    },
+    {
+      "claim_id": "audio.stereo_relationship",
+      "confidence": 0.980296,
+      "coverage_fraction": 1.0,
+      "errors": {
+        "exact_match": true
+      },
+      "evidence_ids": [
+        "ave_82337e39af6245cd"
+      ],
+      "limitations": [],
+      "observed": {
+        "kind": "category",
+        "value": "identical_stereo"
+      },
+      "reason": "Exact comparison passed.",
+      "required": true,
+      "state": "agree"
+    }
+  ],
+  "declaration_contract": "ave-demo-declaration@0.1.0",
+  "declaration_id": "ave-demo-003-gated-pulse-contrast@1.0.0",
+  "declaration_schema_sha256": "aca39c90191762cde5048dfefc6f732d9e0c43e2da668194f2cc6cb04175ab45",
+  "declaration_sha256": "ac7a475988d069774b076f78fab3cfc91464d6fb9b5901c8ff4ecb08df13a28f",
+  "declaration_validation_errors": [],
+  "demo_id": "ave-demo-003-gated-pulse-contrast",
+  "demo_version": "1.0.0",
+  "evidence_label": "verified",
+  "forensics": {
+    "analysis_configuration": {
+      "carrier_detection": {
+        "max_frequency_hz": 5000.0,
+        "min_frequency_hz": 40.0,
+        "selection": "strongest_per_channel_without_declared_target"
+      },
+      "configuration_schema_version": "demo-observation-0.2.0",
+      "modulation_ramp": {
+        "carrier_bandwidth_hz": 100.0,
+        "envelope_sample_rate": 200,
+        "hop_seconds": 0.5,
+        "max_rate_hz": 40.0,
+        "min_rate_hz": 1.0,
+        "minimum_contiguous_coverage": 0.5,
+        "minimum_coverage": 0.5,
+        "minimum_fit_r_squared": 0.85,
+        "minimum_peak_concentration": 0.12,
+        "minimum_ramp_slope_hz_per_second": 0.05,
+        "minimum_relative_variation": 0.01,
+        "minimum_spectral_snr_db": 8.0,
+        "window_seconds": 2.0
+      },
+      "pulse": {
+        "envelope_sample_rate": 1000,
+        "hard_state_separation": 0.72,
+        "hop_seconds": 0.5,
+        "max_rate_hz": 40.0,
+        "maximum_interval_cv": 0.2,
+        "min_rate_hz": 0.5,
+        "minimum_low_state_fraction": 0.12,
+        "minimum_pulse_count": 5,
+        "minimum_relative_dynamic_range": 0.12,
+        "window_seconds": 2.0
+      },
+      "request_version": "1.1.0",
+      "requested_metrics": [
+        "amplitude_shape_class",
+        "carrier_frequency_hz",
+        "duration_seconds",
+        "duty_cycle_fraction",
+        "explicit_off_state",
+        "pulse_rate_hz",
+        "sample_peak_linear",
+        "stereo_relationship"
+      ]
+    },
+    "git": {
+      "branch": "codex/generator-verification-handoff",
+      "commit": "19acbfb4f9cf8d146aa5a22cefed36fbc294eae4",
+      "dirty": false
+    },
+    "run_id": "ave_run_65f39f504011020c",
+    "source_tree_sha256": "8465a5ca52201c6f28790ffc5faf454b2cbac38e883eef0bf469ce61522a6462",
+    "version": "0.5.0-dev"
+  },
+  "limitations": [
+    "Agreement applies only to compared engineering fields.",
+    "No evidence label establishes neurological entrainment, efficacy, therapeutic benefit, or exposure safety."
+  ],
+  "observation_sha256": "2be88cb86b87876972ecaf12dde713c66cbfcf5ca14eee539db0694d436e768d",
+  "ordering_attestation": {
+    "declaration_loaded_during_detection": false,
+    "targets_loaded_during_detection": false,
+    "tolerances_loaded_during_detection": false
+  }
+}

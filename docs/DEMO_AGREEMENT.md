@@ -50,6 +50,15 @@ field-level tolerances, retains calculated errors, and emits one of `agree`,
 claim. The demo label follows Platform rules exactly: `verified`,
 `partially_verified`, or `exploratory`.
 
+Every newly generated report is validated before it is returned against the
+vendored Platform contract
+`verification/contracts/ave-demo-agreement-report-0.1.0.schema.json`. Forensics
+also verifies that contract's SHA-256 is exactly
+`f4a2ce98dc407b0aa7f40dcfc636de98e6c8d498feda84ecec9e5b3a36292315`.
+Contract drift or report drift raises an error instead of emitting a report.
+The test suite validates tracked snapshots of all five canonical portfolio
+reports against the same pinned contract.
+
 Evidence-type, metric, unit, modality, channel/region, and time scope must be
 compatible. A whole-file observation does not silently satisfy a stage-scoped
 claim. Missing light/video analysis remains visible rather than being inferred

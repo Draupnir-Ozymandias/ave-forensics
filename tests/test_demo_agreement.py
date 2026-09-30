@@ -82,7 +82,7 @@ def test_preserves_all_five_field_states(tmp_path):
         "not_evaluated": [{"metric": "deferred", "reason": "deliberately deferred"}],
         "run_provenance": {
             "toolkit": {"version": "test", "source_tree_sha256": "b" * 64},
-            "git": {"commit": None, "branch": None, "dirty": True},
+            "git": {"commit": "c" * 40, "branch": "test", "dirty": True},
             "run_id": "ave_run_0123456789abcdef",
             "analysis_configuration": {},
         },
@@ -150,12 +150,16 @@ def test_curve_comparison_uses_observed_points_and_support_thresholds(tmp_path):
         "declaration_id": declaration["declaration_id"],
         "expected_declaration_sha256": hashlib.sha256(declaration_path.read_bytes()).hexdigest(),
         "artifact": {"sha256": "a" * 64},
-        "ordering_attestation": {},
+        "ordering_attestation": {
+            "declaration_loaded_during_detection": False,
+            "targets_loaded_during_detection": False,
+            "tolerances_loaded_during_detection": False,
+        },
         "metrics": [metric],
         "not_evaluated": [],
         "run_provenance": {
             "toolkit": {"version": "test", "source_tree_sha256": "b" * 64},
-            "git": {},
+            "git": {"commit": "c" * 40, "branch": "test", "dirty": True},
             "run_id": "ave_run_0123456789abcdef",
             "analysis_configuration": {},
         },
@@ -224,7 +228,11 @@ def test_repeated_scalar_metric_selects_nearest_persisted_observation(tmp_path):
             declaration_path.read_bytes()
         ).hexdigest(),
         "artifact": {"sha256": "a" * 64},
-        "ordering_attestation": {},
+        "ordering_attestation": {
+            "declaration_loaded_during_detection": False,
+            "targets_loaded_during_detection": False,
+            "tolerances_loaded_during_detection": False,
+        },
         "metrics": [
             observation_metric("transition", {"kind": "scalar", "value": 5.0}),
             observation_metric("transition", {"kind": "scalar", "value": 10.0}),
@@ -232,7 +240,7 @@ def test_repeated_scalar_metric_selects_nearest_persisted_observation(tmp_path):
         "not_evaluated": [],
         "run_provenance": {
             "toolkit": {"version": "test", "source_tree_sha256": "b" * 64},
-            "git": {},
+            "git": {"commit": "c" * 40, "branch": "test", "dirty": True},
             "run_id": "ave_run_0123456789abcdef",
             "analysis_configuration": {},
         },

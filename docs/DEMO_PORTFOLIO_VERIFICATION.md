@@ -39,6 +39,9 @@ report were regenerated from clean Forensics commit
 Every report records the source revision and tree hash, detector configuration,
 input artifact hash, observation hash, declaration hash, schema hash, evidence
 IDs, and ordering attestation.
+All generated reports are validated before emission against the vendored
+agreement-report `0.1.0` schema at SHA-256
+`f4a2ce98dc407b0aa7f40dcfc636de98e6c8d498feda84ecec9e5b3a36292315`.
 
 ## Supported observations
 
@@ -67,9 +70,8 @@ IDs, and ordering attestation.
 
 - Demo 005's encoded clock result does not measure physical display latency,
   output-device latency, luminance, or acoustic playback timing.
-- AVE Platform has published agreement-report schema `0.1.0`; pinning it in the
-  Forensics test suite is tracked separately as `AVE-REQ-008`. The Demo 004
-  visual report already validates against that schema.
+- Agreement-report contract upgrades require an explicit version and hash
+  update; silent edits to the pinned `0.1.0` schema are rejected.
 
 ## Reproduction
 

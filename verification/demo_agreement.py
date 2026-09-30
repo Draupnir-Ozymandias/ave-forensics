@@ -10,8 +10,13 @@ from typing import Any
 import numpy as np
 from jsonschema import Draft202012Validator
 
+from verification.report_schema import (
+    AGREEMENT_REPORT_SCHEMA_VERSION,
+    validate_agreement_report,
+)
 
-AGREEMENT_REPORT_VERSION = "0.1.0"
+
+AGREEMENT_REPORT_VERSION = AGREEMENT_REPORT_SCHEMA_VERSION
 RESULT_STATES = {
     "agree",
     "disagree",
@@ -212,7 +217,10 @@ def _compare_value(
         lower = float(target["minimum"]) - tolerance["boundary_margin"]
         upper = float(target["maximum"]) + tolerance["boundary_margin"]
         passed = lower <= value <= upper
-        return passed, {"expanded_minimum": lower, "expanded_maximum": upper}, (
+        return passed, {
+            "lower_boundary_error": round(max(lower - value, 0.0), 12),
+            "upper_boundary_error": round(max(value - upper, 0.0), 12),
+        }, (
             "Interval containment passed." if passed else "Interval containment failed."
         )
     target_value = float(target["value"])
@@ -372,7 +380,7 @@ def compare_demo(
             "The observation bundles independently generated evidence from multiple "
             "artifacts; each artifact and component observation retains its own hash."
         )
-    return {
+    report = {
         "agreement_report_version": AGREEMENT_REPORT_VERSION,
         "declaration_contract": "ave-demo-declaration@0.1.0",
         "demo_id": observation["demo_id"],
@@ -395,3 +403,5 @@ def compare_demo(
         "evidence_label": _demo_label(results),
         "limitations": limitations,
     }
+    validate_agreement_report(report)
+    return report

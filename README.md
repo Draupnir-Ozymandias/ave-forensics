@@ -16,7 +16,8 @@ Stable-ID demo packages use a strict observe-then-compare workflow. Blind
 observations are persisted before Platform declaration targets or tolerances are
 loaded; field results preserve `agree`, `disagree`, `unsupported`,
 `not_evaluated`, and `invalid_declaration` separately. See
-`docs/DEMO_AGREEMENT.md`.
+`docs/DEMO_AGREEMENT.md`. Generated reports are fail-closed against the pinned
+Platform agreement-report `0.1.0` contract and its expected SHA-256.
 
 Target-free rendered-video requests are analyzed from decoded pixel timing
 signatures, with region schedules and explicit off intervals kept separate from
