@@ -33,6 +33,12 @@ located pixel activity traces. Separate blind observations can then be bundled
 without losing their artifact hashes or provenance. See
 `docs/MULTIMODAL_CLOCK_ANALYSIS.md`.
 
+Borderline stage-classification confidence can be audited with a deterministic,
+target-free perturbation suite before a declared threshold is loaded. The
+separate comparison reports whether the threshold lies inside observed detector
+variation without rewriting the primary agreement state. See
+`docs/STAGE_ROBUSTNESS.md`.
+
 ## Analyze one recording
 
 ```bash

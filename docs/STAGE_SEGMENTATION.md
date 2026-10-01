@@ -23,6 +23,11 @@ For `ave-demo-005-staged-av-comparison`, the blind detector reconstructs:
 These observations are persisted before declaration comparison. Repeated
 transition metrics are compared only in the post-observation phase.
 
+The smooth-AM confidence sits extremely close to the declaration's support
+threshold. That decimal boundary is now evaluated separately with the
+target-free perturbation procedure in `STAGE_ROBUSTNESS.md`; robustness results
+do not retroactively modify this primary observation.
+
 ## Limits
 
 - Boundary timing is quantized to the configured feature-window grid.

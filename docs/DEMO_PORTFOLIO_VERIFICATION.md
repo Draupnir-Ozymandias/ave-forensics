@@ -65,6 +65,10 @@ agreement-report `0.1.0` schema at SHA-256
   threshold. A separately authorized target-free mux yields zero-frame lag and
   minimum component correlation `0.999728`, so the encoded audio-to-video clock
   claim agrees. The two observations are combined only after both are persisted.
+  A subsequent target-free perturbation audit finds that the smooth-AM
+  confidence boundary lies inside observed detector variation. That robustness
+  finding is reported separately and does not promote either unsupported field;
+  Demo 005 remains `partially_verified` for the present release.
 
 ## Known gaps
 

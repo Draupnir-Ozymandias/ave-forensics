@@ -66,7 +66,8 @@ def _dominant_carrier(signal: np.ndarray, sample_rate: int) -> tuple[float | Non
     return float(frequency), float(strength)
 
 
-def _classify_stage(segment: np.ndarray, sample_rate: int) -> dict[str, Any]:
+def classify_audio_stage(segment: np.ndarray, sample_rate: int) -> dict[str, Any]:
+    """Classify one already bounded stage without expected-value hints."""
     channel_names = ["mono"] if segment.shape[0] == 1 else ["left", "right"]
     carriers = {}
     for index, name in enumerate(channel_names):
@@ -161,7 +162,7 @@ def analyze_audio_stages(
     boundary_samples = [0, *(item * window_samples for item in retained), array.shape[1]]
     stages = []
     for index, (start, end) in enumerate(zip(boundary_samples, boundary_samples[1:]), start=1):
-        classification = _classify_stage(array[:, start:end], sample_rate)
+        classification = classify_audio_stage(array[:, start:end], sample_rate)
         stages.append(
             {
                 "stage_id": f"stage_{index}",
