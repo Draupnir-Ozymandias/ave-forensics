@@ -1,0 +1,97 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-07-29T17:45:38.370Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.16,
+    "complexity_level": 0.71,
+    "declared_duration_seconds": 3600,
+    "neural_effect_level": 0.97
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Growing Season_Sleep_Deep Sleep_Atmopsheric_60_120bpm_Nrmlzd2_VBR5.mp3",
+    "title": "Growing Season",
+    "track_id": "62e41cc25e954c1f86f6854a",
+    "variation_id": "62e41cc25e954c466ff6854c"
+  },
+  "recording": {
+    "filename": "Growing Season_Sleep_Deep Sleep_Atmopsheric_60_120bpm_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "1916b038b8bd3bb32044f076e7efe7e48690dfadcae186f230826f344ef98b75",
+    "size_bytes": 43211991
+  },
+  "source_capture": {
+    "filename": "sleep_sleep_and_wake_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 67,
+    "sha256": "e8bff5a37e3c9c5bd3a20a4c776b8903a43f67b6702eeb4cc26c68386aedb09a"
+  },
+  "taxonomy": {
+    "activity": "Deep Sleep",
+    "all_provider_tags": {
+      "activity": [
+        "Deep Sleep"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Meditative",
+        "Serene"
+      ],
+      "release": [
+        "July 29 2022"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Textural Soundscape"
+    ],
+    "mental_state": "Sleep",
+    "mobile_activity": "Deep Sleep",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Meditative",
+      "Serene"
+    ],
+    "release_tags": [
+      "July 29 2022"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ],
+    "web_activity": "Deep Sleep"
+  }
+}

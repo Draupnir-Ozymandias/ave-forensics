@@ -1,0 +1,117 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 6,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-06-14T19:44:16.444Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.45,
+    "complexity_level": 0.39,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.46
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "InteriorSilence_Meditate_UnguidedMeditation_Electronic_15_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Interior Silence",
+    "track_id": "666c9d90644ac8615d52aec3",
+    "variation_id": "666c9d90644ac8615d52aec7"
+  },
+  "recording": {
+    "filename": "InteriorSilence_Meditate_UnguidedMeditation_Electronic_15_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "67cc33076cdd81b3855c387cdabedd249b15ae7f242eec51e3a3c8a0b3e61213",
+    "size_bytes": 13081304
+  },
+  "source_capture": {
+    "filename": "focus_creativity_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 78,
+    "sha256": "7c6620384ee282efef2b34d4c7758bc387051b25f26ff396fda7c33242ede314"
+  },
+  "taxonomy": {
+    "activity": "Unguided",
+    "all_provider_tags": {
+      "activity": [
+        "Unguided"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Arp Synth",
+        "Electric Guitar",
+        "Electric Keys",
+        "Electronic Percussion",
+        "Organic Percussion",
+        "Synth Bass",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Meditative",
+        "Mysterious",
+        "Ponderous",
+        "Serene"
+      ],
+      "release": [
+        "June 17 2024"
+      ],
+      "subgenre": [
+        "Ambient",
+        "Downtempo",
+        "Electronica"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Arp Synth",
+      "Electric Guitar",
+      "Electric Keys",
+      "Electronic Percussion",
+      "Organic Percussion",
+      "Synth Bass",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Meditate",
+    "mobile_activity": "Unguided",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Meditative",
+      "Mysterious",
+      "Ponderous",
+      "Serene"
+    ],
+    "release_tags": [
+      "June 17 2024"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient",
+      "Downtempo",
+      "Electronica"
+    ],
+    "web_activity": null
+  }
+}

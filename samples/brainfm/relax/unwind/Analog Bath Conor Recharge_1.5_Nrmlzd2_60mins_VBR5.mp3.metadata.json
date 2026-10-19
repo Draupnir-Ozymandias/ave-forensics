@@ -1,0 +1,40 @@
+{
+  "curation": {
+    "category_override": null,
+    "claimed_intent_override": null,
+    "notes": "",
+    "review_status": "unreviewed",
+    "source_override": null
+  },
+  "duplicates": {
+    "is_duplicate": false,
+    "matching_relative_paths": []
+  },
+  "identity": {
+    "hash_algorithm": "sha256",
+    "sha256": "63d3ecd009d8f3738e8c7228e7f8fd25823481c9d1faa814e0340472ee8ed6b1"
+  },
+  "inferred_labels": {
+    "basis": "corpus_directory_structure",
+    "category": "relax",
+    "claimed_intent": "unwind",
+    "source": "brainfm"
+  },
+  "manifest_schema_version": "1.0.0",
+  "media": {
+    "channels": 2,
+    "codec_subtype": "MPEG_LAYER_III",
+    "container_extension": ".mp3",
+    "duration_seconds": 3600.0,
+    "frame_count": 158760000,
+    "sample_rate": 44100,
+    "size_bytes": 41670865
+  },
+  "provenance": {
+    "generator": "corpus.manifests",
+    "generator_version": "1.0.0",
+    "source": "local_corpus_file"
+  },
+  "recording_id": "ave_recording_63d3ecd009d8f373",
+  "relative_path": "brainfm/relax/unwind/Analog Bath Conor Recharge_1.5_Nrmlzd2_60mins_VBR5.mp3"
+}

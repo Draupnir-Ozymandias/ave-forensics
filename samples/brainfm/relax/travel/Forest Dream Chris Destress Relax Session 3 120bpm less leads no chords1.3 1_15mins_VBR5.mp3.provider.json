@@ -1,0 +1,98 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-11-04T15:42:28.908Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.3,
+    "complexity_level": 0.42,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.67
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Forest Dream Chris Destress Relax Session 3 120bpm less leads no chords1.3 1_15mins_VBR5.mp3",
+    "title": "Forest Dream",
+    "track_id": "6728eb64ebed2a29b0df42fb",
+    "variation_id": "6728eb64ebed2a29b0df42fd"
+  },
+  "recording": {
+    "filename": "Forest Dream Chris Destress Relax Session 3 120bpm less leads no chords1.3 1_15mins_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "93d93ebb7a66a457b448b0b7a7199efffed34d0c189e62cc87b491660b4714ca",
+    "size_bytes": 10911107
+  },
+  "source_capture": {
+    "filename": "relax_travel_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 64,
+    "sha256": "aa73a695bdbb48f5acd73426ce8feac9c49b8b36764fd5eda104cab801f8cb12"
+  },
+  "taxonomy": {
+    "activity": "Destress",
+    "all_provider_tags": {
+      "activity": [
+        "Destress",
+        "Recharge"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Arp Synth",
+        "Chimes/Bells",
+        "Synth Bass"
+      ],
+      "mood": [
+        "Dreamlike",
+        "Floating",
+        "Meditative"
+      ],
+      "release": [
+        "November 4 2024"
+      ],
+      "subgenre": [
+        "Ambient",
+        "Electronica"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Arp Synth",
+      "Chimes/Bells",
+      "Synth Bass"
+    ],
+    "mental_state": "Relax",
+    "mobile_activity": "Destress",
+    "moods": [
+      "Dreamlike",
+      "Floating",
+      "Meditative"
+    ],
+    "release_tags": [
+      "November 4 2024"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient",
+      "Electronica"
+    ],
+    "web_activity": "Recharge"
+  }
+}

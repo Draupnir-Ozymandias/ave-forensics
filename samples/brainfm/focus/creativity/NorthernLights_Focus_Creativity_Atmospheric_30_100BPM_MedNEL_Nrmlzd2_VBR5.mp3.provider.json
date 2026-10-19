@@ -1,0 +1,105 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 3,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-10-07T13:28:30.917Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 100,
+    "brightness_level": 0.57,
+    "complexity_level": 0.39,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.46
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "NorthernLights_Focus_Creativity_Atmospheric_30_100BPM_MedNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Northern Lights",
+    "track_id": "6703e1fea1f0c0804124fa27",
+    "variation_id": "6703e1fea1f0c0804124fa2b"
+  },
+  "recording": {
+    "filename": "NorthernLights_Focus_Creativity_Atmospheric_30_100BPM_MedNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "0eb40fe6c5298e312292f4c4fe7cf5863f292818143bbff580dfce1b3aa5b77b",
+    "size_bytes": 22989554
+  },
+  "source_capture": {
+    "filename": "focus_creativity_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 78,
+    "sha256": "7c6620384ee282efef2b34d4c7758bc387051b25f26ff396fda7c33242ede314"
+  },
+  "taxonomy": {
+    "activity": null,
+    "all_provider_tags": {
+      "activity": [
+        "Creativity"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Electronic Percussion",
+        "Processed Strings",
+        "Textural Soundscape",
+        "White Noise"
+      ],
+      "mood": [
+        "Dark",
+        "Floating",
+        "Meditative",
+        "Mysterious",
+        "Ponderous",
+        "Serene"
+      ],
+      "release": [
+        "October 7 2024"
+      ],
+      "subgenre": [
+        "Ambient",
+        "Electronica"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Electronic Percussion",
+      "Processed Strings",
+      "Textural Soundscape",
+      "White Noise"
+    ],
+    "mental_state": "Focus",
+    "mobile_activity": null,
+    "moods": [
+      "Dark",
+      "Floating",
+      "Meditative",
+      "Mysterious",
+      "Ponderous",
+      "Serene"
+    ],
+    "release_tags": [
+      "October 7 2024"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient",
+      "Electronica"
+    ],
+    "web_activity": "Creativity"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 3,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2025-11-03T21:06:54.821Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.25,
+    "complexity_level": 0.19,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.76
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "SpeedofLight_Relax_Recharge_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Speed of Light",
+    "track_id": "6909196e26bc41a99c8636a3",
+    "variation_id": "6909196e26bc41a99c8636a5"
+  },
+  "recording": {
+    "filename": "SpeedofLight_Relax_Recharge_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "64915f78223cf42bf1c0ef18b8f12cdb2d405e989ea74df2adbb86d168c02a2c",
+    "size_bytes": 12847752
+  },
+  "source_capture": {
+    "filename": "relax_recharge_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 94,
+    "sha256": "fabad8a8a1fe62f66adb7cca2952547e00dbebc597b1689ac5b76bfd8679cf71"
+  },
+  "taxonomy": {
+    "activity": "Recharge",
+    "all_provider_tags": {
+      "activity": [
+        "Recharge"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Synth Bass",
+        "Synth Pad",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Meditative",
+        "Serene"
+      ],
+      "release": [
+        "November 3 2025"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Synth Bass",
+      "Synth Pad",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Relax",
+    "mobile_activity": "Recharge",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Meditative",
+      "Serene"
+    ],
+    "release_tags": [
+      "November 3 2025"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ],
+    "web_activity": "Recharge"
+  }
+}

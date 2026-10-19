@@ -1,0 +1,97 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T21:25:14.295Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0,
+    "complexity_level": 0.87,
+    "declared_duration_seconds": 3600,
+    "neural_effect_level": 0.71
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "SleepTemplate4ac_1_VBR5.mp3",
+    "title": "Whispering Tranquility",
+    "track_id": "62b388ba592411823cf5289b",
+    "variation_id": "62b388ba592411686bf5289d"
+  },
+  "recording": {
+    "filename": "SleepTemplate4ac_1_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "ee57426ef17251fb713f1f8451e2f770af2203d120d18f8e3fa4a476a726fde8",
+    "size_bytes": 30316687
+  },
+  "source_capture": {
+    "filename": "sleep_wind_down_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 78,
+    "sha256": "d05382b4d1651cd8e9b7976f63b653f76de480d6db08b84cafc0ebc96b7768dd"
+  },
+  "taxonomy": {
+    "activity": "Deep Sleep",
+    "all_provider_tags": {
+      "activity": [
+        "Deep Sleep"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Dreamlike",
+        "Floating",
+        "Meditative",
+        "Serene"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Textural Soundscape"
+    ],
+    "mental_state": "Sleep",
+    "mobile_activity": "Deep Sleep",
+    "moods": [
+      "Calm",
+      "Dreamlike",
+      "Floating",
+      "Meditative",
+      "Serene"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ],
+    "web_activity": "Deep Sleep"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T20:52:33.386Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.18,
+    "complexity_level": 0.56,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.98
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Low Tide Unguided Meditation Conor_1.2_Nrmlzd2_30mins_VBR5.mp3",
+    "title": "Low Tide",
+    "track_id": "62b381115924111378f4e2d5",
+    "variation_id": "62b3811159241126fcf4e2d7"
+  },
+  "recording": {
+    "filename": "Low Tide Unguided Meditation Conor_1.2_Nrmlzd2_30mins_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "1120571e797f2d878b4b4952045f65319c0153b8bcf94864c4f15d90e0940364",
+    "size_bytes": 20686952
+  },
+  "source_capture": {
+    "filename": "sleep_sleep_and_wake_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 67,
+    "sha256": "e8bff5a37e3c9c5bd3a20a4c776b8903a43f67b6702eeb4cc26c68386aedb09a"
+  },
+  "taxonomy": {
+    "activity": "Unguided",
+    "all_provider_tags": {
+      "activity": [
+        "Meditate",
+        "Unguided"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Acoustic Piano",
+        "Chimes/Bells",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Dreamlike",
+        "Floating",
+        "Meditative",
+        "Serene"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Acoustic Piano",
+      "Chimes/Bells",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Meditate",
+    "mobile_activity": "Unguided",
+    "moods": [
+      "Calm",
+      "Dreamlike",
+      "Floating",
+      "Meditative",
+      "Serene"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ],
+    "web_activity": "Meditate"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2025-08-11T17:06:55.729Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.43,
+    "complexity_level": 0.01,
+    "declared_duration_seconds": 3600,
+    "neural_effect_level": 0.34
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Almeda_Sleep_DeepSleep_60_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Almeda",
+    "track_id": "689a232f9446c76349a3b590",
+    "variation_id": "689a232f9446c76349a3b594"
+  },
+  "recording": {
+    "filename": "Almeda_Sleep_DeepSleep_60_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "2bd565f9c52b374153510920d93e3afbbb080253f62ce2a4498abd29dcb776ff",
+    "size_bytes": 45500568
+  },
+  "source_capture": {
+    "filename": "sleep_sleep_and_wake_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 67,
+    "sha256": "e8bff5a37e3c9c5bd3a20a4c776b8903a43f67b6702eeb4cc26c68386aedb09a"
+  },
+  "taxonomy": {
+    "activity": "Deep Sleep",
+    "all_provider_tags": {
+      "activity": [
+        "Deep Sleep"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Synth Bass",
+        "Synth Pad",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Serene"
+      ],
+      "release": [
+        "August 11 2025"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Synth Bass",
+      "Synth Pad",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Sleep",
+    "mobile_activity": "Deep Sleep",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Serene"
+    ],
+    "release_tags": [
+      "August 11 2025"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ],
+    "web_activity": "Deep Sleep"
+  }
+}

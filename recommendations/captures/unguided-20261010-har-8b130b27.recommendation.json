@@ -1,0 +1,884 @@
+{
+  "edges": [
+    {
+      "document_indices": [
+        132
+      ],
+      "observed_ranks": [
+        5
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62b3843f5924112ac7f505bb",
+      "seed_track_id": "62b3810b59241190e2f4e150"
+    },
+    {
+      "document_indices": [
+        132
+      ],
+      "observed_ranks": [
+        2
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62b387aa5924111a10f51d6b",
+      "seed_track_id": "62b3810b59241190e2f4e150"
+    },
+    {
+      "document_indices": [
+        132
+      ],
+      "observed_ranks": [
+        3
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62b388bd5924113ad6f52935",
+      "seed_track_id": "62b3810b59241190e2f4e150"
+    },
+    {
+      "document_indices": [
+        132
+      ],
+      "observed_ranks": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "65eb6a7663853a000a15a11d",
+      "seed_track_id": "62b3810b59241190e2f4e150"
+    },
+    {
+      "document_indices": [
+        132
+      ],
+      "observed_ranks": [
+        4
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "66562c63ff1110852ad2453e",
+      "seed_track_id": "62b3810b59241190e2f4e150"
+    },
+    {
+      "document_indices": [
+        115
+      ],
+      "observed_ranks": [
+        2
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "6610631a88d74c5142fdf7d3",
+      "seed_track_id": "62b38110592411beebf4e2ae"
+    },
+    {
+      "document_indices": [
+        115
+      ],
+      "observed_ranks": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "6610632f88d74c5142fdf888",
+      "seed_track_id": "62b38110592411beebf4e2ae"
+    },
+    {
+      "document_indices": [
+        115
+      ],
+      "observed_ranks": [
+        4
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "6622ce91918ea2b454f7a4dc",
+      "seed_track_id": "62b38110592411beebf4e2ae"
+    },
+    {
+      "document_indices": [
+        115
+      ],
+      "observed_ranks": [
+        3
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "666c9d78644ac8615d52ae8e",
+      "seed_track_id": "62b38110592411beebf4e2ae"
+    }
+  ],
+  "extraction_provenance": {
+    "generator": "recommendations.graph",
+    "generator_version": "ave_brainfm_recommendations_1.2.0",
+    "sensitive_data_policy": "omit_urls_tokens_cookies_and_session_data"
+  },
+  "generated_at": "2026-10-19T18:18:48+00:00",
+  "list_observations": [
+    {
+      "document_indices": [
+        132
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 5,
+      "recommended_track_ids": [
+        "65eb6a7663853a000a15a11d",
+        "62b387aa5924111a10f51d6b",
+        "62b388bd5924113ad6f52935",
+        "66562c63ff1110852ad2453e",
+        "62b3843f5924112ac7f505bb"
+      ],
+      "seed_track_id": "62b3810b59241190e2f4e150"
+    },
+    {
+      "document_indices": [
+        115
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 4,
+      "recommended_track_ids": [
+        "6610632f88d74c5142fdf888",
+        "6610631a88d74c5142fdf7d3",
+        "666c9d78644ac8615d52ae8e",
+        "6622ce91918ea2b454f7a4dc"
+      ],
+      "seed_track_id": "62b38110592411beebf4e2ae"
+    }
+  ],
+  "nodes": [
+    {
+      "activities": [
+        "Unguided"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.01
+      ],
+      "complexity_levels": [
+        0.37
+      ],
+      "declared_duration_seconds_values": [
+        900,
+        1800,
+        2700,
+        3600
+      ],
+      "mental_states": [
+        "Meditate"
+      ],
+      "neural_effect_levels": [
+        0.41
+      ],
+      "observed_titles": [
+        "Tranquility"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Meditate",
+          "Unguided"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "62b3810b59241190e2f4e150"
+    },
+    {
+      "activities": [
+        "Unguided"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.67
+      ],
+      "complexity_levels": [
+        0.81
+      ],
+      "declared_duration_seconds_values": [
+        900,
+        1800,
+        2700,
+        3600
+      ],
+      "mental_states": [
+        "Meditate"
+      ],
+      "neural_effect_levels": [
+        0.89
+      ],
+      "observed_titles": [
+        "Star Wanderer"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Meditate",
+          "Unguided"
+        ],
+        "genre": [
+          "Electronic"
+        ],
+        "instrument": [
+          "Acoustic Guitar",
+          "Chimes/Bells",
+          "Electric Keys",
+          "Processed Strings",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Acoustic",
+          "Ambient"
+        ]
+      },
+      "track_id": "62b38110592411beebf4e2ae"
+    },
+    {
+      "activities": [
+        "Unguided"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.17
+      ],
+      "complexity_levels": [
+        0.8
+      ],
+      "declared_duration_seconds_values": [
+        1800
+      ],
+      "mental_states": [
+        "Meditate"
+      ],
+      "neural_effect_levels": [
+        0.98
+      ],
+      "observed_titles": [
+        "New Eclipse"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Meditate",
+          "Unguided"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Acoustic Piano",
+          "Chimes/Bells",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "Desktop Import"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Electronica"
+        ]
+      },
+      "track_id": "62b3843f5924112ac7f505bb"
+    },
+    {
+      "activities": [
+        "Unguided"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.03
+      ],
+      "complexity_levels": [
+        0.17
+      ],
+      "declared_duration_seconds_values": [
+        900,
+        1800,
+        2700,
+        3600
+      ],
+      "mental_states": [
+        "Meditate"
+      ],
+      "neural_effect_levels": [
+        0.38
+      ],
+      "observed_titles": [
+        "Zazen"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Meditate",
+          "Unguided"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Chimes/Bells",
+          "Electric Guitar",
+          "Orchestral Strings",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "62b387aa5924111a10f51d6b"
+    },
+    {
+      "activities": [
+        "Unguided"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.2
+      ],
+      "complexity_levels": [
+        0.95
+      ],
+      "declared_duration_seconds_values": [
+        1800
+      ],
+      "mental_states": [
+        "Meditate"
+      ],
+      "neural_effect_levels": [
+        0.82
+      ],
+      "observed_titles": [
+        "Nightswim"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Meditate",
+          "Unguided"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Arp Synth",
+          "Chimes/Bells",
+          "Electric Keys",
+          "Processed Strings",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "Desktop Import"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Electronica"
+        ]
+      },
+      "track_id": "62b388bd5924113ad6f52935"
+    },
+    {
+      "activities": [
+        "Unguided"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.27
+      ],
+      "complexity_levels": [
+        0.05
+      ],
+      "declared_duration_seconds_values": [
+        900
+      ],
+      "mental_states": [
+        "Meditate"
+      ],
+      "neural_effect_levels": [
+        0.03,
+        0.53,
+        0.93
+      ],
+      "observed_titles": [
+        "Muladhara"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Unguided"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Processed Strings",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Chill",
+          "Dreamlike",
+          "Inspiring",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "March 11 2024"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "65eb6a7663853a000a15a11d"
+    },
+    {
+      "activities": [
+        "Unguided"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.6
+      ],
+      "complexity_levels": [
+        0.89
+      ],
+      "declared_duration_seconds_values": [
+        900
+      ],
+      "mental_states": [
+        "Meditate"
+      ],
+      "neural_effect_levels": [
+        0.07,
+        0.62,
+        0.92
+      ],
+      "observed_titles": [
+        "Rain Dance"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Meditate",
+          "Unguided"
+        ],
+        "genre": [
+          "Electronic"
+        ],
+        "instrument": [
+          "Electric Keys",
+          "Ethnic Strings",
+          "Mallets",
+          "Organic Percussion",
+          "Processed Strings",
+          "Processed Vocals",
+          "Synth Bass",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Mysterious"
+        ],
+        "release": [
+          "April 8 2024"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Downtempo",
+          "Electronica"
+        ]
+      },
+      "track_id": "6610631a88d74c5142fdf7d3"
+    },
+    {
+      "activities": [
+        "Unguided"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.38
+      ],
+      "complexity_levels": [
+        0.85
+      ],
+      "declared_duration_seconds_values": [
+        900
+      ],
+      "mental_states": [
+        "Meditate"
+      ],
+      "neural_effect_levels": [
+        0.09,
+        0.5,
+        0.83
+      ],
+      "observed_titles": [
+        "Blue Dreams"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Meditate",
+          "Unguided"
+        ],
+        "genre": [
+          "Electronic"
+        ],
+        "instrument": [
+          "Arp Synth",
+          "Electric Keys",
+          "Electronic Percussion",
+          "Processed Strings",
+          "Synth Bass",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Downtempo",
+          "Dreamlike",
+          "Meditative",
+          "Mysterious"
+        ],
+        "release": [
+          "April 8 2024"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Downtempo"
+        ]
+      },
+      "track_id": "6610632f88d74c5142fdf888"
+    },
+    {
+      "activities": [
+        "Unguided"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.58
+      ],
+      "complexity_levels": [
+        0.96
+      ],
+      "declared_duration_seconds_values": [
+        900
+      ],
+      "mental_states": [
+        "Meditate"
+      ],
+      "neural_effect_levels": [
+        0.1,
+        0.57,
+        0.98
+      ],
+      "observed_titles": [
+        "Dawn Temple"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Unguided"
+        ],
+        "genre": [
+          "Electronic"
+        ],
+        "instrument": [
+          "Arp Synth",
+          "Electronic Percussion",
+          "Orchestral Strings",
+          "Organic Percussion",
+          "Processed Strings",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Chill",
+          "Downtempo",
+          "Epic",
+          "Meditative"
+        ],
+        "release": [
+          "April 22 2024"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Downtempo",
+          "Electronica"
+        ]
+      },
+      "track_id": "6622ce91918ea2b454f7a4dc"
+    },
+    {
+      "activities": [
+        "Guided"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.19
+      ],
+      "complexity_levels": [
+        0.01
+      ],
+      "declared_duration_seconds_values": [
+        900
+      ],
+      "mental_states": [
+        "Meditate"
+      ],
+      "neural_effect_levels": [
+        0.01,
+        0.61,
+        0.76
+      ],
+      "observed_titles": [
+        "Forgiveness and Compassion"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "guided"
+      ],
+      "tags": {
+        "activity": [
+          "Guided"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Chimes/Bells",
+          "Orchestral Strings",
+          "Processed Strings",
+          "Processed Vocals",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Epic",
+          "Hopeful",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "Guided Release May 2024"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Electronica",
+          "Orchestral"
+        ]
+      },
+      "track_id": "66562c63ff1110852ad2453e"
+    },
+    {
+      "activities": [
+        "Unguided"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.74
+      ],
+      "complexity_levels": [
+        0.9
+      ],
+      "declared_duration_seconds_values": [
+        1800
+      ],
+      "mental_states": [
+        "Meditate"
+      ],
+      "neural_effect_levels": [
+        0.1,
+        0.5,
+        0.97
+      ],
+      "observed_titles": [
+        "Bytes"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Unguided"
+        ],
+        "genre": [
+          "Electronic"
+        ],
+        "instrument": [
+          "Electric Keys",
+          "Ethnic Strings",
+          "Organic Percussion",
+          "Processed Strings",
+          "Processed Vocals",
+          "Synth Bass",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Mysterious"
+        ],
+        "release": [
+          "June 17 2024"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Downtempo",
+          "Electronica"
+        ]
+      },
+      "track_id": "666c9d78644ac8615d52ae8e"
+    }
+  ],
+  "observation_context": {
+    "context_method": "capture_metadata",
+    "seed_track_id": null,
+    "visible_category": "meditate",
+    "visible_intent": "unguided"
+  },
+  "observation_id": "ave_recommendation_observation_3a7426f68b130b27",
+  "provider": "brain.fm",
+  "recommendation_capture_schema_version": "1.0.0",
+  "source_capture": {
+    "captured_at": null,
+    "filename": "unguided_20261010.har",
+    "format": "har_json_responses",
+    "json_document_count": 139,
+    "sha256": "f8aaa99d5d375625c60be7c8410ba680220205ab62f2d6537496e44bc7ac3842",
+    "size_bytes": 89118859
+  },
+  "summary": {
+    "observed_node_count": 11,
+    "observed_seed_count": 2,
+    "seed_with_multiple_list_variants_count": 0,
+    "seed_with_nonempty_list_count": 2,
+    "seed_with_only_empty_lists_count": 0,
+    "unique_edge_count": 9
+  }
+}

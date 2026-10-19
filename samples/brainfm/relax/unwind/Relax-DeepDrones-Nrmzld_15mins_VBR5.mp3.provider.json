@@ -1,0 +1,100 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T20:50:11.588Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.01,
+    "complexity_level": 0.21,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.05
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Relax-DeepDrones-Nrmzld_15mins_VBR5.mp3",
+    "title": "Summer Sky",
+    "track_id": "62b38083592411bbc1f4cc51",
+    "variation_id": "62b38083592411169df4cc53"
+  },
+  "recording": {
+    "filename": "Relax-DeepDrones-Nrmzld_15mins_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "cbaa4a2207ef87b271a239ebf3ec7551addd982ca104ee2a485c97d6f06c6978",
+    "size_bytes": 7813818
+  },
+  "source_capture": {
+    "filename": "relax_unwind_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 56,
+    "sha256": "5ee543e5b4f08bdd9e688709df8e5b5cff33183fa0cedaf0501993df708fb37a"
+  },
+  "taxonomy": {
+    "activity": "Recharge",
+    "all_provider_tags": {
+      "activity": [
+        "Recharge",
+        "Unwind"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Meditative",
+        "Optimistic",
+        "Serene"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Textural Soundscape"
+    ],
+    "mental_state": "Relax",
+    "mobile_activity": "Recharge",
+    "moods": [
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Meditative",
+      "Optimistic",
+      "Serene"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ],
+    "web_activity": "Recharge"
+  }
+}

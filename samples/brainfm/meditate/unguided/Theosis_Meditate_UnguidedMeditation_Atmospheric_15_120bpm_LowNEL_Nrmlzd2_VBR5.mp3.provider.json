@@ -1,0 +1,98 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 2,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-01-26T18:37:01.878Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.45,
+    "complexity_level": 0.19,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.12
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Theosis_Meditate_UnguidedMeditation_Atmospheric_15_120bpm_LowNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Theosis",
+    "track_id": "65b3fbcd349c8a0009284294",
+    "variation_id": "65b3fbcd349c8a0009284297"
+  },
+  "recording": {
+    "filename": "Theosis_Meditate_UnguidedMeditation_Atmospheric_15_120bpm_LowNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "95145fc49dcd4f111ebe54cfe1982b61bd6a79373dfcf180c295706fd8df42c6",
+    "size_bytes": 11372926
+  },
+  "source_capture": {
+    "filename": "sleep_sleep_and_wake_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 67,
+    "sha256": "e8bff5a37e3c9c5bd3a20a4c776b8903a43f67b6702eeb4cc26c68386aedb09a"
+  },
+  "taxonomy": {
+    "activity": "Unguided",
+    "all_provider_tags": {
+      "activity": [
+        "Meditate",
+        "Unguided"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Processed Strings",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Floating",
+        "Meditative",
+        "Optimistic",
+        "Serene"
+      ],
+      "release": [
+        "January 29 2024"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Processed Strings",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Meditate",
+    "mobile_activity": "Unguided",
+    "moods": [
+      "Calm",
+      "Floating",
+      "Meditative",
+      "Optimistic",
+      "Serene"
+    ],
+    "release_tags": [
+      "January 29 2024"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ],
+    "web_activity": "Meditate"
+  }
+}

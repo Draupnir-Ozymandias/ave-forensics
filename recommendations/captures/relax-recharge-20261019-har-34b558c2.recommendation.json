@@ -1,0 +1,1792 @@
+{
+  "edges": [
+    {
+      "document_indices": [
+        51
+      ],
+      "observed_ranks": [
+        5
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62b387b4592411f726f51f69",
+      "seed_track_id": "62b3889d5924113d6df52483"
+    },
+    {
+      "document_indices": [
+        51
+      ],
+      "observed_ranks": [
+        2
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "67855b07f76968728486aa62",
+      "seed_track_id": "62b3889d5924113d6df52483"
+    },
+    {
+      "document_indices": [
+        51
+      ],
+      "observed_ranks": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "68065a02563464c2de5fb5d9",
+      "seed_track_id": "62b3889d5924113d6df52483"
+    },
+    {
+      "document_indices": [
+        51
+      ],
+      "observed_ranks": [
+        4
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "6862ee6cb0ad537cfff5cc02",
+      "seed_track_id": "62b3889d5924113d6df52483"
+    },
+    {
+      "document_indices": [
+        51
+      ],
+      "observed_ranks": [
+        3
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "690919ee312eb1fe0465963d",
+      "seed_track_id": "62b3889d5924113d6df52483"
+    },
+    {
+      "document_indices": [
+        88
+      ],
+      "observed_ranks": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62b380655924116930f4c348",
+      "seed_track_id": "62b38bdd5924119faff55003"
+    },
+    {
+      "document_indices": [
+        88
+      ],
+      "observed_ranks": [
+        5
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62b380f1592411ad18f4d976",
+      "seed_track_id": "62b38bdd5924119faff55003"
+    },
+    {
+      "document_indices": [
+        88
+      ],
+      "observed_ranks": [
+        4
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62b38943592411a351f5317a",
+      "seed_track_id": "62b38bdd5924119faff55003"
+    },
+    {
+      "document_indices": [
+        88
+      ],
+      "observed_ranks": [
+        3
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "6728eb88ebed2a29b0df43be",
+      "seed_track_id": "62b38bdd5924119faff55003"
+    },
+    {
+      "document_indices": [
+        88
+      ],
+      "observed_ranks": [
+        2
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "691b3d5bae74f7305d6d17ab",
+      "seed_track_id": "62b38bdd5924119faff55003"
+    },
+    {
+      "document_indices": [
+        76
+      ],
+      "observed_ranks": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62b3808b592411791bf4cfae",
+      "seed_track_id": "65b3fb3ecdef020008e0c1e6"
+    },
+    {
+      "document_indices": [
+        76
+      ],
+      "observed_ranks": [
+        2
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62b38899592411a19cf523ea",
+      "seed_track_id": "65b3fb3ecdef020008e0c1e6"
+    },
+    {
+      "document_indices": [
+        76
+      ],
+      "observed_ranks": [
+        3
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62b38943592411a351f5317a",
+      "seed_track_id": "65b3fb3ecdef020008e0c1e6"
+    },
+    {
+      "document_indices": [
+        76
+      ],
+      "observed_ranks": [
+        5
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "6772ffddd309f299ababaa99",
+      "seed_track_id": "65b3fb3ecdef020008e0c1e6"
+    },
+    {
+      "document_indices": [
+        76
+      ],
+      "observed_ranks": [
+        4
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "68e3d7a72d873930bbbf7d0c",
+      "seed_track_id": "65b3fb3ecdef020008e0c1e6"
+    },
+    {
+      "document_indices": [
+        63
+      ],
+      "observed_ranks": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62b380e25924119854f4d421",
+      "seed_track_id": "6909196e26bc41a99c8636a3"
+    },
+    {
+      "document_indices": [
+        63
+      ],
+      "observed_ranks": [
+        2
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62b3841f592411e1bbf4ff22",
+      "seed_track_id": "6909196e26bc41a99c8636a3"
+    },
+    {
+      "document_indices": [
+        63
+      ],
+      "observed_ranks": [
+        5
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62b384315924110d60f502ce",
+      "seed_track_id": "6909196e26bc41a99c8636a3"
+    },
+    {
+      "document_indices": [
+        63
+      ],
+      "observed_ranks": [
+        3
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62b3894d59241190c7f532f7",
+      "seed_track_id": "6909196e26bc41a99c8636a3"
+    },
+    {
+      "document_indices": [
+        63
+      ],
+      "observed_ranks": [
+        4
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "67a10f6103677edafb63f3f8",
+      "seed_track_id": "6909196e26bc41a99c8636a3"
+    }
+  ],
+  "extraction_provenance": {
+    "generator": "recommendations.graph",
+    "generator_version": "ave_brainfm_recommendations_1.2.0",
+    "sensitive_data_policy": "omit_urls_tokens_cookies_and_session_data"
+  },
+  "generated_at": "2026-10-19T18:18:50+00:00",
+  "list_observations": [
+    {
+      "document_indices": [
+        51
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 5,
+      "recommended_track_ids": [
+        "68065a02563464c2de5fb5d9",
+        "67855b07f76968728486aa62",
+        "690919ee312eb1fe0465963d",
+        "6862ee6cb0ad537cfff5cc02",
+        "62b387b4592411f726f51f69"
+      ],
+      "seed_track_id": "62b3889d5924113d6df52483"
+    },
+    {
+      "document_indices": [
+        88
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 5,
+      "recommended_track_ids": [
+        "62b380655924116930f4c348",
+        "691b3d5bae74f7305d6d17ab",
+        "6728eb88ebed2a29b0df43be",
+        "62b38943592411a351f5317a",
+        "62b380f1592411ad18f4d976"
+      ],
+      "seed_track_id": "62b38bdd5924119faff55003"
+    },
+    {
+      "document_indices": [
+        76
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 5,
+      "recommended_track_ids": [
+        "62b3808b592411791bf4cfae",
+        "62b38899592411a19cf523ea",
+        "62b38943592411a351f5317a",
+        "68e3d7a72d873930bbbf7d0c",
+        "6772ffddd309f299ababaa99"
+      ],
+      "seed_track_id": "65b3fb3ecdef020008e0c1e6"
+    },
+    {
+      "document_indices": [
+        63
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 5,
+      "recommended_track_ids": [
+        "62b380e25924119854f4d421",
+        "62b3841f592411e1bbf4ff22",
+        "62b3894d59241190c7f532f7",
+        "67a10f6103677edafb63f3f8",
+        "62b384315924110d60f502ce"
+      ],
+      "seed_track_id": "6909196e26bc41a99c8636a3"
+    }
+  ],
+  "nodes": [
+    {
+      "activities": [
+        "Recharge"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.42
+      ],
+      "complexity_levels": [
+        0.77
+      ],
+      "declared_duration_seconds_values": [
+        900,
+        1800,
+        2700
+      ],
+      "mental_states": [
+        "Relax"
+      ],
+      "neural_effect_levels": [
+        0.87
+      ],
+      "observed_titles": [
+        "Cloud Land"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Recharge",
+          "Unwind"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Electric Guitar",
+          "Ethnic Percussion",
+          "Orchestral Percussion",
+          "Organic Percussion",
+          "Processed Strings",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Hopeful",
+          "Meditative",
+          "Serene",
+          "Uplifting"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "62b380655924116930f4c348"
+    },
+    {
+      "activities": [
+        "Recharge"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.48
+      ],
+      "complexity_levels": [
+        0.48
+      ],
+      "declared_duration_seconds_values": [
+        900,
+        1800,
+        2700,
+        3600
+      ],
+      "mental_states": [
+        "Relax"
+      ],
+      "neural_effect_levels": [
+        0.48
+      ],
+      "observed_titles": [
+        "Air Currents"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Recharge",
+          "Unwind"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Mysterious",
+          "Serene"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "62b3808b592411791bf4cfae"
+    },
+    {
+      "activities": [
+        "Recharge"
+      ],
+      "beats_per_minute_values": [
+        100
+      ],
+      "brightness_levels": [
+        0.6
+      ],
+      "complexity_levels": [
+        0.87
+      ],
+      "declared_duration_seconds_values": [
+        900,
+        1800,
+        2700,
+        3600
+      ],
+      "mental_states": [
+        "Relax"
+      ],
+      "neural_effect_levels": [
+        0.84
+      ],
+      "observed_titles": [
+        "Unspoken Words"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Recharge"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Arp Synth",
+          "Arp Synth Bass",
+          "Chimes/Bells",
+          "Ethnic Strings"
+        ],
+        "mood": [
+          "Dreamlike",
+          "Meditative",
+          "Ponderous"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Electronica"
+        ]
+      },
+      "track_id": "62b380e25924119854f4d421"
+    },
+    {
+      "activities": [
+        "Recharge"
+      ],
+      "beats_per_minute_values": [
+        100
+      ],
+      "brightness_levels": [
+        0.81
+      ],
+      "complexity_levels": [
+        0.13
+      ],
+      "declared_duration_seconds_values": [
+        900,
+        1800,
+        2700,
+        3600
+      ],
+      "mental_states": [
+        "Relax"
+      ],
+      "neural_effect_levels": [
+        0.74
+      ],
+      "observed_titles": [
+        "Distant Skies"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Recharge",
+          "Unwind"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Acoustic Piano",
+          "Arp Synth",
+          "Chimes/Bells",
+          "Synth Bass"
+        ],
+        "mood": [
+          "Calm",
+          "Floating",
+          "Ponderous"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Electronica"
+        ]
+      },
+      "track_id": "62b380f1592411ad18f4d976"
+    },
+    {
+      "activities": [
+        "Recharge"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.46
+      ],
+      "complexity_levels": [
+        0.06
+      ],
+      "declared_duration_seconds_values": [
+        1800
+      ],
+      "mental_states": [
+        "Relax"
+      ],
+      "neural_effect_levels": [
+        0.54
+      ],
+      "observed_titles": [
+        "Along the Coast"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Recharge"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Acoustic Piano",
+          "Arp Synth",
+          "Electric Guitar",
+          "Processed Strings",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Hopeful",
+          "Serene"
+        ],
+        "release": [
+          "Desktop Import"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "62b3841f592411e1bbf4ff22"
+    },
+    {
+      "activities": [
+        "Destress"
+      ],
+      "beats_per_minute_values": [
+        100
+      ],
+      "brightness_levels": [
+        0.63
+      ],
+      "complexity_levels": [
+        0.27
+      ],
+      "declared_duration_seconds_values": [
+        900,
+        1800,
+        2700,
+        3600
+      ],
+      "mental_states": [
+        "Relax"
+      ],
+      "neural_effect_levels": [
+        0.89
+      ],
+      "observed_titles": [
+        "Blue Moon"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Destress",
+          "Recharge"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Arp Synth",
+          "Chimes/Bells",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Dreamlike",
+          "Floating",
+          "Serene"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Electronica"
+        ]
+      },
+      "track_id": "62b384315924110d60f502ce"
+    },
+    {
+      "activities": [
+        "Recharge"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.32
+      ],
+      "complexity_levels": [
+        0.94
+      ],
+      "declared_duration_seconds_values": [
+        900,
+        1800,
+        2700,
+        3600
+      ],
+      "mental_states": [
+        "Relax"
+      ],
+      "neural_effect_levels": [
+        0.81
+      ],
+      "observed_titles": [
+        "Quiet Room"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Recharge"
+        ],
+        "genre": [
+          "Electronic"
+        ],
+        "instrument": [
+          "Chimes/Bells",
+          "Mallets",
+          "Processed Strings",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Ambient",
+          "World/Ethnic"
+        ]
+      },
+      "track_id": "62b387b4592411f726f51f69"
+    },
+    {
+      "activities": [
+        "Destress"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.04
+      ],
+      "complexity_levels": [
+        0.91
+      ],
+      "declared_duration_seconds_values": [
+        900,
+        1800,
+        2700
+      ],
+      "mental_states": [
+        "Relax"
+      ],
+      "neural_effect_levels": [
+        0.46
+      ],
+      "observed_titles": [
+        "In Plain Air"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Destress",
+          "Recharge"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "62b38899592411a19cf523ea"
+    },
+    {
+      "activities": [
+        "Destress"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.56
+      ],
+      "complexity_levels": [
+        0.58
+      ],
+      "declared_duration_seconds_values": [
+        900,
+        1800,
+        2700,
+        3600
+      ],
+      "mental_states": [
+        "Relax"
+      ],
+      "neural_effect_levels": [
+        0.64
+      ],
+      "observed_titles": [
+        "Space Travel"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Destress",
+          "Recharge"
+        ],
+        "genre": [
+          "Electronic"
+        ],
+        "instrument": [
+          "Acoustic Piano",
+          "Arp Synth",
+          "Orchestral Strings"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Hopeful",
+          "Meditative",
+          "Optimistic",
+          "Serene",
+          "Uplifting"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Electronica",
+          "Orchestral"
+        ]
+      },
+      "track_id": "62b3889d5924113d6df52483"
+    },
+    {
+      "activities": [
+        "Recharge"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.4
+      ],
+      "complexity_levels": [
+        0.16
+      ],
+      "declared_duration_seconds_values": [
+        900,
+        1800,
+        2700
+      ],
+      "mental_states": [
+        "Relax"
+      ],
+      "neural_effect_levels": [
+        0.28
+      ],
+      "observed_titles": [
+        "Quiet Moments"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Recharge",
+          "Unwind"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Chimes/Bells",
+          "Ethnic Percussion",
+          "Ethnic Strings",
+          "Orchestral Strings",
+          "Organic Percussion",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Brooding",
+          "Calm",
+          "Chill",
+          "Dark",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Orchestral",
+          "World/Ethnic"
+        ]
+      },
+      "track_id": "62b38943592411a351f5317a"
+    },
+    {
+      "activities": [
+        "Destress"
+      ],
+      "beats_per_minute_values": [
+        100
+      ],
+      "brightness_levels": [
+        0.47
+      ],
+      "complexity_levels": [
+        0.79
+      ],
+      "declared_duration_seconds_values": [
+        900,
+        1800,
+        2700,
+        3600
+      ],
+      "mental_states": [
+        "Relax"
+      ],
+      "neural_effect_levels": [
+        0.9
+      ],
+      "observed_titles": [
+        "Free Floating"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Destress",
+          "Recharge"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Arp Synth",
+          "Chimes/Bells",
+          "Synth Bass"
+        ],
+        "mood": [
+          "Dreamlike",
+          "Floating",
+          "Hopeful"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Electronica"
+        ]
+      },
+      "track_id": "62b3894d59241190c7f532f7"
+    },
+    {
+      "activities": [
+        "Recharge"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0
+      ],
+      "complexity_levels": [
+        0.79
+      ],
+      "declared_duration_seconds_values": [
+        900,
+        1800
+      ],
+      "mental_states": [
+        "Relax"
+      ],
+      "neural_effect_levels": [
+        0.48
+      ],
+      "observed_titles": [
+        "New Beginning"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Recharge"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Mysterious"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "62b38bdd5924119faff55003"
+    },
+    {
+      "activities": [
+        "Recharge"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.57
+      ],
+      "complexity_levels": [
+        0.34
+      ],
+      "declared_duration_seconds_values": [
+        900
+      ],
+      "mental_states": [
+        "Relax"
+      ],
+      "neural_effect_levels": [
+        0.05,
+        0.55,
+        0.91
+      ],
+      "observed_titles": [
+        "Chamber of Stillness"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Recharge"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Arp Synth",
+          "Processed Strings",
+          "Processed Vocals",
+          "Synth Bass",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Hopeful",
+          "Serene"
+        ],
+        "release": [
+          "January 29 2024"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Electronica"
+        ]
+      },
+      "track_id": "65b3fb3ecdef020008e0c1e6"
+    },
+    {
+      "activities": [
+        "Destress"
+      ],
+      "beats_per_minute_values": [
+        100
+      ],
+      "brightness_levels": [
+        0.45
+      ],
+      "complexity_levels": [
+        0.73
+      ],
+      "declared_duration_seconds_values": [
+        900
+      ],
+      "mental_states": [
+        "Relax"
+      ],
+      "neural_effect_levels": [
+        0.8
+      ],
+      "observed_titles": [
+        "Endless Skies"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Destress",
+          "Recharge"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Arp Synth",
+          "Chimes/Bells"
+        ],
+        "mood": [
+          "Calm",
+          "Dreamlike",
+          "Floating"
+        ],
+        "release": [
+          "November 4 2024"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Electronica"
+        ]
+      },
+      "track_id": "6728eb88ebed2a29b0df43be"
+    },
+    {
+      "activities": [
+        "Recharge"
+      ],
+      "beats_per_minute_values": [
+        112
+      ],
+      "brightness_levels": [
+        0.33
+      ],
+      "complexity_levels": [
+        0.68
+      ],
+      "declared_duration_seconds_values": [
+        900
+      ],
+      "mental_states": [
+        "Relax"
+      ],
+      "neural_effect_levels": [
+        0.92
+      ],
+      "observed_titles": [
+        "Bathed in Neon"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Recharge",
+          "Unwind"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Acoustic Piano",
+          "Arp Synth",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "December 30 2024"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Electronica"
+        ]
+      },
+      "track_id": "6772ffddd309f299ababaa99"
+    },
+    {
+      "activities": [
+        "Recharge"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.64
+      ],
+      "complexity_levels": [
+        0.87
+      ],
+      "declared_duration_seconds_values": [
+        900
+      ],
+      "mental_states": [
+        "Relax"
+      ],
+      "neural_effect_levels": [
+        0.18,
+        0.66,
+        0.99
+      ],
+      "observed_titles": [
+        "Wisdom & Understanding"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Recharge",
+          "Unwind"
+        ],
+        "genre": [
+          "Electronic"
+        ],
+        "instrument": [
+          "Arp Synth",
+          "Chimes/Bells",
+          "Electric Guitar",
+          "Electronic Percussion",
+          "Organic Percussion",
+          "Synth Bass",
+          "Synth Pad",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Brooding",
+          "Calm",
+          "Chill",
+          "Downtempo",
+          "Meditative"
+        ],
+        "release": [
+          "January 13 2025"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Electronica"
+        ]
+      },
+      "track_id": "67855b07f76968728486aa62"
+    },
+    {
+      "activities": [
+        "Destress"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.44
+      ],
+      "complexity_levels": [
+        0.11
+      ],
+      "declared_duration_seconds_values": [
+        900
+      ],
+      "mental_states": [
+        "Relax"
+      ],
+      "neural_effect_levels": [
+        0.05,
+        0.43,
+        0.69
+      ],
+      "observed_titles": [
+        "Intinction"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Destress",
+          "Recharge"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Processed Strings",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "February 3 2025"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "67a10f6103677edafb63f3f8"
+    },
+    {
+      "activities": [
+        "Recharge"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.76
+      ],
+      "complexity_levels": [
+        0.94
+      ],
+      "declared_duration_seconds_values": [
+        900
+      ],
+      "mental_states": [
+        "Relax"
+      ],
+      "neural_effect_levels": [
+        0.1,
+        0.65,
+        0.89
+      ],
+      "observed_titles": [
+        "Drifting Out"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Recharge"
+        ],
+        "genre": [
+          "Electronic"
+        ],
+        "instrument": [
+          "Acoustic Guitar",
+          "Electronic Percussion",
+          "Ethnic Percussion",
+          "Ethnic Strings",
+          "Mallets",
+          "Organic Percussion",
+          "Processed Strings",
+          "Processed Vocals",
+          "Synth Bass",
+          "Synth Pad"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Mysterious",
+          "Serene"
+        ],
+        "release": [
+          "April 21 2025"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Downtempo",
+          "Electronica"
+        ]
+      },
+      "track_id": "68065a02563464c2de5fb5d9"
+    },
+    {
+      "activities": [
+        "Chill"
+      ],
+      "beats_per_minute_values": [
+        135
+      ],
+      "brightness_levels": [
+        0.32
+      ],
+      "complexity_levels": [
+        0.2
+      ],
+      "declared_duration_seconds_values": [
+        900
+      ],
+      "mental_states": [
+        "Relax"
+      ],
+      "neural_effect_levels": [
+        0.07,
+        0.49,
+        0.78
+      ],
+      "observed_titles": [
+        "Hesperus"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Chill"
+        ],
+        "genre": [
+          "Electronic"
+        ],
+        "instrument": [
+          "Arp Synth",
+          "Electric Keys",
+          "Electronic Percussion",
+          "Ethnic Strings",
+          "Organic Percussion",
+          "Synth Bass",
+          "Synth Pad",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "June 30 2024"
+        ],
+        "subgenre": [
+          "Downtempo",
+          "Electronica"
+        ]
+      },
+      "track_id": "6862ee6cb0ad537cfff5cc02"
+    },
+    {
+      "activities": [
+        "Chill"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.47
+      ],
+      "complexity_levels": [
+        0.42
+      ],
+      "declared_duration_seconds_values": [
+        900
+      ],
+      "mental_states": [
+        "Relax"
+      ],
+      "neural_effect_levels": [
+        0.29,
+        0.43,
+        0.99
+      ],
+      "observed_titles": [
+        "Kusadasi"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Chill",
+          "Recharge",
+          "Unwind"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Synth Bass",
+          "Synth Pad",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Mysterious"
+        ],
+        "release": [
+          "October 6 2025"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "68e3d7a72d873930bbbf7d0c"
+    },
+    {
+      "activities": [
+        "Recharge"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.25
+      ],
+      "complexity_levels": [
+        0.19
+      ],
+      "declared_duration_seconds_values": [
+        900
+      ],
+      "mental_states": [
+        "Relax"
+      ],
+      "neural_effect_levels": [
+        0.01,
+        0.52,
+        0.76
+      ],
+      "observed_titles": [
+        "Speed of Light"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Recharge"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Synth Bass",
+          "Synth Pad",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "November 3 2025"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "6909196e26bc41a99c8636a3"
+    },
+    {
+      "activities": [
+        "Recharge"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.28
+      ],
+      "complexity_levels": [
+        0.59
+      ],
+      "declared_duration_seconds_values": [
+        900
+      ],
+      "mental_states": [
+        "Relax"
+      ],
+      "neural_effect_levels": [
+        0.32,
+        0.47,
+        0.82
+      ],
+      "observed_titles": [
+        "Wash Over"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Recharge"
+        ],
+        "genre": [
+          "Electronic"
+        ],
+        "instrument": [
+          "Arp Synth",
+          "Electric Keys",
+          "Electronic Percussion",
+          "Processed Vocals",
+          "Synth Bass",
+          "Synth Pad",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Downtempo",
+          "Dreamlike"
+        ],
+        "release": [
+          "November 3 2025"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Downtempo"
+        ]
+      },
+      "track_id": "690919ee312eb1fe0465963d"
+    },
+    {
+      "activities": [
+        "Chill"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.2
+      ],
+      "complexity_levels": [
+        0.17
+      ],
+      "declared_duration_seconds_values": [
+        900
+      ],
+      "mental_states": [
+        "Relax"
+      ],
+      "neural_effect_levels": [
+        0.01,
+        0.38,
+        0.79
+      ],
+      "observed_titles": [
+        "Noble Pursuit"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Chill"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Synth Bass",
+          "Synth Pad",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Serene"
+        ],
+        "release": [
+          "November 17 2025"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "691b3d5bae74f7305d6d17ab"
+    }
+  ],
+  "observation_context": {
+    "context_method": "capture_metadata",
+    "seed_track_id": null,
+    "visible_category": "relax",
+    "visible_intent": "recharge"
+  },
+  "observation_id": "ave_recommendation_observation_dded644734b558c2",
+  "provider": "brain.fm",
+  "recommendation_capture_schema_version": "1.0.0",
+  "source_capture": {
+    "captured_at": null,
+    "filename": "relax_recharge_20261019.har",
+    "format": "har_json_responses",
+    "json_document_count": 94,
+    "sha256": "fabad8a8a1fe62f66adb7cca2952547e00dbebc597b1689ac5b76bfd8679cf71",
+    "size_bytes": 63787654
+  },
+  "summary": {
+    "observed_node_count": 23,
+    "observed_seed_count": 4,
+    "seed_with_multiple_list_variants_count": 0,
+    "seed_with_nonempty_list_count": 4,
+    "seed_with_only_empty_lists_count": 0,
+    "unique_edge_count": 20
+  }
+}

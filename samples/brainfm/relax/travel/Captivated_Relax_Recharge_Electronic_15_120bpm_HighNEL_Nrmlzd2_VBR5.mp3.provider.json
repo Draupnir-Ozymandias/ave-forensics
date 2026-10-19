@@ -1,0 +1,105 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2025-12-15T18:57:53.893Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.48,
+    "complexity_level": 0.79,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.89
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Captivated_Relax_Recharge_Electronic_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Captivated",
+    "track_id": "69405a31913e2d2bff955b4f",
+    "variation_id": "69405a31913e2d2bff955b51"
+  },
+  "recording": {
+    "filename": "Captivated_Relax_Recharge_Electronic_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "08ca3a4d40205165ced0eeb208862db378b8b33287f492dd8271c1d646f54c96",
+    "size_bytes": 12446726
+  },
+  "source_capture": {
+    "filename": "relax_travel_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 64,
+    "sha256": "aa73a695bdbb48f5acd73426ce8feac9c49b8b36764fd5eda104cab801f8cb12"
+  },
+  "taxonomy": {
+    "activity": "Recharge",
+    "all_provider_tags": {
+      "activity": [
+        "Recharge"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Arp Synth",
+        "Electric Keys",
+        "Electronic Percussion",
+        "Synth Bass",
+        "Synth Pad",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Downtempo",
+        "Dreamlike"
+      ],
+      "release": [
+        "December 15 2025"
+      ],
+      "subgenre": [
+        "Ambient",
+        "Downtempo"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Arp Synth",
+      "Electric Keys",
+      "Electronic Percussion",
+      "Synth Bass",
+      "Synth Pad",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Relax",
+    "mobile_activity": "Recharge",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Downtempo",
+      "Dreamlike"
+    ],
+    "release_tags": [
+      "December 15 2025"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient",
+      "Downtempo"
+    ],
+    "web_activity": "Recharge"
+  }
+}

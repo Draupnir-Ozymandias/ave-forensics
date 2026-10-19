@@ -1,0 +1,99 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2025-10-06T14:52:23.832Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.47,
+    "complexity_level": 0.42,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.43
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Kusadasi_Relax_Recharge_Atmospheric_15_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Kusadasi",
+    "track_id": "68e3d7a72d873930bbbf7d0c",
+    "variation_id": "68e3d7a72d873930bbbf7d10"
+  },
+  "recording": {
+    "filename": "Kusadasi_Relax_Recharge_Atmospheric_15_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "9813d7d533496cacb80ba960e2df1d224b0a3598a8bf5e58ac7a2faef4392185",
+    "size_bytes": 12754408
+  },
+  "source_capture": {
+    "filename": "relax_unwind_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 56,
+    "sha256": "5ee543e5b4f08bdd9e688709df8e5b5cff33183fa0cedaf0501993df708fb37a"
+  },
+  "taxonomy": {
+    "activity": "Chill",
+    "all_provider_tags": {
+      "activity": [
+        "Chill",
+        "Recharge",
+        "Unwind"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Synth Bass",
+        "Synth Pad",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Mysterious"
+      ],
+      "release": [
+        "October 6 2025"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Synth Bass",
+      "Synth Pad",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Relax",
+    "mobile_activity": "Chill",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Mysterious"
+    ],
+    "release_tags": [
+      "October 6 2025"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ],
+    "web_activity": "Chill"
+  }
+}

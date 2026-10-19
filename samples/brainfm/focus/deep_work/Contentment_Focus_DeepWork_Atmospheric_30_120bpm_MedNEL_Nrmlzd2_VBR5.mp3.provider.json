@@ -1,0 +1,95 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2026-06-15T15:19:25.619Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.17,
+    "complexity_level": 0.15,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.53
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Contentment_Focus_DeepWork_Atmospheric_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Contentment",
+    "track_id": "6a3017fd7a8f5056573c9544",
+    "variation_id": "6a3017fd7a8f5056573c9548"
+  },
+  "recording": {
+    "filename": "Contentment_Focus_DeepWork_Atmospheric_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "a91b3e9012d356ba1541475ccfe012811f67b7e498232ac90851897275949376",
+    "size_bytes": 21040619
+  },
+  "source_capture": {
+    "filename": "sleep_wind_down_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 78,
+    "sha256": "d05382b4d1651cd8e9b7976f63b653f76de480d6db08b84cafc0ebc96b7768dd"
+  },
+  "taxonomy": {
+    "activity": "Deep Work",
+    "all_provider_tags": {
+      "activity": [
+        "Deep Work"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Synth Pad",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Hopeful"
+      ],
+      "release": [
+        "June 15 2026"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Synth Pad",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Focus",
+    "mobile_activity": "Deep Work",
+    "moods": [
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Hopeful"
+    ],
+    "release_tags": [
+      "June 15 2026"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ],
+    "web_activity": "Deep Work"
+  }
+}

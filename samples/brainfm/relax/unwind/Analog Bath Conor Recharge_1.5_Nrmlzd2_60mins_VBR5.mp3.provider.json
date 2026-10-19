@@ -1,0 +1,118 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T21:25:51.637Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.28,
+    "complexity_level": 0.2,
+    "declared_duration_seconds": 3600,
+    "neural_effect_level": 0.56
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Analog Bath Conor Recharge_1.5_Nrmlzd2_60mins_VBR5.mp3",
+    "title": "Analog Bath",
+    "track_id": "62b388df592411d002f52c48",
+    "variation_id": "62b3962f5924113058f577f7"
+  },
+  "recording": {
+    "filename": "Analog Bath Conor Recharge_1.5_Nrmlzd2_60mins_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "63d3ecd009d8f3738e8c7228e7f8fd25823481c9d1faa814e0340472ee8ed6b1",
+    "size_bytes": 41670865
+  },
+  "source_capture": {
+    "filename": "relax_unwind_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 56,
+    "sha256": "5ee543e5b4f08bdd9e688709df8e5b5cff33183fa0cedaf0501993df708fb37a"
+  },
+  "taxonomy": {
+    "activity": "Recharge",
+    "all_provider_tags": {
+      "activity": [
+        "Recharge",
+        "Unwind"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Arp Synth",
+        "Chimes/Bells",
+        "Choral Voices",
+        "Electric Guitar",
+        "Mallets",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Meditative",
+        "Optimistic",
+        "Playful",
+        "Serene"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Acoustic",
+        "Ambient",
+        "World/Ethnic"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Arp Synth",
+      "Chimes/Bells",
+      "Choral Voices",
+      "Electric Guitar",
+      "Mallets",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Relax",
+    "mobile_activity": "Recharge",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Meditative",
+      "Optimistic",
+      "Playful",
+      "Serene"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Acoustic",
+      "Ambient",
+      "World/Ethnic"
+    ],
+    "web_activity": "Recharge"
+  }
+}

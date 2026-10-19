@@ -1,0 +1,94 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-05-17T15:41:31.172Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.59,
+    "complexity_level": 0.21,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.55
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "ObsidianMirror_Focus_Learning_Drones_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Obsidian Mirror",
+    "track_id": "66477aab30b208e2323edb59",
+    "variation_id": "66477aab30b208e2323edb5d"
+  },
+  "recording": {
+    "filename": "ObsidianMirror_Focus_Learning_Drones_30_120bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "06f730b2e4707846f4ccf4054324b9c7e2ac0bfe47d67bec519395c1babfb215",
+    "size_bytes": 28504416
+  },
+  "source_capture": {
+    "filename": "deep_work_20261010.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 136,
+    "sha256": "5fa05e3c533c24b00d50941715a84d7faf661bfc820dbd2b32ea66422048d9eb"
+  },
+  "taxonomy": {
+    "activity": "Light Work",
+    "all_provider_tags": {
+      "activity": [
+        "Creativity",
+        "Light Work"
+      ],
+      "genre": [
+        "Drone"
+      ],
+      "instrument": [
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Chill",
+        "Dark",
+        "Epic",
+        "Mysterious"
+      ],
+      "release": [
+        "May 20 2024"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Drone"
+    ],
+    "instruments": [
+      "Textural Soundscape"
+    ],
+    "mental_state": "Focus",
+    "mobile_activity": "Light Work",
+    "moods": [
+      "Chill",
+      "Dark",
+      "Epic",
+      "Mysterious"
+    ],
+    "release_tags": [
+      "May 20 2024"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ],
+    "web_activity": "Creativity"
+  }
+}

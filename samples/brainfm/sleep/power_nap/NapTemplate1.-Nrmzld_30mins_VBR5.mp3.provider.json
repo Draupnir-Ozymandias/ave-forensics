@@ -1,0 +1,100 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 3,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T21:05:37.738Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.05,
+    "complexity_level": 0.04,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.13
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "NapTemplate1.-Nrmzld_30mins_VBR5.mp3",
+    "title": "Stepping Stones",
+    "track_id": "62b3842159241134f2f4ffa8",
+    "variation_id": "62b3842159241181e9f4ffaa"
+  },
+  "recording": {
+    "filename": "NapTemplate1.-Nrmzld_30mins_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "f987cc1eb721c4d1e910a14b2f7fbb5d267a6c8471cb53e622aeb562f4ca9dee",
+    "size_bytes": 20995964
+  },
+  "source_capture": {
+    "filename": "sleep_wind_down_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 78,
+    "sha256": "d05382b4d1651cd8e9b7976f63b653f76de480d6db08b84cafc0ebc96b7768dd"
+  },
+  "taxonomy": {
+    "activity": "Destress",
+    "all_provider_tags": {
+      "activity": [
+        "Destress",
+        "Recharge"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Meditative",
+        "Serene"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Textural Soundscape"
+    ],
+    "mental_state": "Relax",
+    "mobile_activity": "Destress",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Meditative",
+      "Serene"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ],
+    "web_activity": "Recharge"
+  }
+}

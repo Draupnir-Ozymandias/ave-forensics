@@ -300,6 +300,20 @@ never replaced unless `--overwrite` is explicit. Raw captures belong under ignor
 `captured/` storage; only sanitized `*.provider.json` sidecars should be committed.
 See `docs/BRAINFM_CAPTURE_WORKFLOW.md` for the Favorites collection workflow.
 
+For session HARs whose filenames do not match individual recordings, ingest
+exact variation matches across the corpus while preserving existing sidecars:
+
+```bash
+.venv/bin/python ingest_brainfm_sessions.py
+.venv/bin/python ingest_brainfm_sessions.py --write
+```
+
+The first command prepares a report without writing provider sidecars. Selection
+prefers the latest date encoded in a capture filename, then the same collection
+directory. Existing sidecars are retained; filename aliases, conflicting records
+within the selected capture, and out-of-schema measurements remain explicit
+exceptions in `artifacts/ingestion/session-ingestion.json`.
+
 ## Import Private Transcripts Safely
 
 Convert a completed AWS Transcribe response into a text-free, commit-safe timing

@@ -1,0 +1,101 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T21:25:55.929Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.48,
+    "complexity_level": 0.48,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.48
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Active Galaxy Chris Electronic Session8_1.8_Nrmlzd2 1_VBR5.mp3",
+    "title": "Active Galaxy",
+    "track_id": "62b388e359241139d0f52d01",
+    "variation_id": "62b388e359241186f4f52d03"
+  },
+  "recording": {
+    "filename": "Active Galaxy Chris Electronic Session8_1.8_Nrmlzd2 1_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "6143fb6b605151d66a7f3ea7137e9c061c0c2a91fe5a7c9024851117a791b111",
+    "size_bytes": 20027144
+  },
+  "source_capture": {
+    "filename": "sleep_wind_down_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 78,
+    "sha256": "d05382b4d1651cd8e9b7976f63b653f76de480d6db08b84cafc0ebc96b7768dd"
+  },
+  "taxonomy": {
+    "activity": "Deep Work",
+    "all_provider_tags": {
+      "activity": [
+        "Deep Work"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Arp Synth",
+        "Arp Synth Bass",
+        "Electronic Percussion",
+        "Synth Bass"
+      ],
+      "mood": [
+        "Dark",
+        "Heavy",
+        "Mysterious",
+        "Ominous"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Electronica"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Arp Synth",
+      "Arp Synth Bass",
+      "Electronic Percussion",
+      "Synth Bass"
+    ],
+    "mental_state": "Focus",
+    "mobile_activity": "Deep Work",
+    "moods": [
+      "Dark",
+      "Heavy",
+      "Mysterious",
+      "Ominous"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Electronica"
+    ],
+    "web_activity": "Deep Work"
+  }
+}

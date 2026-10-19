@@ -1,0 +1,106 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 2,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-07-12T20:00:20.688Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.25,
+    "complexity_level": 0.58,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.85
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Momentum Relax Unwind Conor 120bpm_1.2_Nrmlzd2_15mins_VBR5.mp3",
+    "title": "Momentum",
+    "track_id": "66918b54de19d0f1c74ea60e",
+    "variation_id": "66918b54de19d0f1c74ea610"
+  },
+  "recording": {
+    "filename": "Momentum Relax Unwind Conor 120bpm_1.2_Nrmlzd2_15mins_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "0302d040c358e5741b17eb79c7c8c6a4681eb6ab3663f59b5441d5a105ba72fa",
+    "size_bytes": 11430392
+  },
+  "source_capture": {
+    "filename": "relax_travel_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 64,
+    "sha256": "aa73a695bdbb48f5acd73426ce8feac9c49b8b36764fd5eda104cab801f8cb12"
+  },
+  "taxonomy": {
+    "activity": "Destress",
+    "all_provider_tags": {
+      "activity": [
+        "Destress",
+        "Recharge"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Acoustic Piano",
+        "Arp Synth",
+        "Orchestral Brass",
+        "Processed Strings",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Serene"
+      ],
+      "release": [
+        "July 15 2024"
+      ],
+      "subgenre": [
+        "Ambient",
+        "Electronica"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Acoustic Piano",
+      "Arp Synth",
+      "Orchestral Brass",
+      "Processed Strings",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Relax",
+    "mobile_activity": "Destress",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Serene"
+    ],
+    "release_tags": [
+      "July 15 2024"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient",
+      "Electronica"
+    ],
+    "web_activity": "Recharge"
+  }
+}

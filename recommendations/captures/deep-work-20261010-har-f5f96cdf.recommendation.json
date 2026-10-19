@@ -1,0 +1,501 @@
+{
+  "edges": [
+    {
+      "document_indices": [
+        84
+      ],
+      "observed_ranks": [
+        2
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62b3840b59241178fdf4fa87",
+      "seed_track_id": "674ddf82657c71542c9996e0"
+    },
+    {
+      "document_indices": [
+        84
+      ],
+      "observed_ranks": [
+        5
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "6703e2b1a1f0c0804124fb97",
+      "seed_track_id": "674ddf82657c71542c9996e0"
+    },
+    {
+      "document_indices": [
+        84
+      ],
+      "observed_ranks": [
+        4
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "69655a92212c8d55194ee7e7",
+      "seed_track_id": "674ddf82657c71542c9996e0"
+    },
+    {
+      "document_indices": [
+        84
+      ],
+      "observed_ranks": [
+        3
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "698a15198a4a8f35be58337b",
+      "seed_track_id": "674ddf82657c71542c9996e0"
+    },
+    {
+      "document_indices": [
+        84
+      ],
+      "observed_ranks": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "6a8323fa7b3d34052fde6988",
+      "seed_track_id": "674ddf82657c71542c9996e0"
+    }
+  ],
+  "extraction_provenance": {
+    "generator": "recommendations.graph",
+    "generator_version": "ave_brainfm_recommendations_1.2.0",
+    "sensitive_data_policy": "omit_urls_tokens_cookies_and_session_data"
+  },
+  "generated_at": "2026-10-19T18:18:45+00:00",
+  "list_observations": [
+    {
+      "document_indices": [
+        84
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 5,
+      "recommended_track_ids": [
+        "6a8323fa7b3d34052fde6988",
+        "62b3840b59241178fdf4fa87",
+        "698a15198a4a8f35be58337b",
+        "69655a92212c8d55194ee7e7",
+        "6703e2b1a1f0c0804124fb97"
+      ],
+      "seed_track_id": "674ddf82657c71542c9996e0"
+    }
+  ],
+  "nodes": [
+    {
+      "activities": [
+        "Study & Read"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.23
+      ],
+      "complexity_levels": [
+        0.35
+      ],
+      "declared_duration_seconds_values": [
+        1800,
+        8181
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.66
+      ],
+      "observed_titles": [
+        "High Tide"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "extended",
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Learning",
+          "Study & Read"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Serene"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "62b3840b59241178fdf4fa87"
+    },
+    {
+      "activities": [
+        "Deep Work"
+      ],
+      "beats_per_minute_values": [
+        98
+      ],
+      "brightness_levels": [
+        0.42
+      ],
+      "complexity_levels": [
+        0.34
+      ],
+      "declared_duration_seconds_values": [
+        1800,
+        8789,
+        8843,
+        10130
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.04,
+        0.65,
+        0.85
+      ],
+      "observed_titles": [
+        "Deep Beneath the Earth"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "extended",
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Work"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Chimes/Bells",
+          "Choral Voices",
+          "Electric Keys",
+          "Processed Strings",
+          "Processed Vocals",
+          "Textural Soundscape",
+          "White Noise"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Mysterious",
+          "Serene"
+        ],
+        "release": [
+          "October 7 2024"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "6703e2b1a1f0c0804124fb97"
+    },
+    {
+      "activities": [
+        "Light Work"
+      ],
+      "beats_per_minute_values": [
+        72
+      ],
+      "brightness_levels": [
+        0.3
+      ],
+      "complexity_levels": [
+        0.25
+      ],
+      "declared_duration_seconds_values": [
+        1800,
+        8128,
+        8540,
+        8793
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.33,
+        0.56,
+        0.8
+      ],
+      "observed_titles": [
+        "Bardo"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "extended",
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Creativity",
+          "Light Work"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Acoustic Piano",
+          "Organic Percussion",
+          "Processed Strings",
+          "Textural Soundscape",
+          "White Noise"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Ponderous"
+        ],
+        "release": [
+          "December 2 2024"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "674ddf82657c71542c9996e0"
+    },
+    {
+      "activities": [],
+      "beats_per_minute_values": [
+        80
+      ],
+      "brightness_levels": [
+        0.41
+      ],
+      "complexity_levels": [
+        0.06
+      ],
+      "declared_duration_seconds_values": [
+        1800
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.06,
+        0.53,
+        0.82
+      ],
+      "observed_titles": [
+        "Galene"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Learning"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Electric Guitar",
+          "Harp",
+          "Mallets",
+          "Orchestral Strings",
+          "Processed Strings",
+          "Reed",
+          "Synth Pad",
+          "White Noise"
+        ],
+        "mood": [
+          "Calm",
+          "Dreamlike",
+          "Floating",
+          "Hopeful",
+          "Inspiring",
+          "Meditative",
+          "Optimistic",
+          "Serene"
+        ],
+        "release": [
+          "January 12 2026"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Orchestral"
+        ]
+      },
+      "track_id": "69655a92212c8d55194ee7e7"
+    },
+    {
+      "activities": [
+        "Deep Work"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.35
+      ],
+      "complexity_levels": [
+        0.12
+      ],
+      "declared_duration_seconds_values": [
+        1800
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.25,
+        0.34,
+        0.99
+      ],
+      "observed_titles": [
+        "Clean Slate"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Work"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Processed Strings",
+          "Synth Bass",
+          "Synth Pad",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Serene"
+        ],
+        "release": [
+          "February 9 2026"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "698a15198a4a8f35be58337b"
+    },
+    {
+      "activities": [],
+      "beats_per_minute_values": [
+        122
+      ],
+      "brightness_levels": [
+        0.3
+      ],
+      "complexity_levels": [
+        0.04
+      ],
+      "declared_duration_seconds_values": [
+        1800
+      ],
+      "mental_states": [
+        "Focus"
+      ],
+      "neural_effect_levels": [
+        0.25,
+        0.4,
+        0.9
+      ],
+      "observed_titles": [
+        "Katharos"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Learning"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Chimes/Bells",
+          "Choral Voices",
+          "Processed Strings",
+          "Synth Bass",
+          "Synth Pad",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Ponderous",
+          "Serene"
+        ],
+        "release": [
+          "August 17 2026"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Electronica"
+        ]
+      },
+      "track_id": "6a8323fa7b3d34052fde6988"
+    }
+  ],
+  "observation_context": {
+    "context_method": "capture_metadata",
+    "seed_track_id": null,
+    "visible_category": "focus",
+    "visible_intent": "deep_work"
+  },
+  "observation_id": "ave_recommendation_observation_95d5b5a6f5f96cdf",
+  "provider": "brain.fm",
+  "recommendation_capture_schema_version": "1.0.0",
+  "source_capture": {
+    "captured_at": null,
+    "filename": "deep_work_20261010.har",
+    "format": "har_json_responses",
+    "json_document_count": 136,
+    "sha256": "5fa05e3c533c24b00d50941715a84d7faf661bfc820dbd2b32ea66422048d9eb",
+    "size_bytes": 106374751
+  },
+  "summary": {
+    "observed_node_count": 6,
+    "observed_seed_count": 1,
+    "seed_with_multiple_list_variants_count": 0,
+    "seed_with_nonempty_list_count": 1,
+    "seed_with_only_empty_lists_count": 0,
+    "unique_edge_count": 5
+  }
+}

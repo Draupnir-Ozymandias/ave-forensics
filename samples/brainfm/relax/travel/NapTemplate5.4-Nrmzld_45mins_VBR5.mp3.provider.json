@@ -1,0 +1,89 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T21:32:48.504Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.02,
+    "complexity_level": 0.67,
+    "declared_duration_seconds": 2700,
+    "neural_effect_level": 0.41
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "NapTemplate5.4-Nrmzld_45mins_VBR5.mp3",
+    "title": "Refracting Visions",
+    "track_id": "62b38a80592411c80bf5461a",
+    "variation_id": "62b395cf5924111a5af574fc"
+  },
+  "recording": {
+    "filename": "NapTemplate5.4-Nrmzld_45mins_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "0859f2c5a2c0099244d71bf78e5d7c3e93cec1f6ee983f2c921a7aa4f78c529e",
+    "size_bytes": 28983182
+  },
+  "source_capture": {
+    "filename": "relax_travel_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 64,
+    "sha256": "aa73a695bdbb48f5acd73426ce8feac9c49b8b36764fd5eda104cab801f8cb12"
+  },
+  "taxonomy": {
+    "activity": "Destress",
+    "all_provider_tags": {
+      "activity": [
+        "Destress",
+        "Recharge"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Meditative",
+        "Serene"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Textural Soundscape"
+    ],
+    "mental_state": "Relax",
+    "mobile_activity": "Destress",
+    "moods": [
+      "Calm",
+      "Meditative",
+      "Serene"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [],
+    "web_activity": "Recharge"
+  }
+}

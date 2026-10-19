@@ -1,0 +1,109 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 3,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2025-10-20T16:34:06.265Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 112,
+    "brightness_level": 0.43,
+    "complexity_level": 0.06,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.46
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "TheEarthUnderWater_Focus_Creativity_Atmospheric_30_112BPM_MedNEL_Nrmlzd2_VBR5.mp3",
+    "title": "The Earth Underwater",
+    "track_id": "68f6647ee8a4cc0a7401bdcc",
+    "variation_id": "68f6647ee8a4cc0a7401bdd0"
+  },
+  "recording": {
+    "filename": "TheEarthUnderWater_Focus_Creativity_Atmospheric_30_112BPM_MedNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "fa49b8f96f1fa847cae0c4ec637e2498b5ed30c73527c8fe85637d8e1e2d6366",
+    "size_bytes": 26591360
+  },
+  "source_capture": {
+    "filename": "focus_creativity_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 78,
+    "sha256": "7c6620384ee282efef2b34d4c7758bc387051b25f26ff396fda7c33242ede314"
+  },
+  "taxonomy": {
+    "activity": null,
+    "all_provider_tags": {
+      "activity": [
+        "Creativity"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Arp Synth",
+        "Choral Voices",
+        "Electric Keys",
+        "Mallets",
+        "Processed Strings",
+        "Synth Bass",
+        "Synth Pad",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Brooding",
+        "Heavy",
+        "Mysterious",
+        "Strong"
+      ],
+      "release": [
+        "October 20 2025"
+      ],
+      "subgenre": [
+        "Ambient",
+        "Electronica"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Arp Synth",
+      "Choral Voices",
+      "Electric Keys",
+      "Mallets",
+      "Processed Strings",
+      "Synth Bass",
+      "Synth Pad",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Focus",
+    "mobile_activity": null,
+    "moods": [
+      "Brooding",
+      "Heavy",
+      "Mysterious",
+      "Strong"
+    ],
+    "release_tags": [
+      "October 20 2025"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient",
+      "Electronica"
+    ],
+    "web_activity": "Creativity"
+  }
+}

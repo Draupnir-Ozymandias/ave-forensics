@@ -1,0 +1,97 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2025-06-30T20:05:44.717Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.06,
+    "complexity_level": 0.11,
+    "declared_duration_seconds": 3600,
+    "neural_effect_level": 0.75
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "SoloTraveler_Sleep_DeepSleep_60_120bpm_HighNEL_VBR5.mp3",
+    "title": "Solo Traveler",
+    "track_id": "6862ee18b0ad537cfff5cb2a",
+    "variation_id": "6862ee18b0ad537cfff5cb2c"
+  },
+  "recording": {
+    "filename": "SoloTraveler_Sleep_DeepSleep_60_120bpm_HighNEL_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "edaf66e587aea909b27dd8d5c504fb8087c2af8c5c82547372354465e3c7bd9c",
+    "size_bytes": 42971807
+  },
+  "source_capture": {
+    "filename": "sleep_sleep_and_wake_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 67,
+    "sha256": "e8bff5a37e3c9c5bd3a20a4c776b8903a43f67b6702eeb4cc26c68386aedb09a"
+  },
+  "taxonomy": {
+    "activity": "Deep Sleep",
+    "all_provider_tags": {
+      "activity": [
+        "Deep Sleep"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Synth Pad",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Serene"
+      ],
+      "release": [
+        "June 30 2024"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Synth Pad",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Sleep",
+    "mobile_activity": "Deep Sleep",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Serene"
+    ],
+    "release_tags": [
+      "June 30 2024"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ],
+    "web_activity": "Deep Sleep"
+  }
+}

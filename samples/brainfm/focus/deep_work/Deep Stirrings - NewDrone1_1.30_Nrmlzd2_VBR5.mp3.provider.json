@@ -1,0 +1,99 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 1,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2022-06-22T21:24:50.545Z",
+    "has_multiple_neural_effect_levels": false,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.14,
+    "complexity_level": 0.45,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.39
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Deep Stirrings - NewDrone1_1.30_Nrmlzd2_VBR5.mp3",
+    "title": "Beyond Depths",
+    "track_id": "62b388a2592411808bf52536",
+    "variation_id": "62b388a25924110295f52538"
+  },
+  "recording": {
+    "filename": "Deep Stirrings - NewDrone1_1.30_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "e19efae641f5fe78c1fccaaf004b452e7d7585c0ded2942b2970259d26bea5fc",
+    "size_bytes": 20821892
+  },
+  "source_capture": {
+    "filename": "sleep_sleep_and_wake_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 67,
+    "sha256": "e8bff5a37e3c9c5bd3a20a4c776b8903a43f67b6702eeb4cc26c68386aedb09a"
+  },
+  "taxonomy": {
+    "activity": "Deep Work",
+    "all_provider_tags": {
+      "activity": [
+        "Deep Work"
+      ],
+      "genre": [
+        "Drone"
+      ],
+      "instrument": [
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Meditative",
+        "Serene"
+      ],
+      "release": [
+        "Desktop Import",
+        "Mobile Import"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Drone"
+    ],
+    "instruments": [
+      "Textural Soundscape"
+    ],
+    "mental_state": "Focus",
+    "mobile_activity": "Deep Work",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Meditative",
+      "Serene"
+    ],
+    "release_tags": [
+      "Desktop Import",
+      "Mobile Import"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ],
+    "web_activity": "Deep Work"
+  }
+}

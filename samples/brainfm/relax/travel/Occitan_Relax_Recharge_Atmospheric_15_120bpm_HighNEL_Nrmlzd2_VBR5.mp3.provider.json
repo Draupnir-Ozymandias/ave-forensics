@@ -1,0 +1,102 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 2,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-05-03T19:04:42.206Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 120,
+    "brightness_level": 0.29,
+    "complexity_level": 0.18,
+    "declared_duration_seconds": 900,
+    "neural_effect_level": 0.95
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Occitan_Relax_Recharge_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Occitan",
+    "track_id": "6635354a4eae15761ad4fb0b",
+    "variation_id": "6635354a4eae15761ad4fb0d"
+  },
+  "recording": {
+    "filename": "Occitan_Relax_Recharge_Atmospheric_15_120bpm_HighNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "8ebcc1dcf4b8beb20bbab401a06755cfb374988391a331e2ffb5c3209d039047",
+    "size_bytes": 11613116
+  },
+  "source_capture": {
+    "filename": "relax_travel_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 64,
+    "sha256": "aa73a695bdbb48f5acd73426ce8feac9c49b8b36764fd5eda104cab801f8cb12"
+  },
+  "taxonomy": {
+    "activity": "Destress",
+    "all_provider_tags": {
+      "activity": [
+        "Destress",
+        "Recharge"
+      ],
+      "genre": [
+        "Atmospheric"
+      ],
+      "instrument": [
+        "Processed Strings",
+        "Synth Bass",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Calm",
+        "Chill",
+        "Dreamlike",
+        "Floating",
+        "Meditative",
+        "Serene"
+      ],
+      "release": [
+        "May 6 2024"
+      ],
+      "subgenre": [
+        "Ambient"
+      ]
+    },
+    "genres": [
+      "Atmospheric"
+    ],
+    "instruments": [
+      "Processed Strings",
+      "Synth Bass",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Relax",
+    "mobile_activity": "Destress",
+    "moods": [
+      "Calm",
+      "Chill",
+      "Dreamlike",
+      "Floating",
+      "Meditative",
+      "Serene"
+    ],
+    "release_tags": [
+      "May 6 2024"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Ambient"
+    ],
+    "web_activity": "Recharge"
+  }
+}

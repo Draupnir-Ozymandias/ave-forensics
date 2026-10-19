@@ -1,0 +1,1904 @@
+{
+  "edges": [
+    {
+      "document_indices": [
+        53
+      ],
+      "observed_ranks": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62b3803c592411a4b0f4b4ac",
+      "seed_track_id": "62e4174d8aeb53856dab3296"
+    },
+    {
+      "document_indices": [
+        53
+      ],
+      "observed_ranks": [
+        3
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62b380e85924117b22f4d66b",
+      "seed_track_id": "62e4174d8aeb53856dab3296"
+    },
+    {
+      "document_indices": [
+        53
+      ],
+      "observed_ranks": [
+        2
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "66562dddff1110852ad24deb",
+      "seed_track_id": "62e4174d8aeb53856dab3296"
+    },
+    {
+      "document_indices": [
+        53
+      ],
+      "observed_ranks": [
+        5
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "66562e0dff1110852ad24f7a",
+      "seed_track_id": "62e4174d8aeb53856dab3296"
+    },
+    {
+      "document_indices": [
+        53
+      ],
+      "observed_ranks": [
+        4
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "68f664ace8a4cc0a7401beb2",
+      "seed_track_id": "62e4174d8aeb53856dab3296"
+    },
+    {
+      "document_indices": [
+        41
+      ],
+      "observed_ranks": [
+        5
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62e41a438aeb53fe8cab38a7",
+      "seed_track_id": "62e41cc25e954c1f86f6854a"
+    },
+    {
+      "document_indices": [
+        41
+      ],
+      "observed_ranks": [
+        2
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62e41b3c5e954ce5e2f68358",
+      "seed_track_id": "62e41cc25e954c1f86f6854a"
+    },
+    {
+      "document_indices": [
+        41
+      ],
+      "observed_ranks": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "66562e18ff1110852ad24fd4",
+      "seed_track_id": "62e41cc25e954c1f86f6854a"
+    },
+    {
+      "document_indices": [
+        41
+      ],
+      "observed_ranks": [
+        4
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "66562e5aff1110852ad25262",
+      "seed_track_id": "62e41cc25e954c1f86f6854a"
+    },
+    {
+      "document_indices": [
+        41
+      ],
+      "observed_ranks": [
+        3
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "692dbd55b8f361da92eb9d96",
+      "seed_track_id": "62e41cc25e954c1f86f6854a"
+    },
+    {
+      "document_indices": [
+        44
+      ],
+      "observed_ranks": [
+        2
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62b3806559241128f5f4c375",
+      "seed_track_id": "6862ee18b0ad537cfff5cb2a"
+    },
+    {
+      "document_indices": [
+        44
+      ],
+      "observed_ranks": [
+        4
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62b3808d592411085ef4d057",
+      "seed_track_id": "6862ee18b0ad537cfff5cb2a"
+    },
+    {
+      "document_indices": [
+        44
+      ],
+      "observed_ranks": [
+        5
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "65eb6c2d63853a000a15ae48",
+      "seed_track_id": "6862ee18b0ad537cfff5cb2a"
+    },
+    {
+      "document_indices": [
+        44
+      ],
+      "observed_ranks": [
+        3
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "663536754eae15761ad50153",
+      "seed_track_id": "6862ee18b0ad537cfff5cb2a"
+    },
+    {
+      "document_indices": [
+        44
+      ],
+      "observed_ranks": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "66562e36ff1110852ad250ce",
+      "seed_track_id": "6862ee18b0ad537cfff5cb2a"
+    },
+    {
+      "document_indices": [
+        48
+      ],
+      "observed_ranks": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62b3806559241128f5f4c375",
+      "seed_track_id": "689a232f9446c76349a3b590"
+    },
+    {
+      "document_indices": [
+        48
+      ],
+      "observed_ranks": [
+        4
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62b38087592411492ef4ce04",
+      "seed_track_id": "689a232f9446c76349a3b590"
+    },
+    {
+      "document_indices": [
+        48
+      ],
+      "observed_ranks": [
+        3
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62e41c488aeb538a60ab3ca8",
+      "seed_track_id": "689a232f9446c76349a3b590"
+    },
+    {
+      "document_indices": [
+        48
+      ],
+      "observed_ranks": [
+        2
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62e41e908aeb536c28ab3faa",
+      "seed_track_id": "689a232f9446c76349a3b590"
+    },
+    {
+      "document_indices": [
+        48
+      ],
+      "observed_ranks": [
+        5
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "65eb6c1663853a000a15ad9a",
+      "seed_track_id": "689a232f9446c76349a3b590"
+    },
+    {
+      "document_indices": [
+        36
+      ],
+      "observed_ranks": [
+        1
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62b3805a5924118c7af4ba69",
+      "seed_track_id": "692dbd55b8f361da92eb9d96"
+    },
+    {
+      "document_indices": [
+        36
+      ],
+      "observed_ranks": [
+        2
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "62e41e908aeb536c28ab3faa",
+      "seed_track_id": "692dbd55b8f361da92eb9d96"
+    },
+    {
+      "document_indices": [
+        36
+      ],
+      "observed_ranks": [
+        5
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "6622cefb918ea2b454f7a731",
+      "seed_track_id": "692dbd55b8f361da92eb9d96"
+    },
+    {
+      "document_indices": [
+        36
+      ],
+      "observed_ranks": [
+        3
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "66477a5330b208e2323ed933",
+      "seed_track_id": "692dbd55b8f361da92eb9d96"
+    },
+    {
+      "document_indices": [
+        36
+      ],
+      "observed_ranks": [
+        4
+      ],
+      "occurrence_count": 1,
+      "recommended_track_id": "66562e18ff1110852ad24fd4",
+      "seed_track_id": "692dbd55b8f361da92eb9d96"
+    }
+  ],
+  "extraction_provenance": {
+    "generator": "recommendations.graph",
+    "generator_version": "ave_brainfm_recommendations_1.2.0",
+    "sensitive_data_policy": "omit_urls_tokens_cookies_and_session_data"
+  },
+  "generated_at": "2026-10-19T18:18:53+00:00",
+  "list_observations": [
+    {
+      "document_indices": [
+        53
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 5,
+      "recommended_track_ids": [
+        "62b3803c592411a4b0f4b4ac",
+        "66562dddff1110852ad24deb",
+        "62b380e85924117b22f4d66b",
+        "68f664ace8a4cc0a7401beb2",
+        "66562e0dff1110852ad24f7a"
+      ],
+      "seed_track_id": "62e4174d8aeb53856dab3296"
+    },
+    {
+      "document_indices": [
+        41
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 5,
+      "recommended_track_ids": [
+        "66562e18ff1110852ad24fd4",
+        "62e41b3c5e954ce5e2f68358",
+        "692dbd55b8f361da92eb9d96",
+        "66562e5aff1110852ad25262",
+        "62e41a438aeb53fe8cab38a7"
+      ],
+      "seed_track_id": "62e41cc25e954c1f86f6854a"
+    },
+    {
+      "document_indices": [
+        44
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 5,
+      "recommended_track_ids": [
+        "66562e36ff1110852ad250ce",
+        "62b3806559241128f5f4c375",
+        "663536754eae15761ad50153",
+        "62b3808d592411085ef4d057",
+        "65eb6c2d63853a000a15ae48"
+      ],
+      "seed_track_id": "6862ee18b0ad537cfff5cb2a"
+    },
+    {
+      "document_indices": [
+        48
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 5,
+      "recommended_track_ids": [
+        "62b3806559241128f5f4c375",
+        "62e41e908aeb536c28ab3faa",
+        "62e41c488aeb538a60ab3ca8",
+        "62b38087592411492ef4ce04",
+        "65eb6c1663853a000a15ad9a"
+      ],
+      "seed_track_id": "689a232f9446c76349a3b590"
+    },
+    {
+      "document_indices": [
+        36
+      ],
+      "occurrence_count": 1,
+      "recommendation_count": 5,
+      "recommended_track_ids": [
+        "62b3805a5924118c7af4ba69",
+        "62e41e908aeb536c28ab3faa",
+        "66477a5330b208e2323ed933",
+        "66562e18ff1110852ad24fd4",
+        "6622cefb918ea2b454f7a731"
+      ],
+      "seed_track_id": "692dbd55b8f361da92eb9d96"
+    }
+  ],
+  "nodes": [
+    {
+      "activities": [],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.04
+      ],
+      "complexity_levels": [
+        0.22
+      ],
+      "declared_duration_seconds_values": [
+        1800
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.78
+      ],
+      "observed_titles": [
+        "Full of Purpose"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Power Nap"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "Desktop Import"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "62b3803c592411a4b0f4b4ac"
+    },
+    {
+      "activities": [],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.29
+      ],
+      "complexity_levels": [
+        0.47
+      ],
+      "declared_duration_seconds_values": [
+        1800
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.65
+      ],
+      "observed_titles": [
+        "Hope Springs Eternal"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Power Nap"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "Desktop Import"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "62b3805a5924118c7af4ba69"
+    },
+    {
+      "activities": [
+        "Deep Sleep"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.08
+      ],
+      "complexity_levels": [
+        0.96
+      ],
+      "declared_duration_seconds_values": [
+        3600
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.66
+      ],
+      "observed_titles": [
+        "Crystal Prism"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Sleep"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "62b3806559241128f5f4c375"
+    },
+    {
+      "activities": [
+        "Deep Sleep"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.06
+      ],
+      "complexity_levels": [
+        0.04
+      ],
+      "declared_duration_seconds_values": [
+        3600
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.77
+      ],
+      "observed_titles": [
+        "Circadian Rhythm"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Sleep"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "62b38087592411492ef4ce04"
+    },
+    {
+      "activities": [
+        "Guided Sleep"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.26
+      ],
+      "complexity_levels": [
+        0.55
+      ],
+      "declared_duration_seconds_values": [
+        3600
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.69
+      ],
+      "observed_titles": [
+        "Deep Relaxation"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "guided"
+      ],
+      "tags": {
+        "activity": [
+          "Guided Sleep"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "Desktop Import",
+          "Mobile Import"
+        ],
+        "subgenre": [
+          "Ambient",
+          "Electronica"
+        ]
+      },
+      "track_id": "62b3808d592411085ef4d057"
+    },
+    {
+      "activities": [],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.21
+      ],
+      "complexity_levels": [
+        0.62
+      ],
+      "declared_duration_seconds_values": [
+        1800
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.88
+      ],
+      "observed_titles": [
+        "Arise"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Power Nap"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "Desktop Import"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "62b380e85924117b22f4d66b"
+    },
+    {
+      "activities": [
+        "Deep Sleep"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.08
+      ],
+      "complexity_levels": [
+        0.75
+      ],
+      "declared_duration_seconds_values": [
+        3600
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.93
+      ],
+      "observed_titles": [
+        "Afterthought"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Sleep"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "July 29 2022"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "62e4174d8aeb53856dab3296"
+    },
+    {
+      "activities": [
+        "Deep Sleep"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.03
+      ],
+      "complexity_levels": [
+        0.06
+      ],
+      "declared_duration_seconds_values": [
+        3600
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.62
+      ],
+      "observed_titles": [
+        "At Rest"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Sleep"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "July 29 2022"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "62e41a438aeb53fe8cab38a7"
+    },
+    {
+      "activities": [
+        "Deep Sleep"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.16
+      ],
+      "complexity_levels": [
+        0.76
+      ],
+      "declared_duration_seconds_values": [
+        3600
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.92
+      ],
+      "observed_titles": [
+        "Blooming"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Sleep"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "July 29 2022"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "62e41b3c5e954ce5e2f68358"
+    },
+    {
+      "activities": [
+        "Deep Sleep"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.13
+      ],
+      "complexity_levels": [
+        0.85
+      ],
+      "declared_duration_seconds_values": [
+        3600
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.94
+      ],
+      "observed_titles": [
+        "Edge of Darkness"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Sleep"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "July 29 2022"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "62e41c488aeb538a60ab3ca8"
+    },
+    {
+      "activities": [
+        "Deep Sleep"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.16
+      ],
+      "complexity_levels": [
+        0.71
+      ],
+      "declared_duration_seconds_values": [
+        3600
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.97
+      ],
+      "observed_titles": [
+        "Growing Season"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Sleep"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "July 29 2022"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "62e41cc25e954c1f86f6854a"
+    },
+    {
+      "activities": [
+        "Deep Sleep"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.12
+      ],
+      "complexity_levels": [
+        0.9
+      ],
+      "declared_duration_seconds_values": [
+        3600
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.9
+      ],
+      "observed_titles": [
+        "Night's Calm"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Sleep"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "July 29 2022"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "62e41e908aeb536c28ab3faa"
+    },
+    {
+      "activities": [],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.55
+      ],
+      "complexity_levels": [
+        0.44
+      ],
+      "declared_duration_seconds_values": [
+        3600
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.06,
+        0.43,
+        1
+      ],
+      "observed_titles": [
+        "Enlightened State"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Power Nap"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "March 11 2024"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "65eb6c1663853a000a15ad9a"
+    },
+    {
+      "activities": [],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.03
+      ],
+      "complexity_levels": [
+        0.64
+      ],
+      "declared_duration_seconds_values": [
+        3600
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.16,
+        0.42,
+        0.96
+      ],
+      "observed_titles": [
+        "Generative Waves"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Power Nap"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "March 11 2024"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "65eb6c2d63853a000a15ae48"
+    },
+    {
+      "activities": [],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.19
+      ],
+      "complexity_levels": [
+        0.36
+      ],
+      "declared_duration_seconds_values": [
+        3600
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.29,
+        0.45,
+        0.99
+      ],
+      "observed_titles": [
+        "Columns of Light"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Power Nap"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "April 22 2024"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "6622cefb918ea2b454f7a731"
+    },
+    {
+      "activities": [],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.32
+      ],
+      "complexity_levels": [
+        0.98
+      ],
+      "declared_duration_seconds_values": [
+        3600
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.27,
+        0.35,
+        0.96
+      ],
+      "observed_titles": [
+        "Redeemed"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Power Nap"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "May 6 2024"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "663536754eae15761ad50153"
+    },
+    {
+      "activities": [
+        "Deep Sleep"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.19
+      ],
+      "complexity_levels": [
+        0.91
+      ],
+      "declared_duration_seconds_values": [
+        3600
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.23,
+        0.53,
+        0.98
+      ],
+      "observed_titles": [
+        "Floating Embrace"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Sleep",
+          "Power Nap"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Floating",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "May 20 2024"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "66477a5330b208e2323ed933"
+    },
+    {
+      "activities": [
+        "Guided Sleep"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.35
+      ],
+      "complexity_levels": [
+        0.45
+      ],
+      "declared_duration_seconds_values": [
+        3600
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.16,
+        0.42,
+        0.99
+      ],
+      "observed_titles": [
+        "Garden of Dreams"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "guided"
+      ],
+      "tags": {
+        "activity": [
+          "Guided Sleep"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Synth Pad",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Serene"
+        ],
+        "release": [
+          "Guided Release May 2024"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "66562dddff1110852ad24deb"
+    },
+    {
+      "activities": [
+        "Guided Sleep"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.35
+      ],
+      "complexity_levels": [
+        0.61
+      ],
+      "declared_duration_seconds_values": [
+        3600
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.31,
+        0.63,
+        0.97
+      ],
+      "observed_titles": [
+        "Slumber at the Summit"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "guided"
+      ],
+      "tags": {
+        "activity": [
+          "Guided Sleep"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Synth Pad",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Serene"
+        ],
+        "release": [
+          "Guided Release May 2024"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "66562e0dff1110852ad24f7a"
+    },
+    {
+      "activities": [
+        "Guided Sleep"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.28
+      ],
+      "complexity_levels": [
+        0.97
+      ],
+      "declared_duration_seconds_values": [
+        3600
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.3,
+        0.55,
+        0.96
+      ],
+      "observed_titles": [
+        "Aurora Embrace"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "guided"
+      ],
+      "tags": {
+        "activity": [
+          "Guided Sleep"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Synth Pad",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative"
+        ],
+        "release": [
+          "Guided Release May 2024"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "66562e18ff1110852ad24fd4"
+    },
+    {
+      "activities": [
+        "Guided Sleep"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.28
+      ],
+      "complexity_levels": [
+        0.82
+      ],
+      "declared_duration_seconds_values": [
+        3600
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.23,
+        0.55,
+        0.95
+      ],
+      "observed_titles": [
+        "Celestial Wonders"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "guided"
+      ],
+      "tags": {
+        "activity": [
+          "Guided Sleep"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Synth Pad",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative"
+        ],
+        "release": [
+          "Guided Release May 2024"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "66562e36ff1110852ad250ce"
+    },
+    {
+      "activities": [
+        "Guided Sleep"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.07
+      ],
+      "complexity_levels": [
+        0.2
+      ],
+      "declared_duration_seconds_values": [
+        3600
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.28,
+        0.56,
+        0.99
+      ],
+      "observed_titles": [
+        "Rainforest Waterfall"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "guided"
+      ],
+      "tags": {
+        "activity": [
+          "Guided Sleep"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Synth Pad",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Meditative"
+        ],
+        "release": [
+          "Guided Release May 2024"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "66562e5aff1110852ad25262"
+    },
+    {
+      "activities": [
+        "Deep Sleep"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.06
+      ],
+      "complexity_levels": [
+        0.11
+      ],
+      "declared_duration_seconds_values": [
+        3600
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.19,
+        0.48,
+        0.75
+      ],
+      "observed_titles": [
+        "Solo Traveler"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Sleep"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Synth Pad",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Serene"
+        ],
+        "release": [
+          "June 30 2024"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "6862ee18b0ad537cfff5cb2a"
+    },
+    {
+      "activities": [
+        "Deep Sleep"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.43
+      ],
+      "complexity_levels": [
+        0.01
+      ],
+      "declared_duration_seconds_values": [
+        3600
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.04,
+        0.34,
+        0.69
+      ],
+      "observed_titles": [
+        "Almeda"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Sleep"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Synth Bass",
+          "Synth Pad",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Serene"
+        ],
+        "release": [
+          "August 11 2025"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "689a232f9446c76349a3b590"
+    },
+    {
+      "activities": [
+        "Deep Sleep"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.09
+      ],
+      "complexity_levels": [
+        0.12
+      ],
+      "declared_duration_seconds_values": [
+        3600
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.25,
+        0.34,
+        0.75
+      ],
+      "observed_titles": [
+        "Descending Spirit"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Sleep"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Synth Bass",
+          "Synth Pad",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Meditative",
+          "Serene"
+        ],
+        "release": [
+          "October 20 2025"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "68f664ace8a4cc0a7401beb2"
+    },
+    {
+      "activities": [
+        "Deep Sleep"
+      ],
+      "beats_per_minute_values": [
+        120
+      ],
+      "brightness_levels": [
+        0.29
+      ],
+      "complexity_levels": [
+        0.02
+      ],
+      "declared_duration_seconds_values": [
+        3600
+      ],
+      "mental_states": [
+        "Sleep"
+      ],
+      "neural_effect_levels": [
+        0.03,
+        0.34,
+        0.67
+      ],
+      "observed_titles": [
+        "A Short Pause"
+      ],
+      "release_statuses": [
+        "published"
+      ],
+      "styles": [
+        "normal"
+      ],
+      "tags": {
+        "activity": [
+          "Deep Sleep"
+        ],
+        "genre": [
+          "Atmospheric"
+        ],
+        "instrument": [
+          "Synth Bass",
+          "Synth Pad",
+          "Textural Soundscape"
+        ],
+        "mood": [
+          "Calm",
+          "Chill",
+          "Dreamlike",
+          "Floating",
+          "Serene"
+        ],
+        "release": [
+          "December 1 2025"
+        ],
+        "subgenre": [
+          "Ambient"
+        ]
+      },
+      "track_id": "692dbd55b8f361da92eb9d96"
+    }
+  ],
+  "observation_context": {
+    "context_method": "capture_metadata",
+    "seed_track_id": null,
+    "visible_category": "sleep",
+    "visible_intent": "sleep_and_wake"
+  },
+  "observation_id": "ave_recommendation_observation_2fa9353e565d3d1c",
+  "provider": "brain.fm",
+  "recommendation_capture_schema_version": "1.0.0",
+  "source_capture": {
+    "captured_at": null,
+    "filename": "sleep_sleep_and_wake_20261019.har",
+    "format": "har_json_responses",
+    "json_document_count": 67,
+    "sha256": "e8bff5a37e3c9c5bd3a20a4c776b8903a43f67b6702eeb4cc26c68386aedb09a",
+    "size_bytes": 45944457
+  },
+  "summary": {
+    "observed_node_count": 26,
+    "observed_seed_count": 5,
+    "seed_with_multiple_list_variants_count": 0,
+    "seed_with_nonempty_list_count": 5,
+    "seed_with_only_empty_lists_count": 0,
+    "unique_edge_count": 25
+  }
+}

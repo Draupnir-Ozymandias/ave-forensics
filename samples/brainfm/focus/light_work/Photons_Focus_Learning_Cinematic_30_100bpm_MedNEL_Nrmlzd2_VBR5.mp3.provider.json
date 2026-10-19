@@ -1,0 +1,112 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 2,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-05-31T19:18:49.771Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 100,
+    "brightness_level": 0.74,
+    "complexity_level": 0.83,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.51
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Photons_Focus_Learning_Cinematic_30_100bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Photons",
+    "track_id": "665a22994dfb90cc19dcda71",
+    "variation_id": "665a22994dfb90cc19dcda75"
+  },
+  "recording": {
+    "filename": "Photons_Focus_Learning_Cinematic_30_100bpm_MedNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "da0f41c5973867c57b7b6a5b3aa386544a69c431da3f0182ab5462d75e201728",
+    "size_bytes": 29699411
+  },
+  "source_capture": {
+    "filename": "focus_light_work_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 42,
+    "sha256": "532988d15fe4262a86a98b18ebf90826d54f7241bc2376cf8715bfb465cf23a9"
+  },
+  "taxonomy": {
+    "activity": "Light Work",
+    "all_provider_tags": {
+      "activity": [
+        "Learning",
+        "Light Work"
+      ],
+      "genre": [
+        "Cinematic"
+      ],
+      "instrument": [
+        "Acoustic Piano",
+        "Arp Synth",
+        "Choral Voices",
+        "Electronic Percussion",
+        "Orchestral Brass",
+        "Orchestral Strings",
+        "Processed Vocals",
+        "Synth Bass",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Dark",
+        "Heavy",
+        "Ominous",
+        "Strong"
+      ],
+      "release": [
+        "June 3 2024"
+      ],
+      "subgenre": [
+        "Electronica",
+        "Orchestral"
+      ]
+    },
+    "genres": [
+      "Cinematic"
+    ],
+    "instruments": [
+      "Acoustic Piano",
+      "Arp Synth",
+      "Choral Voices",
+      "Electronic Percussion",
+      "Orchestral Brass",
+      "Orchestral Strings",
+      "Processed Vocals",
+      "Synth Bass",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Focus",
+    "mobile_activity": "Light Work",
+    "moods": [
+      "Dark",
+      "Heavy",
+      "Ominous",
+      "Strong"
+    ],
+    "release_tags": [
+      "June 3 2024"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Electronica",
+      "Orchestral"
+    ],
+    "web_activity": "Learning"
+  }
+}

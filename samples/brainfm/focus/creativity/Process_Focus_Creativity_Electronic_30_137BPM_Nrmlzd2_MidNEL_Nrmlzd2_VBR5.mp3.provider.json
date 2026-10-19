@@ -1,0 +1,107 @@
+{
+  "extraction_provenance": {
+    "generator": "provider.brainfm",
+    "generator_version": "1.1.0",
+    "sensitive_url_policy": "omit_all_provider_urls_and_tokens"
+  },
+  "match": {
+    "matching_occurrence_count": 8,
+    "strategy": "exact_variation_filename",
+    "unique_canonical_record_count": 1
+  },
+  "provider": "brain.fm",
+  "provider_lifecycle": {
+    "created_at": "2024-09-23T14:14:34.037Z",
+    "has_multiple_neural_effect_levels": true,
+    "release_status": "published"
+  },
+  "provider_measurements": {
+    "beats_per_minute": 137,
+    "brightness_level": 0.7,
+    "complexity_level": 0.73,
+    "declared_duration_seconds": 1800,
+    "neural_effect_level": 0.58
+  },
+  "provider_metadata_schema_version": "1.1.0",
+  "provider_track": {
+    "filename": "Process_Focus_Creativity_Electronic_30_137BPM_Nrmlzd2_MidNEL_Nrmlzd2_VBR5.mp3",
+    "title": "Process",
+    "track_id": "66f177cad7073bdb1791985d",
+    "variation_id": "66f177cad7073bdb17919861"
+  },
+  "recording": {
+    "filename": "Process_Focus_Creativity_Electronic_30_137BPM_Nrmlzd2_MidNEL_Nrmlzd2_VBR5.mp3",
+    "hash_algorithm": "sha256",
+    "sha256": "19b626ad0b6c08411b1b1e8d338b01119b370d4f7aa2d4085078177126ef6935",
+    "size_bytes": 32622725
+  },
+  "source_capture": {
+    "filename": "focus_creativity_20261019.har",
+    "format": "har_json_responses",
+    "hash_algorithm": "sha256",
+    "json_document_count": 78,
+    "sha256": "7c6620384ee282efef2b34d4c7758bc387051b25f26ff396fda7c33242ede314"
+  },
+  "taxonomy": {
+    "activity": null,
+    "all_provider_tags": {
+      "activity": [
+        "Creativity"
+      ],
+      "genre": [
+        "Electronic"
+      ],
+      "instrument": [
+        "Arp Synth",
+        "Electric Keys",
+        "Electronic Percussion",
+        "Processed Strings",
+        "Processed Vocals",
+        "Synth Bass",
+        "Textural Soundscape"
+      ],
+      "mood": [
+        "Chill",
+        "Hopeful",
+        "Inspiring",
+        "Optimistic",
+        "Upbeat"
+      ],
+      "release": [
+        "September 23 2024"
+      ],
+      "subgenre": [
+        "Electronica"
+      ]
+    },
+    "genres": [
+      "Electronic"
+    ],
+    "instruments": [
+      "Arp Synth",
+      "Electric Keys",
+      "Electronic Percussion",
+      "Processed Strings",
+      "Processed Vocals",
+      "Synth Bass",
+      "Textural Soundscape"
+    ],
+    "mental_state": "Focus",
+    "mobile_activity": null,
+    "moods": [
+      "Chill",
+      "Hopeful",
+      "Inspiring",
+      "Optimistic",
+      "Upbeat"
+    ],
+    "release_tags": [
+      "September 23 2024"
+    ],
+    "style": "normal",
+    "subgenres": [
+      "Electronica"
+    ],
+    "web_activity": "Creativity"
+  }
+}
